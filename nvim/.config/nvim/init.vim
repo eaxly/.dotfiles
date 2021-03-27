@@ -26,9 +26,10 @@ Plug 'tricktux/pomodoro.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'mbbill/undotree'
 Plug 'tpope/vim-fugitive'
-"Plug 'deoplete-plugins/deoplete-jedi'
+Plug 'deoplete-plugins/deoplete-jedi'
 Plug 'preservim/nerdcommenter'
 Plug 'vim-syntastic/syntastic'
+Plug 'arcticicestudio/nord-vim'
 
 " Plugins that were disabled
 " Disabled because folds were going crazy in markdown
@@ -74,8 +75,9 @@ if has('termguicolors')
 endif
 
 " Setting the colorscheme
-colorscheme everforest
+colorscheme everforest "nord 
 
+" Setting the mapleader
 let mapleader = " "
 " }}}
 
