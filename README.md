@@ -10,7 +10,7 @@ I use GNU Stow to manage these dotfiles. There is no installation script what so
 ## Installation of the configuration
 1. Cloning
   ```bash
-  git clone https://github.com/ExtinctAxolotl/.-files.git $HOME/.-files
+  git clone https://github.com/ExtinctAxolotl/dotfiles.git $HOME/.dotfiles
   ```
   With the command above, we just cloned our configuration files into the folder $HOME/.-files  
   you can replace $HOME/.-files with any directory you wan't!
