@@ -1,4 +1,4 @@
-# The DOTFILES (also known as .-files)
+# The DOTFILES (also know as ~/.files)
 These are _my_ Dotfiles.  
 I am a ~~wanna be~~ **very professional** Software Engineer.<sup>Everything in bold is to be read sarcastically.</sup>   
 These Dotfiles are meant to be used on ArchLinux.  
