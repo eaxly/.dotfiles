@@ -7,7 +7,7 @@ These Dotfiles are meant to be used on ArchLinux.
 I use GNU Stow to manage these dotfiles. There is no installation script what so ever.  
 **You and you only have control over what configuration is applied.**  
 
-## Installation
+## Installation of the configuration
 1. Cloning
   ```bash
   git clone https://github.com/ExtinctAxolotl/.-files.git $HOME/.-files
@@ -26,3 +26,7 @@ I use GNU Stow to manage these dotfiles. There is no installation script what so
   ```bash
   stow *
   ```
+  You have now cloned and stowed every configuration file.
+  Now you need to install the software needed.
+
+## Programs to install
