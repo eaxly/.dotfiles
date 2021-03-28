@@ -45,7 +45,7 @@ call plug#end()
 ": Plugins End }}}
 
 " Editor Options {{{
-syntax on
+syntax enable
 
 set exrc
 set ruler
@@ -73,6 +73,9 @@ set shiftwidth=2
 if has('termguicolors')
 	set termguicolors
 endif
+
+" Rust
+filetype plugin indent on
 
 " Setting the colorscheme
 colorscheme everforest "nord 
