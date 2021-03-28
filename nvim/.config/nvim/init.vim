@@ -30,7 +30,9 @@ Plug 'deoplete-plugins/deoplete-jedi'
 Plug 'preservim/nerdcommenter'
 Plug 'vim-syntastic/syntastic'
 Plug 'arcticicestudio/nord-vim'
-
+Plug 'Raimondi/delimitMate'
+Plug 'Yggdroot/indentLine'
+Plug 'itchyny/vim-cursorword'
 " Plugins that were disabled
 " Disabled because folds were going crazy in markdown
 "Plug 'plasticboy/vim-markdown'
@@ -99,8 +101,20 @@ let g:everforest_background = 'medium'
 let g:deoplete#enable_at_startup = 1
 
 " UI
-"" Lightline 
-let g:lightline = { 'colorscheme': 'everforest' }
+"" Lightline  {{{
+
+let g:lightline = {
+      \ 'colorscheme': 'everforest',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ }
+
+" }}}
 
 "" Nerdtree 
 " Exit Vim if NERDTree is the only window left.
