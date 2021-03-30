@@ -29,4 +29,9 @@ I use GNU Stow to manage these dotfiles. There is no installation script what so
   You have now cloned and stowed every configuration file.
   Now you need to install the software needed.
 
+## Additional Information
+### Sheldon-sheldon and sheldon-config
++ `sheldon-sheldon`: will stow the files to ~/.sheldon/
++ `sheldon-config`: Will stow the files to ~/.config/sheldon
+
 ## Programs to install
