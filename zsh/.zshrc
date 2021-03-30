@@ -81,6 +81,13 @@ alias pain="paru -S"
 alias pare="paru -R"
 alias parem="paru -Rns"
 alias pase="paru -Ss"
+
+# exa (ls)
+alias l1="exa -1"
+alias lss="exa"
+alias ls="exa -la"
+alias la="exa -a"
+
 # For debian systems
 # alias bat="batcat"
 # alias alien="alien-update"
