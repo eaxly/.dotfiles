@@ -1,2 +1,4 @@
-./sheldon/.sheldon/repos
-./sheldon/.sheldon/plugins.lock
+./sheldon-config/.config/sheldon/repos
+./sheldon-config/.config/sheldon/plugins.lock
+./sheldon-sheldon/.sheldon/repos
+./sheldon-sheldon/.sheldon/plugins.lock
