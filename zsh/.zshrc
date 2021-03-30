@@ -11,11 +11,6 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-
-# === I demand to see your Manager! Lol ==>
-export ZSH="$HOME/.local/share/sheldon/repos/github.com/ohmyzsh/ohmyzsh"
-eval "$(sheldon source)"
-
 # === VARIABLES ===
 
 # Editor Definition
@@ -26,11 +21,19 @@ export PAGER="nvim -c 'set ft=man' -"
 
 # sudoeditor
 export SUDO_EDITOR=$EDITOR
+
+# PATH
+export PATH=~/.local/bin/:$PATH
+
+# === I demand to see your Manager! Lol ==>
+export ZSH="$HOME/.local/share/sheldon/repos/github.com/ohmyzsh/ohmyzsh"
+eval "$(sheldon source)"
+
 # Auto ls-commands
 # === FUNCTIONS ===
 
 auto-ls-custom_function () {
-  ls --color=always
+  exa -l
   if [ -d .git ];then
     git status
   fi
@@ -71,10 +74,16 @@ alias py3="python3"
 alias cvenv="virtualenv -p python3 venv"
 alias srcenv="source venv/bin/activate"
 
+
 alias yodl="youtube-dl"
-alias ..="cd .."
+
 alias ipy="ipython3"
 alias flowconf="sudo -e /etc/systemd/user/flowy.service"
+
+# cd
+alias ....="cd ../../.."
+alias ...="cd ../.."
+alias ..="cd .."
 
 # paru
 alias pain="paru -S"
@@ -108,6 +117,7 @@ if [[ "$(basename ${(%):-%x})" != "_pipenv" ]]; then
   autoload -U compinit && compinit
   compdef _pipenv pipenv
 fi
+
 # PIP and PIP3
 # pip zsh completion start
 function _pip_completion {
@@ -121,7 +131,10 @@ function _pip_completion {
 compctl -K _pip_completion pip3
 # pip zsh completion end
 
-
-alias ls="ls --color=always"
-# Nord Dir Colors
 test -r ~/.dircolors/dircolors && eval $(dircolors ~/.dircolors/dircolors)
+
+
+
+
+# Init starship
+eval "$(starship init zsh)"
