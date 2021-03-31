@@ -1,0 +1,148 @@
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=2000
+SAVEHIST=10000
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/samuel/.zshrc'
+fpath+=~/.zfunc
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+
+# === VARIABLES ===
+
+# Editor Definition
+export EDITOR=nvim
+
+# Pager
+export PAGER="nvim -c 'set ft=man' -"
+
+# sudoeditor
+export SUDO_EDITOR=$EDITOR
+
+# PATH
+export PATH=~/.local/bin/:$PATH
+
+# === I demand to see your Manager! Lol ==>
+export ZSH="$HOME/.local/share/sheldon/repos/github.com/ohmyzsh/ohmyzsh"
+eval "$(sheldon source)"
+
+# Auto ls-commands
+# === FUNCTIONS ===
+
+auto-ls-custom_function () {
+  exa -la
+  if [ -d .git ];then
+    git status
+  fi
+}
+export AUTO_LS_COMMANDS=(custom_function)
+
+noice () {
+  for arg in "$@"; do
+    toilet -f pagga $arg
+  done
+}
+
+dots () {
+  if [ $1 ];then
+    toilet -f pagga "Dotfiles"
+    echo FILE: $1
+  else
+    toilet -f pagga "Dotfiles"
+    echo FILE:
+  fi
+}
+
+mackse () {
+  mackup list | grep "$1"
+}
+# === ALIASES ===
+alias zshsrc="source ~/.zshrc"
+alias zshconf="$EDITOR ~/.zshrc"
+
+# nvim
+alias vim="nvim"
+alias v="nvim"
+alias vconf="$EDITOR ~/.config/nvim/init.vim"
+alias nvimconf="$EDITOR ~/.config/nvim/init.vim"
+alias starconf="$EDITOR ~/.config/starship.toml"
+
+alias speedby="speed-test -b"
+
+# Pyton
+alias py3="python3"
+alias cvenv="virtualenv -p python3 venv"
+alias srcenv="source venv/bin/activate"
+
+# mackup
+alias mackb="mackup backup"
+alias mackli="mackup list"
+alias mackun="mackup uninstall"
+alias mackconf="$EDITOR ~/.mackup.cfg"
+alias yodl="youtube-dl"
+
+alias ipy="ipython3"
+alias flowconf="sudo -e /etc/systemd/user/flowy.service"
+
+alias f="fuck"
+# cd
+alias ....="cd ../../.."
+alias ...="cd ../.."
+alias ..="cd .."
+
+# paru
+alias pain="paru -S"
+alias pare="paru -R"
+alias parem="paru -Rns"
+alias pase="paru -Ss"
+
+# exa (ls)
+alias l1="exa -1"
+alias lss="exa"
+alias ls="exa -la"
+alias la="exa -a"
+
+# For debian systems
+# alias bat="batcat"
+# alias alien="alien-update"
+# alias fd="fdfind"
+# ===================================================================== END
+sha256() {
+    echo "$1 $2" | sha256sum --check
+}
+
+# COMPLETIONS
+# PIPENV
+
+#compdef pipenv
+_pipenv() {
+  eval $(env COMMANDLINE="${words[1,$CURRENT]}" _PIPENV_COMPLETE=complete-zsh  pipenv)
+}
+if [[ "$(basename ${(%):-%x})" != "_pipenv" ]]; then
+  autoload -U compinit && compinit
+  compdef _pipenv pipenv
+fi
+
+# PIP and PIP3
+# pip zsh completion start
+function _pip_completion {
+  local words cword
+  read -Ac words
+  read -cn cword
+  reply=( $( COMP_WORDS="$words[*]" \
+             COMP_CWORD=$(( cword-1 )) \
+             PIP_AUTO_COMPLETE=1 $words[1] 2>/dev/null ))
+}
+compctl -K _pip_completion pip3
+# pip zsh completion end
+
+test -r ~/.dircolors/dircolors && eval $(dircolors ~/.dircolors/dircolors)
+
+
+
+
+# Init starship
+eval "$(starship init zsh)"
