@@ -1,4 +1,12 @@
 # The DOTFILES (also know as ~/.files)
+
+# WARNING!
+These are the v1 dotfiles where stow is used.  
+In the v2 (main branch) mackup is used  
+v1 is not used and updated any more
+
+
+# OLD README
 These are _my_ Dotfiles.  
 I am a ~~wanna be~~ **very professional** Software Engineer.
 These Dotfiles are meant to be used on ArchLinux.  
