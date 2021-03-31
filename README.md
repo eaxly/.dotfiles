@@ -1,8 +1,8 @@
 # The DOTFILES (also know as ~/.files)
 These are _my_ Dotfiles.  
-I am a ~~wanna be~~ **very professional** Software Engineer.<sup>Everything in bold is to be read sarcastically.</sup>   
+I am a ~~wanna be~~ **very professional** Software Engineer.
 These Dotfiles are meant to be used on ArchLinux.  
-**I did not Test weither they work on other distributions!** <sup>BTW is that how you spell weither, i'm sure it's not. please open an issue</sup>
+**I did not Test if they work on other distros, if not, submit an issue!**
 ## Managing the Dotfiles
 I use GNU Stow to manage these dotfiles. There is no installation script what so ever.  
 **You and you only have control over what configuration is applied.**  
@@ -35,3 +35,15 @@ I use GNU Stow to manage these dotfiles. There is no installation script what so
 + `sheldon-config`: Will stow the files to ~/.config/sheldon
 
 ## Programs to install
++ [sheldon](https://github.com/rossmacarthur/sheldon)
+```bash
+curl --proto '=https' -fLsS https://rossmacarthur.github.io/install/crate.sh \
+  | bash -s -- --repo rossmacarthur/sheldon --to ~/.local/bin
+```
+
++ [nvm](https://github.com/nvm-sh/nvm)
+```bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+```
+
++ [starship]()

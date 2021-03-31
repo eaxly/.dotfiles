@@ -33,7 +33,7 @@ eval "$(sheldon source)"
 # === FUNCTIONS ===
 
 auto-ls-custom_function () {
-  exa -l
+  exa -la
   if [ -d .git ];then
     git status
   fi
@@ -64,6 +64,7 @@ alias zshconf="$EDITOR ~/.zshrc"
 # nvim
 alias vim="nvim"
 alias v="nvim"
+alias vconf="$EDITOR ~/.config/nvim/init.vim"
 alias nvimconf="$EDITOR ~/.config/nvim/init.vim"
 alias starconf="$EDITOR ~/.config/starship.toml"
 

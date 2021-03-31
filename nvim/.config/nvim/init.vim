@@ -1,4 +1,4 @@
-" vim:foldmethod=marker
+"" vim:foldmethod=marker
 
 "░█▀▄░█▀█░▀█▀░█▀▀░▀█▀░█░░░█▀▀░█▀▀
 "░█░█░█░█░░█░░█▀▀░░█░░█░░░█▀▀░▀▀█
@@ -31,17 +31,14 @@ Plug 'preservim/nerdcommenter'
 Plug 'vim-syntastic/syntastic'
 Plug 'arcticicestudio/nord-vim'
 Plug 'Raimondi/delimitMate'
-Plug 'Yggdroot/indentLine'
 Plug 'itchyny/vim-cursorword'
-" Plugins that were disabled
-" Disabled because folds were going crazy in markdown
-"Plug 'plasticboy/vim-markdown'
-" Not used anymore
-"Plug 'sainnhe/edge'
 
-" Apparently struggles with deoplete
+" Plugins that were disabled
+"Plug 'sainnhe/edge'
+"Plug 'Yggdroot/indentLine'
 "Plug 'tpope/vim-endwise'
 "Plug 'ycm-core/YouCompleteMe'
+
 call plug#end()
 
 ": Plugins End }}}
@@ -80,7 +77,7 @@ endif
 filetype plugin indent on
 
 " Setting the colorscheme
-colorscheme everforest "nord 
+colorscheme everforest "nord
 
 " Setting the mapleader
 let mapleader = " "
@@ -133,6 +130,10 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+" vim-markdown
+" disable header folding
+" let g:vim_markdown_folding_disabled = 1
 " Variables End }}}
 
 " Remaps {{{
