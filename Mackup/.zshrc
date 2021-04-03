@@ -94,10 +94,10 @@ alias ...="cd ../.."
 alias ..="cd .."
 
 # paru
-alias pain="paru -S"
-alias pare="paru -R"
-alias parem="paru -Rns"
-alias pase="paru -Ss"
+#alias pain="paru -S"
+#alias pare="paru -R"
+#alias parem="paru -Rns"
+#alias pase="paru -Ss"
 
 # exa (ls)
 alias l1="exa -1"
@@ -106,12 +106,12 @@ alias ls="exa -la"
 alias la="exa -a"
 
 # For debian systems
-# alias bat="batcat"
-# alias alien="alien-update"
-# alias fd="fdfind"
+alias bat="batcat"
+alias alien="alien-update"
+alias fd="fdfind"
 # ===================================================================== END
 sha256() {
-    echo "$1 $2" | sha256sum --check
+  echo "$1 $2" | sha256sum --check
 }
 
 # COMPLETIONS
@@ -140,8 +140,6 @@ compctl -K _pip_completion pip3
 # pip zsh completion end
 
 test -r ~/.dircolors/dircolors && eval $(dircolors ~/.dircolors/dircolors)
-
-
 
 
 # Init starship
