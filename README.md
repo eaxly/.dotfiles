@@ -1,5 +1,5 @@
 # The DOTFILES v2
-These are _my_ dotfiles for archlinux! They will propably work on other systems but that has not been tested (yet?)  
+These are _my_ dotfiles for linux! They will propably work on other systems but that has not been tested (yet?)  
 
 WARNING! Harry Potter references incoming!
 ## INFO
