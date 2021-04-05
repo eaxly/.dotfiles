@@ -11,6 +11,9 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+# Init starship
+eval "$(starship init zsh)"
+
 # === VARIABLES ===
 
 # Editor Definition
@@ -64,7 +67,7 @@ alias zshsrc="source ~/.zshrc"
 alias zshconf="$EDITOR ~/.zshrc"
 
 # nvim
-alias vim="nvim"
+# alias vim="nvim"
 alias v="nvim"
 alias vconf="$EDITOR ~/.config/nvim/init.vim"
 alias nvimconf="$EDITOR ~/.config/nvim/init.vim"
@@ -142,5 +145,4 @@ compctl -K _pip_completion pip3
 test -r ~/.dircolors/dircolors && eval $(dircolors ~/.dircolors/dircolors)
 
 
-# Init starship
-eval "$(starship init zsh)"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

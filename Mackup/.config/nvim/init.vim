@@ -79,6 +79,9 @@ filetype plugin indent on
 " Setting the colorscheme
 colorscheme everforest "nord
 
+" set transparent background
+" hi Normal guibg=NONE ctermbg=NONE
+
 " Setting the mapleader
 let mapleader = " "
 " }}}
@@ -91,7 +94,7 @@ let g:edge_style = 'neon'
 let g:enable_italic = 1
 
 "" Everforest theme
-let g:everforest_background = 'medium'
+let g:everforest_background = 'hard'
 
 " syntax and autocompletion
 "" deoplete
@@ -155,4 +158,7 @@ nnoremap <leader>tuf :UndotreeFocus <CR>
 "" NerdTree
 nnoremap <leader>tn :NERDTreeToggle <CR>
 ""
+
+vnoremap <leader>y "+y <CR>
+vnoremap <leader>p "+p <CR>
 " Remaps End }}}
