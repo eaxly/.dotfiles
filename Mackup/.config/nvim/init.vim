@@ -31,10 +31,10 @@ Plug 'preservim/nerdcommenter'
 Plug 'vim-syntastic/syntastic'
 Plug 'arcticicestudio/nord-vim'
 Plug 'Raimondi/delimitMate'
-Plug 'itchyny/vim-cursorword'
 
 " Plugins that were disabled
 "Plug 'sainnhe/edge'
+"Plug 'itchyny/vim-cursorword'
 "Plug 'Yggdroot/indentLine'
 "Plug 'tpope/vim-endwise'
 "Plug 'ycm-core/YouCompleteMe'
@@ -64,7 +64,7 @@ set scrolloff=8
 set signcolumn=yes
 
 " Tabs
-set tabstop=8                   
+set tabstop=2                   
 set expandtab                  
 set softtabstop=2             
 set shiftwidth=2             
