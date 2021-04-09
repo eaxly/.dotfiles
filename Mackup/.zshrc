@@ -66,6 +66,8 @@ mackse () {
 alias zshsrc="source ~/.zshrc"
 alias zshconf="$EDITOR ~/.zshrc"
 
+alias disintkey="xinput disable 'AT Translated Set 2 keyboard'"
+alias enintkey="xinput enable 'AT Translated Set 2 keyboard'"
 # nvim
 # alias vim="nvim"
 alias v="nvim"
@@ -111,7 +113,7 @@ alias la="exa -a"
 # For debian systems
 alias bat="batcat"
 alias alien="alien-update"
-alias fd="fdfind"
+# alias fd="fdfind"
 # ===================================================================== END
 sha256() {
   echo "$1 $2" | sha256sum --check
