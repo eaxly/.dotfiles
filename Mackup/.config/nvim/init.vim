@@ -99,7 +99,9 @@ let g:everforest_background = 'hard'
 " syntax and autocompletion
 "" deoplete
 let g:deoplete#enable_at_startup = 1
-
+"" Deoplete - Tab completion
+inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
 " UI
 "" Lightline  {{{
 

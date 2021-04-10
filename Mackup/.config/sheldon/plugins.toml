@@ -29,7 +29,7 @@ dir = "lib"
 [plugins.ohmyzsh-plugins]
 github = "ohmyzsh/ohmyzsh"
 dir = "plugins"
-use = ["{git,npm,thefuck,nvm,pip,command-not-found,archlinux}.plugin.zsh"]
+use = ["{git,npm,thefuck,nvm,pip,command-not-found,ubuntu}.plugin.zsh"]
 
 # === Other Plugins
 

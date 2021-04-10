@@ -114,6 +114,7 @@ alias la="exa -a"
 alias bat="batcat"
 alias alien="alien-update"
 # alias fd="fdfind"
+alias fd="fd -H"
 # ===================================================================== END
 sha256() {
   echo "$1 $2" | sha256sum --check
