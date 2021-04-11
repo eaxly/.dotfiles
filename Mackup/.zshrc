@@ -62,6 +62,14 @@ dots () {
 mackse () {
   mackup list | grep "$1"
 }
+
+biradd () {
+if command -v birthday > /dev/null; then
+  birthday -n $1 -d $2
+else
+  echo "You need to install birtday!\nYou can install it with:\nnpm i -g birthday"
+fi
+}
 # === ALIASES ===
 alias zshsrc="source ~/.zshrc"
 alias zshconf="$EDITOR ~/.zshrc"

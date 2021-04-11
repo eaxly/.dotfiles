@@ -31,7 +31,9 @@ Plug 'preservim/nerdcommenter'
 Plug 'vim-syntastic/syntastic'
 Plug 'arcticicestudio/nord-vim'
 Plug 'Raimondi/delimitMate'
-
+Plug 'roman/golden-ratio'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 " Plugins that were disabled
 "Plug 'sainnhe/edge'
 "Plug 'itchyny/vim-cursorword'
@@ -84,6 +86,9 @@ colorscheme everforest "nord
 
 " Setting the mapleader
 let mapleader = " "
+" }}}
+
+" Neovide {{{
 " }}}
 
 " Plugin Options {{{
@@ -139,6 +144,10 @@ let g:syntastic_check_on_wq = 0
 " vim-markdown
 " disable header folding
 " let g:vim_markdown_folding_disabled = 1
+
+" Goyo and Limelight.vim
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
 " Variables End }}}
 
 " Remaps {{{
@@ -163,4 +172,9 @@ nnoremap <leader>tn :NERDTreeToggle <CR>
 
 vnoremap <leader>y "+y <CR>
 vnoremap <leader>p "+p <CR>
+
+"" Goyo.vim
+nnoremap <leader>G :Goyo  <CR>
+
+
 " Remaps End }}}
