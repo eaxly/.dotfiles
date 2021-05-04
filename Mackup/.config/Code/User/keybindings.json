@@ -12,7 +12,7 @@
     "command": "codesnap.start"
 	},
 	{
-		"key": "ctrl+alt+t",
+		"key": "ctrl+k shift+t",
 		"command": "workbench.action.terminal.openNativeConsole",
 		"when": "!terminalFocus"
 	},

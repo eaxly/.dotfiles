@@ -1,20 +1,24 @@
-# Lines configured by zsh-newuser-install
+# vim:foldmethod=marker
+# Lines configured by zsh-newuser-install {{{
 HISTFILE=~/.histfile
 HISTSIZE=2000
 SAVEHIST=10000
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/samuel/.zshrc'
+zstyle :compinstall filename '/home/axolotl/.zshrc'
 fpath+=~/.zfunc
 
 autoload -Uz compinit
 compinit
-# End of lines added by compinstall
+# End of lines added by compinstall }}}
 
 # Init starship
 eval "$(starship init zsh)"
 
-# === VARIABLES ===
+# Source fzf (on ubuntu 18.04, on 20.04 install with apt install fzf)
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# === VARIABLES === {{{
 
 # Editor Definition
 export EDITOR=nvim
@@ -26,17 +30,22 @@ export PAGER="nvim -c 'set ft=man' -"
 export SUDO_EDITOR=$EDITOR
 
 # PATH
-export PATH=~/.local/bin/:$PATH
-
+if [ -d $HOME/.local/bin ];then
+  export PATH=~/.local/bin/:$PATH
+fi
+if [ -d $HOME/.local/bin ];then
+  export PATH="$HOME/.poetry/bin:$PATH"
+fi
 # === I demand to see your Manager! Lol ==>
 export ZSH="$HOME/.local/share/sheldon/repos/github.com/ohmyzsh/ohmyzsh"
 eval "$(sheldon source)"
 
-# Auto ls-commands
-# === FUNCTIONS ===
+# }}}
+
+# === FUNCTIONS === {{{
 
 auto-ls-custom_function () {
-  exa -la
+  exa -l
   if [ -d .git ];then
     git status
   fi
@@ -70,7 +79,13 @@ else
   echo "You need to install birtday!\nYou can install it with:\nnpm i -g birthday"
 fi
 }
-# === ALIASES ===
+
+sha256() {
+  echo "$1 $2" | sha256sum --check
+}
+# }}} Functions END
+
+# === ALIASES === {{{
 alias zshsrc="source ~/.zshrc"
 alias zshconf="$EDITOR ~/.zshrc"
 
@@ -115,20 +130,27 @@ alias ..="cd .."
 # exa (ls)
 alias l1="exa -1"
 alias lss="exa"
-alias ls="exa -la"
-alias la="exa -a"
+alias ls="exa -l"
+alias la="exa -la"
 
 # For debian systems
 alias bat="batcat"
 alias alien="alien-update"
 # alias fd="fdfind"
 alias fd="fd -H"
-# ===================================================================== END
-sha256() {
-  echo "$1 $2" | sha256sum --check
-}
 
-# COMPLETIONS
+# apt
+alias api="sudo apt install"
+alias apar="sudo apt autoremove"
+alias apr="sudo apt remove"
+alias aps="apt search"
+
+# dwall
+alias dw="dwall"
+alias dws="dwall -s"
+# ===================================================================== END }}}
+
+# === COMPLETIONS === {{{
 # PIPENV
 
 #compdef pipenv
@@ -153,7 +175,19 @@ function _pip_completion {
 compctl -K _pip_completion pip3
 # pip zsh completion end
 
+# zsh parameter completion for the dotnet CLI
+
+# Dotnet zshcompletions
+_dotnet_zsh_complete()
+{
+  local completions=("$(dotnet complete "$words")")
+
+  reply=( "${(ps:\n:)completions}" )
+}
+
+compctl -K _dotnet_zsh_complete dotnet
+
+# }}}
+
+# Dircolors
 test -r ~/.dircolors/dircolors && eval $(dircolors ~/.dircolors/dircolors)
-
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

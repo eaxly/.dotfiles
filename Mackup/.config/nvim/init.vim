@@ -10,7 +10,6 @@
 
 call plug#begin(stdpath('data') . '/plugged')
 
-Plug 'godlygeek/tabular'
 Plug 'mhinz/vim-startify'
 Plug 'mhinz/vim-signify'
 Plug 'preservim/nerdtree'
@@ -21,12 +20,12 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'justinmk/vim-sneak'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tricktux/pomodoro.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'mbbill/undotree'
 Plug 'tpope/vim-fugitive'
-Plug 'deoplete-plugins/deoplete-jedi'
+"Plug 'deoplete-plugins/deoplete-jedi'
 Plug 'preservim/nerdcommenter'
 Plug 'vim-syntastic/syntastic'
 Plug 'arcticicestudio/nord-vim'
@@ -34,6 +33,8 @@ Plug 'Raimondi/delimitMate'
 Plug 'roman/golden-ratio'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 " Plugins that were disabled
 "Plug 'sainnhe/edge'
 "Plug 'itchyny/vim-cursorword'
@@ -62,17 +63,15 @@ set ignorecase
 set incsearch
 set undodir=~/.local/share/nvim/undo
 set undofile
-set scrolloff=8
+set scrolloff=10
 set signcolumn=yes
 
 " Tabs
-set tabstop=2                   
-set expandtab                  
-set softtabstop=2             
-set shiftwidth=2             
+set tabstop=2
+set shiftwidth=2
 
 if has('termguicolors')
-	set termguicolors
+  set termguicolors
 endif
 
 " Rust
@@ -88,9 +87,6 @@ colorscheme everforest "nord
 let mapleader = " "
 " }}}
 
-" Neovide {{{
-" }}}
-
 " Plugin Options {{{
 ": Configuring colorschemes
 
@@ -102,11 +98,12 @@ let g:enable_italic = 1
 let g:everforest_background = 'hard'
 
 " syntax and autocompletion
-"" deoplete
-let g:deoplete#enable_at_startup = 1
-"" Deoplete - Tab completion
+""" deoplete (disabled, switched to COC.nvim)
+"let g:deoplete#enable_at_startup = 1
+""" Deoplete and COC - Tab completion
 inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
+
 " UI
 "" Lightline  {{{
 
@@ -171,7 +168,7 @@ nnoremap <leader>tn :NERDTreeToggle <CR>
 ""
 
 vnoremap <leader>y "+y <CR>
-vnoremap <leader>p "+p <CR>
+nnoremap <leader>p "+p <CR>
 
 "" Goyo.vim
 nnoremap <leader>G :Goyo  <CR>
