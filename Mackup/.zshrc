@@ -80,8 +80,25 @@ else
 fi
 }
 
+gogh () {
+  echo "Changing Theme..."
+  echo
+  echo "Some Bookmarks:"
+  echo "  137 - Atom One Dark"
+  echo "  139 - Atome One Light"
+  sleep 5s
+  bash -c "$(wget -qO- https://git.io/vQgMr)"
+
+}
+
 sha256() {
   echo "$1 $2" | sha256sum --check
+}
+
+update_aseprite() {
+  cd $HOME/.aseprite
+  git pull
+  git submodule update --init --recursive
 }
 # }}} Functions END
 
@@ -148,6 +165,7 @@ alias aps="apt search"
 # dwall
 alias dw="dwall"
 alias dws="dwall -s"
+
 # ===================================================================== END }}}
 
 # === COMPLETIONS === {{{

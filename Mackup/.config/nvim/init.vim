@@ -14,18 +14,17 @@ Plug 'mhinz/vim-startify'
 Plug 'mhinz/vim-signify'
 Plug 'preservim/nerdtree'
 Plug 'sainnhe/everforest'
+Plug 'sainnhe/edge'
 Plug 'sheerun/vim-polyglot'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'justinmk/vim-sneak'
-"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tricktux/pomodoro.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'mbbill/undotree'
 Plug 'tpope/vim-fugitive'
-"Plug 'deoplete-plugins/deoplete-jedi'
 Plug 'preservim/nerdcommenter'
 Plug 'vim-syntastic/syntastic'
 Plug 'arcticicestudio/nord-vim'
@@ -34,12 +33,13 @@ Plug 'roman/golden-ratio'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'tpope/vim-endwise'
 
 " Plugins that were disabled
-"Plug 'sainnhe/edge'
+"Plug 'deoplete-plugins/deoplete-jedi'
 "Plug 'itchyny/vim-cursorword'
 "Plug 'Yggdroot/indentLine'
-"Plug 'tpope/vim-endwise'
+"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 "Plug 'ycm-core/YouCompleteMe'
 
 call plug#end()
@@ -63,7 +63,7 @@ set ignorecase
 set incsearch
 set undodir=~/.local/share/nvim/undo
 set undofile
-set scrolloff=10
+set scrolloff=5
 set signcolumn=yes
 
 " Tabs
@@ -77,8 +77,7 @@ endif
 " Rust
 filetype plugin indent on
 
-" Setting the colorscheme
-colorscheme everforest "nord
+" Setting the colorscheme in Plugin options!
 
 " set transparent background
 " hi Normal guibg=NONE ctermbg=NONE
@@ -91,24 +90,66 @@ let mapleader = " "
 ": Configuring colorschemes
 
 "" Edge scheme
-let g:edge_style = 'neon'
+"let g:edge_style = 'aura'
 let g:enable_italic = 1
+let g:edge_diagnostic_line_highlight = 1
+let g:edge_diagnostic_text_highlight = 1
+let g:edge_better_performance = 1
 
 "" Everforest theme
 let g:everforest_background = 'hard'
 
-" syntax and autocompletion
-""" deoplete (disabled, switched to COC.nvim)
-"let g:deoplete#enable_at_startup = 1
-""" Deoplete and COC - Tab completion
-inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
+" Setting the colorscheme
+colorscheme edge "nord
+
+" COC {{{
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+if has("nvim-0.5.0") || has("patch-8.1.1564")
+  " Recently vim can merge signcolumn and number column into one
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
+
+" Use <c-space> to trigger completion.
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+
+" Coc-highlight
+autocmd CursorHold * silent call CocActionAsync('highlight')
+" COC }}}
 
 " UI
 "" Lightline  {{{
 
 let g:lightline = {
-      \ 'colorscheme': 'everforest',
+      \ 'colorscheme': 'edge',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
