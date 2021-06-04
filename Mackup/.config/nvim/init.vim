@@ -6,6 +6,21 @@
 
 " FILE: ~/.config/nvim/init.vim
 
+" Basic Checks {{{
+if empty(globpath(&runtimepath, '/autoload/plug.vim'))
+  echoerr 'Unable to find autoload/plug.vim. Download it from https://github.com/junegunn/vim-plug'
+  finish
+endif
+
+if exists('g:vim_man_pager')
+  let g:vim_enable_startify = 0
+else
+  let g:vim_enable_startify = 1
+endif
+
+set noshowmode
+" }}}
+
 ": Plugins {{{
 
 call plug#begin(stdpath('data') . '/plugged')
@@ -14,6 +29,7 @@ Plug 'mhinz/vim-startify'
 Plug 'mhinz/vim-signify'
 Plug 'preservim/nerdtree'
 Plug 'sainnhe/everforest'
+Plug 'arcticicestudio/nord-vim'
 Plug 'sainnhe/edge'
 Plug 'sheerun/vim-polyglot'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -23,7 +39,6 @@ Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'justinmk/vim-sneak'
 Plug 'tricktux/pomodoro.vim'
 Plug 'itchyny/lightline.vim'
-Plug 'mbbill/undotree'
 Plug 'tpope/vim-fugitive'
 Plug 'preservim/nerdcommenter'
 Plug 'vim-syntastic/syntastic'
@@ -34,6 +49,12 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-endwise'
+Plug 'liuchengxu/vim-which-key'
+Plug 'simnalamburt/vim-mundo'
+
+if has('nvim-0.5')
+  Plug 'hoob3rt/lualine.nvim'
+endif
 
 " Plugins that were disabled
 "Plug 'deoplete-plugins/deoplete-jedi'
@@ -66,9 +87,8 @@ set undofile
 set scrolloff=5
 set signcolumn=yes
 
-" Tabs
-set tabstop=2
-set shiftwidth=2
+" Character Tabs
+set tabstop=2 shiftwidth=2 expandtab
 
 if has('termguicolors')
   set termguicolors
@@ -80,17 +100,20 @@ filetype plugin indent on
 " Setting the colorscheme in Plugin options!
 
 " set transparent background
-" hi Normal guibg=NONE ctermbg=NONE
+"hi Normal guibg=NONE ctermbg=NONE
 
 " Setting the mapleader
 let mapleader = " "
+
+" timeoutlen
+set timeoutlen=600
 " }}}
 
 " Plugin Options {{{
 ": Configuring colorschemes
 
 "" Edge scheme
-"let g:edge_style = 'aura'
+let g:edge_style = 'aura'
 let g:enable_italic = 1
 let g:edge_diagnostic_line_highlight = 1
 let g:edge_diagnostic_text_highlight = 1
@@ -100,7 +123,7 @@ let g:edge_better_performance = 1
 let g:everforest_background = 'hard'
 
 " Setting the colorscheme
-colorscheme edge "nord
+colorscheme nord
 
 " COC {{{
 inoremap <silent><expr> <TAB>
@@ -143,13 +166,15 @@ endfunction
 
 " Coc-highlight
 autocmd CursorHold * silent call CocActionAsync('highlight')
-" COC }}}
 
+" F2 Rename (totally not copy and pasted from https://gist.github.com/benawad/b768f5a5bbd92c8baabd363b7e79786f#file-init-vim-L163)
+nmap <F2> <Plug>(coc-rename)
+" COC }}}
 " UI
 "" Lightline  {{{
 
 let g:lightline = {
-      \ 'colorscheme': 'edge',
+      \ 'colorscheme': 'nord',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
@@ -159,6 +184,10 @@ let g:lightline = {
       \ },
       \ }
 
+let laststatus=2
+if !has('gui_running')
+  set t_Co=256
+endif
 " }}}
 
 "" Nerdtree 
@@ -186,7 +215,14 @@ let g:syntastic_check_on_wq = 0
 " Goyo and Limelight.vim
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
-" Variables End }}}
+
+" Vim-which-key
+nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
+
+" COC-Explorer
+nmap <leader>e :CocCommand explorer<CR>
+
+" Plugin Options End }}}
 
 " Remaps {{{
 "" WinCmd
@@ -197,22 +233,34 @@ nnoremap <leader>k :wincmd k <CR>
 
 
 "" Tabs
-nnoremap <leader>th :tabNext <CR>
-nnoremap <leader>tl :tabnext <CR>
+nnoremap <leader>Th :tabNext <CR>
+nnoremap <leader>Tl :tabnext <CR>
+nnoremap <leader>Tn :tabnew <CR>
+nnoremap <leader>Tc :tabclose <CR>
 
 " Trees 
 "" Undo Tree
-nnoremap <leader>tu :UndotreeToggle <CR>
-nnoremap <leader>tuf :UndotreeFocus <CR>
+"nnoremap <leader>tu :UndotreeToggle <CR>
+"nnoremap <leader>tuf :UndotreeFocus <CR>
 "" NerdTree
 nnoremap <leader>tn :NERDTreeToggle <CR>
 ""
 
+" Copy N Paste
 vnoremap <leader>y "+y <CR>
 nnoremap <leader>p "+p <CR>
 
 "" Goyo.vim
 nnoremap <leader>G :Goyo  <CR>
 
+" Write and/or Quit
+nnoremap <leader>wq :wq <CR>
+nnoremap <leader>w :w <CR>
+nnoremap <leader>q :q <CR>
+
+" Mundo
+nnoremap <leader>m :MundoToggle <CR>
+nnoremap <leader>M :MundoShow <CR>
+nnoremap <leader>Mq :MundoQuit <CR>
 
 " Remaps End }}}

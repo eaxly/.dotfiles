@@ -12,11 +12,27 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall }}}
 
+autoload bashcompinit
+bashcompinit
+
+bindkey -v
+
+# Bash
+
 # Init starship
 eval "$(starship init zsh)"
-
+# Init brew
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# FZF {{{
 # Source fzf (on ubuntu 18.04, on 20.04 install with apt install fzf)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS' 
+--color=fg:#c5cdd9,bg:#262729,hl:#6cb6eb 
+--color=fg+:#c5cdd9,bg+:#262729,hl+:#5dbbc1 
+--color=info:#88909f,prompt:#ec7279,pointer:#d38aea 
+--color=marker:#a0c980,spinner:#ec7279,header:#5dbbc1'
+# }}}
 
 # === VARIABLES === {{{
 
@@ -45,8 +61,9 @@ eval "$(sheldon source)"
 # === FUNCTIONS === {{{
 
 auto-ls-custom_function () {
-  exa -l
+  exa -l --group-directories-first --icons
   if [ -d .git ];then
+    onefetch
     git status
   fi
 }
@@ -82,11 +99,7 @@ fi
 
 gogh () {
   echo "Changing Theme..."
-  echo
-  echo "Some Bookmarks:"
-  echo "  137 - Atom One Dark"
-  echo "  139 - Atome One Light"
-  sleep 5s
+  sleep 5
   bash -c "$(wget -qO- https://git.io/vQgMr)"
 
 }
@@ -96,7 +109,11 @@ sha256() {
 }
 
 update_aseprite() {
-  cd $HOME/.aseprite
+  if [ "$PWD" != "$HOME/.aseprite" ]; then
+    echo "You are not in the aseprite directory!"
+    sleep 1
+    cd $HOME/.aseprite
+  fi
   git pull
   git submodule update --init --recursive
 }
@@ -145,14 +162,15 @@ alias ..="cd .."
 #alias pase="paru -Ss"
 
 # exa (ls)
-alias l1="exa -1"
-alias lss="exa"
-alias ls="exa -l"
-alias la="exa -la"
-
+alias l1="exa -1 --group-directories-first --icons"
+alias lss="exa --group-directories-first --icons"
+alias ls="exa -l --group-directories-first --icons"
+alias la="exa -la --group-directories-first --icons"
+alias lal="exa -la --group-directories-first --icons | lolcat"
 # For debian systems
 alias bat="batcat"
 alias alien="alien-update"
+
 # alias fd="fdfind"
 alias fd="fd -H"
 
@@ -166,6 +184,8 @@ alias aps="apt search"
 alias dw="dwall"
 alias dws="dwall -s"
 
+# git
+alias gclo="git clone"
 # ===================================================================== END }}}
 
 # === COMPLETIONS === {{{
@@ -205,7 +225,11 @@ _dotnet_zsh_complete()
 
 compctl -K _dotnet_zsh_complete dotnet
 
+# Pacstall completions
+source /usr/share/bash-completion/completions/pacstall
 # }}}
 
 # Dircolors
 test -r ~/.dircolors/dircolors && eval $(dircolors ~/.dircolors/dircolors)
+
+clear && test -r $HOME/.dotfiles/bin/random_fetcher.sh && bash $HOME/.dotfiles/bin/random_fetcher.sh

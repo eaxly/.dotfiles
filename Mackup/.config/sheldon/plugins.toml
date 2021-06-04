@@ -45,4 +45,3 @@ use = ["{{ name }}.zsh"]
 
 [plugins.auto-ls]
 github = 'desyncr/auto-ls'
-
