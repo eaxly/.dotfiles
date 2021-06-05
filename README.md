@@ -1,12 +1,6 @@
-# The DOTFILES v2
-These are _my_ dotfiles for linux! They will propably work on other systems but that has not been tested (yet?)  
+# The DOTFILES... ArchCraft Version?!
 
-WARNING! Harry Potter references incoming!
-## INFO
-> Why v2 and v1 u blithering idiot?! Are you sirius?!
-- **v1:** files are moved manually and symlinked with _stow_
-- **v2: (current main branch)** files are moved automatically and symlinked with _mackup_
+Ah! I see you have found the so called "Archcraft Version" of my dotfiles.  
+These are dotfiles specially made for ArchCraft.  
 
-
-## TODO
-- [ ] Add an `linux.sh` script to install all applications wanted on a new system of mine
+To be used with the Nordic Archcraft style.

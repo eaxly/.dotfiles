@@ -1,8 +1,0 @@
-[Desktop Entry]
-Name=Lunar Client
-Exec=/home/axolotl/.local/bin/lunarclient
-Terminal=false
-Type=Application
-Icon=/home/axolotl/.CIcons/lunarclient.png
-Comment=FPS boosting launcher for minecraft.
-Categories=Game;
