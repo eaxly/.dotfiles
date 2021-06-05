@@ -26,6 +26,7 @@ Plug 'preservim/nerdcommenter'
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-endwise'
+Plug 'norcalli/nvim-colorizer.lua'
 
 " Trees
 Plug 'simnalamburt/vim-mundo'
