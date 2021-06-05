@@ -37,6 +37,25 @@ eval "$(sheldon source)"
 
 # }}}
 
+# Plugins Config {{{
+# zsh-you-should-use
+export YSU_MESSAGE_POSITION="after"
+export YSU_MODE=ALL
+export YSU_MESSAGE_FORMAT=$(tput bold)"$(tput setaf 1)You stoopid forgot that there is an $(tput setaf 3)%alias_type$(tput setaf 9) for $(tput setaf 3)%command$(tput setaf 9). It is $(tput setaf 3)%alias$(tput setaf 9)"
+
+auto-ls-custom_function() {
+  if [ ! -d .git ]; then
+    exa --icons --group-directories-first --long
+  else
+    onefetch
+    git status
+    exa --icons --group-directories-first --long --all --git
+  fi
+}
+
+AUTO_LS_COMMANDS=(custom_function)
+# }}}
+
 # Functions {{{
 
 # }}}
@@ -70,13 +89,16 @@ alias zshsource="source $ZSHCONFIG"
 alias attyconf="$EDITOR $ALACRITTYCONFIG"
 alias oboxconf="$EDITOR $OPENBOXCONFIG"
 alias starconf="$EDITOR $STARSHIPCONFIG"
-alias vonf="$EDITOR $NVIMCONFIG"
+[ -d $HOME/.config/nvim/init.lua ] && alias vlconf="$EDITOR $HOME/.config/nvim/init.lua"
+alias vconf="$EDITOR $NVIMCONFIG"
 alias mackconf="$EDITOR $MACKUPCONFIG"
+
 # ls
 alias ls="exa --icons --group-directories-first --long --git"
 alias lT="exa --icons --group-directories-first --tree --git"
 alias ll="exa --icons --group-directories-first --long --all --git"
-alias la="exa --icons --group-directories-first --long --all"
+alias la="exa --icons --group-directories-first --long --all --git"
+
 # nvim
 alias v="nvim"
 alias vv="vim"
@@ -87,6 +109,11 @@ alias cp="cp -r"
 alias rm="echo 'Use something else!'"
 # }}}
 
+# Startup {{{
 # SSH Agent
 eval $(keychain --eval id_ed25519 -q)
+
+# Random fetcher
+[ -f $HOME/.dotfiles/bin/random_fetcher.sh ] && bash $HOME/.dotfiles/bin/random_fetcher.sh
+# }}}
 # vim:foldmethod=marker
