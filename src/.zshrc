@@ -12,8 +12,6 @@ SAVEHIST=1000000
 setopt autocd extendedglob nomatch 
 unsetopt beep
 
-# Vim keybindings
-bindkey -v
 
 zstyle :compinstall filename '/home/axolotl/.zshrc'
 autoload -Uz compinit && compinit
@@ -58,6 +56,16 @@ AUTO_LS_COMMANDS=(custom_function)
 
 # Functions {{{
 
+noice() {
+  if command -v toilet > /dev/null; then
+    for arg in $@; do
+      toilet -f pagga "$arg"
+    done
+  else
+    echo Toilet not installed!
+  fi
+}
+
 # }}}
 
 # Variables {{{
@@ -66,7 +74,7 @@ export EDITOR=nvim
 export SUDO_EDITOR=nvim
 
 # the manpager
-export PAGER='nvim +Man!'
+export MANPAGER="nvim -c MANPAGER -"
 
 # Local variables {{{
 
@@ -79,6 +87,7 @@ OPENBOXCONFIG=$HOME/.config/openbox/rc.xml
 STARSHIPCONFIG=$HOME/.config/starship.toml
 NVIMCONFIG=$HOME/.config/nvim/init.vim
 MACKUPCONFIG=$HOME/.mackup.cfg
+KITTYCONF=$HOME/.config/kitty/kitty.conf
 # }}}
 # }}}
 
@@ -92,7 +101,7 @@ alias starconf="$EDITOR $STARSHIPCONFIG"
 [ -d $HOME/.config/nvim/init.lua ] && alias vlconf="$EDITOR $HOME/.config/nvim/init.lua"
 alias vconf="$EDITOR $NVIMCONFIG"
 alias mackconf="$EDITOR $MACKUPCONFIG"
-
+alias kittyconf="$EDITOR $KITTYCONF"
 # ls
 alias ls="exa --icons --group-directories-first --long --git"
 alias lT="exa --icons --group-directories-first --tree --git"
@@ -111,9 +120,14 @@ alias rm="echo 'Use something else!'"
 
 # Startup {{{
 # SSH Agent
-eval $(keychain --eval id_ed25519 -q)
+if ! command -v seahorse > /dev/null; then
+  eval $(keychain --eval id_ed25519 -q)
+fi
 
 # Random fetcher
 [ -f $HOME/.dotfiles/bin/random_fetcher.sh ] && bash $HOME/.dotfiles/bin/random_fetcher.sh
 # }}}
+# Vim keybindings
+bindkey -v
+
 # vim:foldmethod=marker
