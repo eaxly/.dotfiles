@@ -34,5 +34,8 @@ xfce4-power-manager &
 ## Emote (for emojis)
 exec emote
 
+## Printers
+cups-browsed &
+
 ## Getting Started
 gs_run_once.sh
