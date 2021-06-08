@@ -96,7 +96,7 @@ KITTYCONF=$HOME/.config/kitty/kitty.conf
 # Config
 alias zshconf="$EDITOR $ZSHCONFIG"
 alias zshsource="source $ZSHCONFIG"
-alias attyconf="$EDITOR $ALACRITTYCONFIG"
+alias alaconf="$EDITOR $ALACRITTYCONFIG"
 alias oboxconf="$EDITOR $OPENBOXCONFIG"
 alias starconf="$EDITOR $STARSHIPCONFIG"
 [ -d $HOME/.config/nvim/init.lua ] && alias vlconf="$EDITOR $HOME/.config/nvim/init.lua"
