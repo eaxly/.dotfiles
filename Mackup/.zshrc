@@ -17,12 +17,10 @@ bashcompinit
 
 bindkey -v
 
-# Bash
-
 # Init starship
 eval "$(starship init zsh)"
-# Init brew
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# Init brew I don't use brew anymore
+#eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 # FZF {{{
 # Source fzf (on ubuntu 18.04, on 20.04 install with apt install fzf)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
