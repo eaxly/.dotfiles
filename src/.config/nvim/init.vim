@@ -29,7 +29,7 @@ Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-endwise'
 Plug 'lambdalisue/vim-manpager'
-
+Plug 'lambdalisue/suda.vim'
 " Trees
 Plug 'simnalamburt/vim-mundo'
 Plug 'preservim/nerdtree'
@@ -43,7 +43,6 @@ Plug 'liuchengxu/vim-which-key'
 " UI
 " colorschemes
 Plug 'arcticicestudio/nord-vim'
-Plug 'sainnhe/everforest'
 
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
@@ -67,7 +66,7 @@ autocmd VimEnter *
 " }}}
 " }}}
 " Basics {{{
-" some basic sets {{{
+"  Sets {{{
 syntax on
 set exrc
 set nohlsearch
@@ -102,14 +101,14 @@ set timeoutlen=500
 set noshowmode
 " }}}
 
-" Keymaps {{{
+" Remaps {{{
 let g:mapleader = "\<Space>"
 let g:maplocalleader = '\'
 
-vnoremap <silent><leader>y "+y <cr>
-nnoremap <silent><leader>Y "+Y <cr>
-nnoremap <silent><leader>p "+p <cr>
-vnoremap <silent><leader>p "+p <cr>
+vnoremap <leader>y "+y<CR>
+nnoremap <leader>Y "+Y<CR>
+nnoremap <leader>p "+p<CR>
+vnoremap <leader>p "+p<CR>
 " }}}
 "}}}
 
@@ -189,6 +188,22 @@ let g:which_key_map = {
 let g:which_key_map["\<space>"] = {'name': 'Beta'}
 let g:which_key_map["e"] = {'name': 'Edit'}
 let g:which_key_map["s"] = {'name': 'Source'}
+" }}}
+" vim-startify {{{
+" vim_header {{{
+let g:vim_header = [
+      \" ▄▄▄· ▐▄• ▄       ▄▄▌        ▄▄▄▄▄▪   ▄▄·  ▌ ▐·▪  • ▌ ▄ ·.",
+      \"▐█ ▀█  █▌█▌▪ ▄█▀▄ ██•   ▄█▀▄ •██  ██ ▐█ ▌▪▪█·█▌██ ·██ ▐███▪",
+      \"▄█▀▀█  ·██· ▐█▌.▐▌██ ▪ ▐█▌.▐▌ ▐█.▪▐█·██ ▄▄▐█▐█•▐█·▐█ ▌▐▌▐█·",
+      \"▐█▪ ▐▌▪▐█·█▌▐█▌.▐▌▐█▌ ▄▐█▌.▐▌ ▐█▌·▐█▌▐███▌ ███ ▐█▌██ ██▌▐█▌",
+      \" ▀  ▀ •▀▀ ▀▀ ▀█▄▀▪.▀▀▀  ▀█▄▀▪ ▀▀▀ ▀▀▀·▀▀▀ . ▀  ▀▀▀▀▀  █▪▀▀▀",
+      \]
+" }}}
+let g:startify_shoutout=["","","made with \uf004  on \ue712  by @ExtinctAxolotl"]
+
+let g:startify_custom_header = 
+      \ startify#center( startify#pad(g:vim_header)) + startify#center(startify#pad(g:startify_shoutout))
+
 " }}}
 
 "Productivity
@@ -319,9 +334,12 @@ let g:which_key_map["c"] = { 'name': 'Commenting',
 
 " }}}
 " NERDTree {{{
-
 nnoremap <silent><leader>f :<c-u>NERDTreeToggle <cr>
 let g:which_key_map["f"] = 'Toggle File Explorer'
+" }}}
+" suda.vim {{{
+let g:suda_smart_edit=1
+
 " }}}
 
 " VIMRC {{{
@@ -330,3 +348,5 @@ let g:which_key_map["e"]["v"] = 'VimRC'
 nnoremap <silent><leader>sv <C-u>:source ~/.config/nvim/init.vim <bar> :doautocmd BufRead <CR>
 let g:which_key_map["s"]["v"] = "VimRC"
 " }}}
+
+"vim:foldmethod=marker
