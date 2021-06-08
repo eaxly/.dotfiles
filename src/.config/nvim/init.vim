@@ -30,6 +30,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-endwise'
 Plug 'lambdalisue/vim-manpager'
 Plug 'lambdalisue/suda.vim'
+Plug 'lambdalisue/pastefix.vim'
 " Trees
 Plug 'simnalamburt/vim-mundo'
 Plug 'preservim/nerdtree'
@@ -38,7 +39,6 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 " Productivity
 Plug 'tricktux/pomodoro.vim'
 Plug 'itchyny/calendar.vim'
-Plug 'liuchengxu/vim-which-key'
 
 " UI
 " colorschemes
@@ -49,6 +49,7 @@ Plug 'junegunn/limelight.vim'
 
 Plug 'itchyny/lightline.vim'
 
+Plug 'liuchengxu/vim-which-key'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
 Plug 'norcalli/nvim-colorizer.lua'
@@ -104,11 +105,6 @@ set noshowmode
 " Remaps {{{
 let g:mapleader = "\<Space>"
 let g:maplocalleader = '\'
-
-vnoremap <leader>y "+y<CR>
-nnoremap <leader>Y "+Y<CR>
-nnoremap <leader>p "+p<CR>
-vnoremap <leader>p "+p<CR>
 " }}}
 "}}}
 
@@ -136,7 +132,7 @@ let g:lightline.colorscheme = 'nord'
 let g:lightline.active = {
       \   'left': [ [ 'winnr', 'mode', 'paste'],
       \             [ 'readonly', 'relativepath', 'gitbranch', 'modified'] ],
-      \   'right': [[ 'lineinfo%<' ],
+      \   'right': [[ 'lineinfo' ],
       \             [ 'percent' , 'pomodoro'],
       \             [ 'fileformat', 'fileencoding', 'filetype_icon', 'filetype'] ]
       \
@@ -144,7 +140,7 @@ let g:lightline.active = {
 let g:lightline.inactive = {
       \   'left': [ [ 'winnr','mode', 'paste'],
       \             [ 'readonly', 'fullpath', 'modified'] ],
-      \   'right': [[ 'percent' ],
+      \   'right': [[ 'percent', 'fileformat' ],
       \             [ 'fileformat', 'fileencoding', 'filetype_icon', 'filetype' ] ]
       \
       \ }
@@ -177,17 +173,14 @@ call which_key#register('<Space>', "g:which_key_map")
 nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
 vnoremap <silent> <leader> :<c-u>WhichKeyVisual '<Space>'<CR>
 
- " TODO: Update these keybindings
 let g:which_key_use_floating_win = 1
 let g:which_key_map = {
       \ 'name': 'Alpha',
-      \ 'p': 'Paste',
-      \ 'Y': 'Yank line',
       \}
 
 let g:which_key_map["\<space>"] = {'name': 'Beta'}
-let g:which_key_map["e"] = {'name': 'Edit'}
-let g:which_key_map["s"] = {'name': 'Source'}
+let g:which_key_map.e = {'name': 'Edit'}
+let g:which_key_map.s = {'name': 'Source'}
 " }}}
 " vim-startify {{{
 " vim_header {{{
@@ -274,6 +267,7 @@ endif
 " }}}
 " Pomodoro.vim {{{
 
+" totally not copy and pasted from sainnhe's dotfiles
 let g:Pomodoro_Status = 0
 function! Toggle_Pomodoro()
   if g:Pomodoro_Status == 0
@@ -284,6 +278,7 @@ function! Toggle_Pomodoro()
     execute 'PomodoroStop'
   endif
 endfunction
+" end totally not copy and pasted
 
 let g:pomodoro_time_work = 25
 let g:pomodoro_time_slack = 5 
@@ -319,7 +314,7 @@ let g:NERDTrimTrailingWhitespace = 1
 " WhichKeys
 let g:which_key_map["c"] = { 'name': 'Commenting',
       \ "\<space>": "Toggle Line Commenting",
-      \ "$": "Comment to EOL (WARN: Doesn't work, waste of time)",
+      \ "$": "Comment to EOL",
       \ "a": "Comment while respecting Alternative Delimiters",
       \ "A": "Append Comment",
       \ "c": "Comment (no toggling)",

@@ -1,6 +1,10 @@
-# The DOTFILES... ArchCraft Version?!
+# The Dotfiles - Nordic ArchLinux Version or whatever
+## Everything NORD!
+As the title suggests, everything here is [Nord](https://nordtheme.com) themed.  
+This was first inspired by the ArchCraft Nordic Theme.  
 
-Ah! I see you have found the so called "Archcraft Version" of my dotfiles.  
-These are dotfiles specially made for ArchCraft.  
+## Warnings!
+`linux.sh` is not yet ready to be used.  
 
-To be used with the Nordic Archcraft style.
+# About linux.sh
+It **will** install some handy packages.
