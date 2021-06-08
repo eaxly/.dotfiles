@@ -11,6 +11,7 @@ HISTSIZE=2000
 SAVEHIST=1000000
 setopt autocd extendedglob nomatch 
 unsetopt beep
+fpath+=$HOME/.zfunc
 
 
 zstyle :compinstall filename '/home/axolotl/.zshrc'
@@ -120,9 +121,7 @@ alias rm="echo 'Use something else!'"
 
 # Startup {{{
 # SSH Agent
-if ! command -v seahorse > /dev/null; then
-  eval $(keychain --eval id_ed25519 -q)
-fi
+eval $(keychain --eval id_ed25519 -q)
 
 # Random fetcher
 [ -f $HOME/.dotfiles/bin/random_fetcher.sh ] && bash $HOME/.dotfiles/bin/random_fetcher.sh
