@@ -411,9 +411,6 @@ let g:suda_smart_edit=1
 " }}}
 
 " Other
-" firenvim {{{
-
-" }}}
 " VIMRC {{{
 nnoremap <silent><leader>ev <C-u>:vsp ~/.config/nvim/init.vim <CR>
 let g:which_key_map["e"]["v"] = 'VimRC'
