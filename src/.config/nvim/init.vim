@@ -31,6 +31,7 @@ Plug 'tpope/vim-endwise'
 Plug 'lambdalisue/vim-manpager'
 Plug 'lambdalisue/suda.vim'
 Plug 'lambdalisue/pastefix.vim'
+
 " Trees
 Plug 'simnalamburt/vim-mundo'
 Plug 'preservim/nerdtree'
@@ -41,13 +42,16 @@ Plug 'tricktux/pomodoro.vim'
 Plug 'itchyny/calendar.vim'
 
 " UI
-" colorschemes
 Plug 'arcticicestudio/nord-vim'
 
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 
-Plug 'itchyny/lightline.vim'
+if has('nvim-0.5')
+  Plug 'hoob3rt/lualine.nvim'
+else
+  Plug 'itchyny/lightline.vim'
+endif
 
 Plug 'liuchengxu/vim-which-key'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -96,6 +100,7 @@ set scrolloff=10
 
 set foldmethod=marker
 set signcolumn=yes
+set cursorline
 
 set updatetime=200
 set timeoutlen=500
@@ -114,36 +119,37 @@ set termguicolors
 
 colorscheme nord
 " }}}
-" Lightline {{{
+" Statuslines/Tablines {{{
 set laststatus=2 " Recommended Settings
-
 " functions {{{
 function! PomodoroStatus() abort "{{{
   if pomo#remaining_time() ==# '0'
-    return "\ue001 PoDea"
+    return " PoDea"
   else
-    return "\ue003 ".pomo#remaining_time()
+    return " ".pomo#remaining_time()
   endif
 endfunction "}}}
 " }}}
 
+" Lightline {{{
 let g:lightline = {}
 let g:lightline.colorscheme = 'nord'
 let g:lightline.active = {
-      \   'left': [ [ 'winnr', 'mode', 'paste'],
-      \             [ 'readonly', 'relativepath', 'gitbranch', 'modified'] ],
-      \   'right': [[ 'lineinfo' ],
-      \             [ 'percent' , 'pomodoro'],
-      \             [ 'fileformat', 'fileencoding', 'filetype_icon', 'filetype'] ]
-      \
-      \ }
+        \   'left': [ [ 'winnr', 'mode', 'paste'],
+        \             [ 'readonly', 'relativepath', 'gitbranch', 'modified'] ],
+        \   'right': [[ 'lineinfo' ],
+        \             [ 'percent' , 'pomodoro'],
+        \             [ 'fileformat', 'fileencoding', 'filetype_icon', 'filetype'] ]
+        \
+        \ }
+
 let g:lightline.inactive = {
-      \   'left': [ [ 'winnr','mode', 'paste'],
-      \             [ 'readonly', 'fullpath', 'modified'] ],
-      \   'right': [[ 'percent', 'fileformat' ],
-      \             [ 'fileformat', 'fileencoding', 'filetype_icon', 'filetype' ] ]
-      \
-      \ }
+        \   'left': [ [ 'winnr','mode', 'paste'],
+        \             [ 'readonly', 'fullpath', 'modified'] ],
+        \   'right': [[ 'percent', 'fileformat' ],
+        \             [ 'fileformat', 'fileencoding', 'filetype_icon', 'filetype' ] ]
+        \
+        \ }
 
 let g:lightline.tab = {
       \   'active': [ 'tabnum', 'filename', 'modified'],
@@ -155,14 +161,56 @@ let g:lightline.component_function = {
       \   'filetype_icon': 'WebDevIconsGetFileTypeSymbol',
       \   'pomodoro': 'PomodoroStatus',
       \ }
-
-let g:lightline.tabline_separator = { 'left': "\ue0bc", 'right': "\ue0ba" }
-let g:lightline.tabline_subseparator = { 'left': "\ue0bb", 'right': "\ue0bb" }
+let g:lightline.tabline_separator = { 'left': "", 'right': "" }
+let g:lightline.tabline_subseparator = { 'left': ")", 'right': "(" }
 
 let g:lightline.separator = { 'left': "\ue0b8", 'right': "\ue0be" }
 let g:lightline.subseparator = { 'left': "\ue0b9", 'right': "\ue0b9" }
 
+" }}}
 
+" lualine.nvim {{{
+lua << EOL
+config = {
+  
+  options = {
+    theme = 'nord',
+    section_separators = {'', ''},
+    component_separators = {'', ''}
+    },
+  
+  sections = {
+      lualine_a = {'winnr','mode'},
+      lualine_b = {'branch'},
+      lualine_c = {'filename'},
+      lualine_x = {'encoding', 'fileformat', 'filetype'},
+      lualine_y = {'progress', 'PomodoroStatus'},
+      lualine_z = {'location'}
+    },
+ 
+  inactive_sections = {
+    lualine_a = {'winnr'},
+    lualine_b = {'branch'},
+    lualine_c = {'filename'},
+    lualine_x = {},
+    lualine_y = {},
+    lualine_z = {'location'}
+    },
+
+  tabline = {
+    lualine_a = {'tabpagenr','filetype','filename'},
+    lualine_b = {},
+    lualine_c = {},
+    lualine_x = {},
+    lualine_y = {},
+    lualine_z = {},
+    }
+
+  }
+
+lualine = require('lualine').setup(config)
+EOL
+" }}}
 " }}}
 " NVIM-Colorizer {{{
 lua require'colorizer'.setup()
@@ -184,7 +232,17 @@ let g:which_key_map.s = {'name': 'Source'}
 " }}}
 " vim-startify {{{
 " vim_header {{{
+
 let g:vim_header = [
+      \" ▄▄▄· ▐▄• ▄       ▄▄▌        ▄▄▄▄▄▪   ▄▄·    ▌ ▐·▪  • ▌ ▄ ·.",
+      \"▐█ ▀█  █▌█▌▪ ▄█▀▄ ██•   ▄█▀▄ •██  ██ ▐█ ▌▪  ▪█·█▌██ ·██ ▐███▪",
+      \"▄█▀▀█  ·██· ▐█▌.▐▌██ ▪ ▐█▌.▐▌ ▐█.▪▐█·██ ▄▄  ▐█▐█•▐█·▐█ ▌▐▌▐█·",
+      \"▐█▪ ▐▌▪▐█·█▌▐█▌.▐▌▐█▌ ▄▐█▌.▐▌ ▐█▌·▐█▌▐███▌   ███ ▐█▌██ ██▌▐█▌",
+      \" ▀  ▀ •▀▀ ▀▀ ▀█▄▀▪.▀▀▀  ▀█▄▀▪ ▀▀▀ ▀▀▀·▀▀▀   . ▀  ▀▀▀▀▀  █▪▀▀▀"
+      \]
+
+
+let g:vim_header2 = [
       \" ▄▄▄· ▐▄• ▄       ▄▄▌        ▄▄▄▄▄▪   ▄▄·  ▌ ▐·▪  • ▌ ▄ ·.",
       \"▐█ ▀█  █▌█▌▪ ▄█▀▄ ██•   ▄█▀▄ •██  ██ ▐█ ▌▪▪█·█▌██ ·██ ▐███▪",
       \"▄█▀▀█  ·██· ▐█▌.▐▌██ ▪ ▐█▌.▐▌ ▐█.▪▐█·██ ▄▄▐█▐█•▐█·▐█ ▌▐▌▐█·",
@@ -211,7 +269,8 @@ let g:coc_global_extensions = [
       \ 'coc-json',
       \ 'coc-sh',
       \ 'coc-pyright',
-      \ 'coc-vimlsp'
+      \ 'coc-vimlsp',
+      \ 'coc-lua',
       \ ]
 " }}}
 
