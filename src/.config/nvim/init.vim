@@ -31,35 +31,45 @@ Plug 'tpope/vim-endwise'
 Plug 'lambdalisue/vim-manpager'
 Plug 'lambdalisue/suda.vim'
 Plug 'lambdalisue/pastefix.vim'
+Plug 'dstein64/vim-startuptime'
 
 " Trees
 Plug 'simnalamburt/vim-mundo'
-Plug 'preservim/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+" Plug 'preservim/nerdtree'
+" Plug 'Xuyuanp/nerdtree-git-plugin'
+
 
 " Productivity
 Plug 'tricktux/pomodoro.vim'
 Plug 'itchyny/calendar.vim'
 
 " UI
-Plug 'arcticicestudio/nord-vim'
+" Plug 'arcticicestudio/nord-vim'
+Plug 'shaunsingh/nord.nvim'
 
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 
 if has('nvim-0.5')
   Plug 'hoob3rt/lualine.nvim'
+  Plug 'romgrk/barbar.nvim'
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 else
   Plug 'itchyny/lightline.vim'
 endif
 
+
 Plug 'liuchengxu/vim-which-key'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
+Plug 'kyazdani42/nvim-web-devicons'
 Plug 'norcalli/nvim-colorizer.lua'
-
+Plug 'p00f/nvim-ts-rainbow'
 "Plug 'roman/golden-ratio'
 Plug 'mhinz/vim-startify'
+
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+
 call plug#end()
 " }}}
 
@@ -116,8 +126,12 @@ let g:maplocalleader = '\'
 " User Iterface
 " Colors {{{
 set termguicolors
-
+let g:nord_contrast = 1
+let g:nord_borders = 0
+let g:nord_disable_background = 0
+let g:nord_cursorline_transparent = 1
 colorscheme nord
+" lua require('nord').set()
 " }}}
 " Statuslines/Tablines {{{
 set laststatus=2 " Recommended Settings
@@ -164,8 +178,8 @@ let g:lightline.component_function = {
 let g:lightline.tabline_separator = { 'left': "", 'right': "" }
 let g:lightline.tabline_subseparator = { 'left': ")", 'right': "(" }
 
-let g:lightline.separator = { 'left': "\ue0b8", 'right': "\ue0be" }
-let g:lightline.subseparator = { 'left': "\ue0b9", 'right': "\ue0b9" }
+let g:lightline.separator = { 'left': "", 'right': "" }
+let g:lightline.subseparator = { 'left': ")", 'right': "(" }
 
 " }}}
 
@@ -197,16 +211,9 @@ config = {
     lualine_z = {'location'}
     },
 
-  tabline = {
-    lualine_a = {'tabpagenr','filetype','filename'},
-    lualine_b = {},
-    lualine_c = {},
-    lualine_x = {},
-    lualine_y = {},
-    lualine_z = {},
-    }
-
+  extensions = {nerdtree}
   }
+
 
 lualine = require('lualine').setup(config)
 EOL
@@ -227,8 +234,8 @@ let g:which_key_map = {
       \}
 
 let g:which_key_map["\<space>"] = {'name': 'Beta'}
-let g:which_key_map.e = {'name': 'Edit'}
-let g:which_key_map.s = {'name': 'Source'}
+let g:which_key_map.e = {'name': '+edit'}
+let g:which_key_map.s = {'name': '+source'}
 " }}}
 " vim-startify {{{
 " vim_header {{{
@@ -241,19 +248,27 @@ let g:vim_header = [
       \" ▀  ▀ •▀▀ ▀▀ ▀█▄▀▪.▀▀▀  ▀█▄▀▪ ▀▀▀ ▀▀▀·▀▀▀   . ▀  ▀▀▀▀▀  █▪▀▀▀"
       \]
 
-
-let g:vim_header2 = [
-      \" ▄▄▄· ▐▄• ▄       ▄▄▌        ▄▄▄▄▄▪   ▄▄·  ▌ ▐·▪  • ▌ ▄ ·.",
-      \"▐█ ▀█  █▌█▌▪ ▄█▀▄ ██•   ▄█▀▄ •██  ██ ▐█ ▌▪▪█·█▌██ ·██ ▐███▪",
-      \"▄█▀▀█  ·██· ▐█▌.▐▌██ ▪ ▐█▌.▐▌ ▐█.▪▐█·██ ▄▄▐█▐█•▐█·▐█ ▌▐▌▐█·",
-      \"▐█▪ ▐▌▪▐█·█▌▐█▌.▐▌▐█▌ ▄▐█▌.▐▌ ▐█▌·▐█▌▐███▌ ███ ▐█▌██ ██▌▐█▌",
-      \" ▀  ▀ •▀▀ ▀▀ ▀█▄▀▪.▀▀▀  ▀█▄▀▪ ▀▀▀ ▀▀▀·▀▀▀ . ▀  ▀▀▀▀▀  █▪▀▀▀",
-      \]
 " }}}
 let g:startify_shoutout=["","","made with \uf004  on \ue712  by @ExtinctAxolotl"]
 
 let g:startify_custom_header = 
       \ startify#center( startify#pad(g:vim_header)) + startify#center(startify#pad(g:startify_shoutout))
+
+" }}}
+" Treesitter {{{
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  ignore_install = {}, -- List of parsers to ignore installing
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+    disable = {},  -- list of language that will be disabled
+  },
+  rainbow = {
+      enable = true,
+    }
+}
+EOF
 
 " }}}
 
@@ -326,7 +341,7 @@ endif
 " }}}
 " Pomodoro.vim {{{
 
-" totally not copy and pasted from sainnhe's dotfiles
+" totally not copy and pasted from sainnhe's dotfiles (https://github.com/sainnhe/dotfiles)
 let g:Pomodoro_Status = 0
 function! Toggle_Pomodoro()
   if g:Pomodoro_Status == 0
@@ -371,7 +386,7 @@ let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
 
 " WhichKeys
-let g:which_key_map["c"] = { 'name': 'Commenting',
+let g:which_key_map["c"] = { 'name': '+commenting',
       \ "\<space>": "Toggle Line Commenting",
       \ "$": "Comment to EOL",
       \ "a": "Comment while respecting Alternative Delimiters",
@@ -393,14 +408,15 @@ let g:which_key_map["f"] = 'Toggle File Explorer'
 " }}}
 " suda.vim {{{
 let g:suda_smart_edit=1
-
 " }}}
 
+" Other
+" firenvim {{{
+
+" }}}
 " VIMRC {{{
 nnoremap <silent><leader>ev <C-u>:vsp ~/.config/nvim/init.vim <CR>
 let g:which_key_map["e"]["v"] = 'VimRC'
-nnoremap <silent><leader>sv <C-u>:source ~/.config/nvim/init.vim <bar> :doautocmd BufRead <CR>
-let g:which_key_map["s"]["v"] = "VimRC"
 " }}}
 
 "vim:foldmethod=marker
