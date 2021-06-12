@@ -80,7 +80,6 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'norcalli/nvim-colorizer.lua'
-Plug 'p00f/nvim-ts-rainbow'
 "Plug 'roman/golden-ratio'
 Plug 'mhinz/vim-startify'
 call plug#end()
@@ -275,7 +274,7 @@ let g:vim_header = [
 " }}}
 let g:startify_shoutout=["","","made with \uf004  on \ue712  by @ExtinctAxolotl"]
 
-let g:startify_custom_header = 
+let g:startify_custom_header =
       \ startify#center( startify#pad(g:vim_header)) + startify#center(startify#pad(g:startify_shoutout))
 
 " }}}
