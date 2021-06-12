@@ -24,6 +24,9 @@ autoload -U promptinit && promptinit
 if [ ! $(echo $PATH | grep "$HOME/.local/bin") ] && [ -d ~/.local/bin ] ; then
   export PATH=$PATH:~/.local/bin
 fi
+if [ ! $(echo $PATH | grep "$HOME/.emacs.d/bin") ] && [ -d ~/.emacs.d/bin ] ; then
+  export PATH=$PATH:~/.emacs.d/bin
+fi
 # }}}
 
 # Initializations {{{
@@ -101,8 +104,8 @@ alias zshsource="source ~/.zshrc"
 alias alaconf="$EDITOR ~/.config/alacritty/alacritty.yml"
 # alias oboxconf="$EDITOR ~/.config/openbox/rc.xml"
 alias starconf="$EDITOR ~/.config/starship.toml"
-[ -d $HOME/.config/nvim/init.lua ] && alias vlconf="$EDITOR $HOME/.config/nvim/init.lua"
 alias vconf="$EDITOR ~/.config/nvim/init.vim"
+! [ -f $HOME/.config/nvim/init.vim ] && [ -f $HOME/.config/nvim/init.lua ] && alias vconf="$EDITOR $HOME/.config/nvim/init.lua"
 alias mackconf="$EDITOR ~/.mackup.cfg"
 alias kittyconf="$EDITOR ~/.config/kitty/kitty.conf"
 alias herbstconf="$EDITOR ~/.config/herbstluftwm/autostart"
@@ -120,12 +123,15 @@ alias vv="vim"
 # mkdir cp etc
 alias md="mkdir -p"
 alias cp="cp -r"
-alias rm="echo 'Use something else!'"
+# alias rm="echo 'Use something else!'"
 
 # theF*ck
 alias f="fuck"
 # needed for thef*ck
 eval $(thefuck --alias)
+
+# python
+alias py3="python3"
 
 # }}}
 
@@ -138,6 +144,6 @@ eval $(thefuck --alias)
 # }}}
 
 # Vim keybindings
-#bindkey -v
+bindkey -v
 
 # vim:foldmethod=marker

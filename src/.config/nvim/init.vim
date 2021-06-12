@@ -3,6 +3,7 @@
 " ░▀▀░░▀▀▀░░▀░░▀░░░▀▀▀░▀▀▀░▀▀▀░▀▀▀
 
 " FILE: ~/.config/nvim/init.vim
+" NOTICE: Served best with neovim-0.5
 
 " Some Basics
 " Plugins {{{
@@ -16,12 +17,16 @@ endif
 " Plug.vim {{{
 call plug#begin(stdpath('data') . '/plugged')
 " Completion
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+if has('nvim-0.5')
+  Plug 'hrsh7th/nvim-compe'
+  Plug 'neovim/nvim-lspconfig'
+endif
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 
 " Git
 Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-signify'
+
 
 " Functionality
 Plug 'preservim/nerdcommenter'
@@ -33,11 +38,22 @@ Plug 'lambdalisue/suda.vim'
 Plug 'lambdalisue/pastefix.vim'
 Plug 'dstein64/vim-startuptime'
 
+" Fuzzy finder
+if has('nvim-0.5')
+  Plug 'nvim-lua/popup.nvim'
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-telescope/telescope.nvim'
+endif
+
+
 " Trees
 Plug 'simnalamburt/vim-mundo'
-" Plug 'preservim/nerdtree'
-" Plug 'Xuyuanp/nerdtree-git-plugin'
-
+if has('nvim-0.5')
+  Plug 'kyazdani42/nvim-tree.lua'
+else
+  Plug 'preservim/nerdtree'
+  Plug 'Xuyuanp/nerdtree-git-plugin'
+endif
 
 " Productivity
 Plug 'tricktux/pomodoro.vim'
@@ -67,9 +83,6 @@ Plug 'norcalli/nvim-colorizer.lua'
 Plug 'p00f/nvim-ts-rainbow'
 "Plug 'roman/golden-ratio'
 Plug 'mhinz/vim-startify'
-
-Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
-
 call plug#end()
 " }}}
 
@@ -115,11 +128,18 @@ set cursorline
 set updatetime=200
 set timeoutlen=500
 set noshowmode
+
+set completeopt=menuone,noselect
 " }}}
 
 " Remaps {{{
 let g:mapleader = "\<Space>"
 let g:maplocalleader = '\'
+
+let g:which_key_map = {
+      \ 'y': [ '"+y"', 'Yank to clipboard' ],
+      \ 'p': ['"+p', 'Paste from clipboard'],
+      \}
 " }}}
 "}}}
 
@@ -146,40 +166,45 @@ endfunction "}}}
 " }}}
 
 " Lightline {{{
-let g:lightline = {}
-let g:lightline.colorscheme = 'nord'
-let g:lightline.active = {
-        \   'left': [ [ 'winnr', 'mode', 'paste'],
-        \             [ 'readonly', 'relativepath', 'gitbranch', 'modified'] ],
-        \   'right': [[ 'lineinfo' ],
-        \             [ 'percent' , 'pomodoro'],
-        \             [ 'fileformat', 'fileencoding', 'filetype_icon', 'filetype'] ]
-        \
-        \ }
+" let g:lightline = {}
+" let g:lightline.colorscheme = 'nord'
+" let g:lightline.active = {
+"         \   'left': [ [ 'winnr', 'mode', 'paste'],
+"         \             [ 'readonly', 'relativepath', 'gitbranch', 'modified'] ],
+"         \   'right': [[ 'lineinfo' ],
+"         \             [ 'percent' , 'pomodoro'],
+"         \             [ 'fileformat', 'fileencoding', 'filetype_icon', 'filetype'] ]
+"         \
+"         \ }
+"
+" let g:lightline.inactive = {
+"         \   'left': [ [ 'winnr','mode', 'paste'],
+"         \             [ 'readonly', 'fullpath', 'modified'] ],
+"         \   'right': [[ 'percent', 'fileformat' ],
+"         \             [ 'fileformat', 'fileencoding', 'filetype_icon', 'filetype' ] ]
+"         \
+"         \ }
+"
+" let g:lightline.tab = {
+"       \   'active': [ 'tabnum', 'filename', 'modified'],
+"       \   'inactive': [ 'tabnum', 'filename', 'modified'],
+"       \ }
+"
+" let g:lightline.component_function = {
+"       \   'gitbranch': 'FugitiveHead',
+"       \   'filetype_icon': 'WebDevIconsGetFileTypeSymbol',
+"       \   'pomodoro': 'PomodoroStatus',
+"       \ }
+" let g:lightline.tabline_separator = { 'left': "", 'right': "" }
+" let g:lightline.tabline_subseparator = { 'left': ")", 'right': "(" }
+"
+" let g:lightline.separator = { 'left': "", 'right': "" }
+" let g:lightline.subseparator = { 'left': ")", 'right': "(" }
 
-let g:lightline.inactive = {
-        \   'left': [ [ 'winnr','mode', 'paste'],
-        \             [ 'readonly', 'fullpath', 'modified'] ],
-        \   'right': [[ 'percent', 'fileformat' ],
-        \             [ 'fileformat', 'fileencoding', 'filetype_icon', 'filetype' ] ]
-        \
-        \ }
+" }}}
 
-let g:lightline.tab = {
-      \   'active': [ 'tabnum', 'filename', 'modified'],
-      \   'inactive': [ 'tabnum', 'filename', 'modified'],
-      \ }
+" barbar.nvim {{{
 
-let g:lightline.component_function = {
-      \   'gitbranch': 'FugitiveHead',
-      \   'filetype_icon': 'WebDevIconsGetFileTypeSymbol',
-      \   'pomodoro': 'PomodoroStatus',
-      \ }
-let g:lightline.tabline_separator = { 'left': "", 'right': "" }
-let g:lightline.tabline_subseparator = { 'left': ")", 'right': "(" }
-
-let g:lightline.separator = { 'left': "", 'right': "" }
-let g:lightline.subseparator = { 'left': ")", 'right': "(" }
 
 " }}}
 
@@ -233,7 +258,6 @@ let g:which_key_map = {
       \ 'name': 'Alpha',
       \}
 
-let g:which_key_map["\<space>"] = {'name': 'Beta'}
 let g:which_key_map.e = {'name': '+edit'}
 let g:which_key_map.s = {'name': '+source'}
 " }}}
@@ -264,84 +288,93 @@ require'nvim-treesitter.configs'.setup {
     enable = true,              -- false will disable the whole extension
     disable = {},  -- list of language that will be disabled
   },
-  rainbow = {
-      enable = true,
-    }
 }
 EOF
 
+" }}}
+" LSP {{{
+" LSP Language Servers {{{
+lua << EOF
+require'lspconfig'.pyright.setup{}
+require'lspconfig'.bashls.setup{}
+require'lspconfig'.vimls.setup{}
+require'lspconfig'.rls.setup{}
+EOF
+" }}}
+" Compe {{{
+lua << EOF
+-- Compe setup
+require'compe'.setup {
+  enabled = true;
+  autocomplete = true;
+  debug = false;
+  min_length = 1;
+  preselect = 'enable';
+  throttle_time = 80;
+  source_timeout = 200;
+  incomplete_delay = 400;
+  max_abbr_width = 100;
+  max_kind_width = 100;
+  max_menu_width = 100;
+  documentation = true;
+
+  source = {
+    path = true;
+    nvim_lsp = true;
+  };
+}
+
+local t = function(str)
+  return vim.api.nvim_replace_termcodes(str, true, true, true)
+end
+
+local check_back_space = function()
+    local col = vim.fn.col('.') - 1
+    if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
+        return true
+    else
+        return false
+    end
+end
+
+-- Use (s-)tab to:
+--- move to prev/next item in completion menuone
+--- jump to prev/next snippet's placeholder
+_G.tab_complete = function()
+  if vim.fn.pumvisible() == 1 then
+    return t "<C-n>"
+  elseif check_back_space() then
+    return t "<Tab>"
+  else
+    return vim.fn['compe#complete']()
+  end
+end
+_G.s_tab_complete = function()
+  if vim.fn.pumvisible() == 1 then
+    return t "<C-p>"
+  else
+    return t "<S-Tab>"
+  end
+end
+
+vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+EOF
+
+" }}}
 " }}}
 
 "Productivity
 " Mundo {{{
 let g:mundo_right=1
-nnoremap <leader>u :MundoToggle <CR>
-let g:which_key_map["u"] = 'undotree'
-" }}}
-" CoC.nvim {{{
-" coc-extensions {{{
-let g:coc_global_extensions = [
-      \ 'coc-json',
-      \ 'coc-sh',
-      \ 'coc-pyright',
-      \ 'coc-vimlsp',
-      \ 'coc-lua',
-      \ ]
-" }}}
-
-" Shortcuts that were totally not copy and pasted {{{
-" Use tab for trigger completion with characters ahead and navigate. {{{
-" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-" other plugin before putting this into your config.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-" }}}
-
-" Use <c-space> to trigger completion. {{{
-if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
-else
-  inoremap <silent><expr> <c-@> coc#refresh()
-endif
-" }}}
-
-" Use K to show docs {{{
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  elseif (coc#rpc#ready())
-    call CocActionAsync('doHover')
-  else
-    execute '!' . &keywordprg . " " . expand('<cword>')
-  endif
-endfunction
-" }}}
-
-" Remap <C-f> and <C-b> for scroll float windows/popups. {{{
-if has('nvim-0.4.0') || has('patch-8.2.0750')
-  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
-  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
-  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-endif
-" }}}
-" }}}
+" nnoremap <leader>u :MundoToggle <CR>
+let g:which_key_map["u"] = [ ':MundoToggle', 'Toggle UndoTree' ]
 " }}}
 " Pomodoro.vim {{{
 
-" totally not copy and pasted from sainnhe's dotfiles (https://github.com/sainnhe/dotfiles)
+" totally not copy and pasted from sainnhe's dotfiles (https://github.com/sainnhe/dotfiles) {{{
 let g:Pomodoro_Status = 0
 function! Toggle_Pomodoro()
   if g:Pomodoro_Status == 0
@@ -352,7 +385,7 @@ function! Toggle_Pomodoro()
     execute 'PomodoroStop'
   endif
 endfunction
-" end totally not copy and pasted
+" end totally not copy and pasted }}}
 
 let g:pomodoro_time_work = 25
 let g:pomodoro_time_slack = 5 
@@ -362,8 +395,7 @@ let g:pomodoro_log_file = "/tmp/pomodoro.log"
 
 let g:pomodoro_notification_cmd = "notify-send --icon=neovim 'Pomodoro Timer' 'Your time is up!' --urgency=critical"
 
-nnoremap <silent> <leader>P :<c-u>call Toggle_Pomodoro()<cr>
-let g:which_key_map["P"] = 'Toggle Pomodoro'
+let g:which_key_map = {'P': [ ':<c-u>call Toggle_Pomodoro()','Toggle Pomodoro' ] }
 
 " }}}
 " NERDCommenter {{{
@@ -402,18 +434,22 @@ let g:which_key_map["c"] = { 'name': '+commenting',
       \}
 
 " }}}
-" NERDTree {{{
-nnoremap <silent><leader>f :<c-u>NERDTreeToggle <cr>
-let g:which_key_map["f"] = 'Toggle File Explorer'
-" }}}
 " suda.vim {{{
 let g:suda_smart_edit=1
 " }}}
-
+" Fuzzy Finder {{{
+" nnoremap <leader>s <cmd>Telescope find_files<cr>
+" let g:which_key_map.s = "Fuzzy Finder"
+let g:which_key_map['s'] = [':Telescope find_files', 'Fuzzy search files']
+" }}}
+" Nvim-tree.lua {{{
+let g:which_key_map['f'] = [ ':NvimTreeToggle', 'Toggle File Explorer' ]
+" }}}
 " Other
 " VIMRC {{{
-nnoremap <silent><leader>ev <C-u>:vsp ~/.config/nvim/init.vim <CR>
-let g:which_key_map["e"]["v"] = 'VimRC'
+let g:which_key_map["e"]= {'name': '+edit',
+      \ "v": [ ':vsp ~/.config/nvim/init.vim', 'Edit VimRC in VSplit' ], 
+      \ }
 " }}}
 
 "vim:foldmethod=marker
