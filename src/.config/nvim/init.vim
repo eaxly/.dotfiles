@@ -25,18 +25,19 @@ Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 
 " Git
 Plug 'tpope/vim-fugitive'
-Plug 'mhinz/vim-signify'
-
 
 " Functionality
 Plug 'preservim/nerdcommenter'
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-endwise'
+
 Plug 'lambdalisue/vim-manpager'
 Plug 'lambdalisue/suda.vim'
 Plug 'lambdalisue/pastefix.vim'
-Plug 'dstein64/vim-startuptime'
+
+Plug 'dstein64/vim-startuptime', {'on': 'StartupTime'}
+Plug 'lukas-reineke/indent-blankline.nvim', {'branch': 'lua'}
 
 " Fuzzy finder
 if has('nvim-0.5')
@@ -44,7 +45,6 @@ if has('nvim-0.5')
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
 endif
-
 
 " Trees
 Plug 'simnalamburt/vim-mundo'
@@ -60,11 +60,15 @@ Plug 'tricktux/pomodoro.vim'
 Plug 'itchyny/calendar.vim'
 
 " UI
-" Plug 'arcticicestudio/nord-vim'
-Plug 'shaunsingh/nord.nvim'
+if has('nvim-0.5')
+  Plug 'shaunsingh/nord.nvim'
+  Plug 'shaunsingh/moonlight.nvim'
+else
+  Plug 'arcticicestudio/nord-vim'
+endif
 
+Plug 'Pocco81/TrueZen.nvim'
 Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
 
 if has('nvim-0.5')
   Plug 'hoob3rt/lualine.nvim'
@@ -74,13 +78,12 @@ else
   Plug 'itchyny/lightline.vim'
 endif
 
-
 Plug 'liuchengxu/vim-which-key'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'mhinz/vim-startify'
+
 call plug#end()
 " }}}
 
@@ -159,11 +162,27 @@ let g:which_key_map["C"] = { 'name': '+clipboard',
 " }}}
 " Colors {{{
 set termguicolors
-let g:nord_contrast = 1
-let g:nord_borders = 0
-let g:nord_disable_background = 0
-let g:nord_cursorline_transparent = 1
-colorscheme nord
+
+" Nord Theme {{{
+let g:nord_contrast = v:true
+let g:nord_borders = v:true
+let g:nord_disable_background = v:true
+let g:nord_cursorline_transparent = v:true
+" }}}
+
+" Moonlight {{{
+let g:moonlight_italic_comments=1
+let g:moonlight_italic_keywords=1
+let g:moonlight_italic_functions=1
+let g:moonlight_italic_variables=1
+let g:moonlight_borders=1
+" }}}
+
+if has('nvim-0.5')
+  colorscheme moonlight
+else
+  colorscheme nord
+endif
 " lua require('nord').set()
 " }}}
 " Statuslines/Tablines {{{
@@ -179,44 +198,45 @@ endfunction "}}}
 " }}}
 
 " Lightline {{{
-" let g:lightline = {}
-" let g:lightline.colorscheme = 'nord'
-" let g:lightline.active = {
-"         \   'left': [ [ 'winnr', 'mode', 'paste'],
-"         \             [ 'readonly', 'relativepath', 'gitbranch', 'modified'] ],
-"         \   'right': [[ 'lineinfo' ],
-"         \             [ 'percent' , 'pomodoro'],
-"         \             [ 'fileformat', 'fileencoding', 'filetype_icon', 'filetype'] ]
-"         \
-"         \ }
-"
-" let g:lightline.inactive = {
-"         \   'left': [ [ 'winnr','mode', 'paste'],
-"         \             [ 'readonly', 'fullpath', 'modified'] ],
-"         \   'right': [[ 'percent', 'fileformat' ],
-"         \             [ 'fileformat', 'fileencoding', 'filetype_icon', 'filetype' ] ]
-"         \
-"         \ }
-"
-" let g:lightline.tab = {
-"       \   'active': [ 'tabnum', 'filename', 'modified'],
-"       \   'inactive': [ 'tabnum', 'filename', 'modified'],
-"       \ }
-"
-" let g:lightline.component_function = {
-"       \   'gitbranch': 'FugitiveHead',
-"       \   'filetype_icon': 'WebDevIconsGetFileTypeSymbol',
-"       \   'pomodoro': 'PomodoroStatus',
-"       \ }
-" let g:lightline.tabline_separator = { 'left': "", 'right': "" }
-" let g:lightline.tabline_subseparator = { 'left': ")", 'right': "(" }
-"
-" let g:lightline.separator = { 'left': "", 'right': "" }
-" let g:lightline.subseparator = { 'left': ")", 'right': "(" }
+let g:lightline = {}
+let g:lightline.colorscheme = 'nord'
+let g:lightline.active = {
+        \   'left': [ [ 'winnr', 'mode', 'paste'],
+        \             [ 'readonly', 'relativepath', 'gitbranch', 'modified'] ],
+        \   'right': [[ 'lineinfo' ],
+        \             [ 'percent' , 'pomodoro'],
+        \             [ 'fileformat', 'fileencoding', 'filetype_icon', 'filetype'] ]
+        \
+        \ }
+
+let g:lightline.inactive = {
+        \   'left': [ [ 'winnr','mode', 'paste'],
+        \             [ 'readonly', 'fullpath', 'modified'] ],
+        \   'right': [[ 'percent', 'fileformat' ],
+        \             [ 'fileformat', 'fileencoding', 'filetype_icon', 'filetype' ] ]
+        \
+        \ }
+
+let g:lightline.tab = {
+      \   'active': [ 'tabnum', 'filename', 'modified'],
+      \   'inactive': [ 'tabnum', 'filename', 'modified'],
+      \ }
+
+let g:lightline.component_function = {
+      \   'gitbranch': 'FugitiveHead',
+      \   'filetype_icon': 'WebDevIconsGetFileTypeSymbol',
+      \   'pomodoro': 'PomodoroStatus',
+      \ }
+let g:lightline.tabline_separator = { 'left': "", 'right': "" }
+let g:lightline.tabline_subseparator = { 'left': ")", 'right': "(" }
+
+let g:lightline.separator = { 'left': "", 'right': "" }
+let g:lightline.subseparator = { 'left': ")", 'right': "(" }
 
 " }}}
 
 " barbar.nvim {{{
+" Remaps
 let g:which_key_map["a"] = {
       \ 'name': '+tabs/buffers',
       \ ',': [':BufferPrevious', 'Go to Previous Buffer'],
@@ -234,7 +254,14 @@ let g:which_key_map["a"] = {
       \ '0': [':BufferLast', 'Go to last buffer'],
       \
       \ 'c': [':BufferClose', 'Close Buffer'],
+      \ 'C': [':BufferClose!', 'Close Buffer'],
       \}
+" 
+let bufferline = get(g:, 'bufferline', {})
+let bufferline.clickable = v:false
+let bufferline.closable = v:false
+let bufferline.letters =
+  \ 'asdfjklöghnmxcvbziowerutyqpASDFJKLÖGHNMXCVBZIOWERUTYQP'
 " }}}
 
 " lualine.nvim {{{
@@ -242,7 +269,7 @@ lua << EOL
 config = {
   
   options = {
-    theme = 'nord',
+    theme = 'moonlight',
     section_separators = {'', ''},
     component_separators = {'', ''}
     },
@@ -381,8 +408,24 @@ EOF
 
 " }}}
 " }}}
+" Indent blankline{{{
+let g:indent_blankline_use_treesitter = v:true
 
-"Productivity
+let g:indent_blankline_bufname_exclude = ['README.md', 'help', 'startify', 'NvimTree' ]
+" }}}
+" Z E N (TrueZen.nvim) {{{
+lua << EOF
+local true_zen = require("true-zen")
+EOF
+let g:which_key_map['z'] = {
+  \ 'name': '+zen',
+  \ 'a': [ ':TZAtaraxis', 'Enable Zen Ataraxis mode' ],
+  \ 'f': [ ':TZFocus', 'Enable Zen Focus mode'],
+  \ 'm': [ ':TZMinimalist', 'Enable Zen Minimalist mode']
+  \}
+" }}}
+
+" Productivity
 " Mundo {{{
 let g:mundo_right=1
 let g:which_key_map[ "u" ] = [ ':MundoToggle', 'Toggle UndoTree' ]

@@ -4,5 +4,13 @@
     "editor.insertSpaces": false,
     "editor.lineNumbers": "on",
     "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
-    "editor.wordWrap": "off"
+    "editor.wordWrap": "off",
+    "workbench.colorTheme": "Moonlight II Italic",
+    "window.menuBarVisibility": "compact",
+    "vscode_custom_css.imports": [
+    "file:///home/axolotl/.config/Code/synthwave84.css",
+    ],
+    "editor.fontFamily": "Iosevka Nerd Font",
+    "editor.fontLigatures": true,
+    "terminal.external.linuxExec": "gnome-terminal",
 }
