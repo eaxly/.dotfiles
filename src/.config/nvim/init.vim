@@ -80,7 +80,6 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'norcalli/nvim-colorizer.lua'
-"Plug 'roman/golden-ratio'
 Plug 'mhinz/vim-startify'
 call plug#end()
 " }}}
@@ -135,14 +134,29 @@ set completeopt=menuone,noselect
 let g:mapleader = "\<Space>"
 let g:maplocalleader = '\'
 
-let g:which_key_map = {
-      \ 'y': [ '"+y"', 'Yank to clipboard' ],
-      \ 'p': ['"+p', 'Paste from clipboard'],
-      \}
 " }}}
 "}}}
 
 " User Iterface
+" vim-which-key {{{
+call which_key#register('<Space>', "g:which_key_map")
+
+nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
+vnoremap <silent> <leader> :<c-u>WhichKeyVisual '<Space>'<CR>
+
+let g:which_key_use_floating_win = 1
+let g:which_key_map = {
+      \ 'name': 'Alpha',
+      \}
+
+let g:which_key_map["e"] = {'name': '+edit'}
+let g:which_key_map["s"] = {'name': '+source'}
+
+let g:which_key_map["C"] = { 'name': '+clipboard',
+      \ 'y': [ '"+y"', 'Yank to clipboard' ],
+      \ 'p': ['"+p', 'Paste from clipboard'],
+      \}
+" }}}
 " Colors {{{
 set termguicolors
 let g:nord_contrast = 1
@@ -203,8 +217,24 @@ endfunction "}}}
 " }}}
 
 " barbar.nvim {{{
-
-
+let g:which_key_map["a"] = {
+      \ 'name': '+tabs/buffers',
+      \ ',': [':BufferPrevious', 'Go to Previous Buffer'],
+      \ '.': [':BufferNext', 'Go to Next Buffer'],
+      \
+      \ '1': [':BufferGoto 1', 'Go to buffer 1'],
+      \ '2': [':BufferGoto 2', 'Go to buffer 2'],
+      \ '3': [':BufferGoto 3', 'Go to buffer 3'],
+      \ '4': [':BufferGoto 4', 'Go to buffer 4'],
+      \ '5': [':BufferGoto 5', 'Go to buffer 5'],
+      \ '6': [':BufferGoto 6', 'Go to buffer 6'],
+      \ '7': [':BufferGoto 7', 'Go to buffer 7'],
+      \ '8': [':BufferGoto 8', 'Go to buffer 8'],
+      \ '9': [':BufferGoto 9', 'Go to buffer 9'],
+      \ '0': [':BufferLast', 'Go to last buffer'],
+      \
+      \ 'c': [':BufferClose', 'Close Buffer'],
+      \}
 " }}}
 
 " lualine.nvim {{{
@@ -246,20 +276,6 @@ EOL
 " NVIM-Colorizer {{{
 lua require'colorizer'.setup()
 " }}}
-" vim-which-key {{{
-call which_key#register('<Space>', "g:which_key_map")
-
-nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
-vnoremap <silent> <leader> :<c-u>WhichKeyVisual '<Space>'<CR>
-
-let g:which_key_use_floating_win = 1
-let g:which_key_map = {
-      \ 'name': 'Alpha',
-      \}
-
-let g:which_key_map.e = {'name': '+edit'}
-let g:which_key_map.s = {'name': '+source'}
-" }}}
 " vim-startify {{{
 " vim_header {{{
 
@@ -272,6 +288,7 @@ let g:vim_header = [
       \]
 
 " }}}
+
 let g:startify_shoutout=["","","made with \uf004  on \ue712  by @ExtinctAxolotl"]
 
 let g:startify_custom_header =
@@ -368,8 +385,7 @@ EOF
 "Productivity
 " Mundo {{{
 let g:mundo_right=1
-" nnoremap <leader>u :MundoToggle <CR>
-let g:which_key_map["u"] = [ ':MundoToggle', 'Toggle UndoTree' ]
+let g:which_key_map[ "u" ] = [ ':MundoToggle', 'Toggle UndoTree' ]
 " }}}
 " Pomodoro.vim {{{
 
@@ -394,7 +410,7 @@ let g:pomodoro_log_file = "/tmp/pomodoro.log"
 
 let g:pomodoro_notification_cmd = "notify-send --icon=neovim 'Pomodoro Timer' 'Your time is up!' --urgency=critical"
 
-let g:which_key_map = {'P': [ ':<c-u>call Toggle_Pomodoro()','Toggle Pomodoro' ] }
+let g:which_key_map['P'] =  [ ':call Toggle_Pomodoro()','Toggle Pomodoro' ]
 
 " }}}
 " NERDCommenter {{{
@@ -437,13 +453,12 @@ let g:which_key_map["c"] = { 'name': '+commenting',
 let g:suda_smart_edit=1
 " }}}
 " Fuzzy Finder {{{
-" nnoremap <leader>s <cmd>Telescope find_files<cr>
-" let g:which_key_map.s = "Fuzzy Finder"
 let g:which_key_map['s'] = [':Telescope find_files', 'Fuzzy search files']
 " }}}
 " Nvim-tree.lua {{{
 let g:which_key_map['f'] = [ ':NvimTreeToggle', 'Toggle File Explorer' ]
 " }}}
+
 " Other
 " VIMRC {{{
 let g:which_key_map["e"]= {'name': '+edit',

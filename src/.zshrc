@@ -133,6 +133,8 @@ eval $(thefuck --alias)
 # python
 alias py3="python3"
 
+# p
+
 # }}}
 
 # Startup {{{
