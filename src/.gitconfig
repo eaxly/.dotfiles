@@ -1,3 +1,5 @@
 [user]
 	name = Samuel K.
 	email = mrsosaki@posteo.net
+[init]
+	defaultBranch = main

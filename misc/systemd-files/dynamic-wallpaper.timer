@@ -1,0 +1,10 @@
+[Unit]
+Description=Dynamic Wallpaper timer
+Target=dynamic-wallpaper.service
+
+[Timer]
+OnCalendar=*-*-* *:00:00
+Persisten=true
+
+[Install]
+WantedBy=timers.target

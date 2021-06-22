@@ -5,6 +5,7 @@
 " FILE: ~/.config/nvim/init.vim
 " NOTICE: Served best with neovim-0.5
 
+
 " Some Basics
 " Plugins {{{
 " Check if plug.vim is installed {{{
@@ -24,7 +25,8 @@ endif
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 
 " Git
-Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-fugitive'
+Plug 'TimUntersberger/neogit'
 
 " Functionality
 Plug 'preservim/nerdcommenter'
@@ -38,6 +40,8 @@ Plug 'lambdalisue/pastefix.vim'
 
 Plug 'dstein64/vim-startuptime', {'on': 'StartupTime'}
 Plug 'lukas-reineke/indent-blankline.nvim', {'branch': 'lua'}
+
+Plug 'andweeb/presence.nvim'
 
 " Fuzzy finder
 if has('nvim-0.5')
@@ -60,12 +64,10 @@ Plug 'tricktux/pomodoro.vim'
 Plug 'itchyny/calendar.vim'
 
 " UI
-if has('nvim-0.5')
-  Plug 'shaunsingh/nord.nvim'
-  Plug 'shaunsingh/moonlight.nvim'
-else
-  Plug 'arcticicestudio/nord-vim'
-endif
+Plug 'sainnhe/gruvbox-material'
+" Plug 'shaunsingh/nord.nvim'
+" Plug 'shaunsingh/moonlight.nvim'
+" Plug 'arcticicestudio/nord-vim'
 
 Plug 'Pocco81/TrueZen.nvim'
 Plug 'junegunn/goyo.vim'
@@ -82,6 +84,7 @@ Plug 'liuchengxu/vim-which-key'
 Plug 'ryanoasis/vim-devicons'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'norcalli/nvim-colorizer.lua'
+" Plug 'RRethy/vim-hexokinase'
 Plug 'mhinz/vim-startify'
 
 call plug#end()
@@ -103,7 +106,7 @@ set noerrorbells
 set hidden
 
 " Tabs
-set tabstop=2 softtabstop=2 shiftwidth=2 expandtab smartindent
+set tabstop=2 softtabstop=2 shiftwidth=2 expandtab smartindent autoindent
 
 " Numbers
 set relativenumber number
@@ -113,6 +116,7 @@ set nowrap
 set ignorecase
 set smartcase
 filetype plugin on
+set signcolumn=yes
 
 set noswapfile
 set nobackup
@@ -123,7 +127,6 @@ set incsearch
 set scrolloff=10
 
 set foldmethod=marker
-set signcolumn=yes
 set cursorline
 
 set updatetime=200
@@ -178,23 +181,26 @@ let g:moonlight_italic_variables=1
 let g:moonlight_borders=1
 " }}}
 
-if has('nvim-0.5')
-  colorscheme moonlight
-else
-  colorscheme nord
-endif
-" lua require('nord').set()
+" Gruvbox Material {{{
+let g:gruvbox_material_background = 'hard'
+let g:gruvbox_material_enable_bold = 1
+let g:gruvbox_material_enable_italic = 1
+let g:gruvbox_material_visual = 'green background'
+let g:gruvbox_material_diagnostic_text_highlight = 1
+" }}}
+
+colorscheme gruvbox-material
 " }}}
 " Statuslines/Tablines {{{
 set laststatus=2 " Recommended Settings
 " functions {{{
-function! PomodoroStatus() abort "{{{
+function! PomodoroStatus() abort " {{{
   if pomo#remaining_time() ==# '0'
     return " PoDea"
   else
     return " ".pomo#remaining_time()
   endif
-endfunction "}}}
+endfunction }}}
 " }}}
 
 " Lightline {{{
@@ -256,7 +262,7 @@ let g:which_key_map["a"] = {
       \ 'c': [':BufferClose', 'Close Buffer'],
       \ 'C': [':BufferClose!', 'Close Buffer'],
       \}
-" 
+
 let bufferline = get(g:, 'bufferline', {})
 let bufferline.clickable = v:false
 let bufferline.closable = v:false
@@ -267,13 +273,13 @@ let bufferline.letters =
 " lualine.nvim {{{
 lua << EOL
 config = {
-  
+
   options = {
-    theme = 'moonlight',
+    theme = 'gruvbox',
     section_separators = {'', ''},
     component_separators = {'', ''}
     },
-  
+
   sections = {
       lualine_a = {'winnr','mode'},
       lualine_b = {'branch'},
@@ -282,7 +288,7 @@ config = {
       lualine_y = {'progress', 'PomodoroStatus'},
       lualine_z = {'location'}
     },
- 
+
   inactive_sections = {
     lualine_a = {'winnr'},
     lualine_b = {'branch'},
@@ -320,19 +326,6 @@ let g:startify_shoutout=["","","made with \uf004  on \ue712  by @ExtinctAxolotl"
 
 let g:startify_custom_header =
       \ startify#center( startify#pad(g:vim_header)) + startify#center(startify#pad(g:startify_shoutout))
-
-" }}}
-" Treesitter {{{
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-  ignore_install = {}, -- List of parsers to ignore installing
-  highlight = {
-    enable = true,              -- false will disable the whole extension
-    disable = {},  -- list of language that will be disabled
-  },
-}
-EOF
 
 " }}}
 " LSP {{{
@@ -492,17 +485,23 @@ let g:which_key_map["c"] = { 'name': '+commenting',
       \}
 
 " }}}
-" suda.vim {{{
-let g:suda_smart_edit=1
-" }}}
 " Fuzzy Finder {{{
 let g:which_key_map['s'] = [':Telescope find_files', 'Fuzzy search files']
 " }}}
 " Nvim-tree.lua {{{
 let g:which_key_map['f'] = [ ':NvimTreeToggle', 'Toggle File Explorer' ]
 " }}}
+" NeoGit {{{
+lua require('neogit').setup()
+" }}}
 
 " Other
+" presence.nvim {{{
+lua presence_config = {
+      \ 
+      \}
+lua require("presence"):setup(presence_config)
+" }}}
 " VIMRC {{{
 let g:which_key_map["e"]= {'name': '+edit',
       \ "v": [ ':vsp ~/.config/nvim/init.vim', 'Edit VimRC in VSplit' ], 
