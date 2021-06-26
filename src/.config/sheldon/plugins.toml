@@ -44,6 +44,9 @@ github = "zsh-users/zsh-autosuggestions"
 
 [plugins.you-should-use]
 github = "MichaelAquilina/zsh-you-should-use"
+
+[plugins.rust-completions]
+github = "ryutok/rust-zsh-completions"
 # For example:
 #
 # [plugins.base16]

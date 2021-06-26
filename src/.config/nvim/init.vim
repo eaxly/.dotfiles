@@ -64,10 +64,11 @@ Plug 'tricktux/pomodoro.vim'
 Plug 'itchyny/calendar.vim'
 
 " UI
-Plug 'sainnhe/gruvbox-material'
+" Plug 'sainnhe/gruvbox-material'
 " Plug 'shaunsingh/nord.nvim'
 " Plug 'shaunsingh/moonlight.nvim'
 " Plug 'arcticicestudio/nord-vim'
+Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 
 Plug 'Pocco81/TrueZen.nvim'
 Plug 'junegunn/goyo.vim'
@@ -139,8 +140,9 @@ set completeopt=menuone,noselect
 " Remaps {{{
 let g:mapleader = "\<Space>"
 let g:maplocalleader = '\'
-
+nnoremap <silent><C-s> :write <cr>
 " }}}
+
 "}}}
 
 " User Iterface
@@ -189,7 +191,12 @@ let g:gruvbox_material_visual = 'green background'
 let g:gruvbox_material_diagnostic_text_highlight = 1
 " }}}
 
-colorscheme gruvbox-material
+" Material Theme {{{
+let g:material_theme_style = 'ocean'
+let g:material_theme_italics = 1
+" }}}
+
+colorscheme material
 " }}}
 " Statuslines/Tablines {{{
 set laststatus=2 " Recommended Settings
@@ -275,7 +282,7 @@ lua << EOL
 config = {
 
   options = {
-    theme = 'gruvbox',
+    theme = 'material',
     section_separators = {'', ''},
     component_separators = {'', ''}
     },
@@ -404,7 +411,7 @@ EOF
 " Indent blankline{{{
 let g:indent_blankline_use_treesitter = v:true
 
-let g:indent_blankline_bufname_exclude = ['README.md', 'help', 'startify', 'NvimTree' ]
+let g:indent_blankline_bufname_exclude = ['README.md', 'help', 'startify', 'NvimTree', 'calendar' ]
 " }}}
 " Z E N (TrueZen.nvim) {{{
 lua << EOF

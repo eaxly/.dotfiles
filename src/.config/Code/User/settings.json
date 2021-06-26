@@ -26,8 +26,7 @@
     "gruvboxMaterial.lightPalette": "mix",
     "gruvboxMaterial.lightSelection": "green",
     "gruvboxMaterial.lightWorkbench": "flat",
-    "editor.detectIndentation": false,
-    "editor.tabSize": 2,
+   "editor.detectIndentation": false,
     "gitlens.defaultDateFormat": "Do, MMMM, YYYY; h:m",
     "gitlens.defaultDateShortFormat": "D, MM, YYYY; h:m",
     "gitlens.defaultTimeFormat": "h:m",
@@ -36,5 +35,27 @@
     "vim.enableNeovim": true,
     "terminal.integrated.fontFamily": "BlexMono Nerd Font",
     "explorer.confirmDelete": false,
-    "workbench.colorTheme": "Gruvbox Material Dark",
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "materialTheme.accent": "Tomato",
+    "material-icon-theme.hidesExplorerArrows": true,
+    "material-icon-theme.showUpdateMessage": true,
+    "material-icon-theme.activeIconPack": "react_redux",
+    "explorer.decorations.badges": false,
+    "projectManager.git.baseFolders": [
+        "/home/axolotl/Projects"
+    ],
+    "workbench.colorTheme": "Material Theme Ocean",
+    "editor.fontSize": 13,
+    "githubIssues.queries": [
+        {
+            "label": "My Issues",
+            "query": "default"
+        },
+        {
+            "label": "Created Issues",
+            "query": "author:${user} state:open repo:${owner}/${repository} sort:created-desc"
+        }
+    ],
+    "editor.wrappingIndent": "indent",
 }

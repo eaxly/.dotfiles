@@ -27,6 +27,9 @@ fi
 if [ ! $(echo $PATH | grep "$HOME/.emacs.d/bin") ] && [ -d ~/.emacs.d/bin ] ; then
   export PATH=$PATH:~/.emacs.d/bin
 fi
+if [ ! $(echo $PATH | grep "$HOME/.cargo/bin") ] && [ -d ~/.cargo/bin ] ; then
+  export PATH=$PATH:~/.cargo/bin
+fi
 # }}}
 
 # Initializations {{{
@@ -41,9 +44,9 @@ eval "$(sheldon source)"
 
 # Plugins Config {{{
 # zsh-you-should-use
-export YSU_MESSAGE_POSITION="after"
+export YSU_MESSAGE_POSITION="before"
 export YSU_MODE=ALL
-export YSU_MESSAGE_FORMAT=$(tput bold)"$(tput setaf 1)You stoopid forgot that there is an $(tput setaf 3)%alias_type$(tput setaf 9) for $(tput setaf 3)%command$(tput setaf 9). It is $(tput setaf 3)%alias$(tput setaf 9)"
+export YSU_MESSAGE_FORMAT=$(tput bold)"$(tput setaf 1)You stoopid forgot that there is an $(tput setaf 3)%alias_type$(tput setaf 9) for $(tput setaf 3)%command$(tput setaf 9). It is $(tput setaf 3)%alias$(tput setaf 9)$(tput sgr0)"
 
 # zsh auto ls functions
 auto-ls-custom_function() {
@@ -81,13 +84,20 @@ dots() {
 }
 
 mackse() {
-  # mackup search with grep
   mackup list | grep "$@"
 
 }
 
 gogh () {
   bash -c  "$(wget -qO- https://git.io/vQgMr)" 
+}
+
+docx2md() {
+  if command -v pandoc &> /dev/null; then
+    pandoc --from=docx --to=gfm $1 --output=$2
+  else
+    echo -e "Pandoc is not installed!\nPlease install it with your package manager! :D"
+  fi
 }
 # }}}
 
@@ -127,6 +137,7 @@ alias vv="vim"
 # mkdir cp etc
 alias md="mkdir -p"
 alias cp="cp -r"
+
 # alias rm="echo 'Use something else!'"
 
 # theF*ck
@@ -142,6 +153,12 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 
+# paru
+alias pain="paru -S"
+alias pase="paru -Ss"
+alias painfo="paru -Si"
+alias pare="paru -R"
+alias parem="paru -Rns"
 # }}}
 
 # Startup {{{
