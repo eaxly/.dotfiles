@@ -1,0 +1,37 @@
+{
+    "com.github.adamtillou.ulauncher-aurman-plugin": {
+        "id": "com.github.adamtillou.ulauncher-aurman-plugin",
+        "url": "https://github.com/AdamTillou/ulauncher-aurman-plugin",
+        "updated_at": "2021-07-02T10:51:51.574697",
+        "last_commit": "f1873c7c5dcad002ca0a3f0e5fb9f5b3b8a88dbe",
+        "last_commit_time": "2020-07-17T03:09:31"
+    },
+    "com.github.noam09.ulauncher-gnome-control-center": {
+        "id": "com.github.noam09.ulauncher-gnome-control-center",
+        "url": "https://github.com/noam09/ulauncher-gnome-control-center",
+        "updated_at": "2021-07-02T10:51:55.938200",
+        "last_commit": "ff8b0875ed5d78dcc1db5f638b201a460cc6d7f7",
+        "last_commit_time": "2020-10-06T08:36:54"
+    },
+    "com.github.kleber-swf.ulauncher-toggle-dnd": {
+        "id": "com.github.kleber-swf.ulauncher-toggle-dnd",
+        "url": "https://github.com/kleber-swf/ulauncher-toggle-dnd",
+        "updated_at": "2021-07-02T10:52:02.940768",
+        "last_commit": "13ab598869f5490f3b2a6ddeb93cb9eb8e88a1a1",
+        "last_commit_time": "2020-09-25T00:34:56"
+    },
+    "com.github.doekeb.ulauncher-gnome-calculator": {
+        "id": "com.github.doekeb.ulauncher-gnome-calculator",
+        "url": "https://github.com/Doekeb/ulauncher-gnome-calculator",
+        "updated_at": "2021-07-02T10:52:19.988165",
+        "last_commit": "f1efd61c6ecd1160b007bca1f90511a346378e64",
+        "last_commit_time": "2021-05-03T15:30:01"
+    },
+    "com.github.melianmiko.ulauncher-bluetoothd": {
+        "id": "com.github.melianmiko.ulauncher-bluetoothd",
+        "url": "https://github.com/melianmiko/ulauncher-bluetoothd",
+        "updated_at": "2021-07-02T10:52:39.721673",
+        "last_commit": "88aa831d9be7506bede45b83200866ef93a3b0db",
+        "last_commit_time": "2021-06-09T05:12:44"
+    }
+}

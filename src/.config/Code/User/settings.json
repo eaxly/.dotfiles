@@ -9,10 +9,9 @@
     "terminal.external.linuxExec": "gnome-terminal",
     "window.title": "(∩•̀ 👅•́ )⊃━ ${activeEditorShort} ${dirty}",
     "workbench.editorAssociations": {
-        "*.ipynb": "jupyter.notebook.ipynb"
+        "*.ipynb": "jupyter-notebook"
     },
     "editor.cursorBlinking": "expand",
-    "editor.cursorSmoothCaretAnimation": true,
     "workbench.iconTheme": "material-icon-theme",
     "gruvboxMaterial.darkContrast": "hard",
     "gruvboxMaterial.darkCursor": "green",
@@ -37,7 +36,6 @@
     "explorer.confirmDelete": false,
     "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "materialTheme.accent": "Tomato",
     "material-icon-theme.hidesExplorerArrows": true,
     "material-icon-theme.showUpdateMessage": true,
     "material-icon-theme.activeIconPack": "react_redux",
@@ -45,9 +43,9 @@
     "projectManager.git.baseFolders": [
         "/home/axolotl/Projects"
     ],
-    "workbench.colorTheme": "Material Theme Ocean",
     "editor.fontSize": 13,
     "githubIssues.queries": [
+    
         {
             "label": "My Issues",
             "query": "default"
@@ -58,4 +56,92 @@
         }
     ],
     "editor.wrappingIndent": "indent",
+    "editor.suggest.showWords": false,
+    "editor.wordBasedSuggestions": false,
+    "editor.smoothScrolling": true,
+    "editor.cursorSmoothCaretAnimation": true,
+    "files.autoSave": "afterDelay",
+    "better-comments.highlightPlainText": true,
+    "better-comments.tags": [
+    
+        {
+            "tag": "!",
+            "color": "#FF2D00",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "?",
+            "color": "#3498DB",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "//",
+            "color": "#474747",
+            "strikethrough": true,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "todo",
+            "color": "#FF8C00",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "*",
+            "color": "#98C379",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "note",
+            "color": "#98C379",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        }
+    ],
+    "workbench.productIconTheme": "material-product-icons",
+    "workbench.colorTheme": "Material Theme Ocean",
+    "workbench.colorCustomizations": {},
+    "workbench.preferredDarkColorTheme": "Material Theme Ocean",
+    "workbench.preferredLightColorTheme": "Soft Material",
+    "materialTheme.accent": "Indigo",
+    "terminal.integrated.fontSize": 13,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
+    "terminal.integrated.defaultProfile.linux": "zsh",
+    "python.languageServer": "Pylance",
+    "diffEditor.ignoreTrimWhitespace": false,
+    // "workbench.colorCustomizations": {
+
+    //     "[Material Theme Ocean]": {
+    //         "titleBar.border": "#0E111A",
+    //         "titleBar.activeBackground": "#0E111A",
+    //         "titleBar.activeForeground": "#ededed",
+    //         "titleBar.inactiveBackground": "#0E111A",
+    //         "titleBar.inactiveForeground": "#ededed",
+    //     }
+    // }
 }

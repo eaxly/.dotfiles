@@ -51,11 +51,10 @@ export YSU_MESSAGE_FORMAT=$(tput bold)"$(tput setaf 1)You stoopid forgot that th
 # zsh auto ls functions
 auto-ls-custom_function() {
   if [ ! -d .git ]; then
-    exa --icons --group-directories-first --long
+    exa --icons --group-directories-first --long --header
   else
-    onefetch
     git status
-    exa --icons --group-directories-first --long --all --git
+    exa --icons --group-directories-first --long --all --git --header
   fi
 }
 
@@ -104,7 +103,7 @@ docx2md() {
 # Variables {{{
 # Editors
 export EDITOR=nvim
-export SUDO_EDITOR=nvim
+export SUDO_EDITOR=$EDITOR
 
 # the manpager
 export PAGER="nvim -c MANPAGER -"
@@ -125,10 +124,10 @@ alias kittyconf="$EDITOR ~/.config/kitty/kitty.conf"
 alias herbstconf="$EDITOR ~/.config/herbstluftwm/autostart"
 
 # ls
-alias ls="exa --icons --group-directories-first --long --git"
-alias lT="exa --icons --group-directories-first --tree --git"
-alias ll="exa --icons --group-directories-first --long --all --git"
-alias la="exa --icons --group-directories-first --long --all --git"
+alias ls="exa --icons --group-directories-first --long --git --header"
+alias lT="exa --icons --group-directories-first --tree --git --header"
+alias ll="exa --icons --group-directories-first --long --all --git --header"
+alias la="exa --icons --group-directories-first --long --all --git --header"
 
 # nvim
 alias v="nvim"
@@ -159,6 +158,12 @@ alias pase="paru -Ss"
 alias painfo="paru -Si"
 alias pare="paru -R"
 alias parem="paru -Rns"
+# cargo
+alias cr="cargo"
+
+# xinput
+alias disintkey="xinput disable AT\ Translated\ Set\ 2\ keyboard"
+alias enintkey="xinput enable AT\ Translated\ Set\ 2\ keyboard"
 # }}}
 
 # Startup {{{

@@ -3,8 +3,7 @@
 " ░▀▀░░▀▀▀░░▀░░▀░░░▀▀▀░▀▀▀░▀▀▀░▀▀▀
 
 " FILE: ~/.config/nvim/init.vim
-" NOTICE: Served best with neovim-0.5
-
+" NOTICE: Build with nvim-0.5 in mind:write 
 
 " Some Basics
 " Plugins {{{
@@ -18,10 +17,12 @@ endif
 " Plug.vim {{{
 call plug#begin(stdpath('data') . '/plugged')
 " Completion
-if has('nvim-0.5')
-  Plug 'hrsh7th/nvim-compe'
-  Plug 'neovim/nvim-lspconfig'
-endif
+" if has('nvim-0.5')
+"   Plug 'hrsh7th/nvim-compe'
+"   Plug 'neovim/nvim-lspconfig'
+" endif
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 
 " Git
@@ -117,7 +118,13 @@ set nowrap
 set ignorecase
 set smartcase
 filetype plugin on
-set signcolumn=yes
+
+if has("nvim-0.5.0") || has("patch-8.1.1564")
+  " Recently vim can merge signcolumn and number column into one
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
 
 set noswapfile
 set nobackup
@@ -135,12 +142,15 @@ set timeoutlen=500
 set noshowmode
 
 set completeopt=menuone,noselect
+
+set shortmess+=c
 " }}}
 
 " Remaps {{{
 let g:mapleader = "\<Space>"
 let g:maplocalleader = '\'
 nnoremap <silent><C-s> :write <cr>
+nnoremap <silent><C-q> :BufferClose<cr>
 " }}}
 
 "}}}
@@ -336,82 +346,129 @@ let g:startify_custom_header =
 
 " }}}
 " LSP {{{
-" LSP Language Servers {{{
-lua << EOF
-require'lspconfig'.pyright.setup{}
-require'lspconfig'.bashls.setup{}
-require'lspconfig'.vimls.setup{}
-require'lspconfig'.rls.setup{}
-EOF
+" " LSP Language Servers {{{
+" lua << EOF
+" require'lspconfig'.pyright.setup{}
+" require'lspconfig'.bashls.setup{}
+" require'lspconfig'.vimls.setup{}
+" require'lspconfig'.rls.setup{}
+" EOF
+" " }}}
+" " Compe {{{
+" lua << EOF
+" -- Compe setup
+" require'compe'.setup {
+"   enabled = true;
+"   autocomplete = true;
+"   debug = false;
+"   min_length = 1;
+"   preselect = 'enable';
+"   throttle_time = 80;
+"   source_timeout = 200;
+"   incomplete_delay = 400;
+"   max_abbr_width = 100;
+"   max_kind_width = 100;
+"   max_menu_width = 100;
+"   documentation = true;
+"
+"   source = {
+"     path = true;
+"     nvim_lsp = true;
+"   };
+" }
+"
+" local t = function(str)
+"   return vim.api.nvim_replace_termcodes(str, true, true, true)
+" end
+"
+" local check_back_space = function()
+"     local col = vim.fn.col('.') - 1
+"     if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
+"         return true
+"     else
+"         return false
+"     end
+" end
+"
+" -- Use (s-)tab to:
+" --- move to prev/next item in completion menuone
+" --- jump to prev/next snippet's placeholder
+" _G.tab_complete = function()
+"   if vim.fn.pumvisible() == 1 then
+"     return t "<C-n>"
+"   elseif check_back_space() then
+"     return t "<Tab>"
+"   else
+"     return vim.fn['compe#complete']()
+"   end
+" end
+" _G.s_tab_complete = function()
+"   if vim.fn.pumvisible() == 1 then
+"     return t "<C-p>"
+"   else
+"     return t "<S-Tab>"
+"   end
+" end
+"
+" vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
+" vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
+" vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+" vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+" EOF
+"
+" " }}}
 " }}}
-" Compe {{{
-lua << EOF
--- Compe setup
-require'compe'.setup {
-  enabled = true;
-  autocomplete = true;
-  debug = false;
-  min_length = 1;
-  preselect = 'enable';
-  throttle_time = 80;
-  source_timeout = 200;
-  incomplete_delay = 400;
-  max_abbr_width = 100;
-  max_kind_width = 100;
-  max_menu_width = 100;
-  documentation = true;
+" COC.nvim {{{
+" extensions {{{
+let g:coc_global_extensions = ['coc-json', 'coc-vimlsp', 'coc-rust-analyzer', 'coc-sh', 'coc-lua', 'coc-pyright', 'coc-snippets']
+" }}}
+" Keybindings {{{
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-  source = {
-    path = true;
-    nvim_lsp = true;
-  };
-}
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
-local t = function(str)
-  return vim.api.nvim_replace_termcodes(str, true, true, true)
-end
+" Use <c-space> to trigger completion.
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
 
-local check_back_space = function()
-    local col = vim.fn.col('.') - 1
-    if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
-        return true
-    else
-        return false
-    end
-end
-
--- Use (s-)tab to:
---- move to prev/next item in completion menuone
---- jump to prev/next snippet's placeholder
-_G.tab_complete = function()
-  if vim.fn.pumvisible() == 1 then
-    return t "<C-n>"
-  elseif check_back_space() then
-    return t "<Tab>"
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
   else
-    return vim.fn['compe#complete']()
-  end
-end
-_G.s_tab_complete = function()
-  if vim.fn.pumvisible() == 1 then
-    return t "<C-p>"
-  else
-    return t "<S-Tab>"
-  end
-end
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
 
-vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
-EOF
-
+if has('nvim-0.4.0') || has('patch-8.2.0750')
+  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+endif
 " }}}
 " }}}
 " Indent blankline{{{
 let g:indent_blankline_use_treesitter = v:true
 
-let g:indent_blankline_bufname_exclude = ['README.md', 'help', 'startify', 'NvimTree', 'calendar' ]
+let g:indent_blankline_filetype_exclude = ['help', 'startify', 'NvimTree', 'calendar', 'man']
 " }}}
 " Z E N (TrueZen.nvim) {{{
 lua << EOF
