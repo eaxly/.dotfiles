@@ -40,7 +40,7 @@ Plug 'lambdalisue/suda.vim'
 Plug 'lambdalisue/pastefix.vim'
 
 Plug 'dstein64/vim-startuptime', {'on': 'StartupTime'}
-Plug 'lukas-reineke/indent-blankline.nvim', {'branch': 'lua'}
+" Plug 'lukas-reineke/indent-blankline.nvim', {'branch': 'lua'}
 
 Plug 'andweeb/presence.nvim'
 

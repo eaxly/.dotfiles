@@ -70,5 +70,21 @@
         "key": "alt+down",
         "command": "editor.action.moveLinesDownAction",
         "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+k h",
+        "command": "hexEditor.openFile"
+    },
+    {
+        "key": "ctrl+k j",
+        "command": "workbench.action.openSettingsJson"
+    },
+    {
+        "key": "ctrl+w",
+        "command": "-workbench.action.closeActiveEditor"
+    },
+    {
+        "key": "ctrl+q",
+        "command": "workbench.action.closeActiveEditor"
     }
 ]

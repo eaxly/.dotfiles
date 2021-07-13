@@ -106,8 +106,8 @@ export EDITOR=nvim
 export SUDO_EDITOR=$EDITOR
 
 # the manpager
-export PAGER="nvim -c MANPAGER -"
-export MANPAGER=$PAGER
+export PAGER="bat --theme=Nord"
+export MANPAGER="nvim -c MANPAGER -"
 # }}}
 
 # Aliases {{{
@@ -164,6 +164,10 @@ alias cr="cargo"
 # xinput
 alias disintkey="xinput disable AT\ Translated\ Set\ 2\ keyboard"
 alias enintkey="xinput enable AT\ Translated\ Set\ 2\ keyboard"
+
+# bat
+alias bat="bat --theme=Nord"
+
 # }}}
 
 # Startup {{{

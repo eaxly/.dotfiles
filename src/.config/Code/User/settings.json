@@ -25,7 +25,7 @@
     "gruvboxMaterial.lightPalette": "mix",
     "gruvboxMaterial.lightSelection": "green",
     "gruvboxMaterial.lightWorkbench": "flat",
-   "editor.detectIndentation": false,
+    "editor.detectIndentation": false,
     "gitlens.defaultDateFormat": "Do, MMMM, YYYY; h:m",
     "gitlens.defaultDateShortFormat": "D, MM, YYYY; h:m",
     "gitlens.defaultTimeFormat": "h:m",
@@ -43,18 +43,6 @@
     "projectManager.git.baseFolders": [
         "/home/axolotl/Projects"
     ],
-    "editor.fontSize": 13,
-    "githubIssues.queries": [
-    
-        {
-            "label": "My Issues",
-            "query": "default"
-        },
-        {
-            "label": "Created Issues",
-            "query": "author:${user} state:open repo:${owner}/${repository} sort:created-desc"
-        }
-    ],
     "editor.wrappingIndent": "indent",
     "editor.suggest.showWords": false,
     "editor.wordBasedSuggestions": false,
@@ -63,7 +51,6 @@
     "files.autoSave": "afterDelay",
     "better-comments.highlightPlainText": true,
     "better-comments.tags": [
-    
         {
             "tag": "!",
             "color": "#FF2D00",
@@ -120,7 +107,6 @@
         }
     ],
     "workbench.productIconTheme": "material-product-icons",
-    "workbench.colorTheme": "Material Theme Ocean",
     "workbench.colorCustomizations": {},
     "workbench.preferredDarkColorTheme": "Material Theme Ocean",
     "workbench.preferredLightColorTheme": "Soft Material",
@@ -134,14 +120,84 @@
     "terminal.integrated.defaultProfile.linux": "zsh",
     "python.languageServer": "Pylance",
     "diffEditor.ignoreTrimWhitespace": false,
-    // "workbench.colorCustomizations": {
+    "explorer.confirmDragAndDrop": false,
+    "githubPullRequests.fileListLayout": "tree",
+    "editor.scrollbar.horizontalScrollbarSize": 10,
+    "editor.scrollbar.verticalScrollbarSize": 12,
+    "editor.scrollbar.horizontal": "hidden",
+    "translator.captureWord": false,
+    "material-icon-theme.folders.color": "#ededed",
+    "workbench.colorTheme": "Material Theme Ocean",
+    "codesnap.showWindowControls": false,
+    "codesnap.backgroundColor": "#ededed",
+    "vim.leader": "<space>",
 
-    //     "[Material Theme Ocean]": {
-    //         "titleBar.border": "#0E111A",
-    //         "titleBar.activeBackground": "#0E111A",
-    //         "titleBar.activeForeground": "#ededed",
-    //         "titleBar.inactiveBackground": "#0E111A",
-    //         "titleBar.inactiveForeground": "#ededed",
-    //     }
-    // }
+
+
+
+    // VIM
+    "vim.visualModeKeyBindings": [
+        {
+            "before": [
+                ">"
+            ],
+            "commands": [
+                "editor.action.indentLines"
+            ]
+        },
+        {
+            "before": [
+                "<"
+            ],
+            "commands": [
+                "editor.action.outdentLines"
+            ]
+        },
+    ],
+
+    "vim.normalModeKeyBindings": [
+        { 
+                "before": ["/"],
+                "commands": [
+                    "actions.find"
+                ]
+        },
+        {
+            "before": ["<leader>", "p"],
+            "commands": [
+                "editor.action.clipboardPasteAction"
+            ]
+        },
+        {
+            "before": ["<leader>", "y"],
+            "commands": [
+                "editor.action.clipboardCopyAction"
+            ]
+        },
+        {
+            "before": ["u"],
+            "commands": [
+                "undo"
+            ]
+        },
+        {
+            "before": ["<C-r>"],
+            "commands": [
+                "redo"
+            ]
+        },
+        {
+            "before": ["<C-q>"],
+            "commands": [
+                "workbench.action.closeActiveEditor"
+            ]
+        }
+        
+    ],
+    "projectManager.tags": [
+        "Personal",
+        "Work",
+        "Courses"
+    ]
+
 }
