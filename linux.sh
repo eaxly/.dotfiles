@@ -6,9 +6,9 @@
 
 # If you just wan't to install other packages, edit these two lines
 # ↓ packages that need to be installed
-packages=(neovim ranger rofi picom alacritty)
+packages="neovim ranger rofi picom alacritty"
 
-aur_packages=(neovim-git picom-jonaburg-git)
+aur_packages="neovim-git picom-jonaburg-gt"
 
 _exists() { if command -v pacman &> /dev/null; then
     pacman -Q ${@} &> /dev/null
@@ -56,12 +56,8 @@ if _exists pacman && ! _exists yay && ! _exists paru && ! _exists yoghurt; then
   fi
 fi
 
-for package in $packages; do
-  _install $package
-done
+_install $package
 
-for package in aur_packages; do
-  _aur_install $package
-done
+_aur_install $package
 
 # vim:foldmethod=marker
