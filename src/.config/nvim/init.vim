@@ -1,9 +1,8 @@
 " ░█▀▄░█▀█░▀█▀░█▀▀░▀█▀░█░░░█▀▀░█▀▀
 " ░█░█░█░█░░█░░█▀▀░░█░░█░░░█▀▀░▀▀█
 " ░▀▀░░▀▀▀░░▀░░▀░░░▀▀▀░▀▀▀░▀▀▀░▀▀▀
-
+"
 " FILE: ~/.config/nvim/init.vim
-" NOTICE: Build with nvim-0.5 in mind:write 
 
 " Some Basics
 " Plugins {{{
@@ -12,6 +11,11 @@ if empty(globpath(&runtimepath, '/autoload/plug.vim'))
   echoerr 'Unable to find autoload/plug.vim. Download it from https://github.com/junegunn/vim-plug'
   finish
 endif
+" }}}
+
+" Vars {{{
+let g:enable_startify=1
+let g:enable_dashboard=0
 " }}}
 
 " Plug.vim {{{
@@ -53,13 +57,8 @@ endif
 
 " Trees
 Plug 'simnalamburt/vim-mundo'
-if has('nvim-0.5')
-  Plug 'kyazdani42/nvim-tree.lua'
-else
-  Plug 'preservim/nerdtree'
-  Plug 'Xuyuanp/nerdtree-git-plugin'
-endif
-
+" Chad tree
+Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 " Productivity
 Plug 'tricktux/pomodoro.vim'
 Plug 'itchyny/calendar.vim'
@@ -68,35 +67,30 @@ Plug 'itchyny/calendar.vim'
 " Plug 'sainnhe/gruvbox-material'
 " Plug 'shaunsingh/nord.nvim'
 " Plug 'shaunsingh/moonlight.nvim'
-" Plug 'arcticicestudio/nord-vim'
-Plug 'kaicataldo/material.vim', { 'branch': 'main' }
+Plug 'arcticicestudio/nord-vim'
+" Plug 'kaicataldo/material.vim', { 'branch': 'main' }
+Plug 'cocopon/iceberg.vim'
 
 Plug 'Pocco81/TrueZen.nvim'
 Plug 'junegunn/goyo.vim'
 
-if has('nvim-0.5')
-  Plug 'hoob3rt/lualine.nvim'
-  Plug 'romgrk/barbar.nvim'
-  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-else
-  Plug 'itchyny/lightline.vim'
-endif
+Plug 'hoob3rt/lualine.nvim'
+" Plug 'glepnir/galaxyline.nvim'
+Plug 'romgrk/barbar.nvim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 Plug 'liuchengxu/vim-which-key'
 Plug 'ryanoasis/vim-devicons'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'norcalli/nvim-colorizer.lua'
 " Plug 'RRethy/vim-hexokinase'
-Plug 'mhinz/vim-startify'
+if g:enable_startify==1
+  Plug 'mhinz/vim-startify'
+elseif g:enable_dashboard==1
+  Plug 'glepnir/dashboard-nvim'
+endif
 
 call plug#end()
-" }}}
-
-" Install Plugins automatically {{{
-autocmd VimEnter *
-  \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-  \|   PlugInstall --sync | q
-  \| endif
 " }}}
 " }}}
 " Basics {{{
@@ -108,7 +102,7 @@ set noerrorbells
 set hidden
 
 " Tabs
-set tabstop=2 softtabstop=2 shiftwidth=2 expandtab smartindent autoindent
+set tabstop=4 softtabstop=4 shiftwidth=4 expandtab smartindent autoindent
 
 " Numbers
 set relativenumber number
@@ -144,15 +138,15 @@ set noshowmode
 set completeopt=menuone,noselect
 
 set shortmess+=c
-" }}}
 
+set mouse=nv
+" }}}
 " Remaps {{{
 let g:mapleader = "\<Space>"
 let g:maplocalleader = '\'
 nnoremap <silent><C-s> :write <cr>
 nnoremap <silent><C-q> :BufferClose<cr>
 " }}}
-
 "}}}
 
 " User Iterface
@@ -171,8 +165,37 @@ let g:which_key_map["e"] = {'name': '+edit'}
 let g:which_key_map["s"] = {'name': '+source'}
 
 let g:which_key_map["C"] = { 'name': '+clipboard',
-      \ 'y': [ '"+y"', 'Yank to clipboard' ],
-      \ 'p': ['"+p', 'Paste from clipboard'],
+      \ 'y': 'Yank to clipboard',
+      \ 'p': 'Paste from clipboard',
+      \}
+
+nnoremap <silent> <leader>Cp "+p <cr>
+vnoremap <silent> <leader>Cy "+y <cr>
+" }}}
+" neovide {{{
+" functions {{{
+fu! Neovide_Toggle_Fullscreen()
+  if g:neovide == v:true
+    if g:neovide_fullscreen == v:true
+      let g:neovide_fullscreen=v:false
+    else
+      let g:neovide_fullscreen=v:true
+    endif
+  endif
+endfu
+" }}}
+" guifont
+set guifont=VictorMono\ Nerd\ Font:h10
+
+let g:neovide_cursor_animation_length=0.15
+let g:neovide_cursor_antialiasing=v:false
+let g:neovide_cursor_trail_length=0.9
+let g:neovide_cursor_vfx_mode = "pixiedust" " On my very personal computer, railgun & torpedo crash neovide. That does not mean that it will crash on yours!! Try it out :D
+let g:neovide_cursor_vfx_particle_lifetime=0.9
+let g:neovide_cursor_vfx_particle_density=5.0
+
+let g:which_key_map["n"] = {'name': '+neovide',
+      \'f': [ ':call Neovide_Toggle_Fullscreen()', 'Toggle neovide fullscreen' ]
       \}
 " }}}
 " Colors {{{
@@ -181,7 +204,7 @@ set termguicolors
 " Nord Theme {{{
 let g:nord_contrast = v:true
 let g:nord_borders = v:true
-let g:nord_disable_background = v:true
+let g:nord_disable_background = v:false
 let g:nord_cursorline_transparent = v:true
 " }}}
 
@@ -206,7 +229,7 @@ let g:material_theme_style = 'ocean'
 let g:material_theme_italics = 1
 " }}}
 
-colorscheme material
+colorscheme nord
 " }}}
 " Statuslines/Tablines {{{
 set laststatus=2 " Recommended Settings
@@ -219,45 +242,6 @@ function! PomodoroStatus() abort " {{{
   endif
 endfunction }}}
 " }}}
-
-" Lightline {{{
-let g:lightline = {}
-let g:lightline.colorscheme = 'nord'
-let g:lightline.active = {
-        \   'left': [ [ 'winnr', 'mode', 'paste'],
-        \             [ 'readonly', 'relativepath', 'gitbranch', 'modified'] ],
-        \   'right': [[ 'lineinfo' ],
-        \             [ 'percent' , 'pomodoro'],
-        \             [ 'fileformat', 'fileencoding', 'filetype_icon', 'filetype'] ]
-        \
-        \ }
-
-let g:lightline.inactive = {
-        \   'left': [ [ 'winnr','mode', 'paste'],
-        \             [ 'readonly', 'fullpath', 'modified'] ],
-        \   'right': [[ 'percent', 'fileformat' ],
-        \             [ 'fileformat', 'fileencoding', 'filetype_icon', 'filetype' ] ]
-        \
-        \ }
-
-let g:lightline.tab = {
-      \   'active': [ 'tabnum', 'filename', 'modified'],
-      \   'inactive': [ 'tabnum', 'filename', 'modified'],
-      \ }
-
-let g:lightline.component_function = {
-      \   'gitbranch': 'FugitiveHead',
-      \   'filetype_icon': 'WebDevIconsGetFileTypeSymbol',
-      \   'pomodoro': 'PomodoroStatus',
-      \ }
-let g:lightline.tabline_separator = { 'left': "", 'right': "" }
-let g:lightline.tabline_subseparator = { 'left': ")", 'right': "(" }
-
-let g:lightline.separator = { 'left': "", 'right': "" }
-let g:lightline.subseparator = { 'left': ")", 'right': "(" }
-
-" }}}
-
 " barbar.nvim {{{
 " Remaps
 let g:which_key_map["a"] = {
@@ -286,24 +270,44 @@ let bufferline.closable = v:false
 let bufferline.letters =
   \ 'asdfjklöghnmxcvbziowerutyqpASDFJKLÖGHNMXCVBZIOWERUTYQP'
 " }}}
-
 " lualine.nvim {{{
 lua << EOL
 config = {
 
   options = {
-    theme = 'material',
+    theme = 'nord',
     section_separators = {'', ''},
-    component_separators = {'', ''}
+    component_separators = {'', ''},
+    disabled_filetypes = {'chadtree'}
     },
 
   sections = {
       lualine_a = {'winnr','mode'},
       lualine_b = {'branch'},
-      lualine_c = {'filename'},
-      lualine_x = {'encoding', 'fileformat', 'filetype'},
+      lualine_c = {
+            'filename',
+            {'diagnostics',
+                sources=coc,
+                sections = {'error', 'warn', 'info', 'hint'},
+                symbols = {error = 'E', warn = 'W', info = 'I', hint = 'H'}
+            },
+            },
+      lualine_x = {
+          'encoding',
+          'fileformat',
+          {
+            'filetype',
+            colored=false
+          }
+      },
       lualine_y = {'progress', 'PomodoroStatus'},
-      lualine_z = {'location'}
+      lualine_z = {
+          'location',
+          {
+              'diff',
+              colored=false
+          }
+      }
     },
 
   inactive_sections = {
@@ -314,8 +318,7 @@ config = {
     lualine_y = {},
     lualine_z = {'location'}
     },
-
-  extensions = {nerdtree}
+    extensions = {nerdtree, chadtree}
   }
 
 
@@ -326,7 +329,7 @@ EOL
 " NVIM-Colorizer {{{
 lua require'colorizer'.setup()
 " }}}
-" vim-startify {{{
+" startify/Dashboard{{{
 " vim_header {{{
 
 let g:vim_header = [
@@ -338,12 +341,83 @@ let g:vim_header = [
       \]
 
 " }}}
+" Startify {{{
+if g:enable_startify==1
+  let g:startify_shoutout=["","","made with \uf004  on \ue712  by @ExtinctAxolotl"]
+  let g:startify_custom_header =
+        \ startify#center( startify#pad(g:vim_header)) + startify#center(startify#pad(g:startify_shoutout))
 
-let g:startify_shoutout=["","","made with \uf004  on \ue712  by @ExtinctAxolotl"]
+  let g:startify_lists = [
+        \ { 'type': 'files',     'header': ['   MRU']            },
+        \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
+        \ { 'type': 'sessions',  'header': ['   Sessions']       },
+        \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
+        \ { 'type': 'commands',  'header': ['   Commands']       },
+        \ ]
+  let g:startify_files_number=5
+  let g:startify_bookmarks = [ {'c': '~/.config/nvim/init.vim'}, { 'z': '~/.zshrc' }]
+  
+endif
+" }}}
+" Dashboard {{{
+if g:enable_dashboard==1
+    let g:dashboard_default_executive='telescope'
 
-let g:startify_custom_header =
-      \ startify#center( startify#pad(g:vim_header)) + startify#center(startify#pad(g:startify_shoutout))
+  let g:dashboard_custom_shortcut={
+  \ 'find_history'       : 'SPC D h',
+  \ 'find_file'          : 'SPC D f',
+  \ 'new_file'           : 'SPC D n',
+  \ 'change_colorscheme' : 'SPC D c',
+  \ 'find_word'          : 'SPC D a',
+  \ 'book_marks'         : 'SPC D b',
+  \ 'dotfiles'           : 'SPC D d',
+  \ }
 
+  let g:which_key_map["D"] = {'name': '+dashboard',
+        \ 'h': [':DashboardFindHistory', 'History'],
+        \ 'f': [':DashboardFindFile', 'Find a File'],
+        \ 'n': [':DashboardNewFile', 'Create a new file'],
+        \ 'c': [':DashboardChangeColorscheme', 'Change the colorscheme'],
+        \ 'a': [':DashboardFindWord', 'Find a word'],
+        \ 'b': [':DashboardJumpMarks', 'Search bookmarks'],
+        \ 'd': [':edit ~/.config/nvim/init.vim', 'Edit neovim config file']
+        \}
+
+        " 'l': [':SessionLoad', 'Load last session'],
+        " 's': [':SessionSave', 'Save current Session'],
+    
+  let g:dashboard_custom_header =<< trim END
+  =================     ===============     ===============   ========  ========
+  \\ . . . . . . .\\   //. . . . . . .\\   //. . . . . . .\\  \\. . .\\// . . //
+  ||. . ._____. . .|| ||. . ._____. . .|| ||. . ._____. . .|| || . . .\/ . . .||
+  || . .||   ||. . || || . .||   ||. . || || . .||   ||. . || ||. . . . . . . ||
+  ||. . ||   || . .|| ||. . ||   || . .|| ||. . ||   || . .|| || . | . . . . .||
+  || . .||   ||. _-|| ||-_ .||   ||. . || || . .||   ||. _-|| ||-_.|\ . . . . ||
+  ||. . ||   ||-'  || ||  `-||   || . .|| ||. . ||   ||-'  || ||  `|\_ . .|. .||
+  || . _||   ||    || ||    ||   ||_ . || || . _||   ||    || ||   |\ `-_/| . ||
+  ||_-' ||  .|/    || ||    \|.  || `-_|| ||_-' ||  .|/    || ||   | \  / |-_.||
+  ||    ||_-'      || ||      `-_||    || ||    ||_-'      || ||   | \  / |  `||
+  ||    `'         || ||         `'    || ||    `'         || ||   | \  / |   ||
+  ||            .===' `===.         .==='.`===.         .===' /==. |  \/  |   ||
+  ||         .=='   \_|-_ `===. .==='   _|_   `===. .===' _-|/   `==  \/  |   ||
+  ||      .=='    _-'    `-_  `='    _-'   `-_    `='  _-'   `-_  /|  \/  |   ||
+  ||   .=='    _-'          '-__\._-'         '-_./__-'         `' |. /|  |   ||
+  ||.=='    _-'                                                     `' |  /==.||
+  =='    _-'                      A X O L O T I C                       \/   `==
+  \   _-'                             N V I M                            `-_   /
+   `''                                                                      ``'
+  END
+
+  let g:dashboard_custom_section={
+      \ 'dotfiles': {
+        \ 'description': ['  Edit neovim config'],
+        \ 'command': ':edit ~/.config/nvim/init.vim',
+      \},
+    \}
+
+endif
+
+" }}}
 " }}}
 " LSP {{{
 " " LSP Language Servers {{{
@@ -477,7 +551,6 @@ EOF
 let g:which_key_map['z'] = {
   \ 'name': '+zen',
   \ 'a': [ ':TZAtaraxis', 'Enable Zen Ataraxis mode' ],
-  \ 'f': [ ':TZFocus', 'Enable Zen Focus mode'],
   \ 'm': [ ':TZMinimalist', 'Enable Zen Minimalist mode']
   \}
 " }}}
@@ -503,10 +576,10 @@ endfunction
 " end totally not copy and pasted }}}
 
 let g:pomodoro_time_work = 25
-let g:pomodoro_time_slack = 5 
+let g:pomodoro_time_slack = 5
 
-let g:pomodoro_do_log = 1 
-let g:pomodoro_log_file = "/tmp/pomodoro.log" 
+let g:pomodoro_do_log = 1
+let g:pomodoro_log_file = "/tmp/pomodoro.log"
 
 let g:pomodoro_notification_cmd = "notify-send --icon=neovim 'Pomodoro Timer' 'Your time is up!' --urgency=critical"
 
@@ -552,8 +625,8 @@ let g:which_key_map["c"] = { 'name': '+commenting',
 " Fuzzy Finder {{{
 let g:which_key_map['s'] = [':Telescope find_files', 'Fuzzy search files']
 " }}}
-" Nvim-tree.lua {{{
-let g:which_key_map['f'] = [ ':NvimTreeToggle', 'Toggle File Explorer' ]
+" CHADtree {{{
+let g:which_key_map['f'] = [ ':CHADopen', 'Toggle File Explorer' ]
 " }}}
 " NeoGit {{{
 lua require('neogit').setup()
@@ -561,10 +634,7 @@ lua require('neogit').setup()
 
 " Other
 " presence.nvim {{{
-lua presence_config = {
-      \ 
-      \}
-lua require("presence"):setup(presence_config)
+lua require("presence"):setup()
 " }}}
 " VIMRC {{{
 let g:which_key_map["e"]= {'name': '+edit',
@@ -572,4 +642,4 @@ let g:which_key_map["e"]= {'name': '+edit',
       \ }
 " }}}
 
-"vim:foldmethod=marker
+"vim:foldmethod=marker:tabstop=2:softtabstop=2:shiftwidth=2:expandtab

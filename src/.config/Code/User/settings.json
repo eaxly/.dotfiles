@@ -7,7 +7,7 @@
     "editor.fontFamily": "VictorMono Nerd Font",
     "editor.fontLigatures": true,
     "terminal.external.linuxExec": "gnome-terminal",
-    "window.title": "(∩•̀ 👅•́ )⊃━ ${activeEditorShort} ${dirty}",
+    "window.title": "(  ͡° ͜ʖ ͡°)_/¯${activeEditorShort} ${dirty} ${separator}${remoteName}",
     "workbench.editorAssociations": {
         "*.ipynb": "jupyter-notebook"
     },
@@ -153,6 +153,12 @@
                 "editor.action.outdentLines"
             ]
         },
+        {
+            "before": ["<leader>", "y"],
+            "commands": [
+                "editor.action.clipboardCopyAction"
+            ]
+        },
     ],
 
     "vim.normalModeKeyBindings": [
@@ -191,13 +197,18 @@
             "commands": [
                 "workbench.action.closeActiveEditor"
             ]
-        }
+        },
         
     ],
     "projectManager.tags": [
         "Personal",
         "Work",
         "Courses"
-    ]
+    ],
+    "awooga.enabled": {
+        "rs": false
+    },
+    "codesnap.shutterAction": "copy",
+    "rust-analyzer.cargo.allFeatures": true
 
 }

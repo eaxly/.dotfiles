@@ -86,5 +86,15 @@
     {
         "key": "ctrl+q",
         "command": "workbench.action.closeActiveEditor"
+    },
+    {
+        "key": "ctrl+shift+alt+m",
+        "command": "rust-analyzer.matchingBrace",
+        "when": "editorTextFocus && editorLangId == 'rust'"
+    },
+    {
+        "key": "ctrl+shift+m",
+        "command": "-rust-analyzer.matchingBrace",
+        "when": "editorTextFocus && editorLangId == 'rust'"
     }
 ]

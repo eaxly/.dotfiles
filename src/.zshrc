@@ -1,7 +1,7 @@
 # ░█▀▄░█▀█░▀█▀░█▀▀░▀█▀░█░░░█▀▀░█▀▀
 # ░█░█░█░█░░█░░█▀▀░░█░░█░░░█▀▀░▀▀█
 # ░▀▀░░▀▀▀░░▀░░▀░░░▀▀▀░▀▀▀░▀▀▀░▀▀▀
-#
+# 
 # FILE: ~/.zshrc
 
 # Some basics {{{
@@ -107,7 +107,12 @@ export SUDO_EDITOR=$EDITOR
 
 # the manpager
 export PAGER="bat --theme=Nord"
-export MANPAGER="nvim -c MANPAGER -"
+# export MANPAGER="nvim -c MANPAGER -"
+export MANPAGER="sh -c 'col -bx | bat -l man -p --theme=Nord'"
+
+# FZF
+export FZF_DEFAULT_COMMAND="fd --hidden"
+export FZF_DEFAULT_OPTS="--preview 'bat --color=always --theme=Nord --number {} '"
 # }}}
 
 # Aliases {{{
@@ -158,8 +163,14 @@ alias pase="paru -Ss"
 alias painfo="paru -Si"
 alias pare="paru -R"
 alias parem="paru -Rns"
+
 # cargo
 alias cr="cargo"
+alias crr="cargo run"
+alias crb="cargo build"
+alias crn="cargo new --vcs=git"
+alias crnl="cargo new --lib"
+alias cri="cargo init"
 
 # xinput
 alias disintkey="xinput disable AT\ Translated\ Set\ 2\ keyboard"
@@ -168,6 +179,11 @@ alias enintkey="xinput enable AT\ Translated\ Set\ 2\ keyboard"
 # bat
 alias bat="bat --theme=Nord"
 
+# vscode
+alias vsc="code --reuse-window"
+
+# todoist
+alias todoist='todoist --color --indent'
 # }}}
 
 # Startup {{{
@@ -343,4 +359,3 @@ fi
 bindkey -v
 
 # vim:foldmethod=marker
-
