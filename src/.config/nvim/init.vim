@@ -26,7 +26,6 @@ call plug#begin(stdpath('data') . '/plugged')
 "   Plug 'neovim/nvim-lspconfig'
 " endif
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 
 " Git
@@ -46,8 +45,6 @@ Plug 'lambdalisue/pastefix.vim'
 Plug 'dstein64/vim-startuptime', {'on': 'StartupTime'}
 " Plug 'lukas-reineke/indent-blankline.nvim', {'branch': 'lua'}
 
-Plug 'andweeb/presence.nvim'
-
 " Fuzzy finder
 if has('nvim-0.5')
   Plug 'nvim-lua/popup.nvim'
@@ -57,20 +54,22 @@ endif
 
 " Trees
 Plug 'simnalamburt/vim-mundo'
-" Chad tree
+" Plug 'kyazdani42/nvim-tree.lua'
 Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
+
 " Productivity
 Plug 'tricktux/pomodoro.vim'
 Plug 'itchyny/calendar.vim'
+Plug 'kdheepak/lazygit.nvim'
 
 " UI
 " Plug 'sainnhe/gruvbox-material'
 " Plug 'shaunsingh/nord.nvim'
 " Plug 'shaunsingh/moonlight.nvim'
-Plug 'arcticicestudio/nord-vim'
+" Plug 'arcticicestudio/nord-vim'
 " Plug 'kaicataldo/material.vim', { 'branch': 'main' }
-Plug 'cocopon/iceberg.vim'
-
+" Plug 'cocopon/iceberg.vim'
+Plug 'sainnhe/everforest'
 Plug 'Pocco81/TrueZen.nvim'
 Plug 'junegunn/goyo.vim'
 
@@ -89,7 +88,7 @@ if g:enable_startify==1
 elseif g:enable_dashboard==1
   Plug 'glepnir/dashboard-nvim'
 endif
-
+Plug 'lambdalisue/battery.vim'
 call plug#end()
 " }}}
 " }}}
@@ -229,7 +228,16 @@ let g:material_theme_style = 'ocean'
 let g:material_theme_italics = 1
 " }}}
 
-colorscheme nord
+" everforest {{{
+let g:everforest_background = 'hard'
+let g:everforest_enable_italic = 1
+let g:everforest_disable_italic_comment = 0
+let g:everforest_diagnostic_text_highlight = 1
+let g:everforest_diagnostic_virtual_text = 'colored'
+let g:everforest_better_performance = 1
+" }}}
+
+colorscheme everforest
 " }}}
 " Statuslines/Tablines {{{
 set laststatus=2 " Recommended Settings
@@ -265,20 +273,22 @@ let g:which_key_map["a"] = {
       \}
 
 let bufferline = get(g:, 'bufferline', {})
-let bufferline.clickable = v:false
-let bufferline.closable = v:false
+let bufferline.clickable = v:true
+let bufferline.closable = v:true
 let bufferline.letters =
   \ 'asdfjklöghnmxcvbziowerutyqpASDFJKLÖGHNMXCVBZIOWERUTYQP'
 " }}}
 " lualine.nvim {{{
 lua << EOL
+local chadtree_cext = {sections = {lualine_a = { 'mode' }}, filetypes = {'CHADtree'}}
+
 config = {
 
   options = {
-    theme = 'nord',
+    theme = 'everforest',
     section_separators = {'', ''},
     component_separators = {'', ''},
-    disabled_filetypes = {'chadtree'}
+    disabled_filetypes = {'chadtree', 'CHADtree'}
     },
 
   sections = {
@@ -286,11 +296,6 @@ config = {
       lualine_b = {'branch'},
       lualine_c = {
             'filename',
-            {'diagnostics',
-                sources=coc,
-                sections = {'error', 'warn', 'info', 'hint'},
-                symbols = {error = 'E', warn = 'W', info = 'I', hint = 'H'}
-            },
             },
       lualine_x = {
           'encoding',
@@ -298,15 +303,11 @@ config = {
           {
             'filetype',
             colored=false
-          }
+          },
       },
       lualine_y = {'progress', 'PomodoroStatus'},
       lualine_z = {
           'location',
-          {
-              'diff',
-              colored=false
-          }
       }
     },
 
@@ -318,7 +319,8 @@ config = {
     lualine_y = {},
     lualine_z = {'location'}
     },
-    extensions = {nerdtree, chadtree}
+
+    extensions = {chadtree_cext},
   }
 
 
@@ -355,7 +357,7 @@ if g:enable_startify==1
         \ { 'type': 'commands',  'header': ['   Commands']       },
         \ ]
   let g:startify_files_number=5
-  let g:startify_bookmarks = [ {'c': '~/.config/nvim/init.vim'}, { 'z': '~/.zshrc' }]
+  let g:startify_bookmarks = [ {'c': '~/.config/nvim/init.vim'}, { 'z': '~/.zshrc' }, {'m': '~/.mackup.cfg'}]
   
 endif
 " }}}
@@ -541,8 +543,7 @@ endif
 " }}}
 " Indent blankline{{{
 let g:indent_blankline_use_treesitter = v:true
-
-let g:indent_blankline_filetype_exclude = ['help', 'startify', 'NvimTree', 'calendar', 'man']
+let g:indent_blankline_filetype_exclude = ['help', 'startify', 'CHADtree', 'calendar', 'man']
 " }}}
 " Z E N (TrueZen.nvim) {{{
 lua << EOF
@@ -553,6 +554,26 @@ let g:which_key_map['z'] = {
   \ 'a': [ ':TZAtaraxis', 'Enable Zen Ataraxis mode' ],
   \ 'm': [ ':TZMinimalist', 'Enable Zen Minimalist mode']
   \}
+" }}}
+" nvim treesitter {{{
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+    ensure_installed = {
+        "rust",
+        "toml",
+        "python",
+        "bash",
+        "fish",
+        "gdscript",
+        "comment",
+        "json",
+        "lua",
+        }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  highlight = {
+    enable = true 
+  },
+}
+EOF
 " }}}
 
 " Productivity
@@ -625,17 +646,33 @@ let g:which_key_map["c"] = { 'name': '+commenting',
 " Fuzzy Finder {{{
 let g:which_key_map['s'] = [':Telescope find_files', 'Fuzzy search files']
 " }}}
-" CHADtree {{{
-let g:which_key_map['f'] = [ ':CHADopen', 'Toggle File Explorer' ]
+" FIleTree (currently CHADtree) {{{
+let g:which_key_map['f'] = [ 'CHADopen', 'Toggle File Explorer' ]
+let g:which_key_map['F'] = [ ':CHADopen --nofocus', 'Toggle File Explorer but w/o focus' ]
+
+let g:chadtree_settings = {
+            \"xdg": v:false,
+            \"view.open_direction": "right",
+            \
+            \ "theme.icon_glyph_set": "devicons",
+            \ "theme.text_colour_set": "nord"
+        \}
+let g:chadtree_settings.keymap = {
+            \ "delete": [],
+            \ "toggle_hidden": ["h"],
+            \}
 " }}}
 " NeoGit {{{
 lua require('neogit').setup()
 " }}}
-
-" Other
-" presence.nvim {{{
-lua require("presence"):setup()
+" suda {{{
+let g:suda_smart_edit = 1
 " }}}
+" LazyGit {{{
+let g:lazygit_floating_window_use_plenary = 1 " use plenary.nvim to manage floating window if available
+let g:which_key_map["G"] = [ ":LazyGit", "Toggle LazyGit" ]
+" }}}
+" Other
 " VIMRC {{{
 let g:which_key_map["e"]= {'name': '+edit',
       \ "v": [ ':vsp ~/.config/nvim/init.vim', 'Edit VimRC in VSplit' ], 
