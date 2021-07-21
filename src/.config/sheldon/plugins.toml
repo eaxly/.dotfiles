@@ -18,7 +18,7 @@ dir = "lib"
 [plugins.ohmyzsh-plugins]
 github = "ohmyzsh/ohmyzsh"
 dir = "plugins"
-use = ["{git,nvm,pip,archlinux,sudo}.plugin.zsh"]
+use = ["{git,nvm,pip,archlinux,sudo,taskwarrior}.plugin.zsh"]
 
 # Else
 [plugins.FsYH]
