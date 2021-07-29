@@ -127,7 +127,7 @@
     "editor.scrollbar.horizontal": "hidden",
     "translator.captureWord": false,
     "material-icon-theme.folders.color": "#ededed",
-    "workbench.colorTheme": "Material Theme Ocean",
+    "workbench.colorTheme": "Tokyo Night",
     "codesnap.showWindowControls": false,
     "codesnap.backgroundColor": "#ededed",
     "vim.leader": "<space>",
