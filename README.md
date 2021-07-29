@@ -1,8 +1,13 @@
 # The Dotfiles
-## Some infos
+## Some info's
 These are my personal configuration files + things i use when installing a new system.
 
+### File Information
 
-# Todo
-- [x] Write linux.sh
-- [ ] Try linux.sh
+|   Source   |                             Info                             |
+| :--------: | :----------------------------------------------------------: |
+|   `src/`   |                 All the configuration files                  |
+|  `misc/`   |   Miscellaneous files (whenever something system related)    |
+|   `bin/`   | Executable scripts that are very useful (often configurations depend on said scripts) |
+| `linux.sh` | A script to install some cool software (**WIP**, *issues are welcome*) |
+
