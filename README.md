@@ -10,3 +10,6 @@ WARNING! Harry Potter references incoming!
 
 ## TODO
 - [ ] Add an `linux.sh` script to install all applications wanted on a new system of mine
+
+
+# This branch is deprecated, use arch-alt branch instead
