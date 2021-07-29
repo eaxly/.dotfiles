@@ -20,49 +20,49 @@ let g:enable_dashboard=0
 
 " Plug.vim {{{
 call plug#begin(stdpath('data') . '/plugged')
-" Completion
+" Completion {{{
 " if has('nvim-0.5')
 "   Plug 'hrsh7th/nvim-compe'
 "   Plug 'neovim/nvim-lspconfig'
 " endif
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-
-" Git
+" }}}
+" Git {{{
 " Plug 'tpope/vim-fugitive'
 Plug 'TimUntersberger/neogit'
-
-" Functionality
+" }}}
+" Functionality {{{
 Plug 'preservim/nerdcommenter'
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-endwise'
-
-Plug 'lambdalisue/vim-manpager'
+Plug 'dstein64/vim-startuptime', {'on': 'StartupTime'}
+" }}}
+" lambdalisue awesomes {{{
+" Plug 'lambdalisue/vim-manpager'
 Plug 'lambdalisue/suda.vim'
 Plug 'lambdalisue/pastefix.vim'
-
-Plug 'dstein64/vim-startuptime', {'on': 'StartupTime'}
-" Plug 'lukas-reineke/indent-blankline.nvim', {'branch': 'lua'}
-
-" Fuzzy finder
+" }}}
+" Fuzzy finder {{{
 if has('nvim-0.5')
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
 endif
-
-" Trees
+" }}}
+" Trees {{{
 Plug 'simnalamburt/vim-mundo'
 " Plug 'kyazdani42/nvim-tree.lua'
 Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
-
-" Productivity
+" }}}
+" Productivity {{{
 Plug 'tricktux/pomodoro.vim'
 Plug 'itchyny/calendar.vim'
 Plug 'kdheepak/lazygit.nvim'
-
-" UI
+" }}}
+" UI {{{
+" Themes
 " Plug 'sainnhe/gruvbox-material'
 " Plug 'shaunsingh/nord.nvim'
 " Plug 'shaunsingh/moonlight.nvim'
@@ -70,25 +70,27 @@ Plug 'kdheepak/lazygit.nvim'
 " Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 " Plug 'cocopon/iceberg.vim'
 Plug 'sainnhe/everforest'
+
 Plug 'Pocco81/TrueZen.nvim'
 Plug 'junegunn/goyo.vim'
 
+" Lines
 Plug 'hoob3rt/lualine.nvim'
 " Plug 'glepnir/galaxyline.nvim'
 Plug 'romgrk/barbar.nvim'
+
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 Plug 'liuchengxu/vim-which-key'
 Plug 'ryanoasis/vim-devicons'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'norcalli/nvim-colorizer.lua'
-" Plug 'RRethy/vim-hexokinase'
 if g:enable_startify==1
   Plug 'mhinz/vim-startify'
 elseif g:enable_dashboard==1
   Plug 'glepnir/dashboard-nvim'
 endif
-Plug 'lambdalisue/battery.vim'
+" }}}
 call plug#end()
 " }}}
 " }}}
@@ -568,7 +570,7 @@ require'nvim-treesitter.configs'.setup {
         "comment",
         "json",
         "lua",
-        }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+        },
   highlight = {
     enable = true 
   },
