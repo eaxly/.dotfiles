@@ -1,0 +1,63 @@
+# ~/.dotfiles/bombadil.toml
+
+# Path to your dotfiles relative to your $HOME directory
+dotfiles_dir = ".dotfiles"
+gpg_user_id = "mrsosaki@posteo.net"
+
+[settings]
+vars = [ "vars.toml" ]
+
+[settings.dots]
+# REMINDER:
+# A dot entry representing a symlink, `source` is relative to `dotfiles_dir` 
+# and `target` shall be relative to $HOME directory or absolute.
+
+# === CONFIG ===
+# Everything nvim
+nvim_lua = { source = "src/config/nvim/lua", target = ".config/nvim/lua" }
+nvim_init = { source = "src/config/nvim/init.lua", target = ".config/nvim/init.lua" }
+nvim_stylua = { source = "src/config/nvim/stylua.toml", target = ".config/nvim/stylua.toml" }
+nvim_coc = { source = "src/config/nvim/coc-settings.json", target = ".config/nvim/coc-settings.json"}
+nvim_old = { source = "src/config/nvim/old.vim", target = ".config/nvim/old.vim" }
+
+# everything vscode
+code_snippets = { source = "src/config/Code/User/snippets", target = ".config/Code/User/snippets" }
+code_keybinds = { source = "src/config/Code/User/keybindings.json", target = ".config/Code/User/keybindings.json" }
+code_settings = { source = "src/config/Code/User/settings.json", target = ".config/Code/User/settings.json"}
+
+# alacritty
+alacritty = { source = "src/config/alacritty", target = ".config/alacritty" }
+
+# Typora
+typora = { source = "src/config/Typora", target = ".config/Typora/themes" }
+
+# sheldon
+sheldon = { source = "src/config/sheldon/plugins.toml", target = ".config/sheldon/plugins.toml" }
+
+# starship
+starship = { source = "src/config/starship.toml", target = ".config/starship.toml" }
+
+# === HOME ===
+# spacevim
+spacevim = { source = "src/home/SpaceVim/init.toml", target = ".SpaceVim.d/init.toml" }
+
+# atom
+atom = { source = "src/home/atom/config.cson", target = ".atom/config.cson" }
+
+# bash
+bash = { source = "src/home/bashrc", target = ".bashrc" }
+
+# taskrc
+task = { source = "src/home/taskrc", target = ".taskrc" }
+
+# vimrc (by @adi1090x)
+vim = { source = "src/home/vimrc", target = ".vimrc" }
+
+# zshrc
+zsh = { source = "src/home/zshrc", target = ".zshrc"}
+
+# git
+git = { source = "src/home/gitconfig", target = ".gitconfig"}
+
+# wd
+wd = { source = "src/home/warprc", target = ".warprc"}
