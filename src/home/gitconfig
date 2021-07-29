@@ -1,6 +1,6 @@
 [user]
 	name = Samuel K.
-	email = mrsosaki@posteo.net
+	email = __[emailAddr]__
 [init]
 	defaultBranch = main
 [filter "lfs"]
