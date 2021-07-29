@@ -103,6 +103,7 @@ docx2md() {
 # Variables {{{
 # Editors
 export EDITOR=nvim
+export VISUAL=nvim
 export SUDO_EDITOR=$EDITOR
 
 # the manpager
@@ -111,7 +112,7 @@ export PAGER="bat --theme=Nord"
 export MANPAGER="sh -c 'col -bx | bat -l man -p --theme=Nord'"
 
 # FZF
-export FZF_DEFAULT_COMMAND="fd --hidden"
+export FZF_DEFAULT_COMMAND="find ."
 export FZF_DEFAULT_OPTS="--preview 'bat --color=always --theme=Nord --number {} '"
 # }}}
 
@@ -122,8 +123,8 @@ alias zshsource="source ~/.zshrc"
 alias alaconf="$EDITOR ~/.config/alacritty/alacritty.yml"
 # alias oboxconf="$EDITOR ~/.config/openbox/rc.xml"
 alias starconf="$EDITOR ~/.config/starship.toml"
-alias vconf="$EDITOR ~/.config/nvim/init.vim"
-! [ -f $HOME/.config/nvim/init.vim ] && [ -f $HOME/.config/nvim/init.lua ] && alias vconf="$EDITOR $HOME/.config/nvim/init.lua"
+alias vconf="cd ~/.config/nvim/lua"
+# ! [ -f $HOME/.config/nvim/init.vim ] && [ -f $HOME/.config/nvim/init.lua ] && alias vconf="$EDITOR $HOME/.config/nvim/init.lua"
 alias mackconf="$EDITOR ~/.mackup.cfg"
 alias kittyconf="$EDITOR ~/.config/kitty/kitty.conf"
 alias herbstconf="$EDITOR ~/.config/herbstluftwm/autostart"
@@ -163,7 +164,7 @@ alias pase="paru -Ss"
 alias painfo="paru -Si"
 alias pare="paru -R"
 alias parem="paru -Rns"
-
+alias paina="paru -S --aur"
 # cargo
 alias cr="cargo"
 alias crr="cargo run"
@@ -184,6 +185,7 @@ alias vsc="code --reuse-window"
 
 # todoist
 alias todoist='todoist --color --indent'
+
 # }}}
 
 # Startup {{{
@@ -357,5 +359,4 @@ fi
 #}}}
 # Vim keybindings
 bindkey -v
-
 # vim:foldmethod=marker
