@@ -75,7 +75,7 @@ wk.register({
 -- file manager
 -- ============
 wk.register({
-    f = { "<cmd>CHADopen<cr>", "Toggle File Manager" },
+    f = { "<cmd>NvimTreeToggle<cr>", "Toggle File Manager" },
 }, { prefix = "<leader>" })
 
 -- Buffer Management

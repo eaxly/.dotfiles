@@ -28,20 +28,16 @@ else
 end
 
 vim.g.dashboard_custom_section = {
-    a_config_files = {
-        description = { "  Open NeoVim Configuration Files            " },
-        command = "cd " .. os.getenv("HOME") .. "/.config/nvim/ " .. " | CHADopen ",
-    },
 
-    dotfiles = {
+    b_dotfiles = {
         description = { "  Open Dotfiles                              " },
-        command = "cd " .. os.getenv("HOME") .. "/.dotfiles/ " .. " | CHADopen ",
+        command = "cd " .. os.getenv("HOME") .. "/.dotfiles/ " .. " | NvimTreeToggle",
     },
 
     c_projects = {
 
         description = { "  Open Projects                              " },
-        command = "cd " .. os.getenv("HOME") .. "/Projects" .. " | CHADopen",
+        command = "cd " .. os.getenv("HOME") .. "/Projects" .. " | NvimTreeToggle",
     },
     d_history = {
         description = { "  Search History                              " },

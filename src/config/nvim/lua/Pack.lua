@@ -48,7 +48,7 @@ return require("packer").startup({
         })
 
         -- Git related plugins
-        use("TimUntersberger/neogit")
+        -- use("TimUntersberger/neogit") -- i prefer lazygit
         use({
             "lewis6991/gitsigns.nvim",
             requires = { "nvim-lua/plenary.nvim" },
@@ -58,7 +58,7 @@ return require("packer").startup({
         })
         use ({
             "kdheepak/lazygit.nvim",
-            requires = { "nvim-lua/plenary.nvim", opt = true },
+            requires = { "nvim-lua/plenary.nvim" },
             config = function()
                 require("plugins.others").lazygit()
             end,
@@ -101,16 +101,13 @@ return require("packer").startup({
         })
 
         use("simnalamburt/vim-mundo")
+
         use({
-            "ms-jpq/chadtree",
-            cmd = { "CHADopen", "CHADhelp", "CHADdeps" },
-            branch = "chad",
-            run = "python3 -m chadtree deps",
+            "kyazdani42/nvim-tree.lua",
             config = function()
                 require("plugins.filetree")
-            end,
+            end
         })
-
         use("folke/trouble.nvim")
 
         -- === User Interface ===
