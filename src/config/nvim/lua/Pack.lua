@@ -73,6 +73,11 @@ return require("packer").startup({
         })
         use("tpope/vim-surround")
 
+        -- Productivity
+        use({
+            "romgrk/todoist.nvim",
+            run = ":TodoistInstall"
+        })
         -- fuzzy finder
         use({ "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim", "nvim-lua/popup.nvim" } })
         -- use("tpope/vim-endwise")
