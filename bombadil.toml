@@ -14,11 +14,7 @@ vars = [ "vars.toml" ]
 
 # === CONFIG ===
 # Everything nvim
-nvim_lua = { source = "src/config/nvim/lua", target = ".config/nvim/lua" }
-nvim_init = { source = "src/config/nvim/init.lua", target = ".config/nvim/init.lua" }
-nvim_stylua = { source = "src/config/nvim/stylua.toml", target = ".config/nvim/stylua.toml" }
-nvim_coc = { source = "src/config/nvim/coc-settings.json", target = ".config/nvim/coc-settings.json"}
-nvim_old = { source = "src/config/nvim/old.vim", target = ".config/nvim/old.vim" }
+nvim = { source = "src/config/nvim", target = ".config/nvim" }
 
 # everything vscode
 code_snippets = { source = "src/config/Code/User/snippets", target = ".config/Code/User/snippets" }
