@@ -73,11 +73,6 @@ return require("packer").startup({
         })
         use("tpope/vim-surround")
 
-        -- Productivity
-        use({
-            "romgrk/todoist.nvim",
-            run = ":TodoistInstall"
-        })
         -- fuzzy finder
         use({ "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim", "nvim-lua/popup.nvim" } })
         -- use("tpope/vim-endwise")
@@ -117,6 +112,24 @@ return require("packer").startup({
 
         -- === User Interface ===
 
+        use {
+            "folke/twilight.nvim",
+                config = function()
+                require("twilight").setup {}
+            end
+        }
+
+        use {
+            "Pocco81/TrueZen.nvim",
+            config = function()
+                require("true-zen").setup({
+                    integrations = {
+                        twilight = true,
+                        lualine = true
+                    }
+                })
+            end
+        }
         use({
             "lukas-reineke/indent-blankline.nvim",
             config = function()
@@ -141,7 +154,7 @@ return require("packer").startup({
             config = function()
                 require("plugins.treesitter")
             end,
-            run = { '<cmd>TSUpdate<cr><cr>'}
+            run = { ':TSUpdate'}
         })
 
         use("kyazdani42/nvim-web-devicons")

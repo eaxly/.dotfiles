@@ -24,8 +24,6 @@ g.neovide_cursor_vfx_mode = "pixiedust" -- On my personal computer, railgun & to
 g.neovide_cursor_vfx_particle_lifetime = 0.9
 g.neovide_cursor_vfx_particle_density = 5.0
 
-g.neovide_fullscreen = true
-
 -- Tabs
 o.tabstop = 4
 o.softtabstop = 4

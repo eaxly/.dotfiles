@@ -29,22 +29,22 @@ end
 
 vim.g.dashboard_custom_section = {
 
-    b_dotfiles = {
+    a_dotfiles = {
         description = { "  Open Dotfiles                              " },
-        command = "cd " .. os.getenv("HOME") .. "/.dotfiles/ " .. " | NvimTreeToggle",
+        command = "cd " .. os.getenv("HOME") .. "/.dotfiles/ " .. " | NvimTreeOpen",
     },
 
-    c_projects = {
+    b_projects = {
 
         description = { "  Open Projects                              " },
-        command = "cd " .. os.getenv("HOME") .. "/Projects" .. " | NvimTreeToggle",
+        command = "cd " .. os.getenv("HOME") .. "/Projects" .. " | NvimTreeOpen",
     },
-    d_history = {
+    c_history = {
         description = { "  Search History                              " },
         command = "Telescope oldfiles",
     },
 
-    e_find_files = {
+    d_find_files = {
         description = { "  Find a file in the current directory        " },
         command = "Telescope find_files",
     },

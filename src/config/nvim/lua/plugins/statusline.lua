@@ -3,11 +3,6 @@ if not present then
     error("STATUSLINE.LUA: Lualine not present!")
     return false
 end
-local thingy = "~"
-local function gandalf()
-    thingy = " "..thingy
-    return thingy
-end
 
 local smolThings = {
     sections = {
@@ -19,15 +14,6 @@ local smolThings = {
 }
 
 local config = {
-    tabline = {
-        lualine_a = {gandalf},
-        lualine_b = {},
-        lualine_c = {},
-
-        lualine_x = {},
-        lualine_y = {},
-        lualine_z = {},
-    },
     options = {
         theme = "tokyonight",
         section_separators = { "", "" },
@@ -54,7 +40,9 @@ local config = {
                 colored = false,
             },
         },
-        lualine_y = { "progress"},
+        lualine_y = {
+            "progress"
+        },
         lualine_z = {
             "location",
         },
