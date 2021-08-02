@@ -57,3 +57,6 @@ git = { source = "src/home/gitconfig", target = ".gitconfig"}
 
 # wd
 wd = { source = "src/home/warprc", target = ".warprc"}
+
+# sway
+sway = { source = "src/config/sway", target = ".config/sway"}
