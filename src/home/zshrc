@@ -64,7 +64,7 @@ AUTO_LS_COMMANDS=(custom_function)
 # Functions {{{
 
 noice() {
-  if command -v toilet > /dev/null; then
+  if command -v toilet &> /dev/null; then
     for arg in $@; do
       toilet -f pagga "$arg"
     done
@@ -74,7 +74,7 @@ noice() {
 }
 
 dots() {
-  if command -v toilet > /dev/null; then
+  if command -v toilet &> /dev/null; then
     toilet -f pagga "Dotfiles"
     echo
     echo "File:"
@@ -83,7 +83,7 @@ dots() {
 }
 
 mackse() {
-  mackup list | grep "$@"
+  mackup list | fzf
 
 }
 
@@ -117,18 +117,6 @@ export FZF_DEFAULT_OPTS="--preview 'bat --color=always --theme=Nord --number {} 
 # }}}
 
 # Aliases {{{
-# Config
-alias zshconf="$EDITOR ~/.zshrc"
-alias zshsource="source ~/.zshrc"
-alias alaconf="$EDITOR ~/.config/alacritty/alacritty.yml"
-# alias oboxconf="$EDITOR ~/.config/openbox/rc.xml"
-alias starconf="$EDITOR ~/.config/starship.toml"
-alias vconf="cd ~/.config/nvim/lua"
-# ! [ -f $HOME/.config/nvim/init.vim ] && [ -f $HOME/.config/nvim/init.lua ] && alias vconf="$EDITOR $HOME/.config/nvim/init.lua"
-alias mackconf="$EDITOR ~/.mackup.cfg"
-alias kittyconf="$EDITOR ~/.config/kitty/kitty.conf"
-alias herbstconf="$EDITOR ~/.config/herbstluftwm/autostart"
-
 # ls
 alias ls="exa --icons --group-directories-first --long --git --header"
 alias lT="exa --icons --group-directories-first --tree --git --header"
@@ -357,6 +345,7 @@ if [ "$funcstack[1]" = "_gh" ]; then
 fi
 # }}}
 #}}}
+
 # Vim keybindings
 bindkey -v
 # vim:foldmethod=marker
