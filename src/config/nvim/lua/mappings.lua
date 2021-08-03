@@ -146,28 +146,5 @@ wk.register ({
     }
 }, {prefix = "<leader>"} )
 
--- Pomodoro
--- ======
--- TODO: Write a Toggle function and integrate pomodorp.vim into the statusline
---[[ wk.register ({
-    P = {
-        name = "Pomodoro",
-        s = {"<cmd>PomodoroStart<cr>", "Start"},
-        d = {"<cmd>PomodoroStop<cr>", "Stop"},
-        S = {"<cmd>PomodoroStatus<cr>", "Status"}
-    }
 
-}, {prefix = "<leader>"}) ]]
-
--- Neovide
--- ======
-local function toggle_fullscreen()
-    vim.g.neovide_fullscreen = not vim.g.neovide_fullscreen
-end
-wk.register({
-    N = {
-        name = "neovide",
-        f = {'<cmd>v:lua toggle_fullscreen<cr>', "Toggle Fullscreen"}
-    }
-}, {prefix = "<leader>"})
 -- vim:foldmethod=marker
