@@ -10,9 +10,6 @@ packages="neovim alacritty kitty gnome touchegg"
 
 aur_packages=""
 
-# run some post installation stuff
-post_install=""
-
 _exists() {
     if command -v pacman &> /dev/null; then
         pacman -Q ${@} &> /dev/null
@@ -65,6 +62,10 @@ if $aur_packages != ""; then
     _aur_install $packages
 fi
 
-$post_install
+post_install() {
+    echo "Post installation stuff idk put stuff here."
+}
+
+post_install()
 
 # vim:foldmethod=marker
