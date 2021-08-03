@@ -24,9 +24,6 @@ code_settings = { source = "src/config/Code/User/settings.json", target = ".conf
 # alacritty
 alacritty = { source = "src/config/alacritty", target = ".config/alacritty" }
 
-# Typora
-typora = { source = "src/config/Typora", target = ".config/Typora/themes" }
-
 # sheldon
 sheldon = { source = "src/config/sheldon/plugins.toml", target = ".config/sheldon/plugins.toml" }
 
@@ -46,7 +43,7 @@ bash = { source = "src/home/bashrc", target = ".bashrc" }
 # taskrc
 task = { source = "src/home/taskrc", target = ".taskrc" }
 
-# vimrc (by @adi1090x)
+# vimrc (based on @adi1090x archcraft vimrc)
 vim = { source = "src/home/vimrc", target = ".vimrc" }
 
 # zshrc
@@ -58,5 +55,5 @@ git = { source = "src/home/gitconfig", target = ".gitconfig"}
 # wd
 wd = { source = "src/home/warprc", target = ".warprc"}
 
-# sway
-sway = { source = "src/config/sway", target = ".config/sway"}
+# awesome
+# awesome = { source = "src/config/awesome", target = ".config/awesome"} 
