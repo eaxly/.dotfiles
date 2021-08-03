@@ -6,9 +6,12 @@
 
 # If you just wan't to install other packages, edit these two lines
 # ↓ packages that need to be installed
-packages="neovim alacritty kitty gnome"
+packages="neovim alacritty kitty gnome touchegg"
 
 aur_packages=""
+
+# run some post installation stuff
+post_install=""
 
 _exists() {
     if command -v pacman &> /dev/null; then
@@ -61,4 +64,7 @@ fi
 if $aur_packages != ""; then
     _aur_install $packages
 fi
+
+$post_install
+
 # vim:foldmethod=marker
