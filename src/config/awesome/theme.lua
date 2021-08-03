@@ -125,13 +125,13 @@ theme.awesome_icon = theme_assets.awesome_icon(
 
 -- Define the icon theme for application icons. If not set then the icons
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
-theme.icon_theme = nil
+theme.icon_theme = 'Papirus'
 
 -- Set different colors for urgent notifications.
 rnotification.connect_signal('request::rules', function()
     rnotification.append_rule {
         rule       = { urgency = 'critical' },
-        properties = { bg = '#ff0000', fg = '#ffffff' }
+        properties = { bg = '#f7768e', fg = '#a9b1d6' }
     }
 end)
 
