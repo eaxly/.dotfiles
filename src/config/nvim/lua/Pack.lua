@@ -40,11 +40,10 @@ return require("packer").startup({
             end,
         })
         use({
-            "hrsh7th/vim-vsnip",
-            --[[ config = function()
+            "L3MON4D3/LuaSnip",
+            config = function()
                 require("plugins.snip")
-            end ]]
-            requires = { "hrsh7th/vim-vsnip-integ" }
+            end
         })
 
         -- Git related plugins
@@ -137,8 +136,9 @@ return require("packer").startup({
             end,
         })
 
-        -- colorscheme
+        -- COLORSCHEME
         use("sainnhe/everforest")
+        use("sainnhe/gruvbox-material")
         use("folke/tokyonight.nvim")
 
         -- lines

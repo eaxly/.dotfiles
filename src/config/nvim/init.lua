@@ -16,5 +16,4 @@ require("options")
 
 -- theme
 require("theme")
-
 -- vim:foldmethod=marker

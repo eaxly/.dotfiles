@@ -16,11 +16,6 @@ vars = [ "vars.toml" ]
 # Everything nvim
 nvim = { source = "src/config/nvim", target = ".config/nvim" }
 
-# everything vscode
-code_snippets = { source = "src/config/Code/User/snippets", target = ".config/Code/User/snippets" }
-code_keybinds = { source = "src/config/Code/User/keybindings.json", target = ".config/Code/User/keybindings.json" }
-code_settings = { source = "src/config/Code/User/settings.json", target = ".config/Code/User/settings.json"}
-
 # alacritty
 alacritty = { source = "src/config/alacritty", target = ".config/alacritty" }
 

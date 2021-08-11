@@ -23,7 +23,7 @@ g.neovide_cursor_trail_length = 0.9
 g.neovide_cursor_vfx_mode = "pixiedust" -- On my personal computer, railgun & torpedo crash neovide. That does not mean that it will crash on yours!! Try it out :D
 g.neovide_cursor_vfx_particle_lifetime = 0.9
 g.neovide_cursor_vfx_particle_density = 5.0
-g.neovide_fullscreen = true
+g.neovide_fullscreen = false
 
 -- Tabs
 o.tabstop = 4

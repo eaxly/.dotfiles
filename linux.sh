@@ -6,7 +6,7 @@
 
 # If you just wan't to install other packages, edit these two lines
 # ↓ packages that need to be installed
-packages="neovim alacritty kitty gnome touchegg"
+packages="neovim kitty gnome touchegg"
 
 aur_packages=""
 

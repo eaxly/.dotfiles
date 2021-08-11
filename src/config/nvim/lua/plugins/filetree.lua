@@ -1,13 +1,17 @@
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 
 function NvimTreeTrash()
-    local lib = require"nvim-tree.lib"
+    local lib = require('nvim-tree.lib')
+    local function on_exit(job_id, data, event)
+        lib.refresh_tree()
+    end
     local node = lib.get_node_at_cursor()
     if node then
-        vim.fn.jobstart("trash " .. node.absolute_path .. " &", {detach = true} )
+        vim.fn.jobstart("trash " .. node.absolute_path, {
+        detach = true,
+        on_exit = on_exit,
+    })
     end
-    vim.cmd("sleep 150m")
-    lib.refresh_tree()
 end
 
 function NvimTreeOSOpen()
@@ -19,15 +23,16 @@ function NvimTreeOSOpen()
 end
 
 vim.g.nvim_tree_side = 'right'
-vim.g.nvim_tree_follow = 1
+vim.g.nvim_tree_follow = 0
 vim.g.nvim_tree_lsp_diagnostics = 1
 vim.g.nvim_tree_update_cwd = 1
 vim.g.nvim_tree_hijack_netrw = 1
-vim.g.nvim_tree_width = 35
+vim.g.nvim_tree_width = 30
 vim.g.nvim_tree_add_trailing = 1
 vim.g.nvim_tree_ignore = {'.git'}
 vim.g.nvim_tree_disable_default_keybindings = 1
 vim.g.nvim_tree_auto_close = 1
+vim.g.nvim_tree_hide_dotfiles = 1
 -- default mappings
 
 vim.g.nvim_tree_bindings = {

@@ -18,7 +18,7 @@ compe.setup({
     autocomplete = true,
     debug = false,
     min_length = 1,
-    preselect = "enable",
+    preselect = "always",
     throttle_time = 80,
     source_timeout = 200,
     resolve_timeout = 800,
@@ -27,7 +27,7 @@ compe.setup({
     max_kind_width = 100,
     max_menu_width = 100,
     documentation = {
-        border = { "", "", "", " ", "", "", "", " " }, -- the border option is the same as `|help nvim_open_win|`
+        border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
         winhighlight = "NormalFloat:CompeDocumentation,FloatBorder:CompeDocumentationBorder",
         max_width = 120,
         min_width = 60,
@@ -40,9 +40,10 @@ compe.setup({
         buffer = true,
         calc = true,
         nvim_lsp = true,
-        nvim_lua = true,
-        vsnip = true,
-        luasnip = false,
+        nvim_lua = false,
+        vsnip = false,
+        luasnip = true,
         ultisnips = false,
+        emoji = false,
     },
 })

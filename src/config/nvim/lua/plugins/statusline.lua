@@ -4,6 +4,21 @@ if not present then
     return false
 end
 
+local function  set_sep()
+    if os.getenv("TERM") == "xterm-kitty" then
+        return {
+            { "", "" },
+            { "", "" },
+        }
+    else
+        return {
+            { " ", " " },
+            { " ", " " },
+        }
+    end
+end
+
+
 local smolThings = {
     sections = {
         lualine_a = { 'mode' },
@@ -16,8 +31,8 @@ local smolThings = {
 local config = {
     options = {
         theme = "tokyonight",
-        section_separators = { "", "" },
-        component_separators = { "", "" },
+        section_separators = set_sep()[1],
+        component_separators = set_sep()[2],
         disabled_filetypes = {},
     },
 

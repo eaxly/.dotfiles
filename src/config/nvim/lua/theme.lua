@@ -13,6 +13,5 @@ vim.g.tokyonight_dark_sidebar = true
 vim.g.tokyonight_dark_float = true
 
 -- setting the theme
--- vim.g.colors_name = "tokyonight"
--- vim.cmd([[ colorscheme tokyonight ]])
+-- vim.g.colors_name = "everforest"
 require("tokyonight").colorscheme()

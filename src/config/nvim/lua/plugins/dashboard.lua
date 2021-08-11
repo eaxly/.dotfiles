@@ -13,6 +13,7 @@ vim.g.dashboard_default_executive = "telescope"
 -- if somebody could implement random headers that would be awesome! <3
 vim.g.dashboard_custom_header = headers.lotr
 
+
 if utils.get_username() ~= nil then
     vim.g.dashboard_custom_footer = {
         " A wizard is never late, "

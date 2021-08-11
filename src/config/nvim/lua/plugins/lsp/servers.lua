@@ -31,11 +31,11 @@ require("lspconfig").sumneko_lua.setup({
 })
 require("lspconfig").rust_analyzer.setup{}
 require("lspconfig").pyright.setup{
-    settings = {
+    --[[ settings = {
         python = {
             venvPath = os.getenv("HOME") .. "/.local/share/virtualenvs"
         }
-    }
+    } ]]
 }
 
 require'lspconfig'.jsonls.setup{}
