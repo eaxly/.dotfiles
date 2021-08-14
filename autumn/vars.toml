@@ -1,0 +1,34 @@
+# system
+# ============
+terminal = "kitty"
+home_dir = "/home/axolotl/"
+corner_rad = "15.0"
+
+battery = "BAT0"
+adapter = "AC"
+# colors
+# ======
+# normal colors
+color0  = "#0c0310"
+color1  = "#B2563C"
+color2  = "#8F5651"
+color3  = "#A46655"
+color4  = "#CE6951"
+color5  = "#AF8965"
+color6  = "#E29870"
+color7  = "#a9bcbe"
+
+# brighter colors
+# TODO(axolotl): Make these colors brighter
+color8  = "#768385"
+color9  = "#B2563C"
+color10 = "#8F5651"
+color11 = "#A46655"
+color12 = "#CE6951"
+color13 = "#AF8965"
+color14 = "#E29870"
+color15 = "#a9bcbe"
+
+bg = "%color0"
+fg = "%color8"
+cursor = "%color7"
