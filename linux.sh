@@ -1,14 +1,15 @@
 #!/usr/bin/env bash
 
 # A script to install wanted software on my system
-# It is by no means perfect nor clean, but who cares if it works.
+# It is by no means perfect nor clean, but who cares, if it works.
 # If it doesn't work, please open an issue.
 
 # If you just wan't to install other packages, edit these two lines
 # ↓ packages that need to be installed
-packages="neovim kitty gnome touchegg"
+packages="neovim kitty i3 dunst rofi python-pywal firefox pain nerd-fonts-jetbrains-mono nerd-fonts-iosevka gnome-keyring gnome-seahorse libgnome-keyring zenity" # gnome touchegg
 
-aur_packages=""
+# TODO(axolotl): take a look at handlr, is it better than mimeo?
+aur_packages="mimeo xdg-utils-mimeo" # because xdg-open is f*cked up
 
 _exists() {
     if command -v pacman &> /dev/null; then
@@ -63,9 +64,11 @@ if $aur_packages != ""; then
 fi
 
 post_install() {
-    echo "Post installation stuff idk put stuff here."
+    pip3 install pywalfox
+    pywalfox install
+    echo -e "Install the pywalfox firefox extension!"
 }
-
+sleep 1
 post_install()
 
 # vim:foldmethod=marker

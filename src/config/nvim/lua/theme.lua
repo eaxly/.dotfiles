@@ -12,6 +12,17 @@ vim.g.tokyonight_lualine_bold = true
 vim.g.tokyonight_dark_sidebar = true
 vim.g.tokyonight_dark_float = true
 
+-- rose pine
+vim.g.rose_pine_enable_italics = true
+vim.g.rose_pine_disable_background = false
+vim.g.rose_pine_variant = 'base'
+
+vim.g.nightfox_style = "nightfox"
+vim.g.nightfox_italic_keywords = true
+vim.g.nightfox_italic_comments = true
+
 -- setting the theme
 -- vim.g.colors_name = "everforest"
-require("tokyonight").colorscheme()
+-- require("tokyonight").colorscheme()
+require("rose-pine").set()
+-- require('nightfox').set()

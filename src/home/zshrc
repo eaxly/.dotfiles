@@ -114,6 +114,7 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p --theme=Nord'"
 # FZF
 export FZF_DEFAULT_COMMAND="find ."
 export FZF_DEFAULT_OPTS="--preview 'bat --color=always --theme=Nord --number {} '"
+export TERMINAL=kitty
 # }}}
 
 # Aliases {{{

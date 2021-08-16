@@ -1,0 +1,406 @@
+;       ___           ___           ___       ___           ___           ___           ___     
+;      /\  \         /\  \         /\__\     |\__\         /\  \         /\  \         /\  \    
+;     /::\  \       /::\  \       /:/  /     |:|  |       /::\  \       /::\  \       /::\  \   
+;    /:/\:\  \     /:/\:\  \     /:/  /      |:|  |      /:/\:\  \     /:/\:\  \     /:/\:\  \  
+;   /::\~\:\  \   /:/  \:\  \   /:/  /       |:|__|__   /::\~\:\__\   /::\~\:\  \   /::\~\:\  \ 
+;  /:/\:\ \:\__\ /:/__/ \:\__\ /:/__/        /::::\__\ /:/\:\ \:|__| /:/\:\ \:\__\ /:/\:\ \:\__\
+;  \/__\:\/:/  / \:\  \ /:/  / \:\  \       /:/~~/~    \:\~\:\/:/  / \/__\:\/:/  / \/_|::\/:/  /
+;       \::/  /   \:\  /:/  /   \:\  \     /:/  /       \:\ \::/  /       \::/  /     |:|::/  / 
+;        \/__/     \:\/:/  /     \:\  \    \/__/         \:\/:/  /        /:/  /      |:|\/__/  
+;                   \::/  /       \:\__\                  \::/__/        /:/  /       |:|  |    
+;                    \/__/         \/__/                   ~~            \/__/         \|__|
+
+
+[colors]
+background = __[bg]__
+; TODO(axolot): Add seperators
+foreground = __[fg]__
+primary = __[color5]__
+secondary = __[color6]__
+alert = __[color1]__
+
+
+[bar/axolotl]
+; polybar is drawn on multiple monitors, BUT, the tray is drawn randomly (apparently)
+; so we still need to specify
+monitor = ${env:MONITOR}
+fixed-center = true
+
+width = 98%
+height = 25
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+radius-bottom = __[corner_rad]__
+
+offset-x = 1.0%
+
+line-size = 0
+
+border-size = 0
+border-color = ${colors.primary}
+
+padding = 2
+module-margin = 1
+
+; Fonts
+font-0 = "JetBrainsMono Nerd Font:style=Bold:size=10;4"
+font-1 = "JetBrains Mono Nerd Font:style=Regular:size=10;4"
+font-2 = "Noto Color Emoji:pixelsize=16:style=Regular:scale=10;2"
+font-3 = "Iosevka:style=Regular:size=10;4"
+
+dim-value = 1.0
+
+; Tray icon max size
+tray-maxsize = 16
+tray-background = ${colors.background}
+
+; Pad the sides of each tray icon
+tray-padding = 1
+
+; Scale factor for tray clients
+tray-scale = 1.0
+override-redirect = true
+
+; Modules
+modules-left = i3 date
+modules-center = time
+modules-right = cpu battery
+; wired-network wireless-network
+
+; ░█▄█░█▀█░█▀▄░█░█░█░░░█▀▀░█▀▀
+; ░█░█░█░█░█░█░█░█░█░░░█▀▀░▀▀█
+; ░▀░▀░▀▀▀░▀▀░░▀▀▀░▀▀▀░▀▀▀░▀▀▀
+; da dotdotdotdotfileeeeeeeees
+
+; Module/cpu {{{
+[module/cpu]
+type = internal/cpu
+interval = 0.5
+
+format = <label> <ramp-coreload>
+label = CPU:%percentage%%
+label-font = 4
+ramp-coreload-spacing = 0
+ramp-coreload-0 = ▁
+ramp-coreload-1 = ▂
+ramp-coreload-2 = ▃
+ramp-coreload-3 = ▄
+ramp-coreload-4 = ▅
+ramp-coreload-5 = ▆
+ramp-coreload-6 = ▇
+ramp-coreload-7 = █
+; }}}
+
+; Module/date {{{
+[module/date]
+type = internal/date
+
+; Seconds to sleep between updates
+interval = 10.0
+
+date = %d.%m.%Y
+date-alt = %A, %d %B %Y
+
+label = %date%
+
+format = <label>
+
+; }}}
+
+; Module/time {{{
+[module/time]
+type = internal/date
+interval = 1.0
+
+time = %H:%M:%S
+time-alt = %H:%M:%S
+
+label = %time%
+format = <label>
+; }}}
+
+; Module/i3 {{{
+[module/i3]
+type = internal/i3
+
+; Only show workspaces defined on the same output as the bar
+;
+; Useful if you want to show monitor specific workspaces
+; on different bars
+;
+; Default: false
+pin-workspaces = true
+
+; This will split the workspace name on ':'
+; Default: false
+strip-wsnumbers = false
+
+; Sort the workspaces by index instead of the default
+; sorting that groups the workspaces by output
+; Default: false
+index-sort = true
+
+; Create click handler used to focus workspace
+; Default: true
+enable-click = false
+
+; Create scroll handlers used to cycle workspaces
+; Default: true
+enable-scroll = false
+
+; Wrap around when reaching the first/last workspace
+; Default: true
+wrapping-scroll = false
+
+; Set the scroll cycle direction 
+; Default: true
+reverse-scroll = false
+
+; Use fuzzy (partial) matching on labels when assigning 
+; icons to workspaces
+; Example: code;♚ will apply the icon to all workspaces 
+; containing 'code' in the label
+; Default: false
+fuzzy-match = true
+
+format = <label-state> <label-mode>
+label-mode = %mode%
+label-mode-padding = 0
+label-mode-background = ${colors.background}
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-focused = %index%
+label-focused-foreground = ${colors.background}
+label-focused-background = ${colors.secondary}
+label-focused-padding = 2
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-unfocused = %index%
+label-unfocused-padding = 2
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-visible = %index%
+label-visible-padding = 2
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-urgent = %index%
+label-urgent-foreground = ${colors.alert}
+label-urgent-background = ${colors.background}
+label-urgent-padding = 2
+
+; Separator in between workspaces
+label-separator = |
+label-separator-padding = 0
+label-separator-foreground = ${colors.secondary}
+; }}}
+
+; Module/battery {{{
+[module/battery]
+type = internal/battery
+
+; Use the following command to list batteries and adapters:
+; $ ls -1 /sys/class/power_supply/
+battery = __[battery]__
+adapter = __[adapter]__
+
+; If an inotify event haven't been reported in this many
+; seconds, manually poll for new values.
+;
+; Needed as a fallback for systems that don't report events
+; on sysfs/procfs.
+;
+; Disable polling by setting the interval to 0.
+;
+; Default: 5
+poll-interval = 5
+; see "man date" for details on how to format the time string
+; NOTE: if you want to use syntax tags here you need to use %%{...}
+; Default: %H:%M:%S
+time-format = %H:%M
+
+format-charging = <animation-charging> <label-charging>
+format-charging-background = ${colors.secondary}
+format-charging-foreground = ${colors.background}
+
+format-discharging = <animation-discharging> <label-discharging>
+format-discharging-background = ${colors.secondary}
+format-discharging-foreground = ${colors.background}
+
+format-full = <ramp-capacity> <label-full>
+format-full-background = ${colors.secondary}
+format-full-foreground = ${colors.background}
+
+label-charging = %percentage%%
+label-discharging = %percentage%%
+label-full = %percentage%%
+
+; Only applies if <ramp-capacity> is used
+ramp-capacity-0  = 
+ramp-capacity-1  = 
+ramp-capacity-2  = 
+ramp-capacity-3  = 
+ramp-capacity-4  = 
+ramp-capacity-5  = 
+ramp-capacity-6  = 
+ramp-capacity-7  = 
+ramp-capacity-8  = 
+ramp-capacity-9  = 
+ramp-capacity-10 = 
+
+; Only applies if <bar-capacity> is used
+bar-capacity-width = 10
+
+; Only applies if <animation-charging> is used
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+; Framerate in milliseconds
+animation-charging-framerate = 750
+
+; Only applies if <animation-discharging> is used
+animation-discharging-4 = 
+animation-discharging-3 = 
+animation-discharging-2 = 
+animation-discharging-1 = 
+animation-discharging-0 = 
+
+; Framerate in milliseconds
+animation-discharging-framerate = 750
+; }}}
+
+; Module/network {{{
+[module/wired-network]
+type = internal/network
+interface = __[wire_face]__
+
+interval = 2.5
+
+format-connected =  <ramp-signal> <label-connected>
+format-disconnected =  <label-disconnected>
+format-packetloss =  <animation-packetloss> <label-connected>
+
+label-connected = %essid% %downspeed:9%
+
+label-disconnected = not connected
+
+ramp-signal-0 = 😱
+ramp-signal-1 = 😠
+ramp-signal-2 = 😒
+ramp-signal-3 = 😊
+ramp-signal-4 = 😃
+ramp-signal-5 = 😈
+
+; Only applies if <animation-packetloss> is used
+animation-packetloss-0 = ⚠️
+animation-packetloss-0-foreground = ${colors.alert}
+
+animation-packetloss-1 = 📶
+animation-packetloss-1-foreground = ${colors.foreground}
+;
+; Framerate in milliseconds
+animation-packetloss-framerate = 500
+
+[module/wireless-network]
+type = internal/network
+interface = __[wireless_face]__
+
+interval = 2.5
+
+format-connected = 泌 <ramp-signal> <label-connected>
+format-disconnected = 泌 <label-disconnected>
+format-packetloss = 泌 <animation-packetloss> <label-connected>
+
+label-connected = %essid% %downspeed:9%
+
+label-disconnected = not connected
+
+ramp-signal-0 = 😱
+ramp-signal-1 = 😠
+ramp-signal-2 = 😒
+ramp-signal-3 = 😊
+ramp-signal-4 = 😃
+ramp-signal-5 = 😈
+
+animation-packetloss-0 = ⚠️
+animation-packetloss-0-foreground = ${colors.alert}
+
+animation-packetloss-1 = 📶
+animation-packetloss-1-foreground = ${colors.foreground}
+
+; Framerate in milliseconds
+animation-packetloss-framerate = 500
+; }}}
+
+[bar/tray]
+; draw the tray only on the main monitor
+monitor = __[main_monitor]__
+fixed-center = true
+
+width = 55%
+height = 21
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+radius-top= __[corner_rad]__
+
+offset-x = 27.5%
+
+overline-size = 2
+overline-color = ${colors.secondary}
+
+border-size = 0
+border-color = ${colors.primary}
+
+padding = 2
+module-margin = 1
+
+; Fonts
+font-0 = "JetBrainsMono Nerd Font:style=Bold:size=10;4"
+font-1 = "JetBrains Mono Nerd Font:style=Regular:size=10;4"
+font-2 = "Noto Color Emoji:pixelsize=16:style=Regular:scale=10;2"
+font-3 = "Iosevka:style=Regular:size=10;4"
+
+dim-value = 1.0
+
+; Tray icon max size
+tray-maxsize = 16
+tray-background = ${colors.background}
+tray-position = center
+; Pad the sides of each tray icon
+tray-padding = 1
+
+; Scale factor for tray clients
+tray-scale = 1.0
+override-redirect = true
+bottom = true
+
+modules-right = wired-network
+modules-center = 
+modules-left = wireless-network
+
+; vim:filetype=dosini
