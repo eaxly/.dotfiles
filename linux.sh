@@ -4,16 +4,24 @@
 # It is by no means perfect nor clean, but who cares, if it works.
 # If it doesn't work, please open an issue.
 
+
+if ! command -v pacman &> /dev/null; then
+    echo -e "Sorry mate!\nArchLinux and ArchBased distros only at the moment.\nFeel free to port it to other distros :D."
+fi
+
 # If you just wan't to install other packages, edit these two lines
-# ↓ packages that need to be installed
-packages="neovim kitty i3 dunst rofi python-pywal firefox pain nerd-fonts-jetbrains-mono nerd-fonts-iosevka gnome-keyring gnome-seahorse libgnome-keyring zenity" # gnome touchegg
+
+packages="neovim kitty i3 dunst rofi python-pywal python-pip firefox gnome-keyring seahorse libgnome-keyring zenity" # gnome touchegg
 
 # TODO(axolotl): take a look at handlr, is it better than mimeo?
-aur_packages="mimeo xdg-utils-mimeo" # because xdg-open is f*cked up
+aur_packages="mimeo xdg-utils-mimeo nerd-fonts-jetbrains-mono nerd-fonts-iosevka " # because xdg-open is f*cked up
 
 _exists() {
     if command -v pacman &> /dev/null; then
         pacman -Q ${@} &> /dev/null
+    else
+        echo "uhm.. sorry but WHAT?!?!?!"
+        exit 1
     fi
 }
 
@@ -26,7 +34,7 @@ _install() {
 }
 
 _aur_install() {
-    program=${1}
+    program=${@}
     if ! _exists $program; then
         paru -S $program
     fi
@@ -55,11 +63,11 @@ if _exists pacman && ! _exists yay && ! _exists paru && ! _exists yoghurt; then
     fi
 fi
 
-if $packages != ""; then
+if [[ $packages != "" ]]; then
     _install $packages
 fi
 
-if $aur_packages != ""; then
+if [[ $aur_packages != "" ]]; then
     _aur_install $packages
 fi
 
@@ -67,6 +75,7 @@ post_install() {
     pip3 install pywalfox
     pywalfox install
     echo -e "Install the pywalfox firefox extension!"
+    echo "https://addons.mozilla.org/en-GB/firefox/addon/pywalfox/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search"
 }
 sleep 1
 post_install()

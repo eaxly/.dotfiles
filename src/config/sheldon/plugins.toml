@@ -18,7 +18,8 @@ dir = "lib"
 [plugins.ohmyzsh-plugins]
 github = "ohmyzsh/ohmyzsh"
 dir = "plugins"
-use = ["{git,nvm,pip,archlinux,sudo,taskwarrior}.plugin.zsh"]
+use = ["{wd,git,nvm,pip,archlinux,sudo,taskwarrior}.plugin.zsh"]
+apply = ["fpath", "source"]
 
 # Else
 [plugins.FsYH]
@@ -27,9 +28,9 @@ github = "zdharma/fast-syntax-highlighting"
 [plugins.zsh-completions]
 github = "zsh-users/zsh-completions"
 
-[plugins.wd]
-github = "mfaerevaag/wd"
-apply = ["fpath", "source"]
+# [plugins.wd]
+# github = "mfaerevaag/wd"
+# apply = ["fpath", "source"]
 
 # [plugins.autopair]
 # github = "hlissner/zsh-autopair"

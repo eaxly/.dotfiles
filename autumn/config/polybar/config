@@ -10,64 +10,17 @@
 ;                   \::/  /       \:\__\                  \::/__/        /:/  /       |:|  |    
 ;                    \/__/         \/__/                   ~~            \/__/         \|__|
 
-
+; ░█▀▀░█▀█░█░░░█▀█░█▀▄░█▀▀
+; ░█░░░█░█░█░░░█░█░█▀▄░▀▀█
+; ░▀▀▀░▀▀▀░▀▀▀░▀▀▀░▀░▀░▀▀▀
+; to make things look good (or awful depends on the taste)
 [colors]
 background = __[bg]__
 ; TODO(axolot): Add seperators
 foreground = __[fg]__
-primary = __[color5]__
-secondary = __[color6]__
-alert = __[color1]__
-
-
-[bar/axolotl]
-; polybar is drawn on multiple monitors, BUT, the tray is drawn randomly (apparently)
-; so we still need to specify
-monitor = ${env:MONITOR}
-fixed-center = true
-
-width = 98%
-height = 25
-
-background = ${colors.background}
-foreground = ${colors.foreground}
-
-radius-bottom = __[corner_rad]__
-
-offset-x = 1.0%
-
-line-size = 0
-
-border-size = 0
-border-color = ${colors.primary}
-
-padding = 2
-module-margin = 1
-
-; Fonts
-font-0 = "JetBrainsMono Nerd Font:style=Bold:size=10;4"
-font-1 = "JetBrains Mono Nerd Font:style=Regular:size=10;4"
-font-2 = "Noto Color Emoji:pixelsize=16:style=Regular:scale=10;2"
-font-3 = "Iosevka:style=Regular:size=10;4"
-
-dim-value = 1.0
-
-; Tray icon max size
-tray-maxsize = 16
-tray-background = ${colors.background}
-
-; Pad the sides of each tray icon
-tray-padding = 1
-
-; Scale factor for tray clients
-tray-scale = 1.0
-override-redirect = true
-
-; Modules
-modules-left = i3 date
-modules-center = time
-modules-right = cpu battery
-; wired-network wireless-network
+primary = __[yellow]__
+secondary = __[white]__
+alert = __[red]__
 
 ; ░█▄█░█▀█░█▀▄░█░█░█░░░█▀▀░█▀▀
 ; ░█░█░█░█░█░█░█░█░█░░░█▀▀░▀▀█
@@ -123,8 +76,12 @@ format = <label>
 
 ; Module/i3 {{{
 [module/i3]
+ws-icon-0 = dev;
+ws-icon-1 = web;
+ws-icon-2 = config;
+ws-icon-3 = virt;
+ws-icon-4 = other;
 type = internal/i3
-
 ; Only show workspaces defined on the same output as the bar
 ;
 ; Useful if you want to show monitor specific workspaces
@@ -135,7 +92,7 @@ pin-workspaces = true
 
 ; This will split the workspace name on ':'
 ; Default: false
-strip-wsnumbers = false
+strip-wsnumbers = true
 
 ; Sort the workspaces by index instead of the default
 ; sorting that groups the workspaces by output
@@ -144,7 +101,7 @@ index-sort = true
 
 ; Create click handler used to focus workspace
 ; Default: true
-enable-click = false
+enable-click = true
 
 ; Create scroll handlers used to cycle workspaces
 ; Default: true
@@ -176,7 +133,7 @@ label-mode-background = ${colors.background}
 ;   %index%
 ;   %output%
 ; Default: %icon%  %name%
-label-focused = %index%
+label-focused = %name%
 label-focused-foreground = ${colors.background}
 label-focused-background = ${colors.secondary}
 label-focused-padding = 2
@@ -187,7 +144,7 @@ label-focused-padding = 2
 ;   %index%
 ;   %output%
 ; Default: %icon%  %name%
-label-unfocused = %index%
+label-unfocused = %name%
 label-unfocused-padding = 2
 
 ; Available tokens:
@@ -196,7 +153,7 @@ label-unfocused-padding = 2
 ;   %index%
 ;   %output%
 ; Default: %icon%  %name%
-label-visible = %index%
+label-visible = %name%
 label-visible-padding = 2
 
 ; Available tokens:
@@ -205,7 +162,7 @@ label-visible-padding = 2
 ;   %index%
 ;   %output%
 ; Default: %icon%  %name%
-label-urgent = %index%
+label-urgent = %name%
 label-urgent-foreground = ${colors.alert}
 label-urgent-background = ${colors.background}
 label-urgent-padding = 2
@@ -355,11 +312,62 @@ animation-packetloss-1-foreground = ${colors.foreground}
 animation-packetloss-framerate = 500
 ; }}}
 
+[bar/axolotl]
+; polybar is drawn on multiple monitors
+; with $MONITOR
+monitor = ${env:MONITOR}
+wm-restack = i3
+fixed-center = true
+
+width = 98%
+height = 25
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+radius-bottom = __[corner_rad]__
+
+offset-x = 1.0%
+
+line-size = 0
+
+border-size = 0
+border-color = ${colors.primary}
+
+padding = 2
+module-margin = 1
+
+; Fonts
+font-0 = "JetBrainsMono Nerd Font:style=Bold:size=10;4"
+font-1 = "JetBrains Mono Nerd Font:style=Regular:size=10;4"
+font-2 = "Noto Color Emoji:pixelsize=16:style=Regular:scale=10;2"
+font-3 = "Iosevka:style=Regular:size=10;4"
+
+dim-value = 1.0
+
+; Tray icon max size
+tray-maxsize = 16
+tray-background = ${colors.background}
+
+; Pad the sides of each tray icon
+tray-padding = 1
+
+; Scale factor for tray clients
+tray-scale = 1.0
+override-redirect = true
+
+; Modules
+modules-left = i3 date
+modules-center = time
+modules-right = cpu battery
+; wired-network wireless-network
+
+
 [bar/tray]
 ; draw the tray only on the main monitor
 monitor = __[main_monitor]__
 fixed-center = true
-
+wm-restack = i3
 width = 55%
 height = 21
 
@@ -368,7 +376,7 @@ foreground = ${colors.foreground}
 
 radius-top= __[corner_rad]__
 
-offset-x = 27.5%
+offset-x = 22.5%
 
 overline-size = 2
 overline-color = ${colors.secondary}

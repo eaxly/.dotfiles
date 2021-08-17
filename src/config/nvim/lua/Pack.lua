@@ -71,8 +71,7 @@ return require("packer").startup({
             end
         })
         use("tpope/vim-surround")
-        use("junegunn/vim-easy-align")
-
+        use("RRethy/nvim-align")
         -- fuzzy finder
         use({ "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim", "nvim-lua/popup.nvim" } })
         -- use("tpope/vim-endwise")
@@ -111,19 +110,13 @@ return require("packer").startup({
         use("folke/trouble.nvim")
 
         -- === User Interface ===
-        use ({
-            "EdenEast/nightfox.nvim"
-        })
-        use({
-            'rktjmp/lush.nvim'
-        })
+        use('rktjmp/lush.nvim')
         use {
             "folke/twilight.nvim",
                 config = function()
                 require("twilight").setup {}
             end
         }
-
         use {
             "Pocco81/TrueZen.nvim",
             config = function()
@@ -143,6 +136,8 @@ return require("packer").startup({
         })
 
         -- COLORSCHEME
+        use("EdenEast/nightfox.nvim")
+        use("marko-cerovac/material.nvim")
         use("sainnhe/everforest")
         use("sainnhe/gruvbox-material")
         use("folke/tokyonight.nvim")

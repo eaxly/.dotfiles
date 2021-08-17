@@ -30,7 +30,7 @@ local smolThings = {
 
 local config = {
     options = {
-        theme = "nightfox",
+        theme = "material-nvim",
         section_separators = set_sep()[1],
         component_separators = set_sep()[2],
         disabled_filetypes = {},
