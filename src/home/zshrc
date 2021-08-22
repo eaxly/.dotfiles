@@ -175,6 +175,8 @@ alias vsc="code --reuse-window"
 # todoist
 alias todoist='todoist --color --indent'
 
+# task
+alias t=task
 # }}}
 
 # Startup {{{

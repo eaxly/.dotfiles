@@ -3,6 +3,8 @@
 # Terminate already running bar instances
 killall -q polybar
 
+PRIMARY_MONITOR=$(xrandr | grep " connected " | grep -v "primary" | awk '{print $1}')
+
 # Launch axolotl
 echo "---" | tee -a /tmp/polybar1.log
 if type "xrandr"; then

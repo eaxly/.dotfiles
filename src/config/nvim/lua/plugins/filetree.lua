@@ -23,7 +23,7 @@ function NvimTreeOSOpen()
 end
 
 vim.g.nvim_tree_side = 'right'
-vim.g.nvim_tree_follow = 0
+vim.g.nvim_tree_follow = 1
 vim.g.nvim_tree_lsp_diagnostics = 1
 vim.g.nvim_tree_update_cwd = 1
 vim.g.nvim_tree_hijack_netrw = 1
@@ -33,6 +33,7 @@ vim.g.nvim_tree_ignore = {'.git'}
 vim.g.nvim_tree_disable_default_keybindings = 1
 vim.g.nvim_tree_auto_close = 1
 vim.g.nvim_tree_hide_dotfiles = 1
+vim.g.nvim_tree_respect_buf_cwd = 1
 -- default mappings
 
 vim.g.nvim_tree_bindings = {

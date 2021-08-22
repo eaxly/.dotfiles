@@ -24,6 +24,7 @@ vim.g.nightfox_style = "duskfox"
 -- material
 vim.g.material_style = "deep ocean"
 vim.g.material_italic_comments = true
+vim.g.material_italic_keywords = true
 --[[ vim.g.material_custom_colors = {
     bg = "#0c0310",
     bg_alt = "#14051A",

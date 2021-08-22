@@ -1,5 +1,5 @@
 [profiles.autumn]
-vars = [ "autumn/vars.toml"]
+vars = [ "autumn/vars.toml", "autumn/CVars.toml"]
 hooks = ["i3-msg restart", "killall -q picom", "sleep 1", "picom -b"] # yes ik very ugly but it works... FUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUCK
 
 [profiles.autumn.dots]

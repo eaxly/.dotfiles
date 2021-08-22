@@ -18,7 +18,7 @@ dir = "lib"
 [plugins.ohmyzsh-plugins]
 github = "ohmyzsh/ohmyzsh"
 dir = "plugins"
-use = ["{wd,git,nvm,pip,archlinux,sudo,taskwarrior}.plugin.zsh"]
+use = ["{wd,git,nvm,pip,archlinux,sudo}.plugin.zsh"]
 apply = ["fpath", "source"]
 
 # Else

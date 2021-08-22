@@ -16,7 +16,7 @@ o.errorbells = false
 o.hidden = true
 
 -- neovide
-o.guifont = "CaskaydiaCove Nerd Font:h9"
+o.guifont = "CaskaydiaCove Nerd Font:h10"
 
 g.neovide_cursor_animation_length = 0.15
 g.neovide_cursor_trail_length = 0.9

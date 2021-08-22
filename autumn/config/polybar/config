@@ -16,7 +16,7 @@
 ; to make things look good (or awful depends on the taste)
 [colors]
 background = __[bg]__
-; TODO(axolot): Add seperators
+; TODO(axolot): Add separators
 foreground = __[fg]__
 primary = __[yellow]__
 secondary = __[white]__
@@ -76,12 +76,18 @@ format = <label>
 
 ; Module/i3 {{{
 [module/i3]
-ws-icon-0 = dev;
-ws-icon-1 = web;
-ws-icon-2 = config;
-ws-icon-3 = virt;
-ws-icon-4 = other;
 type = internal/i3
+
+ws-icon-0 = 1;
+ws-icon-1 = 2;爵
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;漣
+ws-icon-9 = 10;
 ; Only show workspaces defined on the same output as the bar
 ;
 ; Useful if you want to show monitor specific workspaces
@@ -101,7 +107,7 @@ index-sort = true
 
 ; Create click handler used to focus workspace
 ; Default: true
-enable-click = true
+enable-click = false
 
 ; Create scroll handlers used to cycle workspaces
 ; Default: true
@@ -133,7 +139,7 @@ label-mode-background = ${colors.background}
 ;   %index%
 ;   %output%
 ; Default: %icon%  %name%
-label-focused = %name%
+label-focused = %icon%
 label-focused-foreground = ${colors.background}
 label-focused-background = ${colors.secondary}
 label-focused-padding = 2
@@ -144,7 +150,7 @@ label-focused-padding = 2
 ;   %index%
 ;   %output%
 ; Default: %icon%  %name%
-label-unfocused = %name%
+label-unfocused = %icon%
 label-unfocused-padding = 2
 
 ; Available tokens:
@@ -153,7 +159,7 @@ label-unfocused-padding = 2
 ;   %index%
 ;   %output%
 ; Default: %icon%  %name%
-label-visible = %name%
+label-visible = %icon%
 label-visible-padding = 2
 
 ; Available tokens:
@@ -162,10 +168,10 @@ label-visible-padding = 2
 ;   %index%
 ;   %output%
 ; Default: %icon%  %name%
-label-urgent = %name%
+label-urgent = %icon%
 label-urgent-foreground = ${colors.alert}
 label-urgent-background = ${colors.background}
-label-urgent-padding = 2
+label-urgent-padding = 3
 
 ; Separator in between workspaces
 label-separator = |
@@ -260,7 +266,7 @@ format-connected =  <ramp-signal> <label-connected>
 format-disconnected =  <label-disconnected>
 format-packetloss =  <animation-packetloss> <label-connected>
 
-label-connected = %essid% %downspeed:9%
+label-connected = %ifname% %downspeed:9%
 
 label-disconnected = not connected
 
@@ -312,6 +318,63 @@ animation-packetloss-1-foreground = ${colors.foreground}
 animation-packetloss-framerate = 500
 ; }}}
 
+; Module/pulseaudio {{{
+[module/pulseaudio]
+type = internal/pulseaudio
+
+; Sink to be used, if it exists (find using `pacmd list-sinks`, name field)
+; If not, uses default sink
+sink =
+
+; Use PA_VOLUME_UI_MAX (~153%) if true, or PA_VOLUME_NORM (100%) if false
+; Default: true
+use-ui-max = true
+
+; Interval for volume increase/decrease (in percent points)
+; Default: 5
+interval = 5
+; Available tags:
+;   <label-volume> (default)
+;   <ramp-volume>
+;   <bar-volume>
+format-volume = <ramp-volume> <label-volume>
+
+; Available tags:
+;   <label-muted> (default)
+;   <ramp-volume>
+;   <bar-volume>
+; format-muted = <label-muted>
+
+; Available tokens:
+;   %percentage% (default)
+;   %decibels%
+label-volume = %percentage%%
+
+; Available tokens:
+;   %percentage% (default)
+;   %decibels%
+label-muted = 🔇 muted
+label-muted-foreground=${colors.primary}
+
+; Only applies if <ramp-volume> is used
+ramp-volume-0 = 🔈
+ramp-volume-1 = 🔉
+ramp-volume-2 = 🔊
+
+; Right and Middle click
+click-right = pavucontrol
+; click-middle = 
+
+; }}}
+
+; Module/player-mpris-tail {{{
+[module/player-mpris-tail]
+type = custom/script
+exec = ~/.config/polybar/player-mpris-tail.py --icon-playing ▶️ --icon-paused  ⏸️ --icon-stopped  ⏹️ -f '{icon} {:artist:t18:{artist}:}{:artist: - :}{:t20:{title}:}  %{A1:~/.config/polybar/player-mpris-tail.py previous:} ⏮️ %{A} %{A1:~/.config/polybar/player-mpris-tail.py play-pause:} {icon-reversed} %{A} %{A1:~/.config/polybar/player-mpris-tail.py next:} ⏭️ %{A}'
+tail = true
+label = %output%
+; }}}
+
 [bar/axolotl]
 ; polybar is drawn on multiple monitors
 ; with $MONITOR
@@ -359,13 +422,11 @@ override-redirect = true
 ; Modules
 modules-left = i3 date
 modules-center = time
-modules-right = cpu battery
-; wired-network wireless-network
-
+modules-right = player-mpris-tail pulseaudio cpu battery
 
 [bar/tray]
 ; draw the tray only on the main monitor
-monitor = __[main_monitor]__
+monitor = ${env:PRIMARY_MONITOR}
 fixed-center = true
 wm-restack = i3
 width = 55%

@@ -11,10 +11,9 @@ fi
 
 # If you just wan't to install other packages, edit these two lines
 
-packages="neovim kitty i3 dunst rofi python-pywal python-pip firefox gnome-keyring seahorse libgnome-keyring zenity" # gnome touchegg
+packages="neovim kitty i3 dunst rofi python-pywal python-pip firefox gnome-keyring seahorse libgnome-keyring zenity blueberry networkmanager pavucontrol autorandr xrandr arandr" # gnome touchegg
 
-# TODO(axolotl): take a look at handlr, is it better than mimeo?
-aur_packages="mimeo xdg-utils-mimeo nerd-fonts-jetbrains-mono nerd-fonts-iosevka " # because xdg-open is f*cked up
+aur_packages="mimeo xdg-utils-mimeo nerd-fonts-jetbrains-mono nerd-fonts-iosevka betterlockscreen deezer rofi-autorandr" # because xdg-open without a DE is f*cked up
 
 _exists() {
     if command -v pacman &> /dev/null; then
@@ -72,12 +71,46 @@ if [[ $aur_packages != "" ]]; then
 fi
 
 post_install() {
+    # pip
+    # ---
+    python3 -m ensurepip
+    # ---
+    sleep 1
+
+    # ----
+    # pywalfox
+    # --------
     pip3 install pywalfox
     pywalfox install
     echo -e "Install the pywalfox firefox extension!"
     echo "https://addons.mozilla.org/en-GB/firefox/addon/pywalfox/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search"
+    # --------
+    sleep 1
+
+    # --------
+    # networkmanager
+    # --------------
+    echo -e "Enabling NetworkManager..."
+    echo sudo systemctl enable NetworkManager
+    sleep 0.5
+    sudo systemctl enable NetworkManager
+    # --------------
+    sleep 1
+
+    # ---------------
+    # betterlockscreen
+    # ---------------
+    echo -e "Enabling betterlockscreen lock on suspend..."
+    echo sudo systemctl enable betterlockscreen@$USER
+    sudo systemctl enable betterlockscreen@$USER
+    # ---------------
+    sleep 1
+
 }
+
 sleep 1
 post_install()
-
+sleep 1
+echo "Done!"
+echo "you should have a somewhat working system now"
 # vim:foldmethod=marker

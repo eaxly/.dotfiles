@@ -1,74 +1,75 @@
 # system
-#             ============
-terminal      = "kitty"
-home_dir      = "/home/axolotl/"
-corner_rad    = "15.0"
+#              ============
+terminal       = "kitty"
+home_dir       = "/home/axolotl/"
+corner_rad     = "15.0"
 
 # hardware
-#             ========
-battery       = "BAT0"
-adapter       = "AC"
-main_monitor  = "eDP1" # for polybar
-wire_face     = "enp2s0" # wired interface
-wireless_face = "wlan0" # wireless interface
+#              ========
+battery        = "BAT0"
+adapter        = "AC"
+main_monitor   = "HDMI1" # for polybar
+second_monitor = "eDP1"
+wire_face      = "enp2s0" # wired interface
+wireless_face  = "wlan0" # wireless interface
 
 # colors
-#             ======
+#              ======
 # 'UI'
-bg            = "#0c0310" # Default Background
-bg_alt        = "#14051A" # Lighter Background
-bg_alter      = "#1B0724"
-fg            = "#E7DDCB" # Default foreground
-fg_alt        = "#F3EEE5" # Lighter foreground
-fg_alter      = "#F9F7F2" # Lighter foreground
-fg_altest     = "#FAFAFA" # Lighter foreground
+bg             = "#0c0310" # Default Background
+bg_alt         = "#14051A" # Lighter Background
+bg_alter       = "#1B0724"
+fg             = "#E7DDCB" # Default foreground
+fg_alt         = "#F3EEE5" # Lighter foreground
+fg_alter       = "#F9F7F2" # Lighter foreground
+fg_altest      = "#FAFAFA" # Lighter foreground
 
 # TODO(axolotl): remove this
-cursor        = "%fg"
+cursor         = "%fg"
 # colors
-black         = "#303030"
-white         = "#E7DDCB"
+black          = "#303030"
+white          = "#E7DDCB"
 
 # colorful colors (naming choices)
-red           = "#A73E26"
-green         = "#AFB86B"
-yellow        = "#E5AC7D"
-blue          = "#504F52"
-magenta       = "#804449"
-cyan          = "#7F8278"
-orange        = "#E28A70"
-pink          = "#A0616B"
+red            = "#A73E26"
+green          = "#AFB86B"
+yellow         = "#E5AC7D"
+blue           = "#504F52"
+magenta        = "#804449"
+cyan           = "#7F8278"
+orange         = "#E28A70"
+pink           = "#A0616B"
 
-redAlt        = "#C95740"
-greenAlt      = "#C1C88D"
-yellowAlt     = "#EDCCA6"
-blueAlt       = "#6A696D"
-magentaAlt    = "#A0545B"
-cyanAlt       = "#989B92"
-orangeAlt     = "#EAB699"
-pinkAlt       = "#B38088"
+redAlt         = "#C95740"
+greenAlt       = "#C1C88D"
+yellowAlt      = "#EDCCA6"
+blueAlt        = "#6A696D"
+magentaAlt     = "#A0545B"
+cyanAlt        = "#989B92"
+orangeAlt      = "#EAB699"
+pinkAlt        = "#B38088"
 
 # colors
-#             ======
+#              ======
 # normal colors
-color0        = "%bg"
-color1        = "%red"
-color2        = "%green"
-color3        = "%yellow"
-color4        = "%blue"
-color5        = "%magenta"
-color6        = "%cyan"
-color7        = "%white"
+color0         = "%bg"
+color1         = "%red"
+color2         = "%green"
+color3         = "%yellow"
+color4         = "%blue"
+color5         = "%magenta"
+color6         = "%cyan"
+color7         = "%white"
 
 # brighter colors
-color8        = "%black"
-color9        = "%redAlt"
-color10       = "%greenAlt"
-color11       = "%yellowAlt"
-color12       = "%blueAlt"
-color13       = "%magentaAlt"
-color14       = "%cyanAlt"
-color15       = "%white"
+color8         = "%black"
+color9         = "%redAlt"
+color10        = "%greenAlt"
+color11        = "%yellowAlt"
+color12        = "%blueAlt"
+color13        = "%magentaAlt"
+color14        = "%cyanAlt"
+color15        = "%white"
 
 #extended
-color16       = "%orange"
+color16        = "%orange"
