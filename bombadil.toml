@@ -6,6 +6,7 @@ gpg_user_id = "mrsosaki@posteo.net"
 
 [settings]
 vars = [ "vars.toml" ]
+hooks = ["nvim --headless +PackerCompile +qall"]
 
 [settings.dots]
 # REMINDER:

@@ -6,12 +6,12 @@
 
 
 if ! command -v pacman &> /dev/null; then
-    echo -e "Sorry mate!\nArchLinux and ArchBased distros only at the moment.\nFeel free to port it to other distros :D."
+    echo -e "Sorry mate!\nArchLinux and Arch based distros only at the moment.\nFeel free to port it to other distros :D."
 fi
 
 # If you just wan't to install other packages, edit these two lines
 
-packages="neovim kitty i3 dunst rofi python-pywal python-pip firefox gnome-keyring seahorse libgnome-keyring zenity blueberry networkmanager pavucontrol autorandr xrandr arandr" # gnome touchegg
+packages="neovim kitty i3 dunst rofi python-pywal python-pip firefox gnome-keyring seahorse libgnome-keyring zenity blueberry networkmanager pavucontrol autorandr xrandr arandr lightdm" # gnome touchegg
 
 aur_packages="mimeo xdg-utils-mimeo nerd-fonts-jetbrains-mono nerd-fonts-iosevka betterlockscreen deezer rofi-autorandr" # because xdg-open without a DE is f*cked up
 
@@ -77,7 +77,7 @@ post_install() {
     # ---
     sleep 1
 
-    # ----
+    # --------
     # pywalfox
     # --------
     pip3 install pywalfox
@@ -87,7 +87,7 @@ post_install() {
     # --------
     sleep 1
 
-    # --------
+    # --------------
     # networkmanager
     # --------------
     echo -e "Enabling NetworkManager..."
@@ -105,7 +105,13 @@ post_install() {
     sudo systemctl enable betterlockscreen@$USER
     # ---------------
     sleep 1
-
+    
+    # -------
+    # lightdm
+    # -------
+    echo -e "Enabling lightdm"
+    echo sudo systemctl enable lightdm
+    sudo systemctl enable lightdm
 }
 
 sleep 1
