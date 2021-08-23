@@ -5,7 +5,10 @@
 -- File: ~/.config/nvim/lua/plugins/lsp.lua
 -- By: @ExtinctAxolotl
 
-require("lspconfig").sumneko_lua.setup({
+local lsp = require("lspconfig")
+local coq = require("coq")
+
+lsp.sumneko_lua.setup(coq.lsp_ensure_capabilities({
     cmd = { "lua-language-server" },
     settings = {
         Lua = {
@@ -28,15 +31,10 @@ require("lspconfig").sumneko_lua.setup({
             },
         },
     },
-})
-require("lspconfig").rust_analyzer.setup{}
-require("lspconfig").pyright.setup{
-    --[[ settings = {
-        python = {
-            venvPath = os.getenv("HOME") .. "/.local/share/virtualenvs"
-        }
-    } ]]
-}
+}))
 
-require'lspconfig'.jsonls.setup{}
-require'lspconfig'.pyright.setup{}
+lsp.rust_analyzer.setup(coq.lsp_ensure_capabilities())
+lsp.pyright.setup(coq.lsp_ensure_capabilities())
+
+lsp.jsonls.setup(coq.lsp_ensure_capabilities())
+lsp.pyright.setup(coq.lsp_ensure_capabilities())

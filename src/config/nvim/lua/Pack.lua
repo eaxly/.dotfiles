@@ -33,21 +33,32 @@ return require("packer").startup({
                 require("plugins.lsp")
             end,
         })
-        use({
+        --[[ use({
             "hrsh7th/nvim-compe",
             config = function()
                 require("plugins.compe")
             end,
-        })
-        use({
+        }) ]]
+        -- packer
+
+        use ( {
+            'ms-jpq/coq_nvim',
+            branch = 'coq',
+            config = function()
+                require("plugins.coq")
+            end,
+        } ) -- main one
+        use { 'ms-jpq/coq.artifacts', branch= 'artifacts'} -- 9000+ Snippets
+
+        -- not useful anymore with coq.artifacts
+        --[[ use({
             "L3MON4D3/LuaSnip",
             config = function()
                 require("plugins.snip")
             end
-        })
+        }) ]]
 
         -- Git related plugins
-        -- use("TimUntersberger/neogit") -- i prefer lazygit
         use({
             "lewis6991/gitsigns.nvim",
             requires = { "nvim-lua/plenary.nvim" },
@@ -64,14 +75,16 @@ return require("packer").startup({
         })
 
         -- Functionality
-        use({
+        --[[ use({
             "windwp/nvim-autopairs",
             config = function()
                 require("plugins.autopairs")
             end
-        })
+        }) ]]
+
         use("tpope/vim-surround")
         use("RRethy/nvim-align")
+        -- TODO(axolotl): add some keyindings for nvim-align
         -- fuzzy finder
         use({ "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim", "nvim-lua/popup.nvim" } })
         -- use("tpope/vim-endwise")

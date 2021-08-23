@@ -7,19 +7,6 @@
 local wk = require("which-key")
 vim.g.mapleader = " "
 
--- compe
--- ======
-local function complete() -- complete() is used you useless peace of sh*t of an lsp
-    if vim.fn.pumvisible() == 1 then
-        return vim.fn["compe#confirm"]({ keys = "<cr>", select = true })
-    else
-        return require("nvim-autopairs").autopairs_cr()
-    end
-end
-
-vim.api.nvim_set_keymap("i", "<CR>", ":lua complete()", {expr = true}) -- here it is used
-vim.api.nvim_set_keymap("i", "<C-Space>", "compe#complete()", {expr = true, noremap = true})
-
 -- Kommenting
 -- =========
 wk.register({

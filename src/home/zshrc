@@ -176,7 +176,11 @@ alias vsc="code --reuse-window"
 alias todoist='todoist --color --indent'
 
 # task
-alias t=task
+alias t="task"
+
+# lazygit
+alias lzg="lazygit"
+
 # }}}
 
 # Startup {{{

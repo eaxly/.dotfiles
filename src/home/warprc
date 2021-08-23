@@ -1,2 +1,6 @@
 aut:~/.dotfiles/autumn
 dots:~/.dotfiles
+dev:~/Projects
+fork:~/Projects/Forks
+cog:~/Projects/CoursesOnGit
+rep:~/Projects/Repos
