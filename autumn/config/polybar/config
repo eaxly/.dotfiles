@@ -422,8 +422,8 @@ override-redirect = true
 ; Modules
 modules-left = i3 date
 modules-center = time
-modules-right = player-mpris-tail pulseaudio cpu battery
-
+modules-right = player-mpris-tail pulseaudio battery 
+; cpu 
 [bar/tray]
 ; draw the tray only on the main monitor
 monitor = ${env:PRIMARY_MONITOR}

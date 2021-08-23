@@ -42,7 +42,7 @@ bindsym Shift+Print exec --no-startup-id $HOME/.dotfiles/bin/screenshot.sh
 bindsym Print exec --no-startup-id $HOME/.dotfiles/bin/screenshot-full.sh
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id "rofi -modi drun,run -show drun"
+bindsym $mod+d exec --no-startup-id "rofi -show drun"
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -54,6 +54,11 @@ bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
+
+bindsym $mod+z resize shrink width 10 px or 10 ppt
+bindsym $mod+u resize grow height 10 px or 10 ppt
+bindsym $mod+i resize shrink height 10 px or 10 ppt
+bindsym $mod+o resize grow width 10 px or 10 ppt
 
 # move focused window
 bindsym $mod+Shift+h move left
@@ -77,8 +82,6 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
@@ -109,6 +112,8 @@ assign [class="eDEX-UI"] → $ws3
 assign [class="mpv"] → $ws4
 
 assign [class="lunarclient"] → $ws5
+assign [class="Client"] → $ws5
+for_window [class="Client"] floating enable
 
 assign [class="discord"] → $ws7
 assign [class="Caprine"] → $ws7
