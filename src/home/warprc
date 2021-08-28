@@ -1,6 +1,8 @@
 aut:~/.dotfiles/autumn
 dots:~/.dotfiles
-dev:~/Projects
-fork:~/Projects/Forks
-cog:~/Projects/CoursesOnGit
-rep:~/Projects/Repos
+dev:~/dev
+fork:~/dev/Forks
+cog:~/dev/CoursesOnGit
+rep:~/dev/Repos
+clo:~/dev/Clones/
+etc:/etc/

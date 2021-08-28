@@ -19,7 +19,6 @@ dir = "lib"
 github = "ohmyzsh/ohmyzsh"
 dir = "plugins"
 use = ["{wd,git,nvm,pip,archlinux,sudo}.plugin.zsh"]
-apply = ["fpath", "source"]
 
 # Else
 [plugins.FsYH]
@@ -30,6 +29,7 @@ github = "zsh-users/zsh-completions"
 
 # [plugins.wd]
 # github = "mfaerevaag/wd"
+# use = ["wd.sh"]
 # apply = ["fpath", "source"]
 
 # [plugins.autopair]

@@ -4,18 +4,11 @@ if not present then
     return false
 end
 
-local function  set_sep()
-    if os.getenv("TERM") == "xterm-kitty" then
-        return {
-            { "", "" },
-            { "", "" },
-        }
-    else
-        return {
-            { " ", " " },
-            { " ", " " },
-        }
-    end
+local function set_sep()
+    return {
+        { " ", " " },
+        { "", "" },
+    }
 end
 
 
@@ -30,7 +23,7 @@ local smolThings = {
 
 local config = {
     options = {
-        theme = "material-nvim",
+        theme = "catppuccino",
         section_separators = set_sep()[1],
         component_separators = set_sep()[2],
         disabled_filetypes = {},

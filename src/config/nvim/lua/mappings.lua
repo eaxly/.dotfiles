@@ -32,7 +32,7 @@ wk.register({
 -- file manager
 -- ============
 wk.register({
-    f = { "<cmd>NvimTreeToggle<cr>", "Toggle File Manager" },
+    f = { "<cmd>lua require('lir.float').toggle()<cr>", "Toggle File Manager" },
 }, { prefix = "<leader>" })
 
 -- Buffer Management

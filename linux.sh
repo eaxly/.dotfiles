@@ -10,10 +10,9 @@ if ! command -v pacman &> /dev/null; then
 fi
 
 # If you just wan't to install other packages, edit these two lines
+packages="neovim kitty i3 dunst rofi python-pywal python-pip firefox gnome-keyring seahorse libgnome-keyring zenity blueberry networkmanager pavucontrol autorandr xrandr arandr lightdm lightdm-webkit2-greeter lightdm-webkit-theme-litarvan github-cli" # gnome touchegg
 
-packages="neovim kitty i3 dunst rofi python-pywal python-pip firefox gnome-keyring seahorse libgnome-keyring zenity blueberry networkmanager pavucontrol autorandr xrandr arandr lightdm" # gnome touchegg
-
-aur_packages="mimeo xdg-utils-mimeo nerd-fonts-jetbrains-mono nerd-fonts-iosevka betterlockscreen deezer rofi-autorandr" # because xdg-open without a DE is f*cked up
+aur_packages="ttf-twemoji mimeo xdg-utils-mimeo nerd-fonts-jetbrains-mono nerd-fonts-iosevka betterlockscreen deezer rofi-autorandr" # mimeo because xdg-open without a DE is f*cked up
 
 _exists() {
     if command -v pacman &> /dev/null; then
@@ -38,37 +37,6 @@ _aur_install() {
         paru -S $program
     fi
 }
-
-if _exists pacman && ! _exists yay && ! _exists paru && ! _exists yoghurt; then
-    echo "You have no AUR manager installed on your system."
-    echo "paru is an AUR helper written in Rust and an alternative to yay"
-    echo "Do you wan't to install paru? [y/N]"
-    read answer
-    if [[ ${answer,,} == "n" || ${answer,,} == "no" ]]; then
-        echo "OK! Skipping..."
-    else
-    echo Cloning...
-    git clone https://aur.archlinux.org/paru-bin.git $HOME/paru-bin
-    sleep 1
-
-    echo Entering the home directory...
-    cd $HOME/paru-bin
-    sleep 1
-
-    echo Making package...
-    makepkg -si
-    sleep 1
-    echo DONE!
-    fi
-fi
-
-if [[ $packages != "" ]]; then
-    _install $packages
-fi
-
-if [[ $aur_packages != "" ]]; then
-    _aur_install $packages
-fi
 
 post_install() {
     # pip
@@ -110,13 +78,77 @@ post_install() {
     # lightdm
     # -------
     echo -e "Enabling lightdm"
-    echo sudo systemctl enable lightdm
-    sudo systemctl enable lightdm
+    echo sudo systemctl enable lightdm-plymouth
+    sudo systemctl enable lightdm-plymouth
+    # thanks https://github.com/manilarome/lightdm-webkit2-theme-glorious
+    sudo sed -i 's/^\(#?greeter\)-session\s*=\s*\(.*\)/greeter-session = lightdm-webkit2-greeter #\1/ #\2g' /etc/lightdm/lightdm.conf
+    sudo sed -i 's/^webkit_theme\s*=\s*\(.*\)/webkit_theme = litarvan #\1/g' /etc/lightdm/lightdm-webkit2-greeter.conf
 }
 
-sleep 1
-post_install()
-sleep 1
-echo "Done!"
-echo "you should have a somewhat working system now"
+aur_helper_install() {
+    if _exists pacman && ! _exists yay && ! _exists paru && ! _exists yoghurt; then
+        echo "You have no AUR manager installed on your system."
+        echo "paru is an AUR helper written in Rust and an alternative to yay"
+        echo "Do you wan't to install paru? [y/N]"
+        read answer
+        if [[ ${answer,,} == "n" || ${answer,,} == "no" ]]; then
+            echo "OK! Skipping..."
+        else
+        echo Cloning...
+        git clone https://aur.archlinux.org/paru-bin.git $HOME/paru-bin
+        sleep 1
+
+        echo Entering the home directory...
+        cd $HOME/paru-bin
+        sleep 1
+
+        echo Making package...
+        makepkg -si
+        sleep 1
+        echo DONE!
+        fi
+    fi
+}
+
+install_packages() {
+    if [[ $packages != "" ]]; then
+        _install $packages
+    fi
+
+    if [[ $aur_packages != "" ]]; then
+        _aur_install $packages
+    fi
+}
+
+
+main() {
+    echo "Welcome to the Dotfiles!"
+    sleep 1.5
+    echo "Have a look around,"
+    sleep 1.5
+    echo "Anything that brain of your can think of can be found,"
+    sleep 1.5
+    echo "We have mountains of configs"
+    sleep 1.5
+    echo "some better, some worse."
+    sleep 1.5
+    echo "if none of it's of interest to you you wouldn't be the first"
+    sleep 1.5
+    echo "Welcome to the Dotfiles!"
+    sleep 1
+    echo "https://youtu.be/k1BneeJTDcU"
+    aur_helper_install
+
+    sleep 1
+    install_packages
+
+    sleep 1
+    post_install
+
+    sleep 1
+    echo "Done!"
+    echo "you should have a somewhat working system now"
+}
+
+main
 # vim:foldmethod=marker

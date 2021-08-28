@@ -6,7 +6,7 @@
 #
 # FILE: /home/axolotl/.dotfiles/bin/random_fetcher.sh
 
-fetchers=("fm6000 --random" neofetch nofetch uwufetch) # /usr/bin/uwufetch 
+fetchers=("fm6000 --random" neofetch nofetch uwufetch "pokemon-colorscripts -r")
 
 random_num=$(($RANDOM % ${#fetchers[@]}))
 

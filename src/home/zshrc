@@ -63,6 +63,10 @@ AUTO_LS_COMMANDS=(custom_function)
 
 # Functions {{{
 
+getWinClass() {
+    xprop | grep WM_CLASS | awk '{print $4}'
+}
+
 noice() {
   if command -v toilet &> /dev/null; then
     for arg in $@; do
@@ -112,7 +116,12 @@ export PAGER="bat --theme=Nord"
 export MANPAGER="sh -c 'col -bx | bat -l man -p --theme=Nord'"
 
 # FZF
-export FZF_DEFAULT_COMMAND="find ."
+if command -v fd &> /dev/null; then
+    export FZF_DEFAULT_COMMAND="fd --hidden"
+else
+    echo Install fd for better and faster search
+    export FZF_DEFAULT_COMMAND="find ."
+fi
 export FZF_DEFAULT_OPTS="--preview 'bat --color=always --theme=Nord --number {} '"
 export TERMINAL=kitty
 # }}}
@@ -159,6 +168,7 @@ alias cr="cargo"
 alias crr="cargo run"
 alias crb="cargo build"
 alias crn="cargo new --vcs=git"
+alias crnn="cargo new --vcs=none"
 alias crnl="cargo new --lib"
 alias cri="cargo init"
 

@@ -23,11 +23,9 @@ function NvimTreeOSOpen()
 end
 
 vim.g.nvim_tree_side = 'right'
-vim.g.nvim_tree_follow = 1
+-- vim.g.nvim_tree_follow = 1
 vim.g.nvim_tree_lsp_diagnostics = 1
 vim.g.nvim_tree_update_cwd = 1
-vim.g.nvim_tree_hijack_netrw = 1
-vim.g.nvim_tree_width = 30
 vim.g.nvim_tree_add_trailing = 1
 vim.g.nvim_tree_ignore = {'.git'}
 vim.g.nvim_tree_disable_default_keybindings = 1

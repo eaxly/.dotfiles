@@ -403,7 +403,8 @@ module-margin = 1
 ; Fonts
 font-0 = "JetBrainsMono Nerd Font:style=Bold:size=10;4"
 font-1 = "JetBrains Mono Nerd Font:style=Regular:size=10;4"
-font-2 = "Noto Color Emoji:pixelsize=16:style=Regular:scale=10;2"
+; font-2 = "Noto Color Emoji:pixelsize=16:style=Regular:scale=10;2"
+font-2 = "Twemoji:pixelsize=16:style=Regular:scale=7;4"
 font-3 = "Iosevka:style=Regular:size=10;4"
 
 dim-value = 1.0
@@ -424,6 +425,7 @@ modules-left = i3 date
 modules-center = time
 modules-right = player-mpris-tail pulseaudio battery 
 ; cpu 
+
 [bar/tray]
 ; draw the tray only on the main monitor
 monitor = ${env:PRIMARY_MONITOR}
@@ -450,8 +452,9 @@ module-margin = 1
 
 ; Fonts
 font-0 = "JetBrainsMono Nerd Font:style=Bold:size=10;4"
-font-1 = "JetBrains Mono Nerd Font:style=Regular:size=10;4"
-font-2 = "Noto Color Emoji:pixelsize=16:style=Regular:scale=10;2"
+font-1 = "JetBrainsMono Nerd Font:style=Regular:size=10;4"
+; font-2 = "Noto Color Emoji:pixelsize=16:style=Regular:scale=10;2"
+font-2 = "Twemoji:pixelsize=16:style=Regular:scale=7;4"
 font-3 = "Iosevka:style=Regular:size=10;4"
 
 dim-value = 1.0

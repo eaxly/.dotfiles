@@ -32,13 +32,13 @@ vim.g.dashboard_custom_section = {
 
     a_dotfiles = {
         description = { "  Open Dotfiles                              " },
-        command = "cd " .. os.getenv("HOME") .. "/.dotfiles/ " .. " | NvimTreeOpen",
+        command = ":e" .. os.getenv("HOME") .. "/.dotfiles/ ",
     },
 
     b_projects = {
 
         description = { "  Open Projects                              " },
-        command = "cd " .. os.getenv("HOME") .. "/Projects" .. " | NvimTreeOpen",
+        command = ":e" .. os.getenv("HOME") .. "/dev",
     },
     c_history = {
         description = { "  Search History                              " },

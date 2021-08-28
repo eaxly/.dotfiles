@@ -51,6 +51,8 @@ git = { source = "src/home/gitconfig", target = ".gitconfig"}
 # wd
 wd = { source = "src/home/warprc", target = ".warprc"}
 
+# neofetch 
+neofetch = { source = "src/config/neofetch/", target = ".config/neofetch" }
 # awesome
 # awesome = { source = "src/config/awesome", target = ".config/awesome"} 
 

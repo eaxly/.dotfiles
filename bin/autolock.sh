@@ -17,5 +17,5 @@ xidlehook \
   `# suspend 45 minutes after it locks` \
   --timer 900\
     'systemctl suspend' \
-    '' \
+    'xrandr --output "$PRIMARY_DISPLAY" --brightness 1 --output "$SECONDARY_DISPLAY" --brightness 1' \
     --socket "/tmp/xidlehook.sock"
