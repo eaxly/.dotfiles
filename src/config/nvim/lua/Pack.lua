@@ -164,13 +164,13 @@ return require("packer").startup({
         }
 
         -- COLORSCHEME
-        --[[ use("EdenEast/nightfox.nvim")
-        use("marko-cerovac/material.nvim")
-        use("sainnhe/everforest")
-        use("sainnhe/gruvbox-material")
+        -- use("EdenEast/nightfox.nvim")
+        -- use("marko-cerovac/material.nvim")
+        -- use("sainnhe/everforest")
+        -- use("sainnhe/gruvbox-material")
         use("folke/tokyonight.nvim")
-        use({ 'rose-pine/neovim', as = 'rose-pine' }) ]]
-        use{ "Pocco81/Catppuccino.nvim" }
+        -- use({ 'rose-pine/neovim', as = 'rose-pine' })
+        -- use{ "Pocco81/Catppuccino.nvim" }
 
         -- lines
         use {
@@ -206,6 +206,11 @@ return require("packer").startup({
             config = function()
                 require("plugins.dashboard")
             end,
+        }
+        -- filetypes
+        use {
+            "elkowar/yuck.vim",
+            ft = "yuck",
         }
     end,
     -- make packer float (i believe i can flyyyyyyy )

@@ -14,3 +14,12 @@ These are my personal configuration files + things i use when installing a new s
 
  \* take a look at (bombadil)[https://github.com/oknozor/toml-bombadil] to learn more about profiles
 
+
+<div align="center">
+    <h1>Currently themed after: Tokyo Night</h1>
+    <p></p>
+    <img src=./tokyonight/img/icon.png height=50% width=50%>
+</div>
+
+Theme Creator and Author: [Enkia](https://github.com/enkia)
+

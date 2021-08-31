@@ -18,7 +18,7 @@
 background = __[bg]__
 ; TODO(axolot): Add separators
 foreground = __[fg]__
-primary = __[yellow]__
+primary = __[magenta]__
 secondary = __[white]__
 alert = __[red]__
 
@@ -141,8 +141,8 @@ label-mode-background = ${colors.background}
 ; Default: %icon%  %name%
 label-focused = %icon%
 label-focused-foreground = ${colors.background}
-label-focused-background = ${colors.secondary}
-label-focused-padding = 2
+label-focused-background = ${colors.primary}
+label-focused-padding= 2
 
 ; Available tokens:
 ;   %name%
@@ -160,7 +160,7 @@ label-unfocused-padding = 2
 ;   %output%
 ; Default: %icon%  %name%
 label-visible = %icon%
-label-visible-padding = 2
+label-visible-padding = 0
 
 ; Available tokens:
 ;   %name%
@@ -176,7 +176,7 @@ label-urgent-padding = 3
 ; Separator in between workspaces
 label-separator = |
 label-separator-padding = 0
-label-separator-foreground = ${colors.secondary}
+label-separator-foreground = ${colors.primary}
 ; }}}
 
 ; Module/battery {{{
@@ -204,15 +204,15 @@ poll-interval = 5
 time-format = %H:%M
 
 format-charging = <animation-charging> <label-charging>
-format-charging-background = ${colors.secondary}
+format-charging-background = ${colors.primary}
 format-charging-foreground = ${colors.background}
 
 format-discharging = <animation-discharging> <label-discharging>
-format-discharging-background = ${colors.secondary}
+format-discharging-background = ${colors.primary}
 format-discharging-foreground = ${colors.background}
 
 format-full = <ramp-capacity> <label-full>
-format-full-background = ${colors.secondary}
+format-full-background = ${colors.primary}
 format-full-foreground = ${colors.background}
 
 label-charging = %percentage%%
@@ -397,7 +397,7 @@ line-size = 0
 border-size = 0
 border-color = ${colors.primary}
 
-padding = 2
+padding = 2px
 module-margin = 1
 
 ; Fonts
@@ -423,7 +423,7 @@ override-redirect = true
 ; Modules
 modules-left = i3 date
 modules-center = time
-modules-right = player-mpris-tail pulseaudio battery 
+modules-right = player-mpris-tail pulseaudio battery placeholder
 ; cpu 
 
 [bar/tray]
@@ -442,7 +442,7 @@ radius-top= __[corner_rad]__
 offset-x = 22.5%
 
 overline-size = 2
-overline-color = ${colors.secondary}
+overline-color = ${colors.primary}
 
 border-size = 0
 border-color = ${colors.primary}

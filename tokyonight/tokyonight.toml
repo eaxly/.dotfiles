@@ -1,0 +1,14 @@
+[profiles.tokyonight]
+vars = [ "tokyonight/vars.toml", "tokyonight/CVars.toml"]
+hooks = ["i3-msg restart", "killall -q picom", "sleep 1", "picom -b"] # yes ik very ugly but it works... FUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUCK
+
+[profiles.tokyonight.dots]
+i3 = { source = "tokyonight/config/i3", target = ".config/i3" }
+kitty = { source = "tokyonight/config/kitty", target = ".config/kitty" }
+dunst = { source = "tokyonight/config/dunst", target = ".config/dunst" }
+picom = { source = "tokyonight/config/picom", target = ".config/picom" }
+rofi =  { source = "tokyonight/config/rofi", target = ".config/rofi" }
+polybar = { source = "tokyonight/config/polybar", target = ".config/polybar" }
+betterlockscreen = { source = "tokyonight/config/betterlockscreen/betterlockscreenrc", target = ".config/betterlockscreenrc" }
+xresourcesd = { source = "tokyonight/home/Xresources.d", target = ".Xresources.d" }
+xresources =  { source = "tokyonight/home/Xresources", target = ".Xresources" }

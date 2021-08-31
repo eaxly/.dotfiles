@@ -94,6 +94,7 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 bindsym $mod+Shift+m exec --no-startup-id rofi-autorandr
+bindsym $mod+Shift+x exec --no-startup-id ~/.config/rofi/scripts/power.sh
 
 bindsym $mod+b exec firefox
 
@@ -115,7 +116,8 @@ assign [class="mpv"] → $ws4
 
 assign [class="lunarclient"] → $ws5
 assign [class="Client"] → $ws5
-for_window [class="Client"] floating enable
+assign [class="minecraft-launcher"] → $ws5
+assign [class="Minecraft* 1.17.1"] → $ws5
 
 assign [class="discord"] → $ws7
 assign [class="Caprine"] → $ws7
@@ -123,6 +125,11 @@ assign [class="Caprine"] → $ws7
 assign [class="Deezer"] → $ws8
 
 assign [class="Blueman-manager"] → $ws9
+
+for_window [class="Client"] floating enable
+
+for_window [class="Minecraft* 1.17.1"] floating enable
+for_window [class="Minecraft* 1.16.5"] floating enable
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -179,15 +186,11 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec $HOME/.dotfiles/bin/exit-i3.sh
-
 # autostart
 # =========
 exec --no-startup-id $HOME/.dotfiles/bin/screenlayout.sh
 exec --no-startup-id picom -b
-exec --no-startup-id "wal -i ~/.dotfiles/autumn/wall/autumn-dreams-wallpaper.png -q"
-exec_always --no-startup-id "~/.fehbg"
+exec_always --no-startup-id "feh --bg-fill __[wall]__"
 exec --no-startup-id emote
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id $HOME/.dotfiles/bin/autolock.sh

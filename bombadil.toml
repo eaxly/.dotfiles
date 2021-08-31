@@ -58,4 +58,4 @@ neofetch = { source = "src/config/neofetch/", target = ".config/neofetch" }
 
 # === IMPORTS ===
 [[import]]
-path = "autumn/autumn.toml"
+path = "tokyonight/tokyonight.toml"

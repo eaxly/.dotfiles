@@ -3,6 +3,7 @@
 terminal       = "kitty"
 home_dir       = "/home/axolotl/"
 corner_rad     = "15.0"
+wall           = "~/.dotfiles/tokyonight/img/wall/tokyo.png"
 
 # hardware
 #              ========
@@ -16,41 +17,41 @@ wireless_face  = "wlan0" # wireless interface
 # colors
 #              ======
 # 'UI'
-bg             = "#0c0310" # Default Background
-bg_alt         = "#14051A" # Lighter Background
-bg_alter       = "#1B0724"
-fg             = "#E7DDCB" # Default foreground
-fg_alt         = "#F3EEE5" # Lighter foreground
-fg_alter       = "#F9F7F2" # Lighter foreground
-fg_altest      = "#FAFAFA" # Lighter foreground
+bg             = "#1a1b26" # Default Background
+bg_alt         = "#24283b" # Lighter Background
+bg_alter       = "#414868"
+fg             = "#a9b1d6" # Default foreground
+fg_alt         = "#c0caf5" # Lighter foreground
+fg_alter       = "#d5d6db" # Lighter foreground
+fg_altest      = "#cfc9c2" # Lighter foreground
 
 # TODO(axolotl): remove this
 cursor         = "%fg"
 # colors
-black          = "#303030"
-white          = "#E7DDCB"
+black          = "#565f89"
+white          = "#c0caf5"
 
 # colorful colors (naming choices)
-red            = "#A73E26"
-green          = "#AFB86B"
-yellow         = "#E5AC7D"
-blue           = "#504F52"
-magenta        = "#804449"
-cyan           = "#7F8278"
-orange         = "#E28A70"
-pink           = "#A0616B"
+red            = "#f7768e"
+green          = "#9ece6a"
+yellow         = "#e0af68"
+blue           = "#7aa2f7"
+magenta        = "#bb9af7"
+cyan           = "#7dcfff"
+orange         = "#ff9e64"
+pink           = "#D1BAFA"
 
-redAlt         = "#C95740"
-greenAlt       = "#C1C88D"
-yellowAlt      = "#EDCCA6"
-blueAlt        = "#6A696D"
-magentaAlt     = "#A0545B"
-cyanAlt        = "#989B92"
-orangeAlt      = "#EAB699"
-pinkAlt        = "#B38088"
+redAlt         = "#8c4351"
+greenAlt       = "#33635c"
+yellowAlt      = "#8f5e15"
+blueAlt        = "#34548a"
+magentaAlt     = "#5a4a78"
+cyanAlt        = "#0f4b6e"
+orangeAlt      = "#965027"
+pinkAlt        = "#837799"
 
-# colors
-#              ======
+# terminal colors
+# ======
 # normal colors
 color0         = "%bg"
 color1         = "%red"

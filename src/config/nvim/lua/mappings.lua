@@ -40,10 +40,11 @@ wk.register({
 wk.register({
     b = {
         name = "buffers",
-        c = { "<cmd>BufferClose<cr>", "Close the current buffer" },
-        h = { "<cmd>BufferPrevious<cr>", "Previous Buffer" },
-        l = { "<cmd>BufferNext<cr>", "Next Buffer" },
-        s = { "<cmd>BufferPick<cr>", "Pick Buffer" },
+        c = { "<cmd>BufferClose<cr>", "Close" },
+        C = { "<cmd>BufferClose!<cr>", "Force to close" },
+        h = { "<cmd>BufferPrevious<cr>", "Previous" },
+        l = { "<cmd>BufferNext<cr>", "Next" },
+        s = { "<cmd>BufferPick<cr>", "Pick" },
 
         o = "Order Buffers",
         od = { "<cmd>BufferOrderByDirectory<cr>", "by Directory" },

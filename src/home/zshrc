@@ -64,7 +64,7 @@ AUTO_LS_COMMANDS=(custom_function)
 # Functions {{{
 
 getWinClass() {
-    xprop | grep WM_CLASS | awk '{print $4}'
+    xprop | grep WM_CLASS
 }
 
 noice() {
