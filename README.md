@@ -12,7 +12,7 @@ These are my personal configuration files + things i use when installing a new s
 |             `linux.sh`             | A script to setup these dotfiles (**WIP**, *issues are welcome*) |
 | other directories (exp: `autumn/`) |        These are other bombadil profiles to mess with things\*          |
 
- \* take a look at (bombadil)[https://github.com/oknozor/toml-bombadil] to learn more about profiles
+ \* take a look at [bombadil](https://github.com/oknozor/toml-bombadil) to learn more about profiles
 
 
 <div align="center">
