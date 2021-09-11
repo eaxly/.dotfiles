@@ -22,4 +22,3 @@ These are my personal configuration files + things i use when installing a new s
 </div>
 
 Theme Creator and Author: [Enkia](https://github.com/enkia)
-
