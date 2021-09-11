@@ -1,6 +1,6 @@
 [profiles.tokyonight]
 vars = [ "tokyonight/vars.toml", "tokyonight/CVars.toml"]
-hooks = ["i3-msg restart", "killall -q picom", "sleep 1", "picom -b"] # yes ik very ugly but it works... FUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUCK
+# hooks = ["i3-msg restart", "killall -q picom", "sleep 1", "picom -b"] # yes ik very ugly but it works... FUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUCK
 
 [profiles.tokyonight.dots]
 i3 = { source = "tokyonight/config/i3", target = ".config/i3" }
