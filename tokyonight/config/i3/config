@@ -42,7 +42,7 @@ bindsym Shift+Print exec --no-startup-id $HOME/.dotfiles/bin/screenshot.sh
 bindsym Print exec --no-startup-id $HOME/.dotfiles/bin/screenshot-full.sh
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id "rofi -show drun"
+bindsym $mod+d exec --no-startup-id "rofi -show drun -no-lazy-grab"
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -116,8 +116,9 @@ assign [class="mpv"] → $ws4
 
 assign [class="lunarclient"] → $ws5
 assign [class="Client"] → $ws5
-assign [class="minecraft-launcher"] → $ws5
+assign [instance="minecraft-launcher"] → $ws5
 assign [class="Minecraft* 1.17.1"] → $ws5
+assign [instance="Shattered Pixel Dungeon"] → $ws5
 
 assign [class="discord"] → $ws7
 assign [class="Caprine"] → $ws7

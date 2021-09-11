@@ -130,7 +130,6 @@ fuzzy-match = true
 
 format = <label-state> <label-mode>
 label-mode = %mode%
-label-mode-padding = 0
 label-mode-background = ${colors.background}
 
 ; Available tokens:
@@ -160,7 +159,7 @@ label-unfocused-padding = 2
 ;   %output%
 ; Default: %icon%  %name%
 label-visible = %icon%
-label-visible-padding = 0
+label-visible-padding = 2
 
 ; Available tokens:
 ;   %name%
