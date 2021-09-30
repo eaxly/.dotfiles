@@ -53,6 +53,10 @@ wd = { source = "src/home/warprc", target = ".warprc"}
 
 # neofetch 
 neofetch = { source = "src/config/neofetch/", target = ".config/neofetch" }
+
+# kitty
+kitty = { source = "src/config/kitty/", target = ".config/kitty" }
+
 # awesome
 # awesome = { source = "src/config/awesome", target = ".config/awesome"} 
 

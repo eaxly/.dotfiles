@@ -87,10 +87,10 @@ return require("packer").startup({
         use{ "lambdalisue/pastefix.vim" }
         use{ "dstein64/vim-startuptime", cmd = { "StartupTime" } }
         use{
-            setup = function()
-                vim.g.kommentary_create_default_mappings = false
+            "terrortylor/nvim-comment",
+            config = function()
+                require("plugins.comment")
             end,
-            "b3nj5m1n/kommentary",
         }
 
         use{
@@ -165,10 +165,10 @@ return require("packer").startup({
 
         -- COLORSCHEME
         -- use("EdenEast/nightfox.nvim")
-        -- use("marko-cerovac/material.nvim")
+        use("marko-cerovac/material.nvim")
         -- use("sainnhe/everforest")
         -- use("sainnhe/gruvbox-material")
-        use("folke/tokyonight.nvim")
+        -- use("folke/tokyonight.nvim")
         -- use({ 'rose-pine/neovim', as = 'rose-pine' })
         -- use{ "Pocco81/Catppuccino.nvim" }
 

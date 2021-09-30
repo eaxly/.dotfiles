@@ -2,7 +2,7 @@
 
 These are the Wallpapers downloaded from the internet and stored here.
 
-They are not my creations and will be removed if the author wishes so.
+They are not my creations and will be removed if the author wishes me to do so.
 
 ## `no-mans-sky/` directory
 
@@ -26,3 +26,6 @@ https://wall.alphacoders.com/big.php?i=727064
 
 https://wall.alphacoders.com/big.php?i=874300
 
+## `byrotek/` directory
+
+**All of these wallpapers are made by [Byrotek](https://www.deviantart.com/byrotek) and downloaded directly from deviant art**

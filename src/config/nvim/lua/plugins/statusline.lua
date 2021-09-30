@@ -23,7 +23,7 @@ local smolThings = {
 
 local config = {
     options = {
-        theme = "tokyonight",
+        theme = "material",
         section_separators = set_sep()[1],
         component_separators = set_sep()[2],
         disabled_filetypes = {},

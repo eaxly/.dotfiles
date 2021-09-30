@@ -7,28 +7,6 @@
 local wk = require("which-key")
 vim.g.mapleader = " "
 
--- Kommenting
--- =========
-wk.register({
-    c = {
-        name = "kommenting",
-        c = { "<Plug>kommentary_line_default", "Komment Line" },
-        ["<space>"] = { "<Plug>kommentary_motion_default", "Motion Comment" },
-    },
-}, {
-    prefix = "<leader>",
-})
-
-wk.register({
-    c = {
-        name = "kommenting",
-        c = { "<Plug>kommentary_visual_default", "Komment Lines" },
-    },
-}, {
-    prefix = "<leader>",
-    mode = "v",
-})
-
 -- file manager
 -- ============
 wk.register({

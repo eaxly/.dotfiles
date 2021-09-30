@@ -49,16 +49,13 @@ require'lir'.setup {
 }
 
 -- custom folder icon
-require'nvim-web-devicons'.setup({
-  override = {
-    lir_folder_icon = {
-      icon = "",
-      color = "#7ebae4",
-      name = "LirFolderNode"
-    },
+require'nvim-web-devicons'.set_icon({
+  lir_folder_icon = {
+    icon = "",
+    color = "#7ebae4",
+    name = "LirFolderNode"
   }
 })
-
 -- use visual mode
 function _G.LirSettings()
   vim.api.nvim_buf_set_keymap(0, 'x', 'J', ':<C-u>lua require"lir.mark.actions".toggle_mark("v")<CR>', {noremap = true, silent = true})
