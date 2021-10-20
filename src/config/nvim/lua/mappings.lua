@@ -7,6 +7,11 @@
 local wk = require("which-key")
 vim.g.mapleader = " "
 
+-- comment reminders
+-- =================
+wk.register({
+    c = "<cmd>echoerr 'Use gcc bindings'<cr>"
+})
 -- file manager
 -- ============
 wk.register({
@@ -49,12 +54,6 @@ wk.register({
     prefix = "<leader>",
 })
 
--- Lazygit
--- ======
-wk.register ({
-    G = {"<cmd>LazyGit<cr>", "Toggle Lazy Git"}
-}, {prefix = "<leader>"})
-
 -- Clipboard
 -- ======
 
@@ -84,6 +83,18 @@ wk.register ({
         f = {"<cmd>TZFocus<cr>", "Focus Mode"}
     }
 }, {prefix = "<leader>"} )
+
+-- ToggleTerm
+-- ==========
+wk.register ({
+    T = {
+        name = 'Terminals',
+        c = {"<cmd>lua _Term_cargo_run_toggle()<cr>", "Run Cargo"}
+    },
+
+    G = { "<cmd>lua _Term_lazygit()<cr>", "Toggle LazyGit" }
+
+}, { prefix = "<leader>" } )
 
 
 -- vim:foldmethod=marker

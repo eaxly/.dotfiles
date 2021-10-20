@@ -1,4 +1,4 @@
 vim.g.coq_settings = {
-    ["auto_start"] = true,
+    ["auto_start"] = 'shut-up',
     ["display.preview.border"] = "shadow",
 }

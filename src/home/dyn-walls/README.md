@@ -29,3 +29,10 @@ https://wall.alphacoders.com/big.php?i=874300
 ## `byrotek/` directory
 
 **All of these wallpapers are made by [Byrotek](https://www.deviantart.com/byrotek) and downloaded directly from deviant art**
+
+## `theLastNight/` directory
+https://imgur.com/a/s3rV5
+
+# `pastel/` directory
+
+All images are from [Pawel Czerwinski](https://unsplash.com/@pawel_czerwinski)

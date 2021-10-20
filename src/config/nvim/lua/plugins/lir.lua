@@ -6,6 +6,27 @@ local clipboard_actions = require'lir.clipboard.actions'
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+function LirTrash()
+    local ctx = require("lir").get_context()
+    local current = ctx:current()
+    local trash_cmd = "trash "
+
+    local function get_user_input_char()
+        local c = vim.fn.getchar()
+        return vim.fn.nr2char(c)
+    end
+
+    print("Trash "..current.display.." ? y/n")
+
+    if (get_user_input_char():match('^y') and current) then
+        vim.fn.jobstart(trash_cmd .. current.fullpath, {
+            detach = true,
+            on_exit = function () actions.reload() end,
+        })
+    end
+    vim.api.nvim_command('normal <cmd>esc<CR>')
+end
+
 require'lir'.setup {
     show_hidden_files = false,
     devicons_enable = true,
@@ -17,6 +38,7 @@ require'lir'.setup {
 
     ['h']     = actions.up,
     ['q']     = actions.quit,
+    ['<Esc>'] = actions.quit,
 
     ['K']     = actions.mkdir,
     ['N']     = actions.newfile,
@@ -24,13 +46,7 @@ require'lir'.setup {
     ['@']     = actions.cd,
     ['Y']     = actions.yank_path,
     ['.']     = actions.toggle_show_hidden,
-    ['D'] = function()
-        local ctx = require("lir").get_context()
-        local current = ctx:current()
-
-        vim.fn.system("trash " .. current.fullpath)
-        actions.reload()
-    end,
+    ['D']     = LirTrash,
 
     ['J'] = function()
         mark_actions.toggle_mark()
@@ -43,7 +59,8 @@ require'lir'.setup {
 
     },
     float = {
-        winblend = 0,
+        winblend = 10,
+    win_opts = nil
     },
     hide_cursor = true,
 }
@@ -52,7 +69,7 @@ require'lir'.setup {
 require'nvim-web-devicons'.set_icon({
   lir_folder_icon = {
     icon = "",
-    color = "#7ebae4",
+    color = "#84FFFF",
     name = "LirFolderNode"
   }
 })
@@ -64,6 +81,7 @@ function _G.LirSettings()
   -- vim.api.nvim_echo({{vim.fn.expand('%:p'), 'Normal'}}, false, {})
 end
 
+-- plugins
 require("lir.git_status").setup()
 
 vim.cmd [[augroup lir-settings]]

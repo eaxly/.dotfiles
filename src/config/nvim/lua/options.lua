@@ -16,7 +16,7 @@ o.errorbells = false
 o.hidden = true
 
 -- neovide
-o.guifont = "CaskaydiaCove Nerd Font:h11"
+o.guifont = "FiraCode Nerd Font:h10"
 
 g.neovide_cursor_animation_length = 0.15
 g.neovide_cursor_trail_length = 0.9
@@ -24,7 +24,7 @@ g.neovide_cursor_vfx_mode = "pixiedust" -- On my personal computer, railgun & to
 g.neovide_cursor_vfx_particle_lifetime = 0.9
 g.neovide_cursor_vfx_particle_density = 5.0
 g.neovide_fullscreen = false
-g.neovide_remember_window_size=true
+g.neovide_remember_window_size=false
 g.neovide_input_use_logo=false
 
 -- Tabs

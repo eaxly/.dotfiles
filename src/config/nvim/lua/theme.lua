@@ -17,6 +17,7 @@ vim.g.rose_pine_enable_italics = true
 vim.g.rose_pine_disable_background = false
 vim.g.rose_pine_variant = 'base'
 
+-- nightfox
 vim.g.nightfox_italic_keywords = true
 vim.g.nightfox_italic_comments = true
 vim.g.nightfox_style = "duskfox"
@@ -55,6 +56,7 @@ require("material").setup({
 	}
 })
 -- setting the theme
+-- yes there are a lot of scraped things here
 -- vim.g.colors_name = "everforest"
 -- require("tokyonight").colorscheme()
 -- require("rose-pine").set()

@@ -6,7 +6,6 @@
 -- By: @ExtinctAxolotll
 
 -- PackerInit {{{
-local execute = vim.api.nvim_command
 local fn = vim.fn
 
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
@@ -18,6 +17,8 @@ end
 
 vim.cmd([[packadd packer.nvim]])
 vim.cmd([[autocmd BufWritePost PackerList.lua source <afile> | PackerCompile )]])
+
+local neoscroll_enable = false
 
 -- packer.nvim
 return require("packer").startup({
@@ -51,15 +52,6 @@ return require("packer").startup({
                 require("plugins.others").gitsigns()
             end,
         }
-        use {
-            "kdheepak/lazygit.nvim",
-            cmd = { "LazyGit", "LazyGitConfig", "LazyGitFilter" },
-            requires = { "nvim-lua/plenary.nvim" },
-            config = function()
-                require("plugins.others").lazygit()
-            end,
-        }
-
         -- Functionality
 
         use { "tpope/vim-surround" }
@@ -67,15 +59,21 @@ return require("packer").startup({
             "RRethy/nvim-align",
             module = "align",
         }
-
         -- TODO(axolotl): add some keyindings for nvim-align
+
+        use {
+            "akinsho/toggleterm.nvim",
+            config = function()
+                require("plugins.term")
+            end
+        }
+
         -- fuzzy finder
         use {
             "nvim-telescope/telescope.nvim",
             requires = { "nvim-lua/plenary.nvim", "nvim-lua/popup.nvim" },
             cmd = "Telescope",
             module = "telescope",
-
         }
 
         use{
@@ -124,15 +122,22 @@ return require("packer").startup({
             end,
         }
 
-        use{ "folke/trouble.nvim" }
-
-        -- === User Interface ===
-        use {
-            'karb94/neoscroll.nvim',
+        use{
+            "folke/trouble.nvim",
+            requires = "kyazdani42/nvim-web-devicons",
             config = function()
-                require("plugins.neoscroll")
-            end,
+                require("plugins.trouble")
+            end
         }
+        -- === User Interface ===
+        if neoscroll_enable then
+            use {
+                'karb94/neoscroll.nvim',
+                config = function()
+                    require("plugins.neoscroll")
+                end,
+            }
+        end
 
         use{
             'rktjmp/lush.nvim',

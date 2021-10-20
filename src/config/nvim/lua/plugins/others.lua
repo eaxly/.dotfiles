@@ -24,16 +24,8 @@ M.gitsigns = function()
 end
 
 M.colorizer = function()
-    local present, colorizer = pcall(require, "colorizer")
-    if not present then
-        return false
-    end
+    local colorizer = require("colorizer")
     colorizer.setup()
-end
-
-M.lazygit = function()
-    vim.g.lazygit_floating_window_use_plenary = true
-    vim.g.lazygit_use_neovim_remote = false
 end
 
 return M
