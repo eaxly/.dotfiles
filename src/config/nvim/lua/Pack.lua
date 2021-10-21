@@ -217,6 +217,12 @@ return require("packer").startup({
             "elkowar/yuck.vim",
             ft = "yuck",
         }
+
+        -- games
+        use {
+            "alec-gibson/nvim-tetris",
+            cmd = "Tetris",
+        }
     end,
     -- make packer float (i believe i can flyyyyyyy )
     config = {

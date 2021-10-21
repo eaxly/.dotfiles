@@ -123,7 +123,7 @@ else
     export FZF_DEFAULT_COMMAND="find ."
 fi
 export FZF_DEFAULT_OPTS="--preview 'bat --color=always --theme=Nord --number {} '"
-export TERMINAL=kitty
+# export TERMINAL=kitty
 # }}}
 
 # Aliases {{{
