@@ -13,5 +13,3 @@ These are my personal configuration files + things i use when installing a new s
 | other directories (exp: `autumn/`) |        These are other bombadil profiles to mess with things\*          |
 
  \* take a look at [bombadil](https://github.com/oknozor/toml-bombadil) to learn more about profiles
-
-Theme Creator and Author: [Enkia](https://github.com/enkia)
