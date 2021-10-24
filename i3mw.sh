@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# A script to install wanted software on my system
+# A script to install wanted software on my system, i3wm edition
 # It is by no means perfect nor clean, but who cares, if it works.
 # If it doesn't work, please open an issue.
 
