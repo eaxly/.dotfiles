@@ -126,7 +126,7 @@ main() {
     sleep 1.5
     echo "Have a look around,"
     sleep 1.5
-    echo "Anything that brain of your can think of can be found,"
+    echo "Anything that brain of yours can think of can be found,"
     sleep 1.5
     echo "We have mountains of configs"
     sleep 1.5
