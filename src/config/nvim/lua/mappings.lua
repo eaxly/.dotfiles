@@ -7,11 +7,21 @@
 local wk = require("which-key")
 vim.g.mapleader = " "
 
+function _Neovide_toggle_fullscreen()
+    vim.cmd [[
+        if g:neovide_fullscreen==v:true
+            let g:neovide_fullscreen=v:false
+        else
+            let g:neovide_fullscreen=v:true
+        end
+    ]]
+end
+
 -- comment reminders
 -- =================
 wk.register({
-    c = "<cmd>echoerr 'Use gcc bindings'<cr>"
-})
+    c = { "<cmd>echoerr 'Use gcc'<cr>", "nope" },
+}, {prefix = "<leader>"})
 -- file manager
 -- ============
 wk.register({
@@ -89,12 +99,18 @@ wk.register ({
 wk.register ({
     T = {
         name = 'Terminals',
-        c = {"<cmd>lua _Term_cargo_run_toggle()<cr>", "Run Cargo"}
+        c = {"<cmd>lua _Term_cargo_run_toggle()<cr>", "Run Cargo"},
     },
 
     G = { "<cmd>lua _Term_lazygit()<cr>", "Toggle LazyGit" }
 
 }, { prefix = "<leader>" } )
 
-
+-- LSP and others
+-- ==============
+wk.register ({
+    ["<C-s>"] = { "<cmd>:w<cr>", "write" },
+    ["<F2>"] = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename"},
+    ["<F11>"] = {"<cmd>lua _Neovide_toggle_fullscreen()<cr>", "Fullscreen"},
+})
 -- vim:foldmethod=marker

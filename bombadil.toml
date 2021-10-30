@@ -2,11 +2,11 @@
 
 # Path to your dotfiles relative to your $HOME directory
 dotfiles_dir = ".dotfiles"
-gpg_user_id = "mrsosaki@posteo.net"
+# gpg_user_id = "mrsosaki@posteo.net"
 
 [settings]
-vars = [ "vars.toml" ]
-hooks = ["nvim --headless +PackerCompile +sleep 1 +qall"]
+# vars = [ "vars.toml" ]
+hooks = ["nvim --headless +PackerCompile +sleep1 +qall"]
 
 [settings.dots]
 # REMINDER:

@@ -26,7 +26,7 @@ toggleterm.setup {
         -- see :h nvim_open_win for details on borders however
         -- the 'curved' border is a custom border type
         -- not natively supported but implemented in this plugin.
-        border = 'curved',
+        border = 'rounded',
         winblend = 5,
         highlights = {
             border = "Normal",
@@ -37,29 +37,42 @@ toggleterm.setup {
 
 local cargo_run = Terminal:new({
     cmd = "cargo run",
-    direction = "float",
+    direction = "vertical",
     -- dir = "",
     close_on_exit = false,
 })
-
 function _Term_cargo_run_toggle()
     cargo_run:toggle()
 end
 
 local lazygit = Terminal:new({
-  cmd = "lazygit",
-  dir = "git_dir",
-  direction = "float",
-  float_opts = {
-    border = "curved",
-  },
-  -- function to run on opening the terminal
-  on_open = function(term)
-    vim.cmd("startinsert!")
-    vim.api.nvim_buf_set_keymap(term.bufnr, "n", "q", "<cmd>close<CR>", {noremap = true, silent = true})
-  end,
+    cmd = "lazygit",
+    dir = "git_dir",
+    direction = "float",
+    float_opts = {
+        border = "rounded",
+    },
+    -- function to run on opening the terminal
+    on_open = function(term)
+        vim.cmd("startinsert!")
+        vim.api.nvim_buf_set_keymap(term.bufnr, "n", "q", "<cmd>close<CR>", {noremap = true, silent = true})
+    end,
+    close_on_exit = false,
 })
 
 function _Term_lazygit()
     lazygit:toggle()
+end
+
+local btop = Terminal:new ({
+    cmd = "btop",
+    direction = "float",
+    float_opts = {
+        border = "rounded",
+    },
+    close_on_exit = true,
+})
+
+function _Term_btop()
+    btop:toggle()
 end

@@ -5,21 +5,7 @@
 -- File: ~/.config/nvim/lua/Packer.lua
 -- By: @ExtinctAxolotll
 
--- PackerInit {{{
-local fn = vim.fn
-
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-
-if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({ "git", "clone", "https://github.com/wbthomason/packer.nvim", install_path })
-end
--- }}}
-
-vim.cmd([[packadd packer.nvim]])
-vim.cmd([[autocmd BufWritePost PackerList.lua source <afile> | PackerCompile )]])
-
 local neoscroll_enable = false
-
 -- packer.nvim
 return require("packer").startup({
     function(use)
@@ -27,7 +13,6 @@ return require("packer").startup({
         use{ "wbthomason/packer.nvim" }
 
         -- Completion
-        use { "Shougo/vimproc.vim" }
         use {
             "neovim/nvim-lspconfig",
             config = function()
@@ -152,12 +137,7 @@ return require("packer").startup({
         use {
             "Pocco81/TrueZen.nvim",
             config = function()
-                require("true-zen").setup({
-                    integrations = {
-                        twilight = true,
-                        lualine = true
-                    }
-                })
+                require("plugins.others").true_zen()
             end,
             cmd = { "TZAtaraxis", "TZFocus", "TZMinimalist" },
         }
@@ -169,8 +149,8 @@ return require("packer").startup({
         }
 
         -- COLORSCHEME
-        -- use("EdenEast/nightfox.nvim")
-        use("marko-cerovac/material.nvim")
+        use("EdenEast/nightfox.nvim")
+        -- use("marko-cerovac/material.nvim")
         -- use("sainnhe/everforest")
         -- use("sainnhe/gruvbox-material")
         -- use("folke/tokyonight.nvim")
@@ -179,7 +159,7 @@ return require("packer").startup({
 
         -- lines
         use {
-            "hoob3rt/lualine.nvim",
+            "nvim-lualine/lualine.nvim",
             config = function()
                 require("plugins.statusline")
             end,
@@ -223,11 +203,19 @@ return require("packer").startup({
             "alec-gibson/nvim-tetris",
             cmd = "Tetris",
         }
+
+        -- Automatically set up your configuration after cloning packer.nvim
+        -- Put this at the end after all plugins
+        if Packer_bootstrap then
+            require('packer').sync()
+        end
     end,
     -- make packer float (i believe i can flyyyyyyy )
     config = {
 		display = {
-			open_fn = require("packer.util").float,
+			open_fn = function()
+                return require("packer.util").float( {border = "rounded"} )
+            end,
 		},
 	},
 })

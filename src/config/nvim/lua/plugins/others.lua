@@ -28,4 +28,13 @@ M.colorizer = function()
     colorizer.setup()
 end
 
+M.true_zen = function()
+    require("true-zen").setup({
+        integrations = {
+            twilight = true,
+            lualine = true
+        }
+    })
+end
+
 return M

@@ -1,13 +1,9 @@
-local present, lualine = pcall(require, "lualine")
-if not present then
-    error("STATUSLINE.LUA: Lualine not present!")
-    return false
-end
+local lualine = require("lualine")
 
 local function set_sep()
     return {
-        { " ", " " },
-        { "", "" },
+        { left = " ", right = " " },
+        { left = "", right = "" },
     }
 end
 
@@ -23,7 +19,7 @@ local smolThings = {
 
 local config = {
     options = {
-        theme = "material",
+        theme = "nightfox",
         section_separators = set_sep()[1],
         component_separators = set_sep()[2],
         disabled_filetypes = {},

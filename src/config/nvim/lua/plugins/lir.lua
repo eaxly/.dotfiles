@@ -1,7 +1,7 @@
-local actions = require'lir.actions'
-local mark_actions = require 'lir.mark.actions'
-local clipboard_actions = require'lir.clipboard.actions'
-
+local lir = require('lir')
+local actions = require('lir.actions')
+local mark_actions = require('lir.mark.actions')
+local clipboard_actions = require('lir.clipboard.actions')
 -- lir plugins
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -16,7 +16,7 @@ function LirTrash()
         return vim.fn.nr2char(c)
     end
 
-    print("Trash "..current.display.." ? y/n")
+    print("Trash "..current.devicons.icon.." "..current.value.." "..current.devicons.icon.." ? [y/n] ")
 
     if (get_user_input_char():match('^y') and current) then
         vim.fn.jobstart(trash_cmd .. current.fullpath, {
@@ -27,7 +27,7 @@ function LirTrash()
     vim.api.nvim_command('normal <cmd>esc<CR>')
 end
 
-require'lir'.setup {
+lir.setup {
     show_hidden_files = false,
     devicons_enable = true,
     mappings = {
@@ -56,29 +56,43 @@ require'lir'.setup {
     ['C'] = clipboard_actions.copy,
     ['X'] = clipboard_actions.cut,
     ['P'] = clipboard_actions.paste,
+    ['<C-o>'] = function()
+            local current = lir.get_context():current()
 
+            vim.fn.jobstart("xdg-open "..current.fullpath, {
+                            detach=true,
+                            on_exit=function() actions.reload() end,
+                            on_stderr=function() vim.cmd'echoerr "Couldn\'t open file!"' end
+                        })
+        end,
     },
     float = {
         winblend = 10,
-    win_opts = nil
+        win_opts = function ()
+            return {
+                border = "rounded",
+            }
+        end,
+        curdir_window = {
+            enable = true,
+            highlight = true,
+        }
     },
     hide_cursor = true,
 }
 
 -- custom folder icon
-require'nvim-web-devicons'.set_icon({
+require('nvim-web-devicons').set_icon({
   lir_folder_icon = {
     icon = "",
-    color = "#84FFFF",
+    color = "#9ccfd8",
     name = "LirFolderNode"
   }
 })
+
 -- use visual mode
 function _G.LirSettings()
-  vim.api.nvim_buf_set_keymap(0, 'x', 'J', ':<C-u>lua require"lir.mark.actions".toggle_mark("v")<CR>', {noremap = true, silent = true})
-
-  -- echo cwd
-  -- vim.api.nvim_echo({{vim.fn.expand('%:p'), 'Normal'}}, false, {})
+    vim.api.nvim_buf_set_keymap(0, 'x', 'J', ':<C-u>lua require("lir.mark.actions").toggle_mark("v")<CR>', {noremap = true, silent = true})
 end
 
 -- plugins

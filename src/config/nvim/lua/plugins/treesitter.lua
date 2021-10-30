@@ -1,8 +1,4 @@
-local present, treesitter_configs = pcall(require, "nvim-treesitter.configs")
-if not present then
-    error("TREESITTER.LUA: treesitter not found!")
-    return false
-end
+local treesitter_configs = require("nvim-treesitter.configs")
 
 treesitter_configs.setup({
     ensure_installed = {
@@ -11,8 +7,7 @@ treesitter_configs.setup({
         "python",
         "bash",
         "fish",
-        "gdscript",
-        "comment",
+        -- "gdscript", -- never using this honestly
         "json",
         "lua",
         "comment", -- TODO: Does it work?
