@@ -5,7 +5,8 @@
 # FILE: ~/.zshrc
 
 # Some basics {{{
-
+# for sheldon as it is insanely stupid
+export XDG_CONFIG_HOME=$HOME/.config
 HISTFILE=~/.zsh_history
 HISTSIZE=2000
 SAVEHIST=1000000
