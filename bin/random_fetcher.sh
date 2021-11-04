@@ -11,7 +11,7 @@ if ! command -v pacman &> /dev/null; then
     exit
 fi
 
-fetchers=("fm6000 --random" neofetch nofetch ) # uwufetch "pokemon-colorscripts -r"
+fetchers=("fm6000 -color random -random" neofetch nofetch ) # uwufetch "pokemon-colorscripts -r"
 
 random_num=$(($RANDOM % ${#fetchers[@]}))
 
