@@ -21,8 +21,8 @@ dir = "plugins"
 use = ["{wd,git,nvm,pip,archlinux,sudo}.plugin.zsh"]
 
 # Else
-[plugins.FsYH]
-github = "zdharma/fast-syntax-highlighting"
+[plugins.syntax-high]
+github = "zsh-users/zsh-syntax-highlighting"
 
 [plugins.zsh-completions]
 github = "zsh-users/zsh-completions"
