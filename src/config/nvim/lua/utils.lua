@@ -25,4 +25,5 @@ M.quote_dragon = function()
 
     return quotes[math.random(#quotes)]
 end
+
 return M

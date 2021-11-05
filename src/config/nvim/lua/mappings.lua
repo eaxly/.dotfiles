@@ -28,26 +28,26 @@ wk.register({
     f = { "<cmd>lua require('lir.float').toggle()<cr>", "Toggle File Manager" },
 }, { prefix = "<leader>" })
 
--- Buffer Management
+-- Bufferline
 -- ==================
 wk.register({
     b = {
         name = "buffers",
-        c = { "<cmd>BufferClose<cr>", "Close" },
-        C = { "<cmd>BufferClose!<cr>", "Force to close" },
-        h = { "<cmd>BufferPrevious<cr>", "Previous" },
-        l = { "<cmd>BufferNext<cr>", "Next" },
-        s = { "<cmd>BufferPick<cr>", "Pick" },
+        c = { "<cmd>bdelete<cr>", "Close" },
+        C = { "<cmd>bdelete!<cr>", "Force Close" },
+        h = { "<cmd>BufferLineCyclePrev<cr>", "Previous" },
+        l = { "<cmd>BufferLineCycleNext<cr>", "Next" },
+        x = { "<cmd>BufferLinePick<cr>", "Pick" },
+        X = { "<cmd>BufferLinePickClose<cr>", "Close Pick" },
 
-        o = "Order Buffers",
-        od = { "<cmd>BufferOrderByDirectory<cr>", "by Directory" },
-        ol = { "<cmd>BufferOrderByLanguage<cr>", "by Language" },
+        s = {
+            name = "Sort Buffers",
+            d = { "<cmd>BufferLineSortByDirectory<cr>", "by Directory" },
+            x = { "<cmd>BufferLineSortByExtension<cr>", "by Extension" },
+        }
     },
 }, {
     prefix = "<leader>",
-})
-wk.register({
-    ["<C-q>"] = { "<cmd>BufferClose<cr>", "Close the current buffer"}
 })
 
 -- Undo Tree

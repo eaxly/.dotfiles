@@ -4,7 +4,6 @@
 --
 -- File: ~/.config/nvim/init.lua
 -- By: @ExtinctAxolotl
-
 -- Packer Setup
 -- TODO: Test this
 local fn = vim.fn

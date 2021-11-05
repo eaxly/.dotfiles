@@ -3,8 +3,7 @@
 -- ░▀▀░░▀▀▀░░▀░░▀░░░▀▀▀░▀▀▀░▀▀▀░▀▀▀
 --
 -- File: ~/.config/nvim/lua/Packer.lua
--- By: @ExtinctAxolotll
-
+-- By: @ExtinctAxolotl
 local neoscroll_enable = false
 -- packer.nvim
 return require("packer").startup({
@@ -24,10 +23,16 @@ return require("packer").startup({
             'ms-jpq/coq_nvim',
             branch = 'coq',
             config = function()
-                require("plugins.coq")
+                require("plugins.coq").coq()
             end,
         } -- main one
         use { 'ms-jpq/coq.artifacts', branch= 'artifacts'} -- 9000+ Snippets
+        use {
+            'ms-jpq/coq.thirdparty',
+            config = function()
+                require("plugins.coq").third()
+            end
+        } -- Third Party stuff
 
         -- Git related plugins
         use {
@@ -46,10 +51,20 @@ return require("packer").startup({
         }
         -- TODO(axolotl): add some keyindings for nvim-align
 
+        -- akin, you absolute legend
         use {
             "akinsho/toggleterm.nvim",
             config = function()
                 require("plugins.term")
+            end
+        }
+
+        use {
+            'akinsho/bufferline.nvim',
+            requires = 'kyazdani42/nvim-web-devicons',
+
+            config = function()
+                require("plugins.bufferline")
             end
         }
 
@@ -86,13 +101,12 @@ return require("packer").startup({
 
         use{ "simnalamburt/vim-mundo" }
 
-        --[[ use({
-            "kyazdani42/nvim-tree.lua",
-            config = function()
-                require("plugins.filetree")
-            end
-        }) ]] -- waiting until nvim-tree does correctly manage cwd
-        -- until then, let's try lir.nvim
+        -- use({
+        --     "kyazdani42/nvim-tree.lua",
+        --     config = function()
+        --         require("plugins.filetree")
+        --     end
+        -- })
 
         use{
             "tamago324/lir.nvim",
@@ -112,6 +126,12 @@ return require("packer").startup({
             requires = "kyazdani42/nvim-web-devicons",
             config = function()
                 require("plugins.trouble")
+            end
+        }
+
+        use { "beauwilliams/focus.nvim",
+            config = function()
+                require("plugins.others").focus()
             end
         }
         -- === User Interface ===
@@ -164,7 +184,7 @@ return require("packer").startup({
                 require("plugins.statusline")
             end,
         }
-        use { "romgrk/barbar.nvim"}
+
 
         use { "nvim-treesitter/nvim-treesitter",
             config = function()
@@ -186,11 +206,19 @@ return require("packer").startup({
             cmd = { "EditorConfigEnable", "EditorConfigReload" },
         }
 
-        use{
-            "glepnir/dashboard-nvim",
-            config = function()
-                require("plugins.dashboard")
-            end,
+        -- use{
+        --     "glepnir/dashboard-nvim",
+        --     config = function()
+        --         require("plugins.dashboard")
+        --     end,
+        -- }
+
+        use {
+            'goolord/alpha-nvim',
+            requires = { 'kyazdani42/nvim-web-devicons' },
+            config = function ()
+                require'plugins.alpha'
+            end
         }
         -- filetypes
         use {
@@ -203,7 +231,6 @@ return require("packer").startup({
             "alec-gibson/nvim-tetris",
             cmd = "Tetris",
         }
-
         -- Automatically set up your configuration after cloning packer.nvim
         -- Put this at the end after all plugins
         if Packer_bootstrap then
