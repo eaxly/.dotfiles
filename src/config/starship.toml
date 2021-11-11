@@ -8,4 +8,4 @@ error_symbol = "[λ](bold italic red)"
 disabled = true
 
 [jobs]
-threshold=6
+number_threshold=3
