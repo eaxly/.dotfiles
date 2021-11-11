@@ -1,13 +1,18 @@
 #!/usr/bin/env bash
-echo "Making Directory...\n"
+echo "Making Directory..."
 mkdir -p $HOME/.dircolors
 sleep 0.5
 
-echo "Getting File...\n"
+echo "Getting File..."
 curl --silent https://raw.githubusercontent.com/arcticicestudio/nord-dircolors/develop/src/dir_colors > $HOME/.dircolors/dircolors
 sleep 0.5
 if command -v notify-send > /dev/null; then
   notify-send --icon=preferences-desktop-display "Nord Dircolors!" "Finished Installing Nord Dircolors."
+ echo """
+  ░█▀▄░█▀█░█▀█░█▀▀░█
+  ░█░█░█░█░█░█░█▀▀░▀
+  ░▀▀░░▀▀▀░▀░▀░▀▀▀░▀
+  """
 else
  echo """
   ░█▀▄░█▀█░█▀█░█▀▀░█
