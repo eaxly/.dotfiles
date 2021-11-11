@@ -39,9 +39,6 @@ bash = { source = "src/home/bashrc", target = ".bashrc" }
 # taskrc
 task = { source = "src/home/taskrc", target = ".taskrc" }
 
-# vimrc (based on @adi1090x archcraft vimrc)
-vim = { source = "src/home/vimrc", target = ".vimrc" }
-
 # zshrc
 zsh = { source = "src/home/zshrc", target = ".zshrc"}
 
@@ -56,9 +53,6 @@ neofetch = { source = "src/config/neofetch/", target = ".config/neofetch" }
 
 # kitty
 kitty = { source = "src/config/kitty/", target = ".config/kitty" }
-
-# awesome
-# awesome = { source = "src/config/awesome", target = ".config/awesome"} 
 
 # === IMPORTS ===
 [[import]]

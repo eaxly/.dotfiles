@@ -12,30 +12,23 @@ fi
 # If you just wan't to install other packages, edit these two lines
 packages="neovim kitty i3 dunst rofi python-pywal python-pip firefox gnome-keyring seahorse libgnome-keyring zenity blueberry networkmanager pavucontrol autorandr xrandr arandr lightdm lightdm-webkit2-greeter lightdm-webkit-theme-litarvan github-cli" # gnome touchegg
 
-aur_packages="ttf-twemoji mimeo xdg-utils-mimeo nerd-fonts-jetbrains-mono ttf-iosevka betterlockscreen deezer rofi-autorandr" # mimeo because xdg-open without a DE is f*cked up
+aur_packages="ttf-twemoji mimeo xdg-utils-mimeo nerd-fonts-jetbrains-mono ttf-iosevka betterlockscreen deezer rofi-autorandr" # mimeo because xdg-open without a DE is pretty messy
 
 _exists() {
     if command -v pacman &> /dev/null; then
         pacman -Q ${@} &> /dev/null
-    else
-        echo "uhm.. sorry but WHAT?!?!?!"
-        exit 1
     fi
 }
 
 _install() {
     program=${@}
     echo -e "Installing ${program}..."
-    if _exists pacman; then
-        sudo pacman -S $program
-    fi
+    sudo pacman -S $program
 }
 
 _aur_install() {
     program=${@}
-    if ! _exists $program; then
-        paru -S $program
-    fi
+    paru -S $program
 }
 
 post_install() {
