@@ -24,8 +24,8 @@ g.neovide_cursor_vfx_mode = "pixiedust" -- On my personal computer, railgun & to
 g.neovide_cursor_vfx_particle_lifetime = 0.9
 g.neovide_cursor_vfx_particle_density = 5.0
 g.neovide_fullscreen = false
-g.neovide_remember_window_size=true
-g.neovide_input_use_logo=false
+g.neovide_remember_window_size = true
+g.neovide_input_use_logo = false
 
 -- Tabs
 o.tabstop = 4
@@ -40,6 +40,7 @@ o.number = true
 o.relativenumber = true
 
 o.wrap = false
+o.cursorline = false
 
 o.ignorecase = true
 o.smartcase = true
@@ -67,4 +68,3 @@ vim.cmd([[
     filetype on
     filetype plugin indent on
 ]])
-

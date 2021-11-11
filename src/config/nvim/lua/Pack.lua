@@ -7,242 +7,247 @@
 local neoscroll_enable = false
 -- packer.nvim
 return require("packer").startup({
-    function(use)
-        -- Packer can manage itself
-        use{ "wbthomason/packer.nvim" }
+	function(use)
+		use({
+			"lewis6991/impatient.nvim",
+			config = function()
+				require("impatient")
+			end,
+		})
+		-- Packer can manage itself
+		use({ "wbthomason/packer.nvim" })
 
-        -- Completion
-        use {
-            "neovim/nvim-lspconfig",
-            config = function()
-                require("plugins.lsp")
-            end,
-        }
+		-- Completion
+		use({
+			"neovim/nvim-lspconfig",
+			config = function()
+				require("plugins.lsp")
+			end,
+		})
 
-        use {
-            'ms-jpq/coq_nvim',
-            branch = 'coq',
-            config = function()
-                require("plugins.coq").coq()
-            end,
-        } -- main one
-        use { 'ms-jpq/coq.artifacts', branch= 'artifacts'} -- 9000+ Snippets
-        use {
-            'ms-jpq/coq.thirdparty',
-            config = function()
-                require("plugins.coq").third()
-            end
-        } -- Third Party stuff
+		use({
+			"ms-jpq/coq_nvim",
+			branch = "coq",
+			config = function()
+				require("plugins.coq").coq()
+			end,
+		}) -- main one
+		use({ "ms-jpq/coq.artifacts", branch = "artifacts" }) -- 9000+ Snippets
+		use({
+			"ms-jpq/coq.thirdparty",
+			config = function()
+				require("plugins.coq").third()
+			end,
+		}) -- Third Party stuff
 
-        -- Git related plugins
-        use {
-            "lewis6991/gitsigns.nvim",
-            requires = { "nvim-lua/plenary.nvim" },
-            config = function()
-                require("plugins.others").gitsigns()
-            end,
-        }
-        -- Functionality
+		-- Git related plugins
+		use({
+			"lewis6991/gitsigns.nvim",
+			requires = { "nvim-lua/plenary.nvim" },
+			config = function()
+				require("plugins.others").gitsigns()
+			end,
+		})
+		-- Functionality
 
-        use { "tpope/vim-surround" }
-        use {
-            "RRethy/nvim-align",
-            module = "align",
-        }
-        -- TODO(axolotl): add some keyindings for nvim-align
+		use({ "tpope/vim-surround" })
+		use({
+			"RRethy/nvim-align",
+			module = "align",
+		})
+		-- TODO(axolotl): add some keyindings for nvim-align
 
-        -- akin, you absolute legend
-        use {
-            "akinsho/toggleterm.nvim",
-            config = function()
-                require("plugins.term")
-            end
-        }
+		-- akin, you absolute legend
+		use({
+			"akinsho/toggleterm.nvim",
+			config = function()
+				require("plugins.term")
+			end,
+		})
 
-        use {
-            'akinsho/bufferline.nvim',
-            requires = 'kyazdani42/nvim-web-devicons',
+		-- fuzzy finder
+		use({
+			"nvim-telescope/telescope.nvim",
+			requires = { "nvim-lua/plenary.nvim", "nvim-lua/popup.nvim" },
+			cmd = "Telescope",
+			module = "telescope",
+		})
 
-            config = function()
-                require("plugins.bufferline")
-            end
-        }
+		use({
+			"romgrk/barbar.nvim",
+			requires = { "kyazdani42/nvim-web-devicons" },
+			config = function()
+				require("plugins.barbar")
+			end,
+		})
 
-        -- fuzzy finder
-        use {
-            "nvim-telescope/telescope.nvim",
-            requires = { "nvim-lua/plenary.nvim", "nvim-lua/popup.nvim" },
-            cmd = "Telescope",
-            module = "telescope",
-        }
+		use({
+			"lambdalisue/suda.vim",
+			config = function()
+				require("plugins.others").suda()
+			end,
+		})
+		use({ "lambdalisue/pastefix.vim" })
+		use({ "dstein64/vim-startuptime", cmd = { "StartupTime" } })
+		use({
+			"terrortylor/nvim-comment",
+			config = function()
+				require("plugins.comment")
+			end,
+		})
 
-        use{
-            "lambdalisue/suda.vim",
-            config = function()
-                require("plugins.others").suda()
-            end,
-        }
-        use{ "lambdalisue/pastefix.vim" }
-        use{ "dstein64/vim-startuptime", cmd = { "StartupTime" } }
-        use{
-            "terrortylor/nvim-comment",
-            config = function()
-                require("plugins.comment")
-            end,
-        }
+		use({
+			"folke/which-key.nvim",
+			config = function()
+				require("plugins.whichkey")
+				require("mappings")
+			end,
+		})
 
-        use{
-            "folke/which-key.nvim",
-            config = function()
-                require("plugins.whichkey")
-                require("mappings")
-            end,
-        }
+		use({ "simnalamburt/vim-mundo" })
 
-        use{ "simnalamburt/vim-mundo" }
+		use({
+			"kyazdani42/nvim-tree.lua",
+			config = function()
+				require("plugins.filetree")
+			end,
+			requires = { "airblade/vim-rooter" },
+		})
 
-        -- use({
-        --     "kyazdani42/nvim-tree.lua",
-        --     config = function()
-        --         require("plugins.filetree")
-        --     end
-        -- })
+		--         use({
+		--             "tamago324/lir.nvim",
+		--             -- "~/dev/frk/lir.nvim",
+		--             requires = {
+		--                 "nvim-lua/plenary.nvim",
+		--
+		--                 -- lir plugins
+		--                 "tamago324/lir-git-status.nvim",
+		--             },
+		--             config = function()
+		--                 require("plugins.lir")
+		--             end,
+		--         })
 
-        use{
-            "tamago324/lir.nvim",
-            requires = {
-                "nvim-lua/plenary.nvim",
+		use({
+			"folke/trouble.nvim",
+			requires = "kyazdani42/nvim-web-devicons",
+			config = function()
+				require("plugins.trouble")
+			end,
+		})
 
-                -- lir plugins
-                "tamago324/lir-git-status.nvim",
-            },
-            config = function()
-                require("plugins.lir")
-            end,
-        }
+		use({
+			"beauwilliams/focus.nvim",
+			config = function()
+				require("plugins.others").focus()
+			end,
+		})
+		-- === User Interface ===
+		if neoscroll_enable then
+			use({
+				"karb94/neoscroll.nvim",
+				config = function()
+					require("plugins.neoscroll")
+				end,
+			})
+		end
 
-        use{
-            "folke/trouble.nvim",
-            requires = "kyazdani42/nvim-web-devicons",
-            config = function()
-                require("plugins.trouble")
-            end
-        }
+		use({
+			"rktjmp/lush.nvim",
+			cmd = { "Lushify", "LushRunTutorial", "LushRunQuickstart" },
+			module = "lush",
+		})
+		use({
+			"folke/twilight.nvim",
+			cmd = { "Twilight", "TwilightEnable", "TwilightDisable" },
+			module = "twilight",
+		})
+		use({
+			"Pocco81/TrueZen.nvim",
+			config = function()
+				require("plugins.others").true_zen()
+			end,
+			cmd = { "TZAtaraxis", "TZFocus", "TZMinimalist" },
+		})
+		use({
+			"lukas-reineke/indent-blankline.nvim",
+			config = function()
+				require("plugins.others").blankline()
+			end,
+		})
 
-        use { "beauwilliams/focus.nvim",
-            config = function()
-                require("plugins.others").focus()
-            end
-        }
-        -- === User Interface ===
-        if neoscroll_enable then
-            use {
-                'karb94/neoscroll.nvim',
-                config = function()
-                    require("plugins.neoscroll")
-                end,
-            }
-        end
+		-- COLORSCHEME
+		use("EdenEast/nightfox.nvim")
+		-- use("marko-cerovac/material.nvim")
+		-- use("sainnhe/everforest")
+		-- use("sainnhe/gruvbox-material")
+		-- use("folke/tokyonight.nvim")
+		use({ 'rose-pine/neovim', as = 'rose-pine' })
+		-- use{ "Pocco81/Catppuccino.nvim" }
 
-        use{
-            'rktjmp/lush.nvim',
-            cmd = { "Lushify", "LushRunTutorial", "LushRunQuickstart" },
-            module = "lush",
-        }
-        use {
-            "folke/twilight.nvim",
-            cmd = { "Twilight", "TwilightEnable", "TwilightDisable" },
-            module = "twilight",
-        }
-        use {
-            "Pocco81/TrueZen.nvim",
-            config = function()
-                require("plugins.others").true_zen()
-            end,
-            cmd = { "TZAtaraxis", "TZFocus", "TZMinimalist" },
-        }
-        use{
-            "lukas-reineke/indent-blankline.nvim",
-            config = function()
-                require("plugins.others").blankline()
-            end,
-        }
+		-- lines
+		use({
+			"nvim-lualine/lualine.nvim",
+			config = function()
+				require("plugins.statusline")
+			end,
+		})
 
-        -- COLORSCHEME
-        use("EdenEast/nightfox.nvim")
-        -- use("marko-cerovac/material.nvim")
-        -- use("sainnhe/everforest")
-        -- use("sainnhe/gruvbox-material")
-        -- use("folke/tokyonight.nvim")
-        -- use({ 'rose-pine/neovim', as = 'rose-pine' })
-        -- use{ "Pocco81/Catppuccino.nvim" }
+		use({
+			"nvim-treesitter/nvim-treesitter",
+			config = function()
+				require("plugins.treesitter")
+			end,
+			run = { ":TSUpdate" },
+		})
 
-        -- lines
-        use {
-            "nvim-lualine/lualine.nvim",
-            config = function()
-                require("plugins.statusline")
-            end,
-        }
+		use({ "kyazdani42/nvim-web-devicons" })
+		use({
+			"norcalli/nvim-colorizer.lua",
+			config = function()
+				require("plugins.others").colorizer()
+			end,
+		})
 
+		use({
+			"editorconfig/editorconfig-vim",
+			cmd = { "EditorConfigEnable", "EditorConfigReload" },
+		})
 
-        use { "nvim-treesitter/nvim-treesitter",
-            config = function()
-                require("plugins.treesitter")
-            end,
-            run = { ':TSUpdate'}
-        }
+		-- use{
+		--     "glepnir/dashboard-nvim",
+		--     config = function()
+		--         require("plugins.dashboard")
+		--     end,
+		-- }
 
-        use { "kyazdani42/nvim-web-devicons" }
-        use {
-            "norcalli/nvim-colorizer.lua",
-            config = function()
-                require("plugins.others").colorizer()
-            end,
-        }
+		use({
+			"goolord/alpha-nvim",
+			requires = { "kyazdani42/nvim-web-devicons" },
+			config = function()
+				require("plugins.alpha")
+			end,
+		})
+		-- filetypes
+		use({
+			"elkowar/yuck.vim",
+			ft = "yuck",
+		})
 
-        use{
-            "editorconfig/editorconfig-vim",
-            cmd = { "EditorConfigEnable", "EditorConfigReload" },
-        }
+		-- games
 
-        -- use{
-        --     "glepnir/dashboard-nvim",
-        --     config = function()
-        --         require("plugins.dashboard")
-        --     end,
-        -- }
-
-        use {
-            'goolord/alpha-nvim',
-            requires = { 'kyazdani42/nvim-web-devicons' },
-            config = function ()
-                require'plugins.alpha'
-            end
-        }
-        -- filetypes
-        use {
-            "elkowar/yuck.vim",
-            ft = "yuck",
-        }
-
-        -- games
-        use {
-            "alec-gibson/nvim-tetris",
-            cmd = "Tetris",
-        }
-        -- Automatically set up your configuration after cloning packer.nvim
-        -- Put this at the end after all plugins
-        if Packer_bootstrap then
-            require('packer').sync()
-        end
-    end,
-    -- make packer float (i believe i can flyyyyyyy )
-    config = {
+		-- Automatically set up your configuration after cloning packer.nvim
+		-- Put this at the end after all plugins
+		if Packer_bootstrap then
+			require("packer").sync()
+		end
+	end,
+	-- make packer float (i believe i can flyyyyyyy )
+	config = {
 		display = {
 			open_fn = function()
-                return require("packer.util").float( {border = "rounded"} )
-            end,
+				return require("packer.util").float({ border = "rounded" })
+			end,
 		},
 	},
 })

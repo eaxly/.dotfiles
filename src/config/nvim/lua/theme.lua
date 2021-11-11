@@ -1,3 +1,5 @@
+-- local present, themed = pcall(require, "themed")
+
 -- everforest
 vim.g.everforest_background = "hard"
 vim.g.everforest_enable_italic = 1
@@ -15,12 +17,12 @@ vim.g.tokyonight_dark_float = true
 -- rose pine
 vim.g.rose_pine_enable_italics = true
 vim.g.rose_pine_disable_background = false
-vim.g.rose_pine_variant = 'base'
+vim.g.rose_pine_variant = "base"
 
 -- nightfox
 local nightfox = require("nightfox")
 nightfox.setup({
-    fox = "nordfox", -- Which fox style should be applied
+    fox = "nightfox", -- Which fox style should be applied
     transparent = false, -- Disable setting the background color
     alt_nc = false, -- Non current window bg to alt color see `hl-NormalNC`
     terminal_colors = true, -- Configure the colors used when opening :terminal
@@ -67,7 +69,7 @@ vim.g.material_style = "deep ocean"
 -- yes there are a lot of scraped things here
 -- vim.g.colors_name = "everforest"
 -- require("tokyonight").colorscheme()
--- require("rose-pine").set()
-nightfox.load()
+vim.cmd [[colorscheme rose-pine]]
+-- nightfox.load()
 -- require('material').set()
 -- vim.cmd [[colorscheme material]]
