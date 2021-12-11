@@ -5,8 +5,8 @@ dotfiles_dir = ".dotfiles"
 # gpg_user_id = "mrsosaki@posteo.net"
 
 [settings]
-# vars = [ "vars.toml" ]
-hooks = ["nvim --headless +PackerCompile +sleep1 +qall"]
+vars = [ "vars.toml" ]
+posthooks = ["nvim --headless +PackerCompile +sleep1 +qall"]
 
 [settings.dots]
 # REMINDER:
@@ -15,45 +15,31 @@ hooks = ["nvim --headless +PackerCompile +sleep1 +qall"]
 
 # === CONFIG ===
 # nvim
-nvim = { source = "src/config/nvim", target = ".config/nvim" }
-
-# alacritty
-alacritty = { source = "src/config/alacritty", target = ".config/alacritty" }
-
+nvim = { source = "src/config/nvim", target = ".config/nvim", vars = "src/config/nvim/vars.toml" }
 # sheldon
-sheldon = { source = "src/config/sheldon/plugins.toml", target = ".config/sheldon/plugins.toml" }
-
+sheldon = { source = "src/config/sheldon", target = ".config/sheldon" }
 # starship
 starship = { source = "src/config/starship.toml", target = ".config/starship.toml" }
-
+# neofetch 
+neofetch = { source = "src/config/neofetch/", target = ".config/neofetch" }
+# kitty
+kitty = { source = "src/config/kitty/", target = ".config/kitty" }
 # === HOME ===
 # spacevim
 spacevim = { source = "src/home/SpaceVim/init.toml", target = ".SpaceVim.d/init.toml" }
-
-# atom
-atom = { source = "src/home/atom/config.cson", target = ".atom/config.cson" }
-
 # bash
 bash = { source = "src/home/bashrc", target = ".bashrc" }
-
 # taskrc
 task = { source = "src/home/taskrc", target = ".taskrc" }
-
 # zshrc
 zsh = { source = "src/home/zshrc", target = ".zshrc"}
-
 # git
 git = { source = "src/home/gitconfig", target = ".gitconfig"}
-
 # wd
 wd = { source = "src/home/warprc", target = ".warprc"}
-
-# neofetch 
-neofetch = { source = "src/config/neofetch/", target = ".config/neofetch" }
-
-# kitty
-kitty = { source = "src/config/kitty/", target = ".config/kitty" }
-
 # === IMPORTS ===
 [[import]]
 path = "tokyonight/tokyonight.toml"
+
+[[import]]
+path = "sway/sway.toml"

@@ -1,0 +1,5 @@
+[output *]
+image=__[wall]__
+filter=nearest
+scaling-mode=tile
+anchor=center

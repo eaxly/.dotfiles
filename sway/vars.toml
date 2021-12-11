@@ -1,0 +1,6 @@
+#
+# config
+#
+border_size = "4" # int
+
+

@@ -1,0 +1,122 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "Iosevka Nerd Font";
+    font-size: 13px;
+    min-height: 0;
+    padding: 0 5px;
+}
+
+window#waybar {
+    background-color: #__[bg]__;
+    border-top: 1px solid #__[slt_bg]__;
+    color: #__[fg]__;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+#workspaces button {
+    color: #__[accent]__;
+}
+
+#workspaces button:hover {
+    background-color: #__[bg]__;
+    box-shadow: none;
+    text-shadow: none;
+}
+
+#workspaces button.urgent {
+    color: #__[red]__;
+}
+
+#mode {
+    color: #__[green]__
+}
+
+#workspaces {
+    margin: 0 4px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+#clock {
+    color: #__[yellow]__;
+}
+
+#battery {
+    color: #__[blue]__;
+}
+
+#battery.charging, #battery.plugged {
+    color: #__[blue_br]__;
+}
+
+@keyframes blink {
+    to {
+        color: #__[bg]__;
+    }
+}
+
+#battery.critical:not(.charging) {
+    color: #__[red]__;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#memory {
+    color: #__[magenta]__
+}
+
+#cpu {
+    color: #__[cyan]__;
+}
+
+#pulseaudio {
+    color: #__[green]__;
+}
+
+#pulseaudio.muted {
+    color: #__[red]__;
+}
+
+#custom-media {
+    color: #__[accent]__;
+    min-width: 100px;
+}
+
+#tray,
+
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    color: #__[red]__
+}
+
+#idle_inhibitor {
+    padding: 0 10px;
+}
+
+
+#idle_inhibitor.activated {
+    color: #__[accent]__;
+    padding: 0 10px;
+}

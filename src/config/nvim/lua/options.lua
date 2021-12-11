@@ -8,6 +8,8 @@
 local g = vim.g
 local o = vim.o
 
+vim.g.mapleader = " "
+
 o.termguicolors = true
 o.foldmethod = "marker"
 o.exrc = true
@@ -16,7 +18,7 @@ o.errorbells = false
 o.hidden = true
 
 -- neovide
-o.guifont = "FiraCode Nerd Font:h10"
+o.guifont = "Iosevka Nerd Font:h10"
 
 g.neovide_cursor_animation_length = 0.15
 g.neovide_cursor_trail_length = 0.9
@@ -40,7 +42,7 @@ o.number = true
 o.relativenumber = true
 
 o.wrap = false
-o.cursorline = false
+o.cursorline = true
 
 o.ignorecase = true
 o.smartcase = true
@@ -52,6 +54,8 @@ o.scrolloff = 10
 o.swapfile = false
 o.backup = false
 o.undofile = true
+
+o.completeopt = "menu,menuone,noselect"
 
 local homedir = os.getenv("HOME")
 o.undodir = homedir .. "/" .. ".local/share/nvim/undodir"

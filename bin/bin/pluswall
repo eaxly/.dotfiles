@@ -1,0 +1,68 @@
+#!/usr/bin/env bash
+# A hashwall clone with worse code quality and plus'
+# by: @ExtinctAxolotl
+
+res=72
+strokewidth=8
+fg="#1f1d2e"
+bg="#191724"
+# for compatability with hashwall
+exp="/tmp/wall.png"
+
+function usage() {
+	echo "usage: `basename $0` [-bfsre]
+    -b background color ($bg)
+    -f foreground color ($fg)
+    -s strokewidth ($strokewidth)
+    -r resolution ($res)
+    -e export path ($exp)"
+	exit 1
+}
+
+while [ $# -gt 0 ]
+do
+	case "$1" in
+			-b)
+				bg="$2"
+				shift
+			;;
+			-f)
+				fg="$2"
+				shift
+			;;
+			-s)
+				strokewidth="$2"
+				shift
+			;;
+			-r)
+				res="$2"
+				shift
+			;;
+			-e)
+				exp="$2"
+				shift
+            ;;
+			--)
+				shift
+				break
+			;;
+			-*)
+				usage
+			;;
+			*)
+				break
+			;;
+	esac
+	shift
+done
+
+pt1=$((${res}/2-${res}/6))
+pt2=$((${res}/2+${res}/6))
+pt3=$((${res}/2+${res}/6))
+pt4=$((${res}/2-${res}/6))
+
+convert -size ${res}x${res} xc:$bg -stroke $fg -strokewidth $strokewidth \
+    -draw "
+    line $pt1,$pt2 $pt3,$pt4
+    line $pt3,$pt2 $pt1,$pt4" \
+    ${exp}

@@ -1,0 +1,35 @@
+fade-in=1
+grace=2
+
+ignore-empty-password
+show-failed-attempts
+daemonize
+clock
+indicator
+screenshots
+
+datestr=%a, %d.%m.%Y
+
+font=Iosevka Nerd Font
+font-size=13
+
+effect-pixelate=10
+effect-vignette=0.5:0.6
+
+inside-color=__[bg_alt]__
+inside-clear-color=__[fg]__
+inside-caps-lock-color=__[black_br]__
+inside-ver-color=__[bg_alt]__
+inside-wrong-color=__[red]__
+key-hl-color=__[accent]__
+line-uses-inside
+ring-color=__[bg]__
+ring-clear-color=__[fg]__
+ring-caps-lock-color=__[magenta]__
+ring-ver-color=__[bg]__
+ring-wrong-color=__[red]__
+separator-color=__[bg]__
+text-color=__[accent]__
+text-caps-lock-color=__[bg]__
+text-ver-color=__[fg]__
+text-wrong-color=__[bg]__

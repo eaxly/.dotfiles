@@ -3,9 +3,13 @@ add_newline = false
 [character]
 success_symbol = "[λ](bold green)"
 error_symbol = "[λ](bold italic red)"
+vicmd_symbol = "[Λ](bold magenta)"
 
 [line_break]
 disabled = true
 
 [jobs]
 number_threshold=3
+
+[cmd_duration]
+min_time = 500

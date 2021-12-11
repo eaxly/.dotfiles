@@ -2,13 +2,11 @@
 -- ░█░█░█░█░░█░░█▀▀░░█░░█░░░█▀▀░▀▀█
 -- ░▀▀░░▀▀▀░░▀░░▀░░░▀▀▀░▀▀▀░▀▀▀░▀▀▀
 --
--- File: ~/.config/nvim/lua/mappings.lua
 -- By: @ExtinctAxolotl
-local wk = require("which-key")
-vim.g.mapleader = " "
+Mapper = require("utils").mapper()
 
 function _Neovide_toggle_fullscreen()
-	vim.cmd([[
+    vim.cmd([[
         if g:neovide_fullscreen==v:true
             let g:neovide_fullscreen=v:false
         else
@@ -16,113 +14,71 @@ function _Neovide_toggle_fullscreen()
         end
     ]])
 end
-
--- comment reminders
--- =================
-wk.register({
-	c = { "<cmd>echoerr 'Use gcc'<cr>", "nope" },
-}, { prefix = "<leader>" })
--- file manager
--- ============
-wk.register({
-	f = { "<cmd>NvimTreeToggle<cr>", "Toggle File Manager" },
-}, {
-	prefix = "<leader>",
-})
-
--- Bufferline
--- ==================
-wk.register({
-	b = {
-		name = "buffers",
-		c = { "<cmd>BufferClose<cr>", "Close" },
-		C = { "<cmd>BufferClose!<cr>", "Force Close" },
-		h = { "<cmd>BufferPrevious<cr>", "Previous" },
-		l = { "<cmd>BufferNext<cr>", "Next" },
-		x = { "<cmd>BufferPick<cr>", "Pick" },
-		p = { "<cmd>BufferPin<cr>", "Pin" },
-
-		s = {
-			name = "Sort Buffers",
-			n = { "<cmd>BufferOrderByBufferNumber<cr>", "by BufferNumber" },
-			d = { "<cmd>BufferOrderByDirectory<cr>", "by Directory" },
-			l = { "<cmd>BufferOrderByLanguage<cr>", "by Language Extension" },
-			w = { "<cmd>BufferOrderByWindowNumber<cr>", "by Window Number" },
-		},
-	},
-}, {
-	prefix = "<leader>",
-})
-
--- Undo Tree
--- =========
-wk.register({
-	u = { "<cmd>MundoToggle<cr>", "Toggle Undo Tree" },
-}, { prefix = "<leader>" })
-
--- Telescope
--- =========
-wk.register({
-	s = { "<cmd>Telescope find_files<cr>", "Toggle Fuzzy search" },
-}, {
-	prefix = "<leader>",
-})
-
--- Clipboard
--- ======
-
-wk.register({
-	C = {
-		name = "clipboard",
-		y = { '"+y', "Yank" },
-	},
-}, {
-	prefix = "<leader>",
-	mode = "v",
-})
-
-wk.register({
-	C = {
-		name = "clipboard",
-		y = { '"+y', "Yank" },
-		p = { '"+p', "Paste" },
-		P = { '"+P', "Paste" },
-	},
-}, {
-	prefix = "<leader>",
-})
-
--- TrueZen
--- ======
-wk.register({
-	Z = {
-		name = "TrueZen",
-		a = { "<cmd>TZAtaraxis<cr>", "Ataraxis Mode" },
-		m = { "<cmd>TZMinimalist<cr>", "Minimalist Mode" },
-		f = { "<cmd>TZFocus<cr>", "Focus Mode" },
-	},
-}, {
-	prefix = "<leader>",
-})
-
--- ToggleTerm
--- ==========
-wk.register({
-	T = {
-		name = "Terminals",
-		c = { "<cmd>lua _Term_cargo_run_toggle()<cr>", "Run Cargo" },
-	},
-
-	G = { "<cmd>lua _Term_lazygit()<cr>", "Toggle LazyGit" },
-}, {
-	prefix = "<leader>",
-})
+Mapper.map(
+    "v",
+    "<leader>Cy",
+    '"+y',
+    { noremap = true },
+    "Clipboard",
+    "clipboard_yank_visual",
+    "Copy selection to the clipboard (v)"
+)
+Mapper.map(
+    "v",
+    "<leader>Cp",
+    '"+p',
+    { noremap = true },
+    "Clipboard",
+    "clipboard_paste_visual",
+    "Paste selection from the clipboard (v)"
+)
+Mapper.map(
+    "v",
+    "<leader>CP",
+    '"+p',
+    { noremap = true },
+    "Clipboard",
+    "clipboard_big_paste_visual",
+    "PASTE selection from the clipboard (v)"
+)
+Mapper.map(
+    "n",
+    "<leader>Cy",
+    '"+y',
+    { noremap = true },
+    "Clipboard",
+    "clipboard_yank_normal",
+    "Yank selection to the clipboard"
+)
+Mapper.map(
+    "n",
+    "<leader>Cp",
+    '"+p',
+    { noremap = true },
+    "Clipboard",
+    "clipboard_paste_normal",
+    "Paste selection from the clipboard"
+)
+Mapper.map(
+    "n",
+    "<leader>CP",
+    '"+P',
+    { noremap = true },
+    "Clipboard",
+    "clipboard_big_paste_normal",
+    "PASTE selection from the clipboard"
+)
 
 -- LSP and others
 -- ==============
-wk.register({
-	["<C-s>"] = { "<cmd>:w<cr>", "write" },
-	["<F2>"] = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-	["<F11>"] = { "<cmd>lua _Neovide_toggle_fullscreen()<cr>", "Fullscreen" },
-})
+Mapper.map("n", "<C-s>", "<cmd>w<cr>", { noremap = true, silent = true }, "Utilities", "save", "Save the current file")
+Mapper.map(
+    "n",
+    "<F11>",
+    "<cmd>lua _Neovide_toggle_fullscreen()<cr>",
+    { noremap = true, silent = true },
+    "Neovide",
+    "neovide_fullscreen_toggle",
+    "Toggle neovide fullscreen mode"
+)
 -- vim:foldmethod=marker

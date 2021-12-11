@@ -1,0 +1,11 @@
+@document.meta
+    title: todo
+    description: Todo's for sway.
+    author: axolotl
+    categories: todo, sway
+    created: 2021-12-08
+    version: 0.1
+@end
+
+* Sway todo's
+  - [ ] add more colorschemes to `sway/themes/`

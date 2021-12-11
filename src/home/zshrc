@@ -41,6 +41,8 @@ eval "$(starship init zsh)"
 export ZSH="$HOME/.local/share/sheldon/repos/github.com/ohmyzsh/ohmyzsh"
 # Init sheldon
 eval "$(sheldon source)"
+# source private stuff
+if [ ! -f $HOME/.private_profile ]; then; echo "No private profile found"; else; source $HOME/.private_profile; fi;
 # }}}
 
 # Plugins Config {{{
@@ -104,6 +106,10 @@ color () { # {{{
     echo -e "\e[0m\e[1;30m█████\\e[0m\e[1;31m█████\\e[0m\e[1;32m█████\\e[0m\e[1;33m█████\\e[0m\e[1;34m█████\\e[0m\e[1;35m█████\\e[0m\e[1;36m█████\\e[0m\e[1;37m█████\\e[0m"
 } # }}}
 
+clr() {
+    grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:-
+}
+
 getWinClass() {
     xprop | grep WM_CLASS
 }
@@ -152,9 +158,9 @@ export VISUAL=nvim
 export SUDO_EDITOR=$EDITOR
 
 # the manpager
-export PAGER="bat --theme=Nord"
+export PAGER="bat --theme=ansi"
 # export MANPAGER="nvim -c MANPAGER -"
-export MANPAGER="sh -c 'col -bx | bat -l man -p --theme=Nord'"
+export MANPAGER="sh -c 'col -bx | bat -l man -p --theme=ansi'"
 
 # FZF
 if command -v fd &> /dev/null; then
@@ -163,7 +169,7 @@ else
     echo Install fd for better and faster search
     export FZF_DEFAULT_COMMAND="find ."
 fi
-export FZF_DEFAULT_OPTS="--preview 'bat --color=always --theme=Nord --number {} '"
+export FZF_DEFAULT_OPTS="--preview 'bat --color=always --theme=ansi --number {} '"
 # export TERMINAL=kitty
 # }}}
 
@@ -204,9 +210,7 @@ alias painfo="paru -Si"
 alias pare="paru -R"
 alias parem="paru -Rns"
 alias paina="paru -S --aur"
-alias paain="paru -S --sudoloop --noconfirm"
 # caffeine-install
-alias cafin="paru -S --sudoloop --noconfirm"
 alias cafin="paru -S --sudoloop --noconfirm"
 # cargo
 alias cr="cargo"
@@ -222,7 +226,7 @@ alias disintkey="xinput disable AT\ Translated\ Set\ 2\ keyboard"
 alias enintkey="xinput enable AT\ Translated\ Set\ 2\ keyboard"
 
 # bat
-alias bat="bat --theme=Nord"
+alias bat="bat --theme=ansi"
 
 # vscode
 alias vsc="code --reuse-window"
@@ -250,10 +254,10 @@ alias lzg="lazygit"
 # }}}
 
 # Keyring {{{
-# if [ -n "$DESKTOP_SESSION" ] && command -v gnome-keyring-daemon &> /dev/null; then
-#     eval $(gnome-keyring-daemon --start)
-#     export SSH_AUTH_SOCK
-# fi
+if [ -n "$DESKTOP_SESSION" ] && command -v gnome-keyring-daemon &> /dev/null; then
+    eval $(gnome-keyring-daemon --start)
+    export SSH_AUTH_SOCK
+fi
 # }}}
 
 # Completion {{{
