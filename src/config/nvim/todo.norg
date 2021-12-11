@@ -18,11 +18,11 @@
   - [x] check out nvim-cmp
   - [x] *nvim-cmp*: load only neorg, path and calc for norg filetype
   - [x] *lualine*: add alpha file type configuration
-  - [ ] *luasnip*: setup 
+  - [x] *luasnip*: setup 
   - [ ] *lualine*: scrape some gandalf quotes from the internet
-  - [ ] *friendly snippets*: install and setup
-  - [ ] *lsp signature*: install and setup
-  - [ ] *Lspsaga*: install and setup (the fork)
+  - [x] *friendly snippets*: install and setup
+  - [x] *lsp signature*: install and setup
+  - [x] *Lspsaga*: install and setup (the fork)
   - [ ] *Treesitter-playground*: Install and setup
   - [ ] /_Cleanup_/ (after first push of new configs)
   -- [ ] Better performance
