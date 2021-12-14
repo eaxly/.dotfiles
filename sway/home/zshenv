@@ -1,1 +1,15 @@
 export TERMINAL=kitty
+
+# Check if $HOME/.local/bin is already part of the PATH variable
+if [ ! $(echo $PATH | grep "$HOME/.local/bin") ] && [ -d ~/.local/bin ] ; then
+  export PATH=$PATH:~/.local/bin
+fi
+if [ ! $(echo $PATH | grep "$HOME/.emacs.d/bin") ] && [ -d ~/.emacs.d/bin ] ; then
+  export PATH=$PATH:~/.emacs.d/bin
+fi
+if [ ! $(echo $PATH | grep "$HOME/.cargo/bin") ] && [ -d ~/.cargo/bin ] ; then
+  export PATH=$PATH:~/.cargo/bin
+fi
+if [ ! $(echo $PATH | grep "$HOME/.dotfiles/bin/bin") ] && [ -d ~/.dotfiles/bin/bin ] ; then
+  export PATH=$PATH:~/.dotfiles/bin/bin
+fi

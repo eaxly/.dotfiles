@@ -3,7 +3,8 @@
 #       for programs like waylock in mind
 # grounds 
 fg             = "e0def4"  # #e0def4
-fg_alt         = "6e6a86"  # #6e6a86
+fg_alt         = "555169"  # #6e6a86
+fg_alter       = "6e6a86"  # #6e6a86
 bg             = "191724"  # #191724
 bg_alt         = "1f1d2e"  # #1f1d2e
 bg_alter       = "26233a"  # #26233a
@@ -44,7 +45,7 @@ accent_alt     = "%cyan_br"
 
 ## specifics
 # wall
-wall="~/.dotfiles/sway/img/wall/wall.png"
+wall="~/.dotfiles/sway/img/wall/base.png"
 
 # nvim
 nvim_color_name="rose-pine"

@@ -88,7 +88,7 @@ input type:keyboard xkb_layout "de"
 # Basics:
 #
     # Start a terminal
-    bindsym $mod+Return exec $term
+    bindsym $mod+Return exec "$term"
 
     # Kill focused window
     bindsym $mod+Shift+q kill
@@ -130,13 +130,13 @@ input type:keyboard xkb_layout "de"
 # Screenshots:
 #
     # shot
-    bindsym Print exec grim $HOME/Pictures/Screenshots/$(date +'%Y-%m-%d_%X_grim.png') -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name')
+    bindsym Print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') $HOME/Pictures/Screenshots/$(date +'%Y-%m-%d_%X_grim.png')
     # copy shot
     bindsym Print+Shift exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') - | wl-copy -t image/png
     # selection shot
-    bindsym Print+Control exec grim  $HOME/Pictures/Screenshots/$(date +'%Y-%m-%d_%X_grim.png') -g "$(slurp)"
+    bindsym Print+Control exec grim -g "$(slurp)" $HOME/Pictures/Screenshots/$(date +'%Y-%m-%d_%X_grim.png')
     # selection copy shot
-    bindsym Control+Shift+Print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') -g "$(slurp)" - | wl-copy -t image/png
+    bindsym Control+Shift+Print exec grim -g "$(slurp)" - | wl-copy -t image/png
 #
 # Moving around:
 #
@@ -270,10 +270,10 @@ exec "kanshi"
 exec_always "killall -q kanshi && kanshi"
 # mako for notifications
 exec mako
-# activitywatch for screen time monitoring
-exec "aw-qt"
 # deezer
-exec "deezer --start-in-tray"
+exec "env XDG_CURRENT_DESKTOP=Unity deezer --start-in-tray"
+# activitywatch for screen time monitoring
+exec "env XDG_CURRENT_DESKTOP=Unity aw-qt"
 
 # No idea what this is for,
 # but looks important, so leaving it

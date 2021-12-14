@@ -6,9 +6,9 @@
     /* "width": , // Waybar width */
     "spacing": 10, // Gaps between modules (in pixels, px)
     // Choose the order of the modules
-    "modules-left": ["sway/workspaces", "sway/mode" ],
-    "modules-center": [ "custom/media" ],
-    "modules-right": ["idle_inhibitor", "pulseaudio", "cpu", "memory", "battery", "clock", "tray"],
+    "modules-left": ["sway/workspaces", "custom/media", "sway/mode" ],
+    "modules-center": [ "clock" ],
+    "modules-right": ["idle_inhibitor", "pulseaudio", "cpu", "memory", "battery", "tray"],
     /* Modules configuration */
     "sway/workspaces": {
         "disable-scroll": true,
@@ -36,6 +36,7 @@
     },
     "clock": {
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "{:%H:%M, %b %d %Y}",
         "format-alt": "{:%d.%m.%Y}"
     },
     "cpu": {

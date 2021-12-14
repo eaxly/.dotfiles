@@ -95,7 +95,7 @@ window#waybar.hidden {
 }
 
 #custom-media {
-    color: #__[accent]__;
+    color: #__[blue]__;
     min-width: 100px;
 }
 

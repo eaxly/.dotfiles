@@ -4,8 +4,10 @@
 # grounds 
 fg             = "575279"  # #575279
 fg_alt         = "9893a5"  # #9893a5
+fg_alter       = "6e6a86"  # #6e6a86
 bg             = "faf4ed"  # #faf4ed
 bg_alt         = "fffaf3"  # #fffaf3
+bg_alter       = "f2e9de"  # #f2e9de
 # selection       
 slt_fg         = "575279"  # #575279
 slt_bg         = "eee9e6"  # #eee9e6
@@ -43,7 +45,7 @@ accent_alt     = "%cyan_br"
 
 ## specifics
 # wall
-wall="~/.dotfiles/sway/img/wall/hashingwall_dawn.gif"
+wall="~/.dotfiles/sway/img/wall/dawn.png"
 
 # nvim
 nvim_color_name="rose-pine"
