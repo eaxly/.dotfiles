@@ -18,6 +18,7 @@ THEME=$1
 bombadil link -p sway_${THEME}
 ERR_MSG=$?
 if [ $ERR_MSG -eq 0 ]; then
+    echo "$THEME" > ~/.bomb_theme
     killall oguri && swaymsg exec oguri
     if [ $THEME == "d" ]; then
         gsettings set org.gnome.desktop.interface gtk-theme "rose-pine-gtk"
