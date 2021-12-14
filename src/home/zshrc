@@ -31,6 +31,9 @@ fi
 if [ ! $(echo $PATH | grep "$HOME/.cargo/bin") ] && [ -d ~/.cargo/bin ] ; then
   export PATH=$PATH:~/.cargo/bin
 fi
+if [ ! $(echo $PATH | grep "$HOME/.dotfiles/bin/bin") ] && [ -d ~/.dotfiles/bin/bin ] ; then
+  export PATH=$PATH:~/.dotfiles/bin/bin
+fi
 # }}}
 
 # Initializations {{{
@@ -148,6 +151,10 @@ docx2md() {
   else
     echo -e "Pandoc is not installed!\nPlease install it with your package manager! :D"
   fi
+}
+
+bomb() {
+    bombadil link -p sway_$(cat ~/.bomb_theme)
 }
 # }}}
 
