@@ -27,4 +27,8 @@ return packer.init({
         end,
         prompt_border = "rounded", -- Border style of prompt popups.
     },
+    profile = {
+        enable = true,
+        threshold = 1,
+    }
 })

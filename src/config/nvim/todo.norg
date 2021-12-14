@@ -23,6 +23,7 @@
   - [x] *friendly snippets*: install and setup
   - [x] *lsp signature*: install and setup
   - [x] *Lspsaga*: install and setup (the fork)
+  - [ ] *octo.nvim*: install and setup
   - [ ] *Treesitter-playground*: Install and setup
   - [ ] /_Cleanup_/ (after first push of new configs)
   -- [ ] Better performance
