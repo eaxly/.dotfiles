@@ -4,8 +4,8 @@
 
 res=72
 strokewidth=8
-fg="#1f1d2e"
-bg="#191724"
+fg="#191724"
+bg="#1f1d2e"
 # for compatability with hashwall
 exp="/tmp/wall.png"
 
