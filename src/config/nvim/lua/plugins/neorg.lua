@@ -6,9 +6,9 @@ require("neorg").setup({
         ["core.norg.dirman"] = { -- Manage your directories with Neorg
             config = {
                 workspaces = {
-                    my_workspace = "~/Sync/da_things/neorg/"
-                }
-            }
+                    my_workspace = "~/Sync/da_things/neorg/",
+                },
+            },
         },
         ["core.norg.completion"] = {
             config = {

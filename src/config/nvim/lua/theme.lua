@@ -8,16 +8,16 @@ vim.g.rose_pine_disable_background = false
 vim.g.rose_pine_disable_float_background = false
 vim.g.rose_pine_disable_italics = false
 
-local p = require('rose-pine.palette')
+local p = require("rose-pine.palette")
 vim.g.rose_pine_colors = {
-	headings = {
-		h1 = p.iris,
-		h2 = p.foam,
-		h3 = p.rose,
-		h4 = p.gold,
-		h5 = p.pine,
-		h6 = p.foam,
-	},
+    headings = {
+        h1 = p.iris,
+        h2 = p.foam,
+        h3 = p.rose,
+        h4 = p.gold,
+        h5 = p.pine,
+        h6 = p.foam,
+    },
 }
 
 vim.cmd([[colorscheme __[nvim_color_name]__]])

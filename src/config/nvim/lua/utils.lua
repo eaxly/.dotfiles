@@ -97,7 +97,7 @@ M.mapper = function()
     return X
 end
 
-M.drama_quotes= function ()
+M.drama_quotes = function()
     math.randomseed(os.time())
     local messages = {
         "The Legend of NeoVim!",

@@ -30,5 +30,5 @@ return packer.init({
     profile = {
         enable = true,
         threshold = 1,
-    }
+    },
 })
