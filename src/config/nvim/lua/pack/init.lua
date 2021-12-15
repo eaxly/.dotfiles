@@ -295,7 +295,7 @@ return packer.startup(function()
     as = "__[nvim_color_name]__",
   })
 
-  -- lualine: a statusline so easy to configure, it's alsmost boring
+  -- lualine: a statusline so easy to configure, it's almost boring
   -- take a look at galaxyline?
   use({
     "nvim-lualine/lualine.nvim",
@@ -326,10 +326,9 @@ return packer.startup(function()
     end,
   })
 
-  -- editorconfig: no idea why this is here
+  -- editorconfig: self explains itself don't you think?
   use({
     "editorconfig/editorconfig-vim",
-    cmd = { "EditorConfigEnable", "EditorConfigReload" },
   })
 
   -- alpha: dashboard on steroids
