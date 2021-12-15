@@ -35,28 +35,6 @@ return packer.startup(function()
     before = "telescope.nvim",
   })
 
-  -- coq: pretty good, but cmp is betta (except for path completion)
-  use({
-    "ms-jpq/coq_nvim",
-    branch = "coq",
-    config = function()
-      require("plugins.coq")
-    end,
-    run = "<cmd>COQdeps<cr>",
-    before = "nvim-lspconfig",
-    disable = true,
-  })
-
-  -- thirdparties
-  use({
-    "ms-jpq/coq.thirdparty",
-    config = function()
-      require("plugins.coq_3p")
-    end,
-    after = "coq_nvim",
-    disable = true,
-  })
-
   -- nvim cmp: completion plugin
   use({
     "hrsh7th/nvim-cmp",
@@ -179,7 +157,7 @@ return packer.startup(function()
     "tpope/vim-repeat",
   })
   -- startup time: measure startup time
-  -- kinda not useful anymore? (impatient.profile?)
+  -- kinda not useful anymore? (impatient.profile? nvm impatient doesn't work)
   use({
     "dstein64/vim-startuptime",
     cmd = { "StartupTime" },
@@ -202,13 +180,6 @@ return packer.startup(function()
     module = "glow",
     cmd = { "Glow", "GlowInstall" },
   })
-  -- use({
-  --     "folke/which-key.nvim",
-  --     config = function()
-  --         require("plugins.whichkey")
-  --     end,
-  --     disable = true,
-  -- })
 
   -- mundo: undo tree
   -- TODO: remove? I am not really using this
@@ -247,23 +218,6 @@ return packer.startup(function()
     event = "VimEnter",
   })
 
-  -- neoscroll: very cool scrolling animations
-  use({
-    "karb94/neoscroll.nvim",
-    config = function()
-      require("plugins.neoscroll")
-    end,
-    event = "WinScrolled",
-    disable = false,
-  })
-
-  -- TODO: not using this so remove in next cleanup
-  use({
-    "rktjmp/lush.nvim",
-    cmd = { "Lushify", "LushRunTutorial", "LushRunQuickstart" },
-    module = "lush",
-  })
-
   -- twilight: focus on the code
   use({
     "folke/twilight.nvim",
@@ -293,6 +247,13 @@ return packer.startup(function()
     -- "__[nvim_color_url]__",
     "~/dev/frk/neovim",
     as = "__[nvim_color_name]__",
+    cond = function ()
+      if "__[nvim_color_name]__" == "rose-pine-dawn" or "rose-pine" or "rose-pine-moon" then
+        return true
+      else
+        return false
+      end
+    end
   })
 
   -- lualine: a statusline so easy to configure, it's almost boring
