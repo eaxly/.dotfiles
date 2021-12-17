@@ -10,15 +10,27 @@
 
 [plugins]
 
+[templates]
+defer = { value = 'zsh-defer source "{{ file }}"', each = true }
+
+[plugins.zsh-defer]
+github = "romkatv/zsh-defer"
+
 # Plugins OHMYZSH
-[plugins.ohmyzsh-lib]
+[plugins.omz-lib]
 github = "ohmyzsh/ohmyzsh"
 dir = "lib"
 
-[plugins.ohmyzsh-plugins]
+[plugins.omz-plugins]
 github = "ohmyzsh/ohmyzsh"
 dir = "plugins"
-use = ["{wd,git,nvm,pip,archlinux,sudo}.plugin.zsh"]
+use = ["{wd,git,pip,archlinux,sudo}.plugin.zsh"]
+
+[plugins.omz-nvim]
+github = "ohmyzsh/ohmyzsh"
+dir = "plugins"
+use = ["nvm.plugin.zsh"]
+apply = ["defer"]
 
 # Else
 [plugins.syntax-high]
