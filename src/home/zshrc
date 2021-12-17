@@ -138,7 +138,6 @@ dots() {
 
 mackse() {
   mackup list | fzf
-
 }
 
 gogh () {
@@ -155,6 +154,14 @@ docx2md() {
 
 bomb() {
     bombadil link -p sway_$(cat ~/.bomb_theme)
+}
+
+# rusty-rain
+rose-rain() {
+    rusty-rain -H 235,189,186 -C 196,166,232 $@
+}
+love-rain() {
+    rusty-rain -H 235,112,145 -C 48,115,143 $@
 }
 # }}}
 
@@ -254,7 +261,7 @@ alias lzg="lazygit"
 # eval $(keychain --eval id_ed25519 -q)
 
 # Random fetcher
-[ -f $HOME/.dotfiles/bin/others/random_fetcher.sh ] && bash $HOME/.dotfiles/bin/others/random_fetcher.sh
+fm6000 -c random -random
 # dircolors
 
 # [ -f $HOME/.dircolors/dircolors ] && eval $(dircolors ~/.dircolors/dircolors)
