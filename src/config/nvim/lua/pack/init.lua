@@ -19,7 +19,7 @@ return packer.startup(function()
     "lewis6991/impatient.nvim",
   })
 
-  -- nvim-lsoconfig: why are you even asking?!
+  -- nvim-lspconfig: why are you even asking?!
   use({
     "neovim/nvim-lspconfig",
     config = function()
@@ -247,13 +247,9 @@ return packer.startup(function()
     -- "__[nvim_color_url]__",
     "~/dev/frk/neovim",
     as = "__[nvim_color_name]__",
-    cond = function ()
-      if "__[nvim_color_name]__" == "rose-pine-dawn" or "rose-pine" or "rose-pine-moon" then
-        return true
-      else
-        return false
-      end
-    end
+  })
+  use ({
+    "folke/tokyonight.nvim",
   })
 
   -- lualine: a statusline so easy to configure, it's almost boring
@@ -315,12 +311,14 @@ return packer.startup(function()
 
   -- yuck: 🤢 <- this is a compliment
   use({
+    setup = vim.cmd("autocmd BufRead,BufNewFile *.yuck setlocal filetype=yuck"),
     "elkowar/yuck.vim",
     ft = "yuck",
   })
 
   -- jsonc: jsonc support
   use({
+    setup = vim.cmd("autocmd BufRead,BufNewFile *.jsonc setlocal filetype=jsonc"),
     "neoclide/jsonc.vim",
     ft = "jsonc",
   })

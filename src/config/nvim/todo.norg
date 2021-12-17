@@ -1,10 +1,10 @@
 @document.meta
-    title: todo
-    description: Todos for my neovim configuration
-    author: axolotl
-    categories: 
-    created: 2021-12-09
-    version: 0.1
+  title: todo
+  description: Todos for my neovim configuration
+  author: axolotl
+  categories: 
+  created: 2021-12-09
+  version: 0.1
 @end
 
 * Todo for NeoVim
@@ -23,8 +23,7 @@
   - [x] *friendly snippets*: install and setup
   - [x] *lsp signature*: install and setup
   - [x] *Lspsaga*: install and setup (the fork)
-  - [ ] *octo.nvim*: install and setup
-  - [ ] *Treesitter-playground*: Install and setup
-  - [ ] /_Cleanup_/ (after first push of new configs)
+  - [x] *Treesitter-playground*: Install and setup
+  - [-] /_Cleanup_/ (after first push of new configs)
+  -- [x] Remove unused plugins (like coq)
   -- [ ] Better performance
-  -- [ ] Remove unused plugins (like coq)
