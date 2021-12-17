@@ -71,7 +71,8 @@ return packer.startup(function()
       require("plugins.others").snip()
     end,
     before = { "nvim-cmp" },
-    after = { "cmp_luasnip", "friendly-snippets" },
+    module = "luasnip",
+    event = "InsertEnter",
   })
 
   -- friendly-snippets: snippet collection
