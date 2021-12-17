@@ -4,6 +4,7 @@
 --
 -- File: ~/.config/nvim/init.lua
 -- By: @ExtinctAxolotl
+-- thx, @shaunsingh
 
 require("impatient")
 local modules = {
