@@ -45,7 +45,7 @@ accent_alt     = "%cyan_br"
 
 ## specifics
 # wall
-wall="~/.dotfiles/sway/img/wall/dawn.png"
+wall="~/.walls/pluswall/rosepinedawn.png"
 
 # nvim
 nvim_color_name="rose-pine"

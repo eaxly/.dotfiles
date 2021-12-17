@@ -269,11 +269,13 @@ bar {
 exec "kanshi"
 exec_always "killall -q kanshi && kanshi"
 # mako for notifications
-exec mako
+exec "mako"
 # deezer
 exec "env XDG_CURRENT_DESKTOP=Unity deezer --start-in-tray"
 # activitywatch for screen time monitoring
 exec "env XDG_CURRENT_DESKTOP=Unity aw-qt"
+# wlsunset for my eyes
+exec "wlsunset -l 36.9 -L 10.3 -t 4500 -T 7000"
 
 # No idea what this is for,
 # but looks important, so leaving it
