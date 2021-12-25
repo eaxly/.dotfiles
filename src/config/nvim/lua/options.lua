@@ -42,7 +42,7 @@ o.number = true
 o.relativenumber = true
 
 o.wrap = false
-o.cursorline = true
+o.cursorline = false
 
 o.ignorecase = true
 o.smartcase = true

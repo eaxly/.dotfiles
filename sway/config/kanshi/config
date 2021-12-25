@@ -1,8 +1,8 @@
-profile OLMon{ # O(nly)L(arge)Mon(itor)
+profile external {
 	output DP-1 mode 1920x1080@60Hz enable
     output eDP-1 disable
 }
 
-profile {
+profile internal {
     output eDP-1 mode 1366x768@59.999Hz position 0,0 enable
 }

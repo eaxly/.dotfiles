@@ -20,7 +20,7 @@ window#waybar.hidden {
 }
 
 #workspaces button {
-    color: #__[accent]__;
+    color: #__[blue]__;
 }
 
 #workspaces button:hover {
@@ -37,11 +37,11 @@ window#waybar.hidden {
 }
 
 #mode {
-    color: #__[green]__
+    color: #__[magenta]__
 }
 
 #custom-media {
-    color: #__[blue]__;
+    color: #__[yellow]__;
     min-width: 100px;
 }
 
@@ -90,7 +90,7 @@ window#waybar.hidden {
 }
 
 #cpu {
-    color: #__[cyan]__;
+    color: #__[yellow]__;
 }
 
 #pulseaudio {

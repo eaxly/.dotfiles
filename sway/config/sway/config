@@ -64,7 +64,7 @@ exec "oguri"
 #
 # Example configuration:
 #
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
+output eDP-1 disable
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
@@ -76,10 +76,7 @@ exec swayidle -w \
          timeout 300 'swaylock' \
          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
          before-sleep 'swaylock'
-# #
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
+
 
 ### Input configuration
 input type:keyboard xkb_layout "de"
@@ -261,6 +258,10 @@ bindsym $mod+r mode "resize"
 bar {
     swaybar_command waybar
 }
+
+### Window stuff
+for_window [app_id="firefox"] inhibit_idle fullscreen
+for_window [class="firefox"] inhibit_idle fullscreen
 
 ### Autostarting
 #

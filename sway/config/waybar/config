@@ -6,7 +6,7 @@
     /* "width": , // Waybar width */
     "spacing": 10, // Gaps between modules (in pixels, px)
     // Choose the order of the modules
-    "modules-left": ["sway/workspaces", "custom/media", "sway/mode" ],
+    "modules-left": [ "sway/workspaces", "sway/mode", "custom/media" ],
     "modules-center": [ "clock" ],
     "modules-right": ["idle_inhibitor", "pulseaudio", "cpu", "memory", "battery", "tray"],
     /* Modules configuration */
@@ -58,6 +58,7 @@
         "format-alt": "{time} {icon}",
         /* "format-good": "", // An empty format will hide the module */
         "format-full": "{icon}",
+        "format-full-alt": "{time} {icon}",
         "format-icons": ["", "", "", "", "", ""]
     },
     "pulseaudio": {
@@ -84,8 +85,11 @@
             "default": "🎜"
         },
         "escape": true,
-        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null", // Script in resources folder
+        "exec": "$HOME/.config/waybar/mediaplayer.sh 2> ~/.waybar.log", // script to manage the pid
         "on-click": "playerctl play-pause 2> /dev/null",
-        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     }
+    /*"custom/timer": {
+        "format":
+        "exec": "$HOME/.config/waybar/timer.sh tail 'TIMER' 5"
+    }*/
 }

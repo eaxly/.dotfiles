@@ -8,9 +8,9 @@
 local lsp = require("lspconfig")
 
 -- Setup lspconfig.
-local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local caps = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 lsp.sumneko_lua.setup({
-  capabilities = capabilities,
+  capabilities = caps,
   cmd = { "lua-language-server" },
   settings = {
     Lua = {
@@ -36,20 +36,20 @@ lsp.sumneko_lua.setup({
 })
 
 lsp.rust_analyzer.setup({
-  capabilities = capabilities,
+  capabilities = caps,
 })
 lsp.pyright.setup({
-  capabilities = capabilities,
+  capabilities = caps,
 })
 lsp.jsonls.setup({
-  capabilities = capabilities,
+  capabilities = caps,
 })
 lsp.pyright.setup({
-  capabilities = capabilities,
+  capabilities = caps,
 })
 lsp.bashls.setup({
-  capabilities = capabilities,
+  capabilities = caps,
 })
 lsp.cssls.setup({
-  capabilities = capabilities,
+  capabilities = caps,
 })

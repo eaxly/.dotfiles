@@ -6,10 +6,10 @@
 -- By: @ExtinctAxolotl
 -- thx, @shaunsingh
 
-require("impatient")
+pcall(require, "impatient")
 local modules = {
-  "options",
   "pack",
+  "options",
   "mappings",
   "theme",
   "packer_compiled",

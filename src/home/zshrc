@@ -153,7 +153,7 @@ docx2md() {
 }
 
 bomb() {
-    bombadil link -p sway_$(cat ~/.bomb_theme)
+    [ -f ~/.bomb_theme ] && bombadil link -p sway_$(cat ~/.bomb_theme)
 }
 
 # rusty-rain
@@ -172,9 +172,9 @@ export VISUAL=nvim
 export SUDO_EDITOR=$EDITOR
 
 # the manpager
-export PAGER="bat --theme=ansi"
-# export MANPAGER="nvim -c MANPAGER -"
-export MANPAGER="sh -c 'col -bx | bat -l man -p --theme=ansi'"
+export PAGER="bat"
+export MANPAGER="nvim -c MANPAGER -"
+# export MANPAGER="sh -c 'col -bx | bat -l man -p --theme=ansi'"
 
 # FZF
 if command -v fd &> /dev/null; then
@@ -183,7 +183,7 @@ else
     echo Install fd for better and faster search
     export FZF_DEFAULT_COMMAND="find ."
 fi
-export FZF_DEFAULT_OPTS="--preview 'bat --color=always --theme=ansi --number {} '"
+export FZF_DEFAULT_OPTS="--preview 'bat --color=always --number {} '"
 # export TERMINAL=kitty
 # }}}
 
@@ -240,7 +240,7 @@ alias disintkey="xinput disable AT\ Translated\ Set\ 2\ keyboard"
 alias enintkey="xinput enable AT\ Translated\ Set\ 2\ keyboard"
 
 # bat
-alias bat="bat --theme=ansi"
+alias bat="bat"
 
 # vscode
 alias vsc="code --reuse-window"

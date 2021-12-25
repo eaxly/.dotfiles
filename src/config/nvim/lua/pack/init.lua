@@ -62,6 +62,7 @@ return packer.startup(function()
     config = function()
       require("plugins.autopairs")
     end,
+    event = "InsertEnter",
   })
 
   -- luasnip: snippets
@@ -78,7 +79,7 @@ return packer.startup(function()
   -- friendly-snippets: snippet collection
   use({
     "rafamadriz/friendly-snippets",
-    event = "InsertEnter",
+    before = "nvim-cmp",
   })
 
   -- lsp_signature: show the signature
@@ -97,6 +98,7 @@ return packer.startup(function()
       require("plugins.lspsaga")
     end,
     after = "nvim-lspconfig",
+    event = "BufRead",
   })
 
   -- gitsigns: show signs for git in the signcolumn
@@ -106,6 +108,7 @@ return packer.startup(function()
     config = function()
       require("plugins.others").gitsigns()
     end,
+    event = "BufRead",
   })
 
   -- surround: edit surroundings
@@ -151,6 +154,11 @@ return packer.startup(function()
     config = function()
       require("plugins.others").suda()
     end,
+  })
+
+  use({
+    "lambdalisue/vim-manpager",
+    cmd = "MANPAGER",
   })
 
   -- repeat: explains itself, repeats stuff
@@ -208,6 +216,7 @@ return packer.startup(function()
     config = function()
       require("plugins.trouble")
     end,
+    module = "trouble",
   })
 
   -- focus:
@@ -248,9 +257,6 @@ return packer.startup(function()
     "__[nvim_color_url]__",
     as = "__[nvim_color_name]__",
   })
-  use ({
-    "folke/tokyonight.nvim",
-  })
 
   -- lualine: a statusline so easy to configure, it's almost boring
   -- take a look at galaxyline?
@@ -281,11 +287,13 @@ return packer.startup(function()
     config = function()
       require("plugins.others").colorizer()
     end,
+    event="BufRead"
   })
 
   -- editorconfig: self explains itself don't you think?
   use({
     "editorconfig/editorconfig-vim",
+    event = "VimEnter",
   })
 
   -- alpha: dashboard on steroids
@@ -307,6 +315,7 @@ return packer.startup(function()
     config = function()
       require("plugins.neorg")
     end,
+    module = "neorg",
   })
 
   -- yuck: 🤢 <- this is a compliment

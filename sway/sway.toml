@@ -11,7 +11,7 @@ posthooks = ["sway reload", "makoctl reload"]
 ##config
 kitty = { source = "sway/config/kitty", target = ".config/kitty" }
 sway = { source = "sway/config/sway", target = ".config/sway" }
-kanshi = { source = "sway/config/kanshi", target = ".config/kanshi" }
+# kanshi = { source = "sway/config/kanshi", target = ".config/kanshi" }
 waybar = { source = "sway/config/waybar", target = ".config/waybar" }
 swaylock = { source = "sway/config/swaylock", target = ".config/swaylock" }
 mako = { source = "sway/config/mako", target = ".config/mako" }
@@ -26,7 +26,7 @@ zshenv = { source = "sway/home/zshenv", target = ".zshenv" }
 ##config
 kitty = { source = "sway/config/kitty", target = ".config/kitty" }
 sway = { source = "sway/config/sway", target = ".config/sway" }
-kanshi = { source = "sway/config/kanshi", target = ".config/kanshi" }
+# kanshi = { source = "sway/config/kanshi", target = ".config/kanshi" }
 waybar = { source = "sway/config/waybar", target = ".config/waybar" }
 swaylock = { source = "sway/config/swaylock", target = ".config/swaylock" }
 mako = { source = "sway/config/mako", target = ".config/mako" }
