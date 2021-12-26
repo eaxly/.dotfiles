@@ -35,8 +35,6 @@ task = { source = "src/home/taskrc", target = ".taskrc" }
 zsh = { source = "src/home/zshrc", target = ".zshrc"}
 # git
 git = { source = "src/home/gitconfig", target = ".gitconfig"}
-# wd
-wd = { source = "src/home/warprc", target = ".warprc"}
 # === IMPORTS ===
 [[import]]
 path = "tokyonight/tokyonight.toml"
