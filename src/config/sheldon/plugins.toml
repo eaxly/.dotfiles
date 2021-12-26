@@ -24,7 +24,7 @@ dir = "lib"
 [plugins.omz-plugins]
 github = "ohmyzsh/ohmyzsh"
 dir = "plugins"
-use = ["{wd,git,pip,archlinux,sudo}.plugin.zsh"]
+use = ["{git,pip,archlinux,sudo}.plugin.zsh"]
 
 [plugins.omz-nvim]
 github = "ohmyzsh/ohmyzsh"
@@ -33,16 +33,15 @@ use = ["nvm.plugin.zsh"]
 apply = ["defer"]
 
 # Else
-[plugins.syntax-high]
-github = "zsh-users/zsh-syntax-highlighting"
+[plugins.fsyh]
+github = "zdharma-continuum/fast-syntax-highlighting"
 
 [plugins.zsh-completions]
 github = "zsh-users/zsh-completions"
 
-# [plugins.wd]
-# github = "mfaerevaag/wd"
-# use = ["wd.sh"]
-# apply = ["fpath", "source"]
+[plugins.wd]
+github = "mfaerevaag/wd"
+apply = ["fpath", "source"]
 
 # [plugins.autopair]
 # github = "hlissner/zsh-autopair"
