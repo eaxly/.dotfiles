@@ -20,7 +20,15 @@ window#waybar.hidden {
 }
 
 #workspaces button {
-    color: #__[blue]__;
+    color: #__[black_br]__;
+}
+
+#workspaces button.visible {
+    color: #__[blue]__
+}
+
+#workspaces button.focused {
+    color: #__[accent]__
 }
 
 #workspaces button:hover {
@@ -44,7 +52,6 @@ window#waybar.hidden {
     color: #__[yellow]__;
     min-width: 100px;
 }
-
 
 /* If workspaces is the leftmost module, omit left margin */
 .modules-left > widget:first-child > #workspaces {
@@ -120,4 +127,13 @@ window#waybar.hidden {
 #idle_inhibitor.activated {
     color: #__[accent]__;
     padding: 0 10px;
+}
+
+#custom-github {
+    color: #__[white]__;
+    padding: 5px 5px;
+}
+
+#custom-scratchpad {
+    color: #__[red]__;
 }

@@ -3,11 +3,11 @@
     "layer": "top", // Waybar at top layer
     "position": "bottom", // Waybar position (top|bottom|left|right)
     "height": 40, // Waybar height (to be removed for auto height)
-    /* "width": , // Waybar width */
     "spacing": 10, // Gaps between modules (in pixels, px)
+
     // Choose the order of the modules
     "modules-left": [ "sway/workspaces", "sway/mode", "custom/media" ],
-    "modules-center": [ "clock" ],
+    "modules-center": [ "custom/scratchpad" , "clock", "custom/github" ],
     "modules-right": ["idle_inhibitor", "pulseaudio", "cpu", "memory", "battery", "tray"],
     /* Modules configuration */
     "sway/workspaces": {
@@ -17,7 +17,18 @@
         "format-icons": {
             "focused": "ﰉ",
             "default": "ﰊ",
+            "1": "", // da terminal
+            "2": "爵", // da browser
+            "3": "", // da ide (vscode, neovide...)
+            "4": "", // da messaging
+            "5": "…", // da misc
         },
+        "persistent_workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+        }
     },
     "sway/mode": {
         "format": " {}",
@@ -87,9 +98,19 @@
         "escape": true,
         "exec": "$HOME/.config/waybar/mediaplayer.sh 2> ~/.waybar.log", // script to manage the pid
         "on-click": "playerctl play-pause 2> /dev/null",
+    },
+    "custom/github": {
+        "format": "{} ",
+        "return-type": "json",
+        "interval": 60,
+        "exec": "$HOME/.config/waybar/github.sh",
+        "on-click": "xdg-open https://github.com/notifications"
+    },
+    "custom/scratchpad": {
+        "interval": 1,
+        "exec": "swaymsg -t get_tree | jq 'recurse(.nodes[]) | first(select(.name==\"__i3_scratch\")) | .floating_nodes | length | select(. >= 1)'",
+        "format": "{} ",
+        "on-click": "swaymsg 'scratchpad show'",
+        "on-click-right": "swaymsg 'move scratchpad'"
     }
-    /*"custom/timer": {
-        "format":
-        "exec": "$HOME/.config/waybar/timer.sh tail 'TIMER' 5"
-    }*/
 }
