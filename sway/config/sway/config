@@ -111,6 +111,9 @@ input type:keyboard xkb_layout "de"
     
     # yeet
     bindsym $mod+x exec "~/.dotfiles/bin/sway/yeet.sh"
+
+    # emojis
+    bindsym $mod+Control+e exec emote
 # #
 # # Mediakeys
 # #
@@ -263,6 +266,19 @@ bar {
 for_window [app_id="firefox"] inhibit_idle fullscreen
 for_window [class="firefox"] inhibit_idle fullscreen
 
+assign [app_id="kitty"] → workspace number 1
+
+assign [app_id="firefox"] → workspace number 2
+assign [class="firefox"] → workspace number 2
+
+assign [app_id="neovide"] → workspace number 3
+assign [class="Code"] → workspace number 3
+
+assign [class="discord"] → workspace number 4
+
+assign [class="Deezer"] → workspace number 5
+assign [class="lunarclient"] → workspace number 5
+
 ### Autostarting
 #
 #
@@ -277,6 +293,8 @@ exec "env XDG_CURRENT_DESKTOP=Unity deezer --start-in-tray"
 exec "env XDG_CURRENT_DESKTOP=Unity aw-qt"
 # wlsunset for my eyes
 exec "wlsunset -l 36.9 -L 10.3 -t 4500 -T 7000"
+# emote daemon
+exec "emote"
 
 # No idea what this is for,
 # but looks important, so leaving it
