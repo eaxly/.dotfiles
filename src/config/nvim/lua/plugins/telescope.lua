@@ -20,3 +20,12 @@ Mapper.map(
   "telescope_find_files",
   "Search for files in the current directory with telescope"
 )
+Mapper.map(
+  "n",
+  "<leader>th",
+  "<cmd>Telescope oldfiles<cr>",
+  { noremap = true },
+  "Telescope",
+  "telescope_oldfiles",
+  "Search the history"
+)

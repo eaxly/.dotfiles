@@ -4,7 +4,7 @@
 local nvimtree = require("nvim-tree")
 local tree_cb = require("nvim-tree.config").nvim_tree_callback
 
-vim.g.nvim_tree_respect_buf_cwd = true
+vim.g.nvim_tree_respect_buf_cwd = false
 vim.g.nvim_tree_window_picker_exclude = {
   filetype = {
     "notify",
@@ -14,11 +14,26 @@ vim.g.nvim_tree_window_picker_exclude = {
   buftype = { "terminal" },
 }
 
+vim.g.nvim_tree_root_folder_modifier = table.concat { ":t:gs?$?/..", string.rep(" ", 1000), "?:gs?^??" }
+
+vim.g.nvim_tree_icons = {
+  folder = {
+    arrow_open =   "",
+    arrow_closed = "",
+    default =      "",
+    open =         "",
+    empty =        "",
+    empty_open =   "",
+    symlink =      "",
+    symlink_open = "",
+  },
+}
+
 nvimtree.setup({
   disable_netrw = true,
   hijack_netrw = true,
   open_on_setup = false,
-  ignore_ft_on_setup = {},
+  ignore_ft_on_setup = { "alpha" },
   auto_close = true,
   open_on_tab = false,
   hijack_cursor = true,
@@ -38,7 +53,7 @@ nvimtree.setup({
   },
   update_focused_file = {
     enable = true,
-    update_cwd = true,
+    update_cwd = false,
     ignore_list = {},
   },
   system_open = {
