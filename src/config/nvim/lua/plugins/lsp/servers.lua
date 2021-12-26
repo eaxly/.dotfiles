@@ -53,3 +53,6 @@ lsp.bashls.setup({
 lsp.cssls.setup({
   capabilities = caps,
 })
+lsp.tsserver.setup({
+  capabilities = caps,
+})
