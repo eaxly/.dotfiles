@@ -259,7 +259,6 @@ return packer.startup(function()
   })
 
   -- lualine: a statusline so easy to configure, it's almost boring
-  -- take a look at galaxyline?
   use({
     "nvim-lualine/lualine.nvim",
     config = function()
@@ -330,6 +329,12 @@ return packer.startup(function()
     setup = vim.cmd("autocmd BufRead,BufNewFile *.jsonc setlocal filetype=jsonc"),
     "neoclide/jsonc.vim",
     ft = "jsonc",
+  })
+
+  -- parinfer: lisp like languages made easy
+  use({
+    after = "yuck.vim",
+    "gpanders/nvim-parinfer",
   })
 end)
 -- vim:foldmethod=marker
