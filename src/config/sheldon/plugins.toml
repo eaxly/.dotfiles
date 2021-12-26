@@ -12,6 +12,7 @@
 
 [templates]
 defer = { value = 'zsh-defer source "{{ file }}"', each = true }
+manpath = { value = 'export MANPATH="{{ dir }}":$MANPATH', each = true}
 
 [plugins.zsh-defer]
 github = "romkatv/zsh-defer"
@@ -26,7 +27,7 @@ github = "ohmyzsh/ohmyzsh"
 dir = "plugins"
 use = ["{git,pip,archlinux,sudo}.plugin.zsh"]
 
-[plugins.omz-nvim]
+[plugins.omz-nvm]
 github = "ohmyzsh/ohmyzsh"
 dir = "plugins"
 use = ["nvm.plugin.zsh"]
@@ -40,12 +41,8 @@ github = "zdharma-continuum/fast-syntax-highlighting"
 github = "zsh-users/zsh-completions"
 
 [plugins.wd]
-github = "mfaerevaag/wd"
-apply = ["fpath", "source"]
-
-# [plugins.autopair]
-# github = "hlissner/zsh-autopair"
-# use = [ "autopair.zsh" ]
+github = "ExtinctAxolotl/wd"
+apply = ["fpath", "source", "manpath"]
 
 [plugins.auto-ls]
 github = 'desyncr/auto-ls'
