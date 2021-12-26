@@ -43,7 +43,7 @@ pkgs="sway kanshi swayidle grim slurp jq wl-clipboard waybar mako discord player
 # pkgs in the chaotic aur
 chaotic_pkgs="neovide-git swaylock-effects bibata-cursor-theme popsicle-git"
 # pkgs in the aur
-aur_pkgs="bombadil-bin paruz fuzzel oguri-git activitywatch-bin betterdiscord-installer-bin sheldon-bin sddm-sugar-candy-git"
+aur_pkgs="bombadil-bin paruz fuzzel oguri-git activitywatch-bin betterdiscord-installer-bin sheldon-bin sddm-sugar-candy-git funny-manpages"
 
 function _install() {
     programs=${@}
