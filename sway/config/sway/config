@@ -278,6 +278,7 @@ assign [class="discord"] → workspace number 4
 
 assign [class="Deezer"] → workspace number 5
 assign [class="lunarclient"] → workspace number 5
+assign [class="libreoffice-writer"] → workspace number 5
 
 ### Autostarting
 #
