@@ -11,7 +11,7 @@ local modules = {
   "pack",
   "options",
   "mappings",
-  "theme",
+  "colors",
   "packer_compiled",
 }
 

@@ -109,4 +109,15 @@ M.drama_quotes = function()
   return messages[math.random(1, #messages)]
 end
 
+M.tree_toggle = function ()
+  local tree_width = vim.g.nvim_tree_width or 30
+  require("nvim-tree").toggle()
+  if require("nvim-tree.view").win_open() then
+    require("bufferline.state").set_offset(tree_width + 3, "FileTree")
+    require'nvim-tree'.find_file(true)
+  else
+    require("bufferline.state").set_offset(0)
+  end
+end
+
 return M

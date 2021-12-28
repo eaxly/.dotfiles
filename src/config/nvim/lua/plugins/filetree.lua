@@ -68,7 +68,7 @@ nvimtree.setup({
     width = 30,
     height = 30,
     hide_root_folder = false,
-    side = "right",
+    side = "left",
     auto_resize = false,
     mappings = {
       custom_only = false,
@@ -84,7 +84,7 @@ Mapper = require("utils").mapper()
 Mapper.map(
   "n",
   "<leader>f",
-  "<cmd>NvimTreeToggle<cr>",
+  '<cmd>lua require("utils").tree_toggle()<cr>',
   { noremap = true },
   "NvimTree",
   "nvim_tree_toggle",
