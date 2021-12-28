@@ -264,9 +264,7 @@ return packer.startup(function()
 
   -- the colorscheme
   use({
-    "~/dev/frk/uwu.vim",
-    -- "~/dev/frk/neovim",
-    as = "__[nvim_color_name]__",
+    "norcalli/nvim-base16.lua",
   })
 
   -- bufferline: bufferline plugin with style
