@@ -1,59 +1,52 @@
 ## colors
-# NOTE: The colors are specified without the "#"
-#       for programs like waylock in mind
 # grounds 
-fg             = "e0def4"  # #e0def4
-fg_alt         = "555169"  # #6e6a86
-fg_alter       = "6e6a86"  # #6e6a86
-bg             = "191724"  # #191724
-bg_alt         = "1f1d2e"  # #1f1d2e
-bg_alter       = "26233a"  # #26233a
+fg                  = "e0def4"  # #e0def4
+fg_alt              = "555169"  # #6e6a86
+fg_alter            = "6e6a86"  # #6e6a86
+bg                  = "191724"  # #191724
+bg_alt              = "1f1d2e"  # #1f1d2e
+bg_alter            = "26233a"  # #26233a
+bg_dark             = "" # #
 # selection        
-slt_fg         = "191724"  # #191724
-slt_bg         = "2a2837"  # #2a2837
+slt_fg              = "191724"  # #191724
+slt_bg              = "2a2837"  # #2a2837
 # specials         
-links          = "%magenta"# #c4a7e7
-cursor         = "555169"  # #555169
-cursor_text    = "%white"   # #e0def4
-# tabs             
-tab_active_fg  = "%fg"  # #e0def4
-tab_active_bg  = "%bg_alter"# #26233a
-tab_inactive_fg= "%fg_alt"  # #6e6a86
-tab_inactive_bg= "%bg"  # #191724
+links               = "%magenta"# #c4a7e7
+cursor              = "555169"  # #555169
+cursor_text         = "%white"   # #e0def4
 # specifications    
-# _br suffix indicates the brighter version of a color
-black          = "26233a"  # #26233a
-black_br       = "6e6a86"  # #6e6a86
-red            = "eb6f92"  # #eb6f92
-red_br         = "b4637a"  # #b4637a
-green          = "31748f"  # #31748f
-green_br       = "286983"  # #286983
-yellow         = "f6c177"  # #f6c177
-yellow_br      = "ea9d34"  # #ea9d34
-blue           = "9ccfd8"  # #9ccfd8
-blue_br        = "56949f"  # #56949f
-magenta        = "c4a7e7"  # #c4a7e7
-magenta_br     = "907aa9"  # #907aa9
-cyan           = "ebbcba"  # #ebbcba
-cyan_br        = "d7827e"  # #d7827e
-white          = "e0def4"  # #e0def4
-white_br       = "575279"  # #575279
+black               = "26233a"  # #26233a
+black_br            = "6e6a86"  # #6e6a86
+red                 = "eb6f92"  # #eb6f92
+red_br              = "b4637a"  # #b4637a
+green               = "31748f"  # #31748f
+green_br            = "286983"  # #286983
+yellow              = "f6c177"  # #f6c177
+yellow_br           = "ea9d34"  # #ea9d34
+blue                = "9ccfd8"  # #9ccfd8
+blue_br             = "56949f"  # #56949f
+magenta             = "c4a7e7"  # #c4a7e7
+magenta_br          = "907aa9"  # #907aa9
+cyan                = "ebbcba"  # #ebbcba
+cyan_br             = "d7827e"  # #d7827e
+white               = "e0def4"  # #e0def4
+white_br            = "575279"  # #575279
 
 # accents and others
-accent         = "%cyan"
-accent_alt     = "%cyan_br"
+accent              = "%cyan"
+accent_alt          = "%cyan_br"
 
 ## specifics
 # wall
-wall="~/.walls/pluswall/rosepinebase.png"
+wall                = "~/.walls/pluswall/rosepinebase.png"
 
 # nvim
-nvim_color_name="rose-pine"
-nvim_color_url="rose-pine/neovim"
-nvim_statusline_name="%nvim_color_name"
-nvim_color_style="base"
+nvim_color_name     = "rose-pine"
+nvim_color_url      = "rose-pine/neovim"
+nvim_statusline_name= "%nvim_color_name"
+nvim_color_style    = "base"
 
 # applications
-gtk_theme="rose-pine-gtk"
-cursor_theme="Bibata-Modern-Ice"
-icon_theme="Papirus"
+gtk_theme           = "rose-pine-gtk"
+cursor_theme        = "Bibata-Modern-Ice"
+icon_theme          = "Papirus"

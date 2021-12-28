@@ -39,11 +39,11 @@ fi
 # Initializations {{{
 # Init starship
 eval "$(starship init zsh)"
-
 # export ZSH
 export ZSH="$HOME/.local/share/sheldon/repos/github.com/ohmyzsh/ohmyzsh"
 # Init sheldon
 eval "$(sheldon source)"
+rm -f ~/.zcompdump; compinit
 # source private stuff
 if [ ! -f $HOME/.private_profile ]; then; echo "No private profile found"; else; source $HOME/.private_profile; fi;
 # }}}
@@ -153,7 +153,7 @@ docx2md() {
 }
 
 bomb() {
-    [ -f ~/.bomb_theme ] && bombadil link -p sway_$(cat ~/.bomb_theme)
+    bombadil link -p sway
 }
 
 # rusty-rain

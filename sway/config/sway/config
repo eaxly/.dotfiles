@@ -48,9 +48,9 @@ gaps inner 12
 # │placeholder      │ #000000 │ #0c0c0c    │ #ffffff │ #000000   │ #0c0c0c      │
 # └─────────────────┴─────────┴────────────┴─────────┴───────────┴──────────────┘
 
-client.focused          #__[tab_active_bg]__     #__[tab_active_bg]__     #__[tab_active_fg]__     #__[tab_active_bg]__     #__[tab_active_bg]__
+client.focused          #__[bg_alter]__     #__[bg_alter]__     #__[fg]__     #__[bg_alter]__     #__[bg_alter]__
 client.focused_inactive #__[bg_alt]__     #__[bg]__     #__[fg]__     #__[bg_alt]__     #__[bg_alt]__
-client.unfocused        #__[tab_inactive_bg]__ #__[tab_inactive_bg]__     #__[tab_inactive_fg]__ #__[tab_inactive_bg]__ #__[tab_inactive_bg]__
+client.unfocused        #__[bg]__ #__[bg]__     #__[fg_alt]__ #__[bg]__ #__[bg]__
 client.urgent           #__[red]__    #__[bg]__     #__[fg]__     #__[red]__    #__[red]__
 client.placeholder      #__[bg]__     #__[slt_bg]__ #__[fg]__     #__[bg]__     #__[slt_bg]__
 
