@@ -53,6 +53,7 @@ github = "zsh-users/zsh-autosuggestions"
 
 [plugins.you-should-use]
 github = "MichaelAquilina/zsh-you-should-use"
+apply = ["defer"]
 
 [plugins.rust-completions]
 github = "ryutok/rust-zsh-completions"
