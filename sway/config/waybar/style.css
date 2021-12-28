@@ -36,6 +36,12 @@ window#waybar.hidden {
     text-shadow: none;
 }
 
+#workspaces button:active {
+    box-shadow: none;
+    text-shadow: none;
+    background-color: #__[bg]__;
+}
+
 #workspaces button.urgent {
     color: #__[red]__;
 }

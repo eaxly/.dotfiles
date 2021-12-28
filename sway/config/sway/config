@@ -29,8 +29,8 @@ set $menu ~/.config/sway/fuzzel.sh | xargs swaymsg exec --
 default_border pixel __[border_size]__
 default_floating_border pixel __[border_size]__
 
-gaps outer 8
-gaps inner 10
+gaps outer 10
+gaps inner 12
 ### Colors
 # ┌─────────────────┬─────────┬────────────┬─────────┬───────────┬──────────────┐
 # │     class       │ border  │ background │ text    │ indicator │ child_border │
