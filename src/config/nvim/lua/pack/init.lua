@@ -254,8 +254,7 @@ return packer.startup(function()
 
   -- the colorscheme
   use({
-    "__[nvim_color_url]__",
-    as = "__[nvim_color_name]__",
+    "norcalli/nvim-base16.lua",
   })
 
   -- lualine: a statusline so easy to configure, it's almost boring
