@@ -1,13 +1,9 @@
 # NOTICE: gtk-3.0 has only settings.ini linked, for 
-[profiles.sway_d]
+[profiles.sway]
 vars = ["sway/vars.toml", "sway/themes/rosepine.toml"]
 posthooks = ["sway reload", "makoctl reload"]
 
-[profiles.sway_l]
-vars = ["sway/vars.toml", "sway/themes/rosepine_dawn.toml"]
-posthooks = ["sway reload", "makoctl reload"]
-
-[profiles.sway_d.dots]
+[profiles.sway.dots]
 ##config
 kitty = { source = "sway/config/kitty", target = ".config/kitty" }
 sway = { source = "sway/config/sway", target = ".config/sway" }
@@ -17,21 +13,6 @@ swaylock = { source = "sway/config/swaylock", target = ".config/swaylock" }
 mako = { source = "sway/config/mako", target = ".config/mako" }
 oguri = { source = "sway/config/oguri", target = ".config/oguri" }
 nvim = { vars = "sway/themes/rosepine.toml"}
-gtk = { source = "sway/config/gtk-3.0/settings.ini", target = ".config/gtk-3.0/settings.ini" }
-
-##home
-zshenv = { source = "sway/home/zshenv", target = ".zshenv" }
-
-[profiles.sway_l.dots]
-##config
-kitty = { source = "sway/config/kitty", target = ".config/kitty" }
-sway = { source = "sway/config/sway", target = ".config/sway" }
-# kanshi = { source = "sway/config/kanshi", target = ".config/kanshi" }
-waybar = { source = "sway/config/waybar", target = ".config/waybar" }
-swaylock = { source = "sway/config/swaylock", target = ".config/swaylock" }
-mako = { source = "sway/config/mako", target = ".config/mako" }
-oguri = { source = "sway/config/oguri", target = ".config/oguri" }
-nvim = { vars = "sway/themes/rosepine_dawn.toml"}
 gtk = { source = "sway/config/gtk-3.0/settings.ini", target = ".config/gtk-3.0/settings.ini" }
 
 ##home
