@@ -10,7 +10,7 @@ telescope.setup({
 })
 telescope.load_extension("mapper")
 
-Mapper = require("utils").mapper()
+Mapper = require("core.utils").mapper()
 Mapper.map(
   "n",
   "<leader>s",

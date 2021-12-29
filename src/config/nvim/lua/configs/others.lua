@@ -81,7 +81,7 @@ M.focus = function()
 end
 
 M.mundo = function()
-  Mapper = require("utils").mapper()
+  Mapper = require("core.utils").mapper()
   Mapper.map("n", "<leader>u", "<cmd>MundoToggle<cr>", { noremap = true }, "Mundo", "mundo_toggle", "Toggle Mundo")
 end
 

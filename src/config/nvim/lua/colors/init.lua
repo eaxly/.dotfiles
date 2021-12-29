@@ -27,3 +27,5 @@ if theme == "rose-pine" then
 elseif theme == "catppuccin" then
 
 end
+
+require("colors.highlights")

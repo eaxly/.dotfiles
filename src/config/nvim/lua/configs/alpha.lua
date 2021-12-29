@@ -1,7 +1,7 @@
 local if_nil = vim.F.if_nil
 local alpha = require("alpha")
 local home = os.getenv("HOME")
-local utils = require("utils")
+local utils = require("core.utils")
 
 local date_handle = io.popen('printf "$(date "+%a %d %b")"')
 local date = date_handle:read("*a")
@@ -26,7 +26,7 @@ local date_header = {
 
 local header = {
   type = "text",
-  val = require("plugins.dashboardHeaders"),
+  val = require("configs.dashboardHeaders"),
   opts = {
     position = "center",
     hl = "Type",
@@ -36,7 +36,7 @@ local header = {
 
 local footer = {
   type = "text",
-  val = require("utils").fortune(),
+  val = require("core.utils").fortune(),
   opts = {
     position = "center",
     hl = "Number",

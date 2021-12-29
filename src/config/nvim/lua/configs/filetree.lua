@@ -80,11 +80,11 @@ nvimtree.setup({
   },
 })
 
-Mapper = require("utils").mapper()
+Mapper = require("core.utils").mapper()
 Mapper.map(
   "n",
   "<leader>f",
-  '<cmd>lua require("utils").tree_toggle()<cr>',
+  '<cmd>lua require("core.utils").tree_toggle()<cr>',
   { noremap = true },
   "NvimTree",
   "nvim_tree_toggle",

@@ -37,7 +37,7 @@ local alpha = {
   sections = {
     lualine_a = {
       {
-        require("utils").drama_quotes,
+        require("core.utils").drama_quotes,
         separator = { right = set_sep().section.left, left = set_sep().section.right },
         left_padding = 2,
       },

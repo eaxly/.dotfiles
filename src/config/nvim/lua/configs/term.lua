@@ -77,7 +77,7 @@ function _Term_btop()
   btop:toggle()
 end
 
-Mapper = require("utils").mapper()
+Mapper = require("core.utils").mapper()
 Mapper.map(
   "n",
   "<leader>Tc",

@@ -23,14 +23,14 @@ return packer.startup(function()
   use({
     "neovim/nvim-lspconfig",
     config = function()
-      require("plugins.lsp")
+      require("configs.lsp")
     end,
   })
   -- nvim mapper: use telescope to search mappings
   use({
     "lazytanuki/nvim-mapper",
     config = function()
-      require("plugins.others").mapper()
+      require("configs.others").mapper()
     end,
     before = "telescope.nvim",
   })
@@ -38,7 +38,7 @@ return packer.startup(function()
   -- nvim cmp: completion plugin
   use({
     "hrsh7th/nvim-cmp",
-    -- plugins
+    -- configs
     requires = {
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-buffer",
@@ -47,7 +47,7 @@ return packer.startup(function()
       "hrsh7th/cmp-calc",
     },
     config = function()
-      require("plugins.cmp")
+      require("configs.cmp")
     end,
   })
 
@@ -60,7 +60,7 @@ return packer.startup(function()
   use({
     "windwp/nvim-autopairs",
     config = function()
-      require("plugins.autopairs")
+      require("configs.autopairs")
     end,
     event = "InsertEnter",
   })
@@ -69,7 +69,7 @@ return packer.startup(function()
   use({
     "L3MON4D3/LuaSnip",
     config = function()
-      require("plugins.others").snip()
+      require("configs.others").snip()
     end,
     before = { "nvim-cmp" },
     module = "luasnip",
@@ -86,7 +86,7 @@ return packer.startup(function()
   use({
     "ray-x/lsp_signature.nvim",
     config = function()
-      require("plugins.others").signature()
+      require("configs.others").signature()
     end,
     after = { "nvim-lspconfig" },
   })
@@ -95,7 +95,7 @@ return packer.startup(function()
   use({
     "tami5/lspsaga.nvim",
     config = function()
-      require("plugins.lspsaga")
+      require("configs.lspsaga")
     end,
     after = "nvim-lspconfig",
     event = "BufRead",
@@ -106,7 +106,7 @@ return packer.startup(function()
     "lewis6991/gitsigns.nvim",
     requires = { "nvim-lua/plenary.nvim" },
     config = function()
-      require("plugins.others").gitsigns()
+      require("configs.others").gitsigns()
     end,
     event = "BufRead",
   })
@@ -126,7 +126,7 @@ return packer.startup(function()
   use({
     "akinsho/toggleterm.nvim",
     config = function()
-      require("plugins.term")
+      require("configs.term")
     end,
   })
 
@@ -135,7 +135,7 @@ return packer.startup(function()
     "nvim-telescope/telescope.nvim",
     requires = { "nvim-lua/plenary.nvim", "nvim-lua/popup.nvim" },
     config = function()
-      require("plugins.telescope")
+      require("configs.telescope")
     end,
   })
 
@@ -144,7 +144,7 @@ return packer.startup(function()
     "romgrk/barbar.nvim",
     requires = { "kyazdani42/nvim-web-devicons" },
     config = function()
-      require("plugins.barbar")
+      require("configs.barbar")
     end,
   })
 
@@ -152,7 +152,7 @@ return packer.startup(function()
   use({
     "lambdalisue/suda.vim",
     config = function()
-      require("plugins.others").suda()
+      require("configs.others").suda()
     end,
   })
 
@@ -176,7 +176,7 @@ return packer.startup(function()
   use({
     "numToStr/Comment.nvim",
     config = function()
-      require("plugins.commenting")
+      require("configs.commenting")
     end,
   })
 
@@ -184,7 +184,7 @@ return packer.startup(function()
   use({
     "ellisonleao/glow.nvim",
     config = function()
-      require("plugins.others").glow()
+      require("configs.others").glow()
     end,
     module = "glow",
     cmd = { "Glow", "GlowInstall" },
@@ -195,7 +195,7 @@ return packer.startup(function()
   use({
     "simnalamburt/vim-mundo",
     config = function()
-      require("plugins.others").mundo()
+      require("configs.others").mundo()
     end,
     cmd = { "MundoHide", "MundoShow", "MundoToggle" },
   })
@@ -204,7 +204,7 @@ return packer.startup(function()
   use({
     "kyazdani42/nvim-tree.lua",
     config = function()
-      require("plugins.filetree")
+      require("configs.filetree")
     end,
     requires = { "airblade/vim-rooter" },
   })
@@ -214,7 +214,7 @@ return packer.startup(function()
     "folke/trouble.nvim",
     requires = "kyazdani42/nvim-web-devicons",
     config = function()
-      require("plugins.trouble")
+      require("configs.trouble")
     end,
     module = "trouble",
   })
@@ -223,7 +223,7 @@ return packer.startup(function()
   use({
     "beauwilliams/focus.nvim",
     config = function()
-      require("plugins.others").focus()
+      require("configs.others").focus()
     end,
     event = "VimEnter",
   })
@@ -239,7 +239,7 @@ return packer.startup(function()
   use({
     "Pocco81/TrueZen.nvim",
     config = function()
-      require("plugins.others").true_zen()
+      require("configs.others").true_zen()
     end,
     cmd = { "TZAtaraxis", "TZFocus", "TZMinimalist" },
   })
@@ -248,7 +248,7 @@ return packer.startup(function()
   use({
     "lukas-reineke/indent-blankline.nvim",
     config = function()
-      require("plugins.others").blankline()
+      require("configs.others").blankline()
     end,
   })
 
@@ -262,7 +262,7 @@ return packer.startup(function()
   use({
     "nvim-lualine/lualine.nvim",
     config = function()
-      require("plugins.statusline")
+      require("configs.statusline")
     end,
   })
 
@@ -270,7 +270,7 @@ return packer.startup(function()
   use({
     "nvim-treesitter/nvim-treesitter",
     config = function()
-      require("plugins.treesitter")
+      require("configs.treesitter")
     end,
     run = { ":TSUpdate" },
   })
@@ -284,7 +284,7 @@ return packer.startup(function()
   use({
     "norcalli/nvim-colorizer.lua",
     config = function()
-      require("plugins.others").colorizer()
+      require("configs.others").colorizer()
     end,
     event="BufRead"
   })
@@ -300,7 +300,7 @@ return packer.startup(function()
     "goolord/alpha-nvim",
     requires = { "kyazdani42/nvim-web-devicons" },
     config = function()
-      require("plugins.alpha")
+      require("configs.alpha")
     end,
     event = "VimEnter",
   })
@@ -312,7 +312,7 @@ return packer.startup(function()
     after = { "nvim-treesitter" }, -- you may also specify telescope
     ft = "norg",
     config = function()
-      require("plugins.neorg")
+      require("configs.neorg")
     end,
     module = "neorg",
   })

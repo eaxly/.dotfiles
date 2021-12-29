@@ -42,7 +42,7 @@ lspsaga.setup({
   diagnostic_prefix_format = "%d. ",
 })
 --- In lsp attach function
-Mapper = require("utils").mapper()
+Mapper = require("core.utils").mapper()
 Mapper.map(
   "n",
   "gr",

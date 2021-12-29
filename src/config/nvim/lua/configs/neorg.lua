@@ -48,7 +48,7 @@ require("neorg").setup({
   end,
 })
 
-Mapper = require("utils").mapper()
+Mapper = require("core.utils").mapper()
 Mapper.map_virtual("n", "gtd", "", {}, "Neorg", "neorg_todo_done", "Tick the current task")
 Mapper.map_virtual("n", "gtu", "", {}, "Neorg", "neorg_todo_undone", "Untick the current task")
 Mapper.map_virtual("n", "gtp", "", {}, "Neorg", "neorg_todo_pending", "Set the current task to pending")

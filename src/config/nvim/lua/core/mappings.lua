@@ -3,7 +3,7 @@
 -- ░▀▀░░▀▀▀░░▀░░▀░░░▀▀▀░▀▀▀░▀▀▀░▀▀▀
 --
 -- By: @ExtinctAxolotl
-Mapper = require("utils").mapper()
+Mapper = require("core.utils").mapper()
 
 function _Neovide_toggle_fullscreen()
   vim.cmd([[

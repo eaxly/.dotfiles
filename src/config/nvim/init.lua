@@ -9,8 +9,7 @@
 pcall(require, "impatient")
 local modules = {
   "pack",
-  "options",
-  "mappings",
+  "core",
   "colors",
   "packer_compiled",
 }

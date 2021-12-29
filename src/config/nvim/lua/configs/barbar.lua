@@ -66,7 +66,7 @@ vim.g.bufferline = {
   no_name_title = "[Non Named]",
 }
 
-Mapper = require("utils").mapper()
+Mapper = require("core.utils").mapper()
 Mapper.map(
   "n",
   "<leader>bc",
