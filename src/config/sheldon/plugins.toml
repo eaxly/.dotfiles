@@ -57,7 +57,3 @@ apply = ["defer"]
 
 [plugins.rust-completions]
 github = "ryutok/rust-zsh-completions"
-# For example:
-#
-# [plugins.base16]
-# github = "chriskempson/base16-shell"

@@ -1,34 +1,34 @@
 ## colors
 # grounds 
 fg                  = "e0def4"  # #e0def4
-fg_alt              = "555169"  # #6e6a86
-fg_alter            = "6e6a86"  # #6e6a86
-bg                  = "191724"  # #191724
-bg_alt              = "1f1d2e"  # #1f1d2e
-bg_alter            = "26233a"  # #26233a
-bg_dark             = "111019"  # #111019
+fg_alt              = "817c9c"  # #817c9c
+fg_alter            = "59546d"  # #59546d
+bg                  = "232136"  # #232136
+bg_alt              = "2a273f"  # #2a273f
+bg_alter            = "393552"  # #393552
+bg_dark             = "191724" # #191724
 # selection        
-slt_fg              = "191724"  # #191724
-slt_bg              = "2a2837"  # #2a2837
+slt_fg              = "%bg"  # #191724
+slt_bg              = "%fg"  # #2a2837
 # specials         
 links               = "%magenta"# #c4a7e7
 cursor              = "555169"  # #555169
 cursor_text         = "%white"   # #e0def4
 # specifications    
-black               = "26233a"  # #26233a
+black               = "393552"  # #393552
 black_br            = "6e6a86"  # #6e6a86
 red                 = "eb6f92"  # #eb6f92
-red_br              = "b4637a"  # #b4637a
+red_br              = "eb6f92"  # #eb6f92
 green               = "31748f"  # #31748f
-green_br            = "286983"  # #286983
+green_br            = "31748f"  # #31748f
 yellow              = "f6c177"  # #f6c177
-yellow_br           = "ea9d34"  # #ea9d34
+yellow_br           = "f6c177"  # #f6c177
 blue                = "9ccfd8"  # #9ccfd8
-blue_br             = "56949f"  # #56949f
+blue_br             = "9ccfd8"  # #9ccfd8
 magenta             = "c4a7e7"  # #c4a7e7
-magenta_br          = "907aa9"  # #907aa9
+magenta_br          = "c4a7e7"  # #c4a7e7
 cyan                = "ebbcba"  # #ebbcba
-cyan_br             = "d7827e"  # #d7827e
+cyan_br             = "ebbcba"  # #ebbcba
 white               = "e0def4"  # #e0def4
 white_br            = "575279"  # #575279
 
@@ -38,13 +38,13 @@ accent_alt          = "%cyan_br"
 
 ## specifics
 # wall
-wall                = "~/.walls/pluswall/rosepinebase.png"
+wall                = "~/.walls/pluswall/rosepinemoon.png"
 
 # nvim
 nvim_color_name     = "rose-pine"
 nvim_color_url      = "rose-pine/neovim"
 nvim_statusline_name= "%nvim_color_name"
-nvim_color_style    = "base"
+nvim_color_style    = "moon"
 
 # applications
 gtk_theme           = "rose-pine-gtk"

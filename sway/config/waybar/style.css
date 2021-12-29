@@ -9,7 +9,7 @@
 
 window#waybar {
     background-color: #__[bg]__;
-    border-top: 1px solid #__[slt_bg]__;
+    border-top: 1px solid #__[bg_alt]__;
     color: #__[fg]__;
     transition-property: background-color;
     transition-duration: .5s;
