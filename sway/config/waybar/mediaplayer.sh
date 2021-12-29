@@ -16,4 +16,4 @@ done < $PIDFILE
 
 _mp
 
-printf "%s\n" "${PIDs[@]}" > $PIDFILE
+printf "%s\n" "${PIDs[@]}" >> $PIDFILE

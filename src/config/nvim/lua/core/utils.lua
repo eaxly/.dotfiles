@@ -109,15 +109,39 @@ M.drama_quotes = function()
   return messages[math.random(1, #messages)]
 end
 
-M.tree_toggle = function ()
+M.tree_toggle = function()
   local tree_width = vim.g.nvim_tree_width or 30
   require("nvim-tree").toggle()
   if require("nvim-tree.view").win_open() then
     require("bufferline.state").set_offset(tree_width + 3, "FileTree")
-    require'nvim-tree'.find_file(true)
+    require("nvim-tree").find_file(true)
   else
     require("bufferline.state").set_offset(0)
   end
 end
 
+-- Highlights functions
+-- yanked from https://github.com/NvChad/NvChad/blob/main/lua/core/utils.lua
+
+-- Define bg color
+-- @param group Group
+-- @param color Color
+M.bg = function(group, col)
+  vim.cmd("hi " .. group .. " guibg=" .. col)
+end
+
+-- Define fg color
+-- @param group Group
+-- @param color Color
+M.fg = function(group, col)
+  vim.cmd("hi " .. group .. " guifg=" .. col)
+end
+
+-- Define bg and fg color
+-- @param group Group
+-- @param fgcol Fg Color
+-- @param bgcol Bg Color
+M.fg_bg = function(group, fgcol, bgcol)
+  vim.cmd("hi " .. group .. " guifg=" .. fgcol .. " guibg=" .. bgcol)
+end
 return M

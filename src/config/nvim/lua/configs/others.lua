@@ -77,7 +77,12 @@ M.true_zen = function()
 end
 
 M.focus = function()
-  require("focus").setup()
+  require("focus").setup({
+    excluded_filetypes = { "NvimTree", "toggleterm" },
+    excluded_buftypes = { "help" },
+    signcolumn = false,
+    number = false,
+  })
 end
 
 M.mundo = function()
@@ -91,6 +96,7 @@ M.glow = function()
 end
 
 M.mapper = function()
+  require("telescope").load_extension("mapper")
   require("nvim-mapper").setup({
     -- do not assign the default keymap (<leader>MM)
     no_map = false,
