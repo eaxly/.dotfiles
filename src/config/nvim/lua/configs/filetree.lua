@@ -14,17 +14,17 @@ vim.g.nvim_tree_window_picker_exclude = {
   buftype = { "terminal" },
 }
 
-vim.g.nvim_tree_root_folder_modifier = table.concat { ":t:gs?$?/..", string.rep(" ", 1000), "?:gs?^??" }
+vim.g.nvim_tree_root_folder_modifier = table.concat({ ":t:gs?$?/..", string.rep(" ", 1000), "?:gs?^??" })
 
 vim.g.nvim_tree_icons = {
   folder = {
-    arrow_open =   "",
+    arrow_open = "",
     arrow_closed = "",
-    default =      "",
-    open =         "",
-    empty =        "",
-    empty_open =   "",
-    symlink =      "",
+    default = "",
+    open = "",
+    empty = "",
+    empty_open = "",
+    symlink = "",
     symlink_open = "",
   },
 }
@@ -84,7 +84,7 @@ Mapper = require("core.utils").mapper()
 Mapper.map(
   "n",
   "<leader>f",
-  '<cmd>lua require("core.utils").tree_toggle()<cr>',
+  "<cmd>NvimTreeToggle<cr>",
   { noremap = true },
   "NvimTree",
   "nvim_tree_toggle",

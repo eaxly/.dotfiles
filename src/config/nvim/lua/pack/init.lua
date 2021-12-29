@@ -32,7 +32,8 @@ return packer.startup(function()
     config = function()
       require("configs.others").mapper()
     end,
-    before = "telescope.nvim",
+    after = "telescope.nvim",
+    disable = true,
   })
 
   -- nvim cmp: completion plugin
@@ -135,16 +136,8 @@ return packer.startup(function()
     "nvim-telescope/telescope.nvim",
     requires = { "nvim-lua/plenary.nvim", "nvim-lua/popup.nvim" },
     config = function()
-      require("configs.telescope")
-    end,
-  })
-
-  -- barbar: tabline, nothing to do with vikings
-  use({
-    "romgrk/barbar.nvim",
-    requires = { "kyazdani42/nvim-web-devicons" },
-    config = function()
-      require("configs.barbar")
+      require("telescope").setup()
+      -- require("configs.telescope")
     end,
   })
 
@@ -254,8 +247,21 @@ return packer.startup(function()
 
   -- the colorscheme
   use({
-    "__[nvim_color_url]__",
+    -- "__[nvim_color_url]__",
+    "~/dev/frk/neovim",
     as = "__[nvim_color_name]__",
+  })
+
+  use({
+    "folke/tokyonight.nvim"
+  })
+  -- bufferline: bufferline plugin with style
+  use({
+    "akinsho/bufferline.nvim",
+    requires = { "kyazdani42/nvim-web-devicons" },
+    config = function()
+      require("configs.bufferline")
+    end,
   })
 
   -- lualine: a statusline so easy to configure, it's almost boring
@@ -286,13 +292,12 @@ return packer.startup(function()
     config = function()
       require("configs.others").colorizer()
     end,
-    event="BufRead"
+    event = "BufRead",
   })
 
   -- editorconfig: self explains itself don't you think?
   use({
     "editorconfig/editorconfig-vim",
-    event = "VimEnter",
   })
 
   -- alpha: dashboard on steroids
@@ -302,7 +307,6 @@ return packer.startup(function()
     config = function()
       require("configs.alpha")
     end,
-    event = "VimEnter",
   })
 
   -- neorg: notes for modern neovim

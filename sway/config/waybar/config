@@ -42,7 +42,6 @@
         }
     },
     "tray": {
-        // "icon-size": 21,
         "spacing": 10
     },
     "clock": {
@@ -67,13 +66,11 @@
         "format-charging": "{capacity}% ",
         "format-plugged": "{capacity}% ",
         "format-alt": "{time} {icon}",
-        /* "format-good": "", // An empty format will hide the module */
         "format-full": "{icon}",
         "format-full-alt": "{time} {icon}",
         "format-icons": ["", "", "", "", "", ""]
     },
     "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
         "format": "{volume}% {icon}",
         "format-bluetooth": "{volume}% {icon}",
         "format-muted": "婢",
