@@ -252,9 +252,6 @@ return packer.startup(function()
     as = "__[nvim_color_name]__",
   })
 
-  use({
-    "folke/tokyonight.nvim"
-  })
   -- bufferline: bufferline plugin with style
   use({
     "akinsho/bufferline.nvim",
