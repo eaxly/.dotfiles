@@ -78,7 +78,7 @@ end
 
 M.focus = function()
   require("focus").setup({
-    excluded_filetypes = { "NvimTree", "toggleterm" },
+    excluded_filetypes = { "NvimTree", "toggleterm", "TelescopePrompt" },
     excluded_buftypes = { "help" },
     signcolumn = false,
     number = false,
