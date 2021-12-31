@@ -31,14 +31,13 @@ M.filetree = function()
   map("n", "<leader>f", "<cmd>NvimTreeToggle<cr>")
 end
 
-M.lspsaga = function ()
-  map("n", "gr", "<cmd>Lspsaga rename<cr>")
-  map("n", "gx", "<cmd>Lspsaga code_action<cr>")
-  map("x", "gx", ":<c-u>Lspsaga range_code_action<cr>")
-  map("n", "K", "<cmd>Lspsaga hover_doc<cr>")
-  map("n", "go", "<cmd>Lspsaga show_line_diagnostics<cr>")
-  map("n", "gj", "<cmd>Lspsaga diagnostic_jump_next<cr>")
-  map("n", "gk", "<cmd>Lspsaga diagnostic_jump_prev<cr>")
+M.lsp = function()
+  map("n", "gr", "<cmd>lua vim.lsp.buf.rename()<cr>")
+  map("n", "gx", "<cmd>lua vim.lsp.buf.code_action()<cr>")
+  map("n", "K", "<cmd>lua vim.lsp.buf.definition()<cr>")
+  map("n", "go", "<cmd>lua vim.diagnostic.setloclist()<cr>")
+  map("n", "gj", "<cmd>lua vim.diagnostic.goto_prev()<cr>")
+  map("n", "gk", "<cmd>lua vim.diagnostic.goto_next()<cr>")
 end
 
 M.zen = function ()

@@ -103,19 +103,6 @@ return packer.startup(function()
     after = { "nvim-lspconfig" },
   })
 
-  -- lspsaga: supercharge the lsp
-  use({
-    "tami5/lspsaga.nvim",
-    config = function()
-      require("configs.lspsaga")
-    end,
-    setup = function ()
-      require("core.mappings").lspsaga()
-    end,
-    after = "nvim-lspconfig",
-    event = "BufRead",
-  })
-
   -- gitsigns: show signs for git in the signcolumn
   use({
     "lewis6991/gitsigns.nvim",
