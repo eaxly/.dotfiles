@@ -17,6 +17,9 @@ return packer.startup(function()
   -- nvim-lspconfig: why are you even asking?!
   use({
     "neovim/nvim-lspconfig",
+    setup = function()
+      require("core.mappings").lsp()
+    end,
     config = function()
       require("configs.lsp")
     end,
