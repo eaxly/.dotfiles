@@ -42,6 +42,19 @@ configs.catppuccin = {
   },
 }
 
+-- uwu
+configs.uwu = {
+  setup = function()
+    vim.g.UwuNR=1
+    vim.cmd "colorscheme uwu"
+  end,
+  colors = {
+    darker_bg = "#0c1315",
+    bg = "#131a1c",
+    overlay = "#0f1618",
+  }
+}
+
 local colors = {}
 if theme == "rose-pine" then
   configs.rosepine.setup()
@@ -49,6 +62,9 @@ if theme == "rose-pine" then
 elseif theme == "catppuccin" then
   configs.catppuccin.setup()
   colors = configs.catppuccin.colors
+elseif theme == "uwu" then
+  configs.uwu.setup()
+  colors = configs.uwu.colors
 end
 
 return colors

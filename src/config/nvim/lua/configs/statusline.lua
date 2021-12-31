@@ -12,7 +12,7 @@ local function set_sep()
   return M
 end
 
-local smolThings = {
+local nvimtree = {
   sections = {
     lualine_a = {
       {
@@ -30,7 +30,7 @@ local smolThings = {
     },
   },
 
-  filetypes = { "CHADTree", "fern", "NvimTree" },
+  filetypes = { "NvimTree" },
 }
 
 local alpha = {
@@ -55,7 +55,7 @@ local alpha = {
 
 local config = {
   options = {
-    theme = "__[nvim_statusline_name]__", -- rose pine
+    theme = "__[nvim_statusline_name]__",
     section_separators = set_sep().section,
     component_separators = set_sep().component,
     disabled_filetypes = {},
@@ -125,7 +125,7 @@ local config = {
     },
   },
 
-  extensions = { smolThings, alpha },
+  extensions = { nvimtree, alpha },
 }
 
 lualine.setup(config)

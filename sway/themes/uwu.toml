@@ -1,0 +1,51 @@
+## colors
+# grounds
+fg                  = "c5c8c9"
+fg_alt              = "bbbebf"
+fg_alter            = "cdd0d1"
+bg                  = "131a1c"
+bg_alt              = "1a2123"
+bg_alter            = "0f1618"
+bg_dark             = "0c1315"
+# selection              
+slt_fg              = "%bg"
+slt_bg              = "%black_br"
+# specials               
+links               = "%magenta"
+cursor              = "%green"
+cursor_text         = "%bg"
+# specifications         
+black               = "1b2224"
+black_br            = "232a2c"
+red                 = "f65b5b"
+red_br              = "c26f6f"
+green               = "6bb05d"
+green_br            = "8dc776"
+yellow              = "e59e67"
+yellow_br           = "e7ac7e"
+blue                = "53a7bf"
+blue_br             = "6cbad1"
+magenta             = "b185db"
+magenta_br          = "bb8fe5"
+cyan                = "51a39f"
+cyan_br             = "6db0ad"
+white               = "c4c4c4"
+white_br            = "cecece"
+
+# accents and others
+accent              = "%green_br"
+accent_alt          = "%green"
+
+## specifics
+wall                = "~/.walls/pluswall/uwu.png"
+
+# nvim
+nvim_color_name     = "uwu"
+nvim_color_url      = "Mangeshrex/uwu.vim"
+nvim_statusline_name= "auto"
+nvim_color_style    = ""
+
+# applications
+gtk_theme           = "rose-pine-gtk" # to be changed
+cursor_theme        = "Bibata-Modern-Ice"
+icon_theme          = "Papirus"

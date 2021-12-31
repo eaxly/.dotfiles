@@ -27,6 +27,8 @@ return packer.startup(function()
     end,
   })
 
+  -- TELESCOPE --
+
   -- telescope: can do basically everything
   use({
     "nvim-telescope/telescope.nvim",
@@ -52,21 +54,55 @@ return packer.startup(function()
     }
   })
 
+  -- CMP --
+
   -- nvim cmp: completion plugin
+
   use({
-    "hrsh7th/nvim-cmp",
-    -- configs
-    requires = {
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-path",
-      "saadparwaiz1/cmp_luasnip",
-      "hrsh7th/cmp-calc",
-    },
+    "rafamadriz/friendly-snippets",
+    event = "InsertEnter",
+  })
+
+  -- luasnip: snippets
+  use({
+    "L3MON4D3/LuaSnip",
     config = function()
+      require("configs.others").snip()
+    end,
+    after = "friendly-snippets",
+    module = "luasnip",
+    event = "InsertEnter",
+  })
+
+  use{
+    "hrsh7th/nvim-cmp",
+    config = function ()
       require("configs.cmp")
     end,
+    after = "LuaSnip"
+  }
+
+  use({
+    "hrsh7th/cmp-nvim-lsp",
+    after = "nvim-cmp"
   })
+  use({
+    "hrsh7th/cmp-buffer",
+    after = "nvim-cmp"
+  })
+  use({
+    "hrsh7th/cmp-path",
+    after = "nvim-cmp"
+  })
+  use({
+    "saadparwaiz1/cmp_luasnip",
+    after = "nvim-cmp"
+  })
+  use({
+    "hrsh7th/cmp-calc",
+    after = "nvim-cmp"
+  })
+
 
   -- lspkind: show completion kind
   use({
@@ -79,24 +115,7 @@ return packer.startup(function()
     config = function()
       require("configs.autopairs")
     end,
-    event = "InsertEnter",
-  })
-
-  -- luasnip: snippets
-  use({
-    "L3MON4D3/LuaSnip",
-    config = function()
-      require("configs.others").snip()
-    end,
-    before = { "nvim-cmp" },
-    module = "luasnip",
-    event = "InsertEnter",
-  })
-
-  -- friendly-snippets: snippet collection
-  use({
-    "rafamadriz/friendly-snippets",
-    before = "nvim-cmp",
+    after = "nvim-cmp",
   })
 
   -- lsp_signature: show the signature
@@ -245,8 +264,8 @@ return packer.startup(function()
 
   -- the colorscheme
   use({
-    -- "__[nvim_color_url]__",
-    "~/dev/frk/neovim",
+    "~/dev/frk/uwu.vim",
+    -- "~/dev/frk/neovim",
     as = "__[nvim_color_name]__",
   })
 

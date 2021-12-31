@@ -76,8 +76,8 @@ local buttons = {
   type = "group",
   val = {
     button("e", "  New File", ":ene <BAR> startinsert <CR>"),
-    button("d", "  Dotfiles", "<cmd>e " .. home .. "/.dotfiles<cr>"),
-    button("p", "  Projects", "<cmd>e " .. home .. "/dev<cr>"),
+    button("d", "  Dotfiles", "<cmd>cd " .. home .. "/.dotfiles <bar> NvimTreeToggle<cr>"),
+    button("p", "  Projects", "<cmd>cd " .. home .. "/dev <bar> NvimTreeToggle<cr>"),
     button("o", "  History", "<cmd>Telescope oldfiles<cr>"),
     button("s", "  Find", "<cmd>Telescope find_files<cr>"),
     button("q", "  Quit", ":qa<CR>"),
