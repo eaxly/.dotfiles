@@ -1,8 +1,7 @@
 local present, packer = pcall(require, "pack.cfg")
-if present then
-  packer = require("packer")
-else
+if not present then
   error("packer not found")
+  return
 end
 
 local use = packer.use
@@ -12,11 +11,7 @@ packer.reset()
 return packer.startup(function()
   use({
     "wbthomason/packer.nvim", -- Packer manages itself hehe
-  })
-
-  -- Impatient: Improve starup time and enable profiling
-  use({
-    "lewis6991/impatient.nvim",
+    event = "VimEnter",
   })
 
   -- nvim-lspconfig: why are you even asking?!

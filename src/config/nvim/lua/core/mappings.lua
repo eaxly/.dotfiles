@@ -7,9 +7,24 @@ local map = require("core.utils").map
 local M = {}
 
 M.misc = function()
-  map({ "v", "n" }, "<leader>Cy", '"+y', { noremap = true })
-  map({ "v", "n" }, "<leader>Cp", '"+p', { noremap = true })
-  map({ "v", "n" }, "<leader>CP", '"+p', { noremap = true })
+  local function foomaps()
+    map({ "v", "n" }, "<leader>Cy", '"+y', { noremap = true })
+    map({ "v", "n" }, "<leader>Cp", '"+p', { noremap = true })
+    map({ "v", "n" }, "<leader>CP", '"+p', { noremap = true })
+  end
+
+  local function required_maps()
+    -- Add Packer commands because we are not loading it at startup
+    vim.cmd "silent! command PackerClean lua require 'pack' require('packer').clean()"
+    vim.cmd "silent! command PackerCompile lua require 'pack' require('packer').compile()"
+    vim.cmd "silent! command PackerInstall lua require 'pack' require('packer').install()"
+    vim.cmd "silent! command PackerStatus lua require 'pack' require('packer').status()"
+    vim.cmd "silent! command PackerSync lua require 'pack' require('packer').sync()"
+    vim.cmd "silent! command PackerUpdate lua require 'pack' require('packer').update()"
+    vim.cmd "silent! command PackerProfile lua require 'pack' require('packer').output_profile()"
+  end
+  foomaps()
+  required_maps()
 end
 
 M.filetree = function()
