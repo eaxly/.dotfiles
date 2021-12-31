@@ -76,23 +76,3 @@ local btop = Terminal:new({
 function _Term_btop()
   btop:toggle()
 end
-
-Mapper = require("core.utils").mapper()
-Mapper.map(
-  "n",
-  "<leader>Tc",
-  "<cmd>lua _Term_cargo_run_toggle()<cr>",
-  { noremap = true },
-  "ToggleTerm",
-  "toggle_term_cargo",
-  "Run cargo run over the current buffer"
-)
-Mapper.map(
-  "n",
-  "<leader>G",
-  "<cmd>lua _Term_lazygit()<cr>",
-  { noremap = true },
-  "ToggleTerm",
-  "toggle_term_lazygit",
-  "Toggle lazygit"
-)

@@ -1,4 +1,4 @@
-local map = require("core.utils").mapper().map
+local map = require("core.utils").map
 local c = require("colors.config.theme")
 
 require("bufferline").setup({
@@ -35,12 +35,3 @@ require("bufferline").setup({
     }
   }
 })
-
-map("n", "<leader>bl", "<cmd>BufferLineCycleNext<cr>", { noremap = true }, "BufferLine", "bufferline_cycle_next", "Select next buffer in bufferline")
-map("n", "<leader>bh", "<cmd>BufferLineCyclePrev<cr>", { noremap = true }, "BufferLine", "bufferline_cycle_prev", "Select next buffer in bufferline")
-map("n", "<leader>bp", "<cmd>BufferLinePick<cr>", { noremap = true }, "bufferline", "bufferline_pick", "Pick a buffer in the bufferline")
-map("n", "<leader>bc", "<cmd>Bdelete<cr>", { noremap = true }, "BufDelete", "bufdelete", "Delete current buffer whilst preserving window layout")
-map("n", "<leader>bC", "<cmd>Bdelete!<cr>", { noremap = true }, "BufDelete", "bufdelete_force", "Force Delete the current buffer whilst preserving the window layout")
-
-map("n", "<leader>bse", "<cmd>BufferLineSortByExtension", { noremap = true }, "BufferLine", "bufferline_sort_extension", "Sort by extension in bufferline")
-

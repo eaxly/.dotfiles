@@ -54,26 +54,6 @@ M.true_zen = function()
       lualine = true,
     },
   })
-
-  Mapper.map(
-    "n",
-    "<leader>Za",
-    "<cmd>TZAtaraxis<cr>",
-    { noremap = true },
-    "Zen",
-    "zen_ataraxis",
-    "Enable Ataraxis mode"
-  )
-  Mapper.map(
-    "n",
-    "<leader>Zm",
-    "<cmd>TZMinimalist<cr>",
-    { noremap = true },
-    "Zen",
-    "zen_minimalist",
-    "Enable Minimalist mode"
-  )
-  Mapper.map("n", "<leader>Zf", "<cmd>TZFocus<cr>", { noremap = true }, "Zen", "zen_focs", "Enable foucs mode")
 end
 
 M.focus = function()
@@ -83,11 +63,6 @@ M.focus = function()
     signcolumn = false,
     number = false,
   })
-end
-
-M.mundo = function()
-  Mapper = require("core.utils").mapper()
-  Mapper.map("n", "<leader>u", "<cmd>MundoToggle<cr>", { noremap = true }, "Mundo", "mundo_toggle", "Toggle Mundo")
 end
 
 M.glow = function()

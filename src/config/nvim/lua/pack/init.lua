@@ -34,6 +34,9 @@ return packer.startup(function()
     config = function()
       require("configs.telescope")
     end,
+    setup = function ()
+      require("core.mappings").telescope()
+    end
   })
 
   -- cheatsheet: cheatsheet goodness
@@ -111,6 +114,9 @@ return packer.startup(function()
     config = function()
       require("configs.lspsaga")
     end,
+    setup = function ()
+      require("core.mappings").lspsaga()
+    end,
     after = "nvim-lspconfig",
     event = "BufRead",
   })
@@ -142,6 +148,9 @@ return packer.startup(function()
     config = function()
       require("configs.term")
     end,
+    setup = function ()
+      require("core.mappings").term()
+    end
   })
 
   -- suda: just edit sudo files (no sudo -e :DDDD)
@@ -194,6 +203,9 @@ return packer.startup(function()
       require("configs.others").mundo()
     end,
     cmd = { "MundoHide", "MundoShow", "MundoToggle" },
+    setup = function ()
+      require("core.mappings").mundo()
+    end
   })
 
   -- nvim-tree: file tree
@@ -203,6 +215,9 @@ return packer.startup(function()
       require("configs.filetree")
     end,
     requires = { "airblade/vim-rooter" },
+    setup = function ()
+      require("core.mappings").filetree()
+    end
   })
 
   -- trouble: show lsp diagnostics in one place
@@ -238,6 +253,9 @@ return packer.startup(function()
       require("configs.others").true_zen()
     end,
     cmd = { "TZAtaraxis", "TZFocus", "TZMinimalist" },
+    setup = function ()
+      require("core.mappings").zen()
+    end
   })
 
   -- indent_blankline: show indent lines
@@ -262,6 +280,9 @@ return packer.startup(function()
     config = function()
       require("configs.bufferline")
     end,
+    setup = function ()
+      require("core.mappings").bufferline()
+    end
   })
 
   -- bufdelete: delete buffers

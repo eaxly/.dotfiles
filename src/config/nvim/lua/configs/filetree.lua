@@ -77,14 +77,3 @@ nvimtree.setup({
     },
   },
 })
-
-Mapper = require("core.utils").mapper()
-Mapper.map(
-  "n",
-  "<leader>f",
-  "<cmd>NvimTreeToggle<cr>",
-  { noremap = true },
-  "NvimTree",
-  "nvim_tree_toggle",
-  "Toggle Nvim Tree"
-)
