@@ -1,7 +1,12 @@
-local map = require("core.utils").map
 local c = require("colors.config.theme")
 
 require("bufferline").setup({
+  highlights = {
+    fill = {
+      guifg = c.bg,
+      guibg = c.bg,
+    }
+  },
   options = {
     numbers = "none",
     close_command = "Bdelete %d",
@@ -29,9 +34,4 @@ require("bufferline").setup({
     always_show_bufferline = true,
     sort_by = "directory",
   },
-  highlights = {
-    fill = {
-      guibg = c.bg,
-    }
-  }
 })

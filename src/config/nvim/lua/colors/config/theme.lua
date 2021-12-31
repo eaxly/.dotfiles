@@ -27,6 +27,8 @@ configs.rosepine = {
   end,
   colors = {
     darker_bg = "#13111e",
+    bg = "#191724",
+    overlay = "#26233a",
   },
 }
 

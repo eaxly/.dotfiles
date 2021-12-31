@@ -8,8 +8,7 @@
 @end
 
 * Todo for NeoVim
-  - [x] *which-key unloads neorg keybindings for some reason* -> switched to nvim-mapper
-  - [x] find alternative to nvim-mapper
+  - [ ] find alternative to nvim-mapper
   - [ ] refine telescope configuration
   -- [ ] Add more keybindings
   -- [ ] Check out the wiki

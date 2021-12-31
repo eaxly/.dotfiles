@@ -10,3 +10,4 @@ vim.cmd("hi clear CursorLine")
 -- nvimtree
 bg("NvimTreeNormal", c.darker_bg)
 bg("NvimTreeNormalNC", c.darker_bg)
+fg("NvimTreeIndentMarker", c.overlay)
