@@ -14,6 +14,8 @@ return packer.startup(function()
     event = "VimEnter",
   })
 
+  -- LSP --
+
   -- nvim-lspconfig: why are you even asking?!
   use({
     "neovim/nvim-lspconfig",
@@ -203,16 +205,6 @@ return packer.startup(function()
     setup = function ()
       require("core.mappings").filetree()
     end
-  })
-
-  -- trouble: show lsp diagnostics in one place
-  use({
-    "folke/trouble.nvim",
-    requires = "kyazdani42/nvim-web-devicons",
-    config = function()
-      require("configs.trouble")
-    end,
-    module = "trouble",
   })
 
   -- focus:
