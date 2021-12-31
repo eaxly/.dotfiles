@@ -1,6 +1,10 @@
 local telescope = require("telescope")
 
-telescope.setup({})
+telescope.setup({
+  defaults = {
+    layout_strategy = "flex"
+  }
+})
 
 Mapper = require("core.utils").mapper()
 Mapper.map(

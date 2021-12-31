@@ -1,10 +1,8 @@
--- following options are the default
--- each of these are documented in `:help nvim-tree.OPTION_NAME`
-
 local nvimtree = require("nvim-tree")
 local tree_cb = require("nvim-tree.config").nvim_tree_callback
 
-vim.g.nvim_tree_respect_buf_cwd = false
+vim.g.nvim_tree_indent_markers = 1
+vim.g.nvim_tree_respect_buf_cwd = 0
 vim.g.nvim_tree_window_picker_exclude = {
   filetype = {
     "notify",

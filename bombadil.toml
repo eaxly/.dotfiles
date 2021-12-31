@@ -5,7 +5,7 @@ dotfiles_dir = ".dotfiles"
 # gpg_user_id = "mrsosaki@posteo.net"
 
 [settings]
-vars = [ "vars.toml" ]
+vars = []
 posthooks = ["nvim --headless +PackerCompile +sleep1 +qall"]
 
 [settings.dots]

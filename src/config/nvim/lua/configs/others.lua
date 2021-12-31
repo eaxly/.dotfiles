@@ -159,4 +159,8 @@ M.snip = function()
   require("luasnip/loaders/from_vscode").load()
 end
 
+M.cheatsheet = function()
+  require("cheatsheet").setup({})
+end
+
 return M

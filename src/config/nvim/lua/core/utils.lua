@@ -46,55 +46,15 @@ M.christmas_check = function()
   end
 end
 
-M.mapper = function()
-  local X = {}
-
-  local function is_module_available(name)
-    if package.loaded[name] then
-      return true
-    else
-      for _, searcher in ipairs(package.searchers or package.loaders) do
-        local loader = searcher(name)
-        if type(loader) == "function" then
-          package.preload[name] = loader
-          return true
-        end
-      end
-      return false
-    end
+M.map = function(mode, keys, command, opt)
+  local options = { noremap = true }
+  if opt then
+    options = vim.tbl_extend("force", options, opt)
   end
 
-  if is_module_available("nvim-mapper") then
-    local mapper = require("nvim-mapper")
+  local allowed_modes = {
 
-    X.map = function(mode, keys, cmd, options, category, unique_identifier, description)
-      mapper.map(mode, keys, cmd, options, category, unique_identifier, description)
-    end
-    X.map_buf = function(bufnr, mode, keys, cmd, options, category, unique_identifier, description)
-      mapper.map_buf(bufnr, mode, keys, cmd, options, category, unique_identifier, description)
-    end
-    X.map_virtual = function(mode, keys, cmd, options, category, unique_identifier, description)
-      mapper.map_virtual(mode, keys, cmd, options, category, unique_identifier, description)
-    end
-    X.map_buf_virtual = function(mode, keys, cmd, options, category, unique_identifier, description)
-      mapper.map_buf_virtual(mode, keys, cmd, options, category, unique_identifier, description)
-    end
-  else
-    X.map = function(mode, keys, cmd, options, _, _, _)
-      vim.api.nvim_set_keymap(mode, keys, cmd, options)
-    end
-    X.map_buf = function(mode, keys, cmd, options, _, _, _)
-      vim.api.nvim_buf_set_keymap(mode, keys, cmd, options)
-    end
-    X.map_virtual = function(_, _, _, _, _, _, _)
-      return
-    end
-    X.map_buf_virtual = function(_, _, _, _, _, _, _)
-      return
-    end
-  end
-
-  return X
+  }
 end
 
 M.drama_quotes = function()
@@ -107,17 +67,6 @@ M.drama_quotes = function()
     "hey there",
   }
   return messages[math.random(1, #messages)]
-end
-
-M.tree_toggle = function()
-  local tree_width = vim.g.nvim_tree_width or 30
-  require("nvim-tree").toggle()
-  if require("nvim-tree.view").win_open() then
-    require("bufferline.state").set_offset(tree_width + 3, "FileTree")
-    require("nvim-tree").find_file(true)
-  else
-    require("bufferline.state").set_offset(0)
-  end
 end
 
 -- Highlights functions

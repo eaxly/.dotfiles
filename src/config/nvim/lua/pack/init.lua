@@ -26,14 +26,27 @@ return packer.startup(function()
       require("configs.lsp")
     end,
   })
-  -- nvim mapper: use telescope to search mappings
+
+  -- telescope: can do basically everything
   use({
-    "lazytanuki/nvim-mapper",
+    "nvim-telescope/telescope.nvim",
+    requires = { "nvim-lua/plenary.nvim", "nvim-lua/popup.nvim" },
     config = function()
-      require("configs.others").mapper()
+      require("configs.telescope")
     end,
-    after = "telescope.nvim",
-    disable = true,
+  })
+
+  -- cheatsheet: cheatsheet goodness
+  use({
+    "sudormrfbin/cheatsheet.nvim",
+    config = function ()
+      require("configs.others").cheatsheet()
+    end,
+    requires = {
+      { "nvim-telescope/telescope.nvim" },
+      { "nvim-lua/popup.nvim" },
+      { "nvim-lua/plenary.nvim" },
+    }
   })
 
   -- nvim cmp: completion plugin
@@ -128,16 +141,6 @@ return packer.startup(function()
     "akinsho/toggleterm.nvim",
     config = function()
       require("configs.term")
-    end,
-  })
-
-  -- telescope: can do basically everything
-  use({
-    "nvim-telescope/telescope.nvim",
-    requires = { "nvim-lua/plenary.nvim", "nvim-lua/popup.nvim" },
-    config = function()
-      require("telescope").setup()
-      -- require("configs.telescope")
     end,
   })
 
@@ -259,6 +262,11 @@ return packer.startup(function()
     config = function()
       require("configs.bufferline")
     end,
+  })
+
+  -- bufdelete: delete buffers
+  use({
+    "famiu/bufdelete.nvim"
   })
 
   -- lualine: a statusline so easy to configure, it's almost boring

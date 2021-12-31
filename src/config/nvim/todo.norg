@@ -9,9 +9,7 @@
 
 * Todo for NeoVim
   - [x] *which-key unloads neorg keybindings for some reason* -> switched to nvim-mapper
-  - [*] *switch to nvim-mapper*
-  -- [ ] add Comment.nvim virtual keymaps
-  -- [x] add neorg virtual keymaps
+  - [x] find alternative to nvim-mapper
   - [ ] refine telescope configuration
   -- [ ] Add more keybindings
   -- [ ] Check out the wiki
