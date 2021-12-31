@@ -1,3 +1,5 @@
+vim.cmd "packadd packer.nvim"
+
 local present, packer = pcall(require, "packer")
 
 local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
@@ -19,8 +21,7 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 and not present then
 end
 
 -- packer init
-return packer.init({
-  compile_path = vim.fn.stdpath("config") .. "/lua/packer_compiled.lua",
+packer.init({
   display = {
     open_fn = function()
       return require("packer.util").float({ border = "rounded" })
@@ -32,3 +33,5 @@ return packer.init({
     threshold = 1,
   },
 })
+
+return packer
