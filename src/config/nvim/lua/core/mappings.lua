@@ -10,7 +10,7 @@ M.misc = function()
   local function foomaps()
     map({ "v", "n" }, "<leader>Cy", '"+y', { noremap = true })
     map({ "v", "n" }, "<leader>Cp", '"+p', { noremap = true })
-    map({ "v", "n" }, "<leader>CP", '"+p', { noremap = true })
+    map({ "v", "n" }, "<leader>CP", '"+P', { noremap = true })
   end
 
   local function required_maps()
