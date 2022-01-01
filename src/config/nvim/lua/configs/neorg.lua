@@ -1,3 +1,8 @@
+local present, neorg = require("neorg")
+if not present then
+  print("neorg could not load")
+  return
+end
 require("neorg").setup({
   -- Tell Neorg what modules to load
   load = {

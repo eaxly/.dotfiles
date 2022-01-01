@@ -1,4 +1,8 @@
-local toggleterm = require("toggleterm")
+local present, toggleterm = pcall(require, "toggleterm")
+if not present then
+  print("toggleterm could not be loaded")
+  return
+end
 local Terminal = require("toggleterm.terminal").Terminal
 
 toggleterm.setup({

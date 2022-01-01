@@ -1,4 +1,8 @@
-local treesitter_configs = require("nvim-treesitter.configs")
+local present, treesitter_configs = pcall(require, "nvim-treesitter.configs")
+if not present then
+  print("treesitter could not be loaded")
+  return
+end
 local parser_configs = require("nvim-treesitter.parsers").get_parser_configs()
 
 parser_configs.norg = {

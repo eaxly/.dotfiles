@@ -17,9 +17,9 @@ return packer.startup(function()
   -- the colorscheme
   use({
     "RRethy/nvim-base16",
-    config = function ()
+    config = function()
       require("theme")
-    end
+    end,
   })
 
   -- LSP --
@@ -44,22 +44,22 @@ return packer.startup(function()
     config = function()
       require("configs.telescope")
     end,
-    setup = function ()
+    setup = function()
       require("core.mappings").telescope()
-    end
+    end,
   })
 
   -- cheatsheet: cheatsheet goodness
   use({
     "sudormrfbin/cheatsheet.nvim",
-    config = function ()
+    config = function()
       require("configs.others").cheatsheet()
     end,
     requires = {
       { "nvim-telescope/telescope.nvim" },
       { "nvim-lua/popup.nvim" },
       { "nvim-lua/plenary.nvim" },
-    }
+    },
   })
 
   -- CMP --
@@ -82,35 +82,34 @@ return packer.startup(function()
     event = "InsertEnter",
   })
 
-  use{
+  use({
     "hrsh7th/nvim-cmp",
-    config = function ()
+    config = function()
       require("configs.cmp")
     end,
-    after = "LuaSnip"
-  }
+    after = "LuaSnip",
+  })
 
   use({
     "hrsh7th/cmp-nvim-lsp",
-    after = "nvim-cmp"
+    after = "nvim-cmp",
   })
   use({
     "hrsh7th/cmp-buffer",
-    after = "nvim-cmp"
+    after = "nvim-cmp",
   })
   use({
     "hrsh7th/cmp-path",
-    after = "nvim-cmp"
+    after = "nvim-cmp",
   })
   use({
     "saadparwaiz1/cmp_luasnip",
-    after = "nvim-cmp"
+    after = "nvim-cmp",
   })
   use({
     "hrsh7th/cmp-calc",
-    after = "nvim-cmp"
+    after = "nvim-cmp",
   })
-
 
   -- lspkind: show completion kind
   use({
@@ -162,9 +161,9 @@ return packer.startup(function()
     config = function()
       require("configs.term")
     end,
-    setup = function ()
+    setup = function()
       require("core.mappings").term()
-    end
+    end,
   })
 
   -- suda: just edit sudo files (no sudo -e :DDDD)
@@ -217,9 +216,9 @@ return packer.startup(function()
       require("configs.others").mundo()
     end,
     cmd = { "MundoHide", "MundoShow", "MundoToggle" },
-    setup = function ()
+    setup = function()
       require("core.mappings").mundo()
-    end
+    end,
   })
 
   -- nvim-tree: file tree
@@ -229,9 +228,9 @@ return packer.startup(function()
       require("configs.filetree")
     end,
     requires = { "airblade/vim-rooter" },
-    setup = function ()
+    setup = function()
       require("core.mappings").filetree()
-    end
+    end,
   })
 
   -- focus:
@@ -257,9 +256,9 @@ return packer.startup(function()
       require("configs.others").true_zen()
     end,
     cmd = { "TZAtaraxis", "TZFocus", "TZMinimalist" },
-    setup = function ()
+    setup = function()
       require("core.mappings").zen()
-    end
+    end,
   })
 
   -- indent_blankline: show indent lines
@@ -277,14 +276,14 @@ return packer.startup(function()
     config = function()
       require("configs.bufferline")
     end,
-    setup = function ()
+    setup = function()
       require("core.mappings").bufferline()
     end,
   })
 
   -- bufdelete: delete buffers
   use({
-    "famiu/bufdelete.nvim"
+    "famiu/bufdelete.nvim",
   })
 
   -- lualine: a statusline so easy to configure, it's almost boring

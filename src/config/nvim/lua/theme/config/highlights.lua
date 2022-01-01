@@ -29,7 +29,7 @@ bg("PmenuThumb", c.green)
 fg("CmpItemAbbr", c.fg)
 fg("CmpItemAbbrMatch", c.fg_alt)
 fg("CmpItemKind", c.green_br)
-fg("CmpItemMenu", c.cyan_br.." gui=bold")
+fg("CmpItemMenu", c.cyan_br .. " gui=bold")
 
 -- Plugins --
 
@@ -43,7 +43,7 @@ fg("NvimTreeFolderName", c.fg_alt)
 fg("NvimTreeFolderIcon", c.yellow)
 fg("NvimTreeEmptyFolderName", c.red)
 fg("NvimTreeOpenedFolderName", c.yellow)
-fg("NvimTreeRootFolder", c.green.." gui=italic")
+fg("NvimTreeRootFolder", c.green .. " gui=italic")
 fg("NvimTreeSymlink", c.yellow .. " gui=underline")
 fg("NvimTreeExecFile", c.green .. " gui=bold")
 fg("NvimTreeMarkdownFile", c.magenta)

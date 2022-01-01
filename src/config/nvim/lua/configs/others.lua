@@ -25,11 +25,20 @@ M.blankline = function()
 end
 
 M.gitsigns = function()
+  local present, gitsigns = pcall(require, "gitsigns")
+  if not present then
+    print("could not load gitsigns")
+    return
+  end
   require("gitsigns").setup({})
 end
 
 M.colorizer = function()
-  local colorizer = require("colorizer")
+  local present, colorizer = pcall(require, "colorizer")
+  if not present then
+    print("could not load colorizer")
+    return
+  end
 
   colorizer.setup({
     "*",
@@ -48,7 +57,12 @@ M.colorizer = function()
 end
 
 M.true_zen = function()
-  require("true-zen").setup({
+  local present, zen = pcall(require, "true-zen")
+  if not present then
+    print("true-zen could not load")
+    return
+  end
+  zen.setup({
     integrations = {
       twilight = true,
       lualine = true,
@@ -57,7 +71,13 @@ M.true_zen = function()
 end
 
 M.focus = function()
-  require("focus").setup({
+  local present, focus = pcall(require, "focus")
+  if not present then
+    print("focus could not load")
+    return
+  end
+
+  focus.setup({
     excluded_filetypes = { "NvimTree", "toggleterm", "TelescopePrompt" },
     excluded_buftypes = { "help" },
     signcolumn = false,
@@ -65,26 +85,13 @@ M.focus = function()
   })
 end
 
-M.glow = function()
-  vim.g.glow_border = "rounded"
-  -- vim.g.glow_width = 120
-end
-
-M.mapper = function()
-  require("telescope").load_extension("mapper")
-  require("nvim-mapper").setup({
-    -- do not assign the default keymap (<leader>MM)
-    no_map = false,
-    -- what should be done with the selected keybind when pressing enter.
-    -- Available actions:
-    --   * "definition" - Go to keybind definition (default)
-    --   * "execute" - Execute the keybind command
-    action_on_enter = "execute",
-  })
-end
-
 M.signature = function()
-  require("lsp_signature").setup({
+  local present, signature = pcall(require, "lsp_signature")
+  if not present then
+    print("could not load lspsignature")
+    return
+  end
+  signature.setup({
     debug = false, -- set to true to enable debug logging
     log_path = "debug_log_file_path", -- debug log path
     verbose = false, -- show debug line number
@@ -128,14 +135,24 @@ M.signature = function()
 end
 
 M.snip = function()
-  require("luasnip").config.set_config({
+  local present, snip = pcall(require, "luasnip")
+  if not present then
+    print("could not load luasnip")
+    return
+  end
+  snip.config.set_config({
     updateevents = "TextChanged,TextChangedI",
   })
-  require("luasnip/loaders/from_vscode").load()
+  require("luasnip.loaders.from_vscode").load()
 end
 
 M.cheatsheet = function()
-  require("cheatsheet").setup({})
+  local present, chsh = pcall(require, "cheatsheet")
+  if not present then
+    print("could not load cheatsheet")
+    return
+  end
+  chsh.setup({})
 end
 
 return M

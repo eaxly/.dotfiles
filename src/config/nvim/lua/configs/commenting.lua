@@ -1,4 +1,9 @@
-require("Comment").setup({
+local present, comment = pcall(require, "Comment")
+if not present then
+  print("Could not load Comment...")
+  return
+end
+comment.setup({
   ---Add a space b/w comment and the line
   ---@type boolean
   padding = true,

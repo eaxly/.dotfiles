@@ -1,9 +1,10 @@
-vim.cmd "packadd packer.nvim"
+vim.cmd("packadd packer.nvim")
 
 local present, packer = pcall(require, "packer")
 
 local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 and not present then
+  print("Installing Packer...")
   vim.fn.system({
     "git",
     "clone",
@@ -13,7 +14,8 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 and not present then
     install_path,
   })
 
-  if pcall(require, "packer") then
+  local present2, _ = pcall(require, "packer")
+  if present2 then
     print("Installed packer successfully!")
   else
     error("Something's gone wrong.")

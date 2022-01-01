@@ -1,4 +1,8 @@
-local nvimtree = require("nvim-tree")
+local present, nvimtree = pcall(require, "nvim-tree")
+if not present then
+  print("nvimtree could not load")
+  return
+end
 local tree_cb = require("nvim-tree.config").nvim_tree_callback
 
 vim.g.nvim_tree_indent_markers = 1

@@ -15,13 +15,13 @@ M.misc = function()
 
   local function required_maps()
     -- Add Packer commands because we are not loading it at startup
-    vim.cmd "silent! command PackerClean lua require 'pack' require('packer').clean()"
-    vim.cmd "silent! command PackerCompile lua require 'pack' require('packer').compile()"
-    vim.cmd "silent! command PackerInstall lua require 'pack' require('packer').install()"
-    vim.cmd "silent! command PackerStatus lua require 'pack' require('packer').status()"
-    vim.cmd "silent! command PackerSync lua require 'pack' require('packer').sync()"
-    vim.cmd "silent! command PackerUpdate lua require 'pack' require('packer').update()"
-    vim.cmd "silent! command PackerProfile lua require 'pack' require('packer').output_profile()"
+    vim.cmd("silent! command PackerClean lua require 'pack' require('packer').clean()")
+    vim.cmd("silent! command PackerCompile lua require 'pack' require('packer').compile()")
+    vim.cmd("silent! command PackerInstall lua require 'pack' require('packer').install()")
+    vim.cmd("silent! command PackerStatus lua require 'pack' require('packer').status()")
+    vim.cmd("silent! command PackerSync lua require 'pack' require('packer').sync()")
+    vim.cmd("silent! command PackerUpdate lua require 'pack' require('packer').update()")
+    vim.cmd("silent! command PackerProfile lua require 'pack' require('packer').output_profile()")
   end
   foomaps()
   required_maps()
@@ -40,55 +40,27 @@ M.lsp = function()
   map("n", "gk", "<cmd>lua vim.diagnostic.goto_next()<cr>")
 end
 
-M.zen = function ()
-  map(
-    "n",
-    "<leader>Za",
-    "<cmd>TZAtaraxis<cr>"
-  )
-  map(
-    "n",
-    "<leader>Zm",
-    "<cmd>TZMinimalist<cr>"
-  )
+M.zen = function()
+  map("n", "<leader>Za", "<cmd>TZAtaraxis<cr>")
+  map("n", "<leader>Zm", "<cmd>TZMinimalist<cr>")
   map("n", "<leader>Zf", "<cmd>TZFocus<cr>")
 end
-
 
 M.mundo = function()
   map("n", "<leader>u", "<cmd>MundoToggle<cr>", { noremap = true })
 end
 
-M.telescope = function ()
-  map(
-    "n",
-    "<leader>s",
-    "<cmd>Telescope find_files<cr>",
-    { noremap = true })
-  map(
-    "n",
-    "<leader>th",
-    "<cmd>Telescope oldfiles<cr>",
-    { noremap = true }
-    )
+M.telescope = function()
+  map("n", "<leader>s", "<cmd>Telescope find_files<cr>", { noremap = true })
+  map("n", "<leader>th", "<cmd>Telescope oldfiles<cr>", { noremap = true })
 end
 
-M.term = function ()
-  map(
-    "n",
-    "<leader>Tc",
-    "<cmd>lua _Term_cargo_run_toggle()<cr>",
-    { noremap = true }
-  )
-  map(
-    "n",
-    "<leader>G",
-    "<cmd>lua _Term_lazygit()<cr>",
-    { noremap = true }
-  )
+M.term = function()
+  map("n", "<leader>Tc", "<cmd>lua _Term_cargo_run_toggle()<cr>", { noremap = true })
+  map("n", "<leader>G", "<cmd>lua _Term_lazygit()<cr>", { noremap = true })
 end
 
-M.bufferline = function ()
+M.bufferline = function()
   map("n", "<leader>bl", "<cmd>BufferLineCycleNext<cr>")
   map("n", "<leader>bh", "<cmd>BufferLineCyclePrev<cr>")
   map("n", "<leader>bp", "<cmd>BufferLinePick<cr>")

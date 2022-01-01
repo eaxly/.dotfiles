@@ -1,6 +1,10 @@
 local c = require("theme.config.colors")
-
-require("bufferline").setup({
+local present, bufferline = pcall(require, "bufferline")
+if not present then
+  print("bufferline not present")
+  return
+end
+bufferline.setup({
   options = {
     numbers = "none",
     close_command = "Bdelete %d",
@@ -32,6 +36,6 @@ require("bufferline").setup({
   highlights = {
     fill = {
       guibg = c.bg,
-    }
+    },
   },
 })
