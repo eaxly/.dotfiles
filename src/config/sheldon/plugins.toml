@@ -57,3 +57,6 @@ apply = ["defer"]
 
 [plugins.rust-completions]
 github = "ryutok/rust-zsh-completions"
+
+[plugins."z.lua"]
+github = "skywind3000/z.lua"
