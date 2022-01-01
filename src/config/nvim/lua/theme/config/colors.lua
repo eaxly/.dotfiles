@@ -1,10 +1,15 @@
-local theme = require("theme.themes.__[nvim_color_name]__")
+local theme_name = "__[nvim_color_name]__"
+local present, theme = pcall(require, "theme.themes." .. theme_name)
+if not present then
+  print("Could not load" .. theme_name)
+  return false
+end
 
 local base16 = {
   base00 = theme.bg,
   base01 = theme.bg,
   base02 = theme.bg_dark,
-  base03 = theme.gray,
+  base03 = theme.black_br,
 
   base04 = theme.fg_alt,
   base05 = theme.fg,

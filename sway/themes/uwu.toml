@@ -1,11 +1,12 @@
 ## colors
 # grounds
 fg                  = "c5c8c9"
-fg_alt              = "bbbebf"
-fg_alter            = "cdd0d1"
+fg_alt              = "bdc0c1"
+fg_alter            = "b5b8b9"
+fg_light            = "cdd0d1"
 bg                  = "131a1c"
 bg_alt              = "1a2123"
-bg_alter            = "0f1618"
+bg_alter            = "21282a"
 bg_dark             = "0c1315"
 # selection              
 slt_fg              = "%bg"

@@ -9,7 +9,7 @@ local fg_bg = require("core.utils").fg_bg
 vim.cmd("hi clear CursorLine")
 
 -- comments
-fg("Comment", c.gray .. " gui=italic")
+fg("Comment", c.black_br .. " gui=italic")
 
 -- eof
 fg("EndOfBuffer", c.bg)
@@ -55,3 +55,10 @@ fg("NvimTreeGitMerge", c.yellow_br)
 fg("NvimTreeGitRenamed", c.blue_br)
 fg("NvimTreeGitNew", c.green_br)
 fg("NvimTreeGitDeleted", c.red_br)
+
+-- Alpha
+fg("AlphaHeader", c.black_br)
+fg("AlphaSubheader", c.black_br)
+fg("AlphaButtonShortcut", c.black_br)
+fg("AlphaButton", c.black_br)
+fg("AlphaFooter", c.black_br)

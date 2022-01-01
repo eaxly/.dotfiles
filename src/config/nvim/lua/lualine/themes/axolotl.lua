@@ -31,8 +31,8 @@ return {
     c = {bg = c.bg, fg = c.fg_alter}
   },
   inactive = {
-    a = {bg = c.darkgray, fg = c.gray, gui = 'bold'},
-    b = {bg = c.darkgray, fg = c.gray},
-    c = {bg = c.darkgray, fg = c.gray}
+    a = {bg = c.bg, fg = c.black_br, gui = 'bold'},
+    b = {bg = c.bg, fg = c.black_br},
+    c = {bg = c.bg, fg = c.black_br}
   }
 }

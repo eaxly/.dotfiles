@@ -1,5 +1,8 @@
-local if_nil = vim.F.if_nil
-local alpha = require("alpha")
+local present, alpha = pcall(require, "alpha")
+if not present then
+  return
+end
+
 local home = os.getenv("HOME")
 local utils = require("core.utils")
 
@@ -20,7 +23,7 @@ local date_header = {
   val = date_head(),
   opts = {
     position = "center",
-    hl = "Function",
+    hl = "AlphaSubheader",
   },
 }
 
@@ -29,7 +32,7 @@ local header = {
   val = require("configs.dashboardHeaders"),
   opts = {
     position = "center",
-    hl = "Type",
+    hl = "AlphaHeader",
     -- wrap = "overflow";
   },
 }
@@ -39,7 +42,7 @@ local footer = {
   val = require("core.utils").fortune(),
   opts = {
     position = "center",
-    hl = "Number",
+    hl = "AlphaFooter",
   },
 }
 
@@ -52,10 +55,11 @@ local function button(sc, txt, keybind, keybind_opts)
     cursor = 5,
     width = 50,
     align_shortcut = "right",
-    hl_shortcut = "Keyword",
+    hl_shortcut = "AlphaButtonShortcut",
+    hl = "AlphaButton",
   }
   if keybind then
-    keybind_opts = if_nil(keybind_opts, { noremap = true, silent = true, nowait = true })
+    keybind_opts = vim.F.if_nil(keybind_opts, { noremap = true, silent = true, nowait = true })
     opts.keymap = { "n", sc_, keybind, keybind_opts }
   end
 
