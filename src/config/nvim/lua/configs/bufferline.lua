@@ -1,12 +1,6 @@
-local c = require("colors.config.theme")
+local c = require("theme.config.colors")
 
 require("bufferline").setup({
-  highlights = {
-    fill = {
-      guifg = c.bg,
-      guibg = c.bg,
-    }
-  },
   options = {
     numbers = "none",
     close_command = "Bdelete %d",
@@ -33,5 +27,11 @@ require("bufferline").setup({
     enforce_regular_tabs = true,
     always_show_bufferline = true,
     sort_by = "directory",
+  },
+
+  highlights = {
+    fill = {
+      guibg = c.bg,
+    }
   },
 })
