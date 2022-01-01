@@ -14,6 +14,14 @@ return packer.startup(function()
     event = "VimEnter",
   })
 
+  -- the colorscheme
+  use({
+    "RRethy/nvim-base16",
+    config = function ()
+      require("theme")
+    end
+  })
+
   -- LSP --
 
   -- nvim-lspconfig: why are you even asking?!
@@ -262,13 +270,6 @@ return packer.startup(function()
     end,
   })
 
-  -- the colorscheme
-  use({
-    "~/dev/frk/uwu.vim",
-    -- "~/dev/frk/neovim",
-    as = "__[nvim_color_name]__",
-  })
-
   -- bufferline: bufferline plugin with style
   use({
     "akinsho/bufferline.nvim",
@@ -278,7 +279,7 @@ return packer.startup(function()
     end,
     setup = function ()
       require("core.mappings").bufferline()
-    end
+    end,
   })
 
   -- bufdelete: delete buffers

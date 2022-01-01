@@ -15,8 +15,8 @@ links               = "%magenta"
 cursor              = "%green"
 cursor_text         = "%bg"
 # specifications         
-black               = "1b2224"
-black_br            = "232a2c"
+black               = "232a2c"
+black_br            = "2b3234"
 red                 = "f65b5b"
 red_br              = "c26f6f"
 green               = "6bb05d"
@@ -42,7 +42,7 @@ wall                = "~/.walls/pluswall/uwu.png"
 # nvim
 nvim_color_name     = "uwu"
 nvim_color_url      = "Mangeshrex/uwu.vim"
-nvim_statusline_name= "auto"
+nvim_statusline_name= "axolotl"
 nvim_color_style    = ""
 
 # applications
