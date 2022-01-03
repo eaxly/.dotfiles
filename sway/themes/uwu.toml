@@ -47,6 +47,6 @@ nvim_statusline_name= "axolotl"
 nvim_color_style    = ""
 
 # applications
-gtk_theme           = "rose-pine-gtk" # to be changed
+gtk_theme           = "eaxs_phocus" # to be changed
 cursor_theme        = "Bibata-Modern-Ice"
 icon_theme          = "Papirus"
