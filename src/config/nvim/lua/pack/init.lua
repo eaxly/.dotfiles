@@ -49,6 +49,11 @@ return packer.startup(function()
     end,
   })
 
+  use({
+    "nvim-telescope/telescope-fzf-native.nvim",
+    run = "make",
+  })
+
   -- cheatsheet: cheatsheet goodness
   use({
     "sudormrfbin/cheatsheet.nvim",
