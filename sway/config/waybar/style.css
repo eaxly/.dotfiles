@@ -28,7 +28,7 @@ window#waybar.hidden {
 }
 
 #workspaces button.focused {
-    color: #__[accent]__
+    color: #__[green]__
 }
 
 #workspaces button:hover {
@@ -70,7 +70,7 @@ window#waybar.hidden {
 }
 
 #clock {
-    color: #__[accent]__;
+    color: #__[green]__;
 }
 
 #battery {
@@ -103,11 +103,11 @@ window#waybar.hidden {
 }
 
 #cpu {
-    color: #__[yellow]__;
+    color: #__[green]__;
 }
 
 #pulseaudio {
-    color: #__[green]__;
+    color: #__[yellow]__;
 }
 
 #pulseaudio.muted {
@@ -131,12 +131,12 @@ window#waybar.hidden {
 
 
 #idle_inhibitor.activated {
-    color: #__[accent]__;
+    color: #__[red]__;
     padding: 0 10px;
 }
 
 #custom-github {
-    color: #__[white]__;
+    color: #__[yellow]__;
     padding: 5px 5px;
 }
 
