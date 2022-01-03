@@ -58,7 +58,22 @@ fg("NvimTreeGitDeleted", c.red_br)
 
 -- Alpha
 fg("AlphaHeader", c.black_br)
-fg("AlphaSubheader", c.black_br)
-fg("AlphaButtonShortcut", c.black_br)
+fg("AlphaSubheader", c.black)
 fg("AlphaButton", c.black_br)
+fg("AlphaButtonShortcut", c.black_br)
 fg("AlphaFooter", c.black_br)
+
+-- Telescope
+fg_bg("TelescopeBorder", c.bg_dark, c.bg_dark)
+fg_bg("TelescopePromptBorder", c.black_br, c.black_br)
+
+fg_bg("TelescopePromptNormal", c.white, c.black_br)
+fg_bg("TelescopePromptPrefix", c.red, c.black_br)
+
+bg("TelescopeNormal", c.bg_dark)
+
+fg_bg("TelescopePreviewTitle", c.bg_dark, c.green)
+fg_bg("TelescopeResultsTitle", c.bg_dark, c.yellow)
+fg_bg("TelescopePromptTitle", c.bg_dark, c.red)
+
+fg("TelescopeSelection", c.cyan)
