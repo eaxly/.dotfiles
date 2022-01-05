@@ -180,11 +180,12 @@ export MANPAGER="nvim -c MANPAGER -"
 if command -v fd &> /dev/null; then
     export FZF_DEFAULT_COMMAND="fd --hidden"
 else
-    echo Install fd for better and faster search
+    echo "Install fd for better and faster search"
     export FZF_DEFAULT_COMMAND="find ."
 fi
 export FZF_DEFAULT_OPTS="--preview 'bat --color=always --number {} '"
-# export TERMINAL=kitty
+
+export YTFZF_EXTMENU=" fuzzel.sh -d --width=200"
 # }}}
 
 # Aliases {{{
