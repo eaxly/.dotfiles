@@ -1,9 +1,9 @@
 add_newline = false
 
 [character]
-success_symbol = "[λ](bold green)"
-error_symbol = "[λ](bold italic red)"
-vicmd_symbol = "[Λ](bold magenta)"
+success_symbol = "[ͷ](bold green)"
+error_symbol = "[ͷ](bold italic red)"
+vicmd_symbol = "[Ͷ](bold purple)"
 
 [line_break]
 disabled = true

@@ -9,7 +9,7 @@ gaps top 25
 gaps bottom 20
 
 # Font
-font pango:Iosevka 9
+font pango:Typecast 9
 # variables
 set $TERMINAL kitty
 ## Theme

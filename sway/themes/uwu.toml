@@ -34,8 +34,8 @@ white               = "c4c4c4"
 white_br            = "cecece"
 
 # accents and others
-accent              = "%green_br"
-accent_alt          = "%green"
+accent              = "%yellow"
+accent_alt          = "%yellow_br"
 
 ## specifics
 wall                = "~/.walls/pluswall/uwu.png"
@@ -47,6 +47,6 @@ nvim_statusline_name= "axolotl"
 nvim_color_style    = ""
 
 # applications
-gtk_theme           = "eaxs_phocus" # to be changed
+gtk_theme           = "extinct" # to be changed
 cursor_theme        = "Bibata-Modern-Ice"
 icon_theme          = "Papirus"

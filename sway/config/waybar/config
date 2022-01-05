@@ -6,7 +6,7 @@
     "spacing": 10, // Gaps between modules (in pixels, px)
 
     // Choose the order of the modules
-    "modules-left": [ "sway/workspaces", "sway/mode", "custom/media" ],
+    "modules-left": [ "custom/pacman", "sway/workspaces", "sway/mode", "custom/media" ],
     "modules-center": [ "custom/scratchpad" , "clock", "custom/github" ],
     "modules-right": ["idle_inhibitor", "pulseaudio", "cpu", "memory", "battery", "tray"],
     /* Modules configuration */
@@ -81,7 +81,7 @@
             "phone": "",
             "portable": "",
             "car": "",
-            "default": ["", "", ""]
+            "default": ["奄", "奔", "墳"]
         },
         "on-click": "pavucontrol"
     },
@@ -109,5 +109,10 @@
         "format": "{} ",
         "on-click": "swaymsg 'scratchpad show'",
         "on-click-right": "swaymsg 'move scratchpad'"
-    }
+    },
+    "custom/pacman": {
+        //  
+        "format": "<span foreground='#__[bg_dark]__'></span><span background='#__[bg_dark]__' foreground='#__[red]__' >  </span><span foreground='#__[bg_dark]__'></span>",
+        "on-click": "if $(eww windows | grep '*'); then eww close example; else; eww open example; fi"
+    },
 }

@@ -21,6 +21,7 @@ set $cursor_size 24
 
 # Applying cursor theme settings
 seat seat0 xcursor_theme $cursor_theme $cursor_size
+seat * hide_cursor 15000
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -117,9 +118,9 @@ input type:keyboard xkb_layout "de"
 # #
 # # Mediakeys
 # #
-    # bindsym xF86XK_AudioPlay exec "playerctl play-pause"
-    # bindsym xF86XK_AudioPrev exec "playerctl previous"
-    # bindsym xF86XK_AudioNext exec "playerctl next"
+    bindsym Shift+f3 exec "playerctl play-pause"
+    bindsym Shift+f2 exec "playerctl previous"
+    bindsym Shift+f4 exec "playerctl next"
     # bindsym xF86XK_AudioRaiseVolume exec "pactl set-sink-volume 0 +5%"
     # bindsym xF86XK_AudioLowerVolume exec "pactl set-sink-volume 0 -5%"
     # bindsym xF86XK_AudioMute exec "pactl set-sink-mute 0 toggle"

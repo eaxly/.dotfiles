@@ -21,7 +21,7 @@ M.misc = function()
     vim.cmd("silent! command PackerStatus lua require 'pack' require('packer').status()")
     vim.cmd("silent! command PackerSync lua require 'pack' require('packer').sync()")
     vim.cmd("silent! command PackerUpdate lua require 'pack' require('packer').update()")
-    vim.cmd("silent! command PackerProfile lua require 'pack' require('packer').output_profile()")
+    -- vim.cmd("silent! command PackerProfile lua require 'pack' require('packer').output_profile()")
   end
   foomaps()
   required_maps()
@@ -47,17 +47,18 @@ M.zen = function()
 end
 
 M.mundo = function()
-  map("n", "<leader>u", "<cmd>MundoToggle<cr>", { noremap = true })
+  map("n", "<leader>u", "<cmd>MundoToggle<cr>")
 end
 
 M.telescope = function()
-  map("n", "<leader>s", "<cmd>Telescope find_files<cr>", { noremap = true })
-  map("n", "<leader>th", "<cmd>Telescope oldfiles<cr>", { noremap = true })
+  map("n", "<leader>s", "<cmd>Telescope find_files<cr>")
+  map("n", "<leader>th", "<cmd>Telescope oldfiles<cr>")
+  map("n", "<leader>tg", "<cmd>Telescope grep_string<cr>")
 end
 
 M.term = function()
-  map("n", "<leader>Tc", "<cmd>lua _Term_cargo_run_toggle()<cr>", { noremap = true })
-  map("n", "<leader>G", "<cmd>lua _Term_lazygit()<cr>", { noremap = true })
+  map("n", "<leader>Tc", "<cmd>lua _Term_cargo_run_toggle()<cr>")
+  map("n", "<leader>G", "<cmd>lua _Term_lazygit()<cr>")
 end
 
 M.bufferline = function()

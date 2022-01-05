@@ -2,9 +2,14 @@
     border: none;
     border-radius: 0;
     font-family: "Iosevka Nerd Font";
-    font-size: 13px;
+    font-size: 12px;
     min-height: 0;
     padding: 0 5px;
+}
+
+tooltip {
+    background-color: #__[bg_dark]__;
+    color: #__[fg]__;
 }
 
 window#waybar {
@@ -34,6 +39,7 @@ window#waybar.hidden {
 #workspaces button:hover {
     box-shadow: none;
     text-shadow: none;
+    background-color: #__[bg]__;
 }
 
 #workspaces button:active {
@@ -136,10 +142,13 @@ window#waybar.hidden {
 }
 
 #custom-github {
-    color: #__[yellow]__;
+    color: #__[green]__;
     padding: 5px 5px;
 }
 
 #custom-scratchpad {
+    color: #__[red]__;
+}
+#custom-pacman {
     color: #__[red]__;
 }

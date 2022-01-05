@@ -319,7 +319,7 @@ return packer.startup(function()
     config = function()
       require("configs.others").colorizer()
     end,
-    event = "BufRead",
+    event = "BufReadPre",
   })
 
   -- editorconfig: self explains itself don't you think?

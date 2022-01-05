@@ -34,8 +34,8 @@ on-touch=dismiss
 font=Iosevka Nerd Font 10
 background-color=#__[bg_alt]__
 text-color=#__[fg]__
-width=250
-height=80
+width=450
+height=200
 border-color=#__[bg_alter]__
 border-size=__[border_size]__
 border-radius=0
@@ -55,7 +55,7 @@ ignore-timeout=1
 group-by=none
 max-visible=5
 layer=top
-#TODO: test overlay
+anchor=bottom-right
 
 [grouped=true]
 format=(%g) <i>%a</i>\n<b>%s</b>\n%b

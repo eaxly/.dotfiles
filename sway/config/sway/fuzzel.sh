@@ -4,11 +4,11 @@ if ! command -v fuzzel &> /dev/null; then
     exit
 fi
 fuzzel \
-                --font="Iosevka Nerd Font:size=15.00" \
+                --font="Iosevka Nerd Font:size=12.00" \
                 --icon-theme="Papirus"\
                 -l 20\
                 -w 50\
-                --prompt="λ "\
+                --prompt="ͷ "\
                 --background="__[bg]__ff"\
                 --text-color="__[fg]__ff"\
                 --match-color="__[accent]__ff"\

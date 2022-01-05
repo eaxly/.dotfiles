@@ -34,6 +34,7 @@ fi
 if [ ! $(echo $PATH | grep "$HOME/.dotfiles/bin/bin") ] && [ -d ~/.dotfiles/bin/bin ] ; then
   export PATH=$PATH:~/.dotfiles/bin/bin
 fi
+export npm_config_prefix="$HOME/.local"
 # }}}
 
 # Initializations {{{
