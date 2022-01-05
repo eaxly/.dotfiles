@@ -68,6 +68,7 @@ lsp.bashls.setup({
 })
 lsp.cssls.setup({
   capabilities = capabilities,
+  autostart = false,
 })
 lsp.tsserver.setup({
   capabilities = capabilities,
