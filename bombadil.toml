@@ -14,27 +14,21 @@ posthooks = ["nvim --headless +PackerCompile +sleep1 +qall"]
 # and `target` shall be relative to $HOME directory or absolute.
 
 # === CONFIG ===
-# nvim
 nvim = { source = "src/config/nvim", target = ".config/nvim", vars = "src/config/nvim/vars.toml" }
-# sheldon
 sheldon = { source = "src/config/sheldon", target = ".config/sheldon" }
-# starship
 starship = { source = "src/config/starship.toml", target = ".config/starship.toml" }
-# neofetch 
 neofetch = { source = "src/config/neofetch/", target = ".config/neofetch" }
-# kitty
 kitty = { source = "src/config/kitty/", target = ".config/kitty" }
+
 # === HOME ===
-# spacevim
 spacevim = { source = "src/home/SpaceVim/init.toml", target = ".SpaceVim.d/init.toml" }
-# bash
 bash = { source = "src/home/bashrc", target = ".bashrc" }
-# taskrc
 task = { source = "src/home/taskrc", target = ".taskrc" }
-# zshrc
 zsh = { source = "src/home/zshrc", target = ".zshrc"}
-# git
 git = { source = "src/home/gitconfig", target = ".gitconfig"}
+
+# === PATH ===
+fuzzel = { source = "bin/bin/fuzzel.sh", target = ".local/bin/fuzzel.sh"}
 # === IMPORTS ===
 [[import]]
 path = "tokyonight/tokyonight.toml"

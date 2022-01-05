@@ -26,7 +26,7 @@ function get_options() {
 function main() {
     local options=$(get_options)
 
-    local option=$( echo "${options}" | ~/.config/sway/fuzzel.sh --dmenu --prompt="Power: ")
+    local option=$( echo "${options}" | ~/.local/bin/fuzzel.sh --dmenu --prompt="Power: ")
     case $option in
         " Lock")
             swaylock
