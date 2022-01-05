@@ -1,9 +1,19 @@
 add_newline = false
 
+right_format = """
+$status\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$hg_branch\
+"""
+
 [character]
-success_symbol = "[ͷ](bold green)"
-error_symbol = "[ͷ](bold italic red)"
-vicmd_symbol = "[Ͷ](bold purple)"
+success_symbol = '[ͷ](bold dimmed green)'
+error_symbol = '[ͷ](bold italic red)'
+vicmd_symbol = '[Ͷ](bold purple)'
 
 [line_break]
 disabled = true
@@ -13,3 +23,20 @@ number_threshold=3
 
 [cmd_duration]
 min_time = 50
+
+[hostname]
+ssh_only = false
+format = '[@](bold dimmed yellow)[$hostname]($style)[\]](bold black) '
+style = 'bold yellow'
+
+[username]
+show_always = true
+format = '[\[](bold black)[$user]($style)'
+style_user = 'bold red'
+style_root = 'bold dimmed red'
+disabled = false
+
+[status]
+format = "[↵ $status]($style)"
+style = "bright-black"
+disabled = false
