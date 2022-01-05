@@ -1,0 +1,107 @@
+/* This Config is based on https://github.com/undiabler/nord-rofi-theme/blob/master/nord.rasi, shoutout's to undiabler! */
+* {
+    bg: #__[bg]__;
+    bg-alt: #__[bg_alt]__;
+
+	fg: #__[fg]__;
+	fg-alt: #__[fg_alt]__;
+
+	red: #__[red]__;
+
+	yellow: #__[yellow]__;
+	green: #__[green]__;
+	magenta: #__[magenta]__;
+
+    foreground:  @fg;
+    background-color: @bg;
+}
+
+window {
+    location: center;
+    anchor:   center;
+    padding: 10px;
+    border:  2px;
+    border-color: @green;
+
+    background-color: @bg;
+    spacing: 0;
+    children:  [mainbox];
+    orientation: horizontal;
+}
+
+mainbox {
+    spacing: 0;
+    children: [ inputbar, message, listview ];
+}
+
+message {
+    color: @bg;
+    padding: 5;
+    border-color: @bg-alt;
+    border:  2px;
+    background-color: @bg;
+}
+
+inputbar {
+    color: @fg;
+    padding: 11px;
+    background-color: @bg;
+
+    border: 2px;
+    border-color: @bg-alt;
+}
+
+entry, prompt, case-indicator {
+    background-color: @bg;
+    foreground: @fg;
+    text-font: inherit;
+    text-color:inherit;
+}
+
+prompt {
+    background-color: @bg;
+}
+
+listview {
+    padding: 8px;
+    border-color: @bg;
+    border: 2px;
+    background-color: @bg-alt;
+    dynamic: false;
+}
+
+element {
+    padding: 3px;
+    vertical-align: 0.5;
+    background-color: @bg;
+    color: @fg;
+    text-color: @fg;
+}
+
+element selected.normal {
+	background-color: @bg-alt;
+	text-color: @yellow;
+}
+
+element-text, element-icon {
+    background-color: inherit;
+    text-color:       inherit;
+}
+
+button {
+    padding: 6px;
+    color: @foreground;
+    background-color: @bg;
+    horizontal-align: 0.5;
+
+    border: 2px;
+    border-color: @yellow;
+}
+
+button selected normal {
+    border: 2px;
+    border-color: @yellow;
+    background-color: @bg-alt;
+}
+
+/* vim:ft=css

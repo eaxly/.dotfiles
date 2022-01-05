@@ -14,6 +14,7 @@ mako = { source = "sway/config/mako", target = ".config/mako" }
 oguri = { source = "sway/config/oguri", target = ".config/oguri" }
 nvim = { vars = "sway/themes/uwu.toml"}
 gtk = { source = "sway/config/gtk-3.0/settings.ini", target = ".config/gtk-3.0/settings.ini" }
+rofi = { source = "sway/config/rofi", target = ".config/rofi" }
 
 ##home
 zshenv = { source = "sway/home/zshenv", target = ".zshenv" }
