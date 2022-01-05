@@ -15,6 +15,7 @@ set $up k
 set $right l
 # Your preferred terminal emulator
 set $term kitty
+set $ytwatch "ytfzf -D -f"
 # cursor theme settings
 set $cursor_theme __[cursor_theme]__
 set $cursor_size 24
@@ -25,7 +26,7 @@ seat * hide_cursor 15000
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu ~/.config/sway/fuzzel.sh | xargs swaymsg exec --
+set $menu ~/.local/bin/fuzzel.sh | xargs swaymsg exec --
 
 default_border pixel __[border_size]__
 default_floating_border pixel __[border_size]__
@@ -116,17 +117,12 @@ input type:keyboard xkb_layout "de"
     # emojis
     bindsym $mod+Control+e exec emote
 # #
-# # Mediakeys
+# # Media stuff
 # #
     bindsym Shift+f3 exec "playerctl play-pause"
     bindsym Shift+f2 exec "playerctl previous"
     bindsym Shift+f4 exec "playerctl next"
-    # bindsym xF86XK_AudioRaiseVolume exec "pactl set-sink-volume 0 +5%"
-    # bindsym xF86XK_AudioLowerVolume exec "pactl set-sink-volume 0 -5%"
-    # bindsym xF86XK_AudioMute exec "pactl set-sink-mute 0 toggle"
-    #
-    # bindsym xF86XK_MonBrightnessUp exec "brightnessctl s +10%"
-    # bindsym xF86XK_MonBrightnessDown exec "brightnessctl s +10%"
+    bindsym Shift+f12 exec $ytwatch
 #
 # Screenshots:
 #

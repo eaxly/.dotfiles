@@ -41,7 +41,7 @@ fi
 # pkgs to be installed with pacman
 pkgs="sway kanshi swayidle grim slurp jq wl-clipboard waybar mako discord playerctl python-gobject neovim neofetch kitty starship zsh task sddm ripgrep imagemagick git-lfs strace"
 # pkgs in the chaotic aur
-chaotic_pkgs="neovide-git swaylock-effects bibata-cursor-theme popsicle-git"
+chaotic_pkgs="neovide-git swaylock-effects bibata-cursor-theme popsicle-git vimv-git"
 # pkgs in the aur
 aur_pkgs="bombadil-bin paruz fuzzel oguri-git activitywatch-bin betterdiscord-installer-bin sheldon-bin sddm-sugar-candy-git funny-manpages farge-git"
 

@@ -111,7 +111,6 @@
         "on-click-right": "swaymsg 'move scratchpad'"
     },
     "custom/pacman": {
-        //  
         "format": "<span foreground='#__[bg_dark]__'></span><span background='#__[bg_dark]__' foreground='#__[red]__' >  </span><span foreground='#__[bg_dark]__'></span>",
         "on-click": "if $(eww windows | grep '*'); then eww close example; else; eww open example; fi"
     },
