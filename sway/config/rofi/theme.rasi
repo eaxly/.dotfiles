@@ -104,4 +104,8 @@ button selected normal {
     background-color: @bg-alt;
 }
 
+textbox {
+    background-color: @bg-alt;
+    text-color: @fg;
+}
 /* vim:ft=css

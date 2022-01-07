@@ -6,7 +6,5 @@
     created: 2021-12-10
     version: 0.1
 @end
-* Global todo's
-
-* Sway
-  - [ ] make neorg faster
+* todo
+  - [ ] Remove `tokyonight/` onto separate branch

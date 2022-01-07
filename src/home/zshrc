@@ -18,6 +18,7 @@ fpath+=$HOME/.zfunc
 zstyle :compinstall filename '/home/axolotl/.zshrc'
 autoload -Uz compinit && compinit
 autoload -U promptinit && promptinit
+autoload -U bashcompinit && bashcompinit
 # }}}
 
 # $PATH {{{
@@ -163,6 +164,10 @@ rose-rain() {
 love-rain() {
     rusty-rain -H 235,112,145 -C 48,115,143 $@
 }
+
+# fzf
+fcd() {
+    cd $(fd --hidden --type=d | fzf)}
 # }}}
 
 # Variables {{{
@@ -185,7 +190,7 @@ else
 fi
 export FZF_DEFAULT_OPTS="--preview 'bat --color=always --number {} '"
 
-export YTFZF_EXTMENU=" fuzzel.sh -d --width=200"
+export YTFZF_EXTMENU=" rofi -show drun -dmenu --width=1500"
 # }}}
 
 # Aliases {{{

@@ -13,9 +13,12 @@ set $left h
 set $down j
 set $up k
 set $right l
-# Your preferred terminal emulator
+# stuff
 set $term kitty
-set $ytwatch "ytfzf -D -f"
+set $ytwatch "~/.dotfiles/bin/bin/yt.sh"
+# wob
+set $WOBSOCK /run/user/1000/wob.sock
+exec mkfifo $WOBSOCK && tail -f $WOBSOCK | wob --border-color "#__[bg_alt]__ff" --background-color "#__[bg]__ff" --bar-color "#__[fg]__ff" --overflow-border-color "#__[red]__ff" --overflow-bar-color "#__[red]__ff" --anchor "bottom" --anchor "right"
 # cursor theme settings
 set $cursor_theme __[cursor_theme]__
 set $cursor_size 24
@@ -26,7 +29,7 @@ seat * hide_cursor 15000
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu ~/.local/bin/fuzzel.sh | xargs swaymsg exec --
+set $menu rofi -show drun | xargs swaymsg exec --
 
 default_border pixel __[border_size]__
 default_floating_border pixel __[border_size]__
@@ -103,14 +106,11 @@ input type:keyboard xkb_layout "de"
     floating_modifier $mod normal
 
     # Reload the configuration file
-    bindsym $mod+Shift+c reload
+    bindsym $mod+Shift+r reload
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 
-    # fullscreen
-    bindsym $mod+m fullscreen
-    
     # yeet
     bindsym $mod+x exec "~/.dotfiles/bin/sway/yeet.sh"
 
@@ -122,16 +122,24 @@ input type:keyboard xkb_layout "de"
     bindsym Shift+f3 exec "playerctl play-pause"
     bindsym Shift+f2 exec "playerctl previous"
     bindsym Shift+f4 exec "playerctl next"
-    bindsym Shift+f12 exec $ytwatch
+    bindsym Shift+f12 exec "$ytwatch"
+
+    bindsym XF86AudioRaiseVolume exec pamixer -ui 2 && pamixer --get-volume > $WOBSOCK
+    bindsym XF86AudioLowerVolume exec pamixer -ud 2 && pamixer --get-volume > $WOBSOCK
+    bindsym XF86AudioMute exec pamixer --toggle-mute && ( pamixer --get-mute && echo 0 > $WOBSOCK ) || pamixer --get-volume > $WOBSOCK
+
+    bindsym $mod+shift+x exec pamixer -ui 2 && pamixer --get-volume > $WOBSOCK
+    bindsym $mod+shift+y exec pamixer -ud 2 && pamixer --get-volume > $WOBSOCK
+    bindsym $mod+shift+c exec pamixer --toggle-mute && ( pamixer --get-mute && echo 0 > $WOBSOCK ) || pamixer --get-volume > $WOBSOCK
 #
 # Screenshots:
 #
     # shot
-    bindsym Print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') $HOME/Pictures/Screenshots/$(date +'%Y-%m-%d_%X_grim.png')
+    bindsym Print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') $(xdg-user-dir PICTURES)/Screenshots/$(date +'%Y-%m-%d_%X_grim.png')
     # copy shot
     bindsym Print+Shift exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') - | wl-copy -t image/png
     # selection shot
-    bindsym Print+Control exec grim -g "$(slurp)" $HOME/Pictures/Screenshots/$(date +'%Y-%m-%d_%X_grim.png')
+    bindsym Print+Control exec grim -g "$(slurp)" $(xdg-user-dir PICTURES)/Screenshots/$(date +'%Y-%m-%d_%X_grim.png')
     # selection copy shot
     bindsym Control+Shift+Print exec grim -g "$(slurp)" - | wl-copy -t image/png
 #

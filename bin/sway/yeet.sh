@@ -13,7 +13,6 @@
 #
 # YEETSCRIPTION: yeet yourself outta that session** 
 # YAUTHER: @ExtinctAxolotl
-# YOTICE: designed with fuzzel dmenu mode in mind
 
 function get_options() {
     echo " Lock"
@@ -26,7 +25,7 @@ function get_options() {
 function main() {
     local options=$(get_options)
 
-    local option=$( echo "${options}" | ~/.local/bin/fuzzel.sh --dmenu --prompt="Power: ")
+    local option=$( echo "${options}" | rofi -dmenu -i -p "Power: ")
     case $option in
         " Lock")
             swaylock
