@@ -1,4 +1,4 @@
-exec "$HOME/.dotfiles/bin/sway/nou.sh"
+# exec "$HOME/.dotfiles/bin/sway/nou.sh"
 # Default config for sway
 #
 # Copy this to ~/.config/sway/config and edit it to your liking.
@@ -6,10 +6,8 @@ exec "$HOME/.dotfiles/bin/sway/nou.sh"
 # Read `man 5 sway` for a complete reference.
 
 ### Variables
-#
-# Logo key. Use Mod1 for Alt.
 set $mod Mod4
-# Home row direction keys, like vim
+
 set $left h
 set $down j
 set $up k
@@ -115,7 +113,7 @@ input type:keyboard xkb_layout "de"
     # yeet
     bindsym $mod+x exec "~/.dotfiles/bin/sway/yeet.sh"
 
-    # emojis
+# emojis
     bindsym $mod+Control+e exec emote
 # #
 # # Media stuff
@@ -123,15 +121,15 @@ input type:keyboard xkb_layout "de"
     bindsym Shift+f3 exec "playerctl play-pause"
     bindsym Shift+f2 exec "playerctl previous"
     bindsym Shift+f4 exec "playerctl next"
-    bindsym Shift+f12 exec "$ytwatch"
+    bindsym $mod+f12 exec "$ytwatch"
 
     bindsym XF86AudioRaiseVolume exec pamixer -ui 2 && pamixer --get-volume > $WOBSOCK
     bindsym XF86AudioLowerVolume exec pamixer -ud 2 && pamixer --get-volume > $WOBSOCK
     bindsym XF86AudioMute exec pamixer --toggle-mute && ( pamixer --get-mute && echo 0 > $WOBSOCK ) || pamixer --get-volume > $WOBSOCK
 
-    bindsym $mod+shift+x exec pamixer -ui 2 && pamixer --get-volume > $WOBSOCK
-    bindsym $mod+shift+y exec pamixer -ud 2 && pamixer --get-volume > $WOBSOCK
-    bindsym $mod+shift+c exec pamixer --toggle-mute && ( pamixer --get-mute && echo 0 > $WOBSOCK ) || pamixer --get-volume > $WOBSOCK
+    bindsym shift+f12 exec pamixer -ui 2 && pamixer --get-volume > $WOBSOCK
+    bindsym shift+f11 exec pamixer -ud 2 && pamixer --get-volume > $WOBSOCK
+    bindsym shift+f10 exec pamixer --toggle-mute && ( pamixer --get-mute && echo 0 > $WOBSOCK ) || pamixer --get-volume > $WOBSOCK
 #
 # Screenshots:
 #
@@ -281,6 +279,8 @@ assign [app_id="neovide"] → workspace number 3
 assign [class="Code"] → workspace number 3
 
 assign [class="discord"] → workspace number 4
+assign [class="Caprine"] → workspace number 4
+assign [class="Session"] → workspace number 4 # top messenger
 
 assign [class="Deezer"] → workspace number 5
 assign [class="lunarclient"] → workspace number 5

@@ -63,9 +63,6 @@ lsp.jsonls.setup({
 lsp.pyright.setup({
   capabilities = capabilities,
 })
-lsp.bashls.setup({
-  capabilities = capabilities,
-})
 lsp.cssls.setup({
   capabilities = capabilities,
   autostart = false,

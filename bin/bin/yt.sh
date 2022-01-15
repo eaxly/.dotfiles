@@ -59,14 +59,30 @@ online() {
     ytfzf -D
 }
 
+tv() {
+    directory="$(xdg-user-dir VIDEOS)/tv"
+    if $rofi; then
+        file=$(ls "$directory" | rofi -theme-str '#window {width: 80%;}' -dmenu -i -p 'Select Video: ')
+    elif $dmenu; then
+        file=$(ls "$directory" | dmenu -p "Select Video: ")
+    else
+        echo "Rofi or dmenu are not installed!"
+        exit 
+    fi
+
+    if [ $? -eq 0 ]; then
+        mpv "$directory/$file"
+    fi
+}
+
 if [ ! $directory = "" ]; then
     offline
 fi
 
 if $rofi; then
-    selection=$(echo -e "Online\nOffline" | rofi -dmenu -i -p "Select mode: ")
+    selection=$(echo -e "Online\nOffline\nTV" | rofi -dmenu -i -p "Select mode: ")
 elif $dmenu; then
-    selection=$(echo -e "Online\nOffline" | dmenu -i -p "Select mode: ")
+    selection=$(echo -e "Online\nOffline\nTV" | dmenu -i -p "Select mode: ")
 fi
 
 case $selection in
@@ -75,6 +91,9 @@ case $selection in
         ;;
     "Online")
         online
+        ;;
+    "TV")
+        tv
         ;;
     *)
         exit 1

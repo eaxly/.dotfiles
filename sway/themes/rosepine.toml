@@ -41,10 +41,8 @@ accent_alt          = "%cyan_br"
 wall                = "~/.walls/pluswall/rosepinebase.png"
 
 # nvim
-nvim_color_name     = "rose-pine"
-nvim_color_url      = "rose-pine/neovim"
-nvim_statusline_name= "%nvim_color_name"
-nvim_color_style    = "base"
+nvim_color_name     = "rosepine"
+nvim_statusline_name= "axolotl"
 
 # applications
 gtk_theme           = "rose-pine-gtk"
