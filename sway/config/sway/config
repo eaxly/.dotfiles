@@ -1,3 +1,4 @@
+exec "$HOME/.dotfiles/bin/sway/nou.sh"
 # Default config for sway
 #
 # Copy this to ~/.config/sway/config and edit it to your liking.
