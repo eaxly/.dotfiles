@@ -1,0 +1,25 @@
+@document.meta
+    title: notes
+    description: Notes for various UNIX/Linux commands.
+    authors: axolotl
+    categories: 
+    created: 2022-01-15
+    version: 0.0.9
+@end
+- du: estimate file size
+@code bash
+$ du -h notes.norg
+@end
+This will output the file size in human readable format.
+
+- shuf: generate random permutations
+@code bash
+$ echo -e "foo\nbar\nbaz" | shuf
+@end
+This will output the three words in a random order.
+
+- rename: rename files
+@code bash
+$ rename " " "_" *
+@end
+

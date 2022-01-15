@@ -1,2 +1,0 @@
-- du: estimate file size
-- shuf: generate random permutations
