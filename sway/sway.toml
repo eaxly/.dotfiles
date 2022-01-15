@@ -1,6 +1,6 @@
 # NOTICE: gtk-3.0 has only settings.ini linked, for 
 [profiles.sway]
-vars = ["sway/vars.toml", "sway/themes/rosepine.toml"]
+vars = ["sway/vars.toml", "sway/themes/uwu.toml"]
 posthooks = ["sway reload", "makoctl reload"]
 
 [profiles.sway.dots]
@@ -12,7 +12,7 @@ waybar = { source = "sway/config/waybar", target = ".config/waybar" }
 swaylock = { source = "sway/config/swaylock", target = ".config/swaylock" }
 mako = { source = "sway/config/mako", target = ".config/mako" }
 oguri = { source = "sway/config/oguri", target = ".config/oguri" }
-nvim = { vars = "sway/themes/rosepine.toml"}
+nvim = { vars = "sway/themes/uwu.toml"}
 gtk = { source = "sway/config/gtk-3.0/settings.ini", target = ".config/gtk-3.0/settings.ini" }
 rofi = { source = "sway/config/rofi", target = ".config/rofi" }
 
