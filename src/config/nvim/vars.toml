@@ -1,4 +1,2 @@
 nvim_color_name = "rose-pine"
-nvim_color_url = "rose-pine/neovim"
-nvim_statusline_name = "%nvim_color_name"
-nvim_color_style = "base"
+nvim_statusline_name = "axolotl"

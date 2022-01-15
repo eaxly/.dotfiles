@@ -37,6 +37,9 @@ style_root = 'bold dimmed red'
 disabled = false
 
 [status]
-format = "[↵ $status]($style)"
+format = "[↵ $status]($style) "
 style = "bright-black"
 disabled = false
+
+[git_branch]
+format = "[$symbol$branch]($style) "
