@@ -9,26 +9,16 @@ vars = []
 posthooks = ["nvim --headless +PackerCompile +sleep1 +qall"]
 
 [settings.dots]
-# REMINDER:
-# A dot entry representing a symlink, `source` is relative to `dotfiles_dir` 
-# and `target` shall be relative to $HOME directory or absolute.
-
 # === CONFIG ===
 nvim = { source = "src/config/nvim", target = ".config/nvim", vars = "src/config/nvim/vars.toml" }
 sheldon = { source = "src/config/sheldon", target = ".config/sheldon" }
 starship = { source = "src/config/starship.toml", target = ".config/starship.toml" }
 neofetch = { source = "src/config/neofetch/", target = ".config/neofetch" }
 kitty = { source = "src/config/kitty/", target = ".config/kitty" }
+bash = { source = "src/config/bash/bashrc", target = ".bashrc" }
+zsh = { source = "src/config/zsh/zshrc", target = ".zshrc" }
+git = { source = "src/config/git", target = ".config/git" }
 
-# === HOME ===
-spacevim = { source = "src/home/SpaceVim/init.toml", target = ".SpaceVim.d/init.toml" }
-bash = { source = "src/home/bashrc", target = ".bashrc" }
-task = { source = "src/home/taskrc", target = ".taskrc" }
-zsh = { source = "src/home/zshrc", target = ".zshrc"}
-git = { source = "src/home/gitconfig", target = ".gitconfig"}
-
-# === PATH ===
-fuzzel = { source = "bin/bin/fuzzel.sh", target = ".local/bin/fuzzel.sh"}
 # === IMPORTS ===
 [[import]]
 path = "tokyonight/tokyonight.toml"
