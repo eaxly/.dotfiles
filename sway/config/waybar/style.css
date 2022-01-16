@@ -24,6 +24,9 @@ window#waybar.hidden {
     opacity: 0.2;
 }
 
+#workspaces {
+    all: unset;
+}
 #workspaces button {
     color: #__[black_br]__;
 }

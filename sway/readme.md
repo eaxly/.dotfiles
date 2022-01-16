@@ -5,18 +5,13 @@
 </p>
 
 ## setup
-Run `setup.sh`.
+Run `install.sh`.
 When everything installed correctly, run:
 ```bash
 bombadil install $HOME/.dotfiles/bombadil.toml
 ```
 
-To link these dotfiles in dark mode, run:
+To link these dotfiles in, run:
 ```bash
-$ bombadil link -p sway_d
-```
-
-light mode would be:
-```bash
-$ bombadil link -p sway_l
+$ bombadil link -p sway
 ```

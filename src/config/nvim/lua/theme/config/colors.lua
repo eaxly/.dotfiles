@@ -18,13 +18,13 @@ local base16 = {
 
   base08 = theme.red,
   base09 = theme.yellow,
-  base0A = theme.blue,
+  base0A = theme.yellow,
   base0B = theme.green,
 
-  base0C = theme.yellow_br,
-  base0D = theme.cyan,
-  base0E = theme.yellow,
-  base0F = theme.red,
+  base0C = theme.cyan,
+  base0D = theme.blue,
+  base0E = theme.magenta,
+  base0F = theme.magenta_br,
 }
 
 require("base16-colorscheme").setup(base16)

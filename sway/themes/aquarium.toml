@@ -45,6 +45,6 @@ nvim_color_name     = "aquarium"
 nvim_statusline_name= "axolotl"
 
 # applications           
-gtk_theme           = ""
+gtk_theme           = "aquarium"
 cursor_theme        = "Bibata-Modern-Ice"
 icon_theme          = "Papirus"
