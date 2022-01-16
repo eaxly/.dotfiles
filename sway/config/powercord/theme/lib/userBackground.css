@@ -1,0 +1,21 @@
+.cozy-3raOZG .headerText-3Uvj1Y > span::before {
+  content: ''; 
+  width: calc(100% + 7px); 
+  height: 100%;
+  border-radius: 5px;
+  background-color: currentColor; 
+  opacity: 0.3; 
+  position: absolute; 
+  top: 0; 
+  z-index: -1;
+  /* repairs left shift*/
+  left: -3px;
+}
+.cozy-3raOZG .headerText-3Uvj1Y > span::after {
+  content: ":";
+}
+/* repairs left shift */
+.cozy-3raOZG .headerText-3Uvj1Y > span {
+  margin-left: 3px;
+}
+

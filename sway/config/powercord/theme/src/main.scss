@@ -1,0 +1,52 @@
+@forward "../lib/bubbleRoles.css";
+@forward "../lib/spinningIcons.css";
+@forward "../lib/compactStatus.css";
+// @forward "../lib/userBackground.css";
+
+:root {
+    /** Number of role columns */
+    --roleslist-columns: 1;
+}
+.theme-dark {
+    --background-primary: #__[bg]__;
+    --background-secondary: #__[bg_alt]__;
+    --background-tertiary: #__[bg_alter]__;
+    --background-accent: #__[accent]__;
+    --text-normal: #__[fg]__;
+    --text-spotify: #__[blue]__;
+    --text-muted: #__[fg]__;
+    --text-link: #__[magenta]__;
+    --background-floating: #__[bg_dark]__;
+    --header-primary: #__[fg_light]__;
+    --header-secondary: #__[fg]__;
+    --header-spotify: #__[blue_br]__;
+    --interactive-normal: #__[fg]__;
+    --interactive-hover: #__[magenta]__;
+    --interactive-active: #__[fg]__;
+    --ping: #__[red]__;
+    --brand-experiment: #__[yellow]__;
+}
+
+.theme-light,
+
+
+.panels-j1Uci_, .peopleColumn-29fq28{
+    background-color: var(--background-secondary);
+}
+
+.textArea-12jD-V, .lookBlank-3eh9lL,  .threadSidebar-1o3BTy, .scrollableContainer-2NUZem {
+    background-color: var(--background-tertiary);
+}
+
+.numberBadge-2s8kKX, .base-PmTxvP, .baseShapeRound-1Mm1YW, .bar-30k2ka, .unreadMentionsBar-1Bu1dC, .mention-1f5kbO, .active-1SSsBb, .disableButton-220a9y {
+    background-color: var(--ping) !important;
+}
+
+.lookOutlined-3sRXeN.colorRed-1TFJan, .lookOutlined-3sRXeN.colorRed-1TFJan {
+    color: var(--ping) !important;
+}
+
+
+.peopleColumn-1wMU14 {
+    background-color: var(--background-primary)
+}

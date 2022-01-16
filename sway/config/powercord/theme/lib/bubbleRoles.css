@@ -1,0 +1,42 @@
+/* Original creator: legume#0173 on Discord */
+:root {
+    /** Number of role columns */
+    --roleslist-columns: 2;
+}
+.rolesList-1geHY1 {
+    display: grid;
+    grid-template-columns: repeat(var(--roleslist-columns), minmax(0, 1fr));
+    background: var(--background-tertiary);
+    padding: 12.5px;
+    gap: 4.5px;
+    border-radius: 8px;
+    max-height: 150px;
+    overflow: auto;
+}
+.rolesList-1geHY1::-webkit-scrollbar {
+    width: 4.5px;
+}
+.rolesList-1geHY1::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background-color: var(--background-modifier-hover);
+}
+.rolesList-1geHY1 > .role-2irmRk {
+    margin: 0;
+    justify-content: center;
+}
+.rolesList-1geHY1 .roleCircle-3xAZ1j {
+    flex-shrink: 0;
+}
+.rolesList-1geHY1 .roleName-32vpEy {
+    margin: auto;
+}
+.addButton-pcyyf6 {
+    grid-column: 1 / span var(--roleslist-columns);
+}
+.addButton-pcyyf6::before {
+    content: attr(aria-label);
+    text-transform: capitalize;
+}
+.addButtonIcon-1NMJ8u {
+    display: none;
+}
