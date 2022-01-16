@@ -39,11 +39,11 @@ if ! command -v pacman > /dev/null; then
 fi
 
 # pkgs to be installed with pacman
-pkgs="sway kanshi swayidle grim slurp jq wl-clipboard waybar mako discord playerctl python-gobject neovim neofetch kitty starship zsh task sddm ripgrep imagemagick git-lfs strace exa networkmanager"
+pkgs="sway kanshi swayidle grim slurp jq wl-clipboard waybar mako discord-canaryplayerctl python-gobject neovim neofetch kitty starship zsh task sddm ripgrep imagemagick git-lfs strace exa networkmanager"
 # pkgs in the chaotic aur
 chaotic_pkgs="neovide-git swaylock-effects bibata-cursor-theme popsicle-git vimv-git"
 # pkgs in the aur
-aur_pkgs="bombadil-bin paruz fuzzel oguri-git activitywatch-bin betterdiscord-installer-bin sheldon-bin sddm-sugar-candy-git funny-manpages farge-git"
+aur_pkgs="bombadil-bin paruz fuzzel oguri-git activitywatch-bin sheldon-bin sddm-sugar-candy-git funny-manpages farge-git nerd-fonts-victor-mono"
 
 function _install() {
     programs=${@}
@@ -64,14 +64,14 @@ function _aur_install() {
     ask "Continue? [y/N]"
     read answer
 
-    if [[ $answer == "y" || answer == "yes" ]] && command -v paru > /dev/null; then
+    if [[ $answer,, = "y"* ]] && command -v paru > /dev/null; then
         echo
         paru -S --sudoloop --needed $programs
     fi
 }
 
 function _cx_install() {
-    if [[ $CX_INSTALLED == true ]]; then
+    if [[ $CX_INSTALLED = true ]]; then
         _install $@
     else
         info "Chaotic AUR not installed."
