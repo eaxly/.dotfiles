@@ -10,7 +10,7 @@ screenshots
 
 datestr=%a, %d.%m.%Y
 
-font=Iosevka Nerd Font
+font=VictorMono Nerd Font
 font-size=13
 
 effect-pixelate=10

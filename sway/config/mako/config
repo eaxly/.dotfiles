@@ -31,7 +31,7 @@ on-touch=dismiss
 #
 # STYLE
 #
-font=Iosevka Nerd Font 10
+font=VictorMono Nerd Font 10
 background-color=#__[bg_alt]__
 text-color=#__[fg]__
 width=450

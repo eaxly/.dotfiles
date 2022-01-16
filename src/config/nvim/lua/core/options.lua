@@ -18,7 +18,7 @@ o.errorbells = false
 o.hidden = true
 
 -- neovide
-o.guifont = "VictorMono Nerd Font:h10"
+o.guifont = "VictorMono Nerd Font:h9.5"
 
 g.neovide_cursor_animation_length = 0.15
 g.neovide_cursor_trail_length = 0.9
