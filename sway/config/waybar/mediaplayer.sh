@@ -11,9 +11,9 @@ _mp() {
 
 while read p
 do
-    kill -s SIGTERM $p
+    kill -s SIGKILL $p
 done < $PIDFILE
 
 _mp
 
-printf "%s\n" "${PIDs[@]}" >> $PIDFILE
+printf "%s\n" "${PIDs[@]}" > $PIDFILE
