@@ -1,8 +1,6 @@
 # ░█▀▄░█▀█░▀█▀░█▀▀░▀█▀░█░░░█▀▀░█▀▀
 # ░█░█░█░█░░█░░█▀▀░░█░░█░░░█▀▀░▀▀█
 # ░▀▀░░▀▀▀░░▀░░▀░░░▀▀▀░▀▀▀░▀▀▀░▀▀▀
-# 
-# FILE: ~/.zshrc
 
 # Some basics {{{
 # for sheldon as it is insanely stupid
@@ -239,6 +237,8 @@ alias t="task"
 alias lzg="lazygit"
 # neofetch
 alias neo="neofetch"
+# kitty
+alias icat="kitty +kitten icat"
 # }}}
 
 # Keyring {{{

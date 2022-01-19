@@ -27,7 +27,7 @@ bufferline.setup({
     show_close_icon = true,
     show_tab_indicators = true,
     persist_buffer_sort = true,
-    separator_style = "padded_slant",
+    separator_style = "thin",
     enforce_regular_tabs = true,
     always_show_bufferline = true,
     sort_by = "directory",

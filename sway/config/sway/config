@@ -15,7 +15,6 @@ exec mkfifo $WOBSOCK && tail -f $WOBSOCK | wob --border-color "#__[bg_alt]__ff" 
 set $cursor_theme __[cursor_theme]__
 set $cursor_size 24
 
-
 seat seat0 xcursor_theme $cursor_theme $cursor_size
 seat * hide_cursor 15000
 
@@ -54,6 +53,8 @@ client.placeholder      #__[bg]__     #__[slt_bg]__ #__[fg]__     #__[bg]__     
 ### Output configuration
 exec "oguri"
 output eDP-1 disable
+exec "kanshi"
+exec_always "killall -q kanshi && kanshi"
 
 ### Idle configuration
 exec swayidle -w \
@@ -102,12 +103,13 @@ input type:keyboard xkb_layout "de"
 #
 # Screenshots:
 #
+    set $screen_path "$(xdg-user-dir PICTURES)/Screenshots/$(date +'%Y-%m-%d_%X_grim.png')"
     # shot
-    bindsym Print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') $(xdg-user-dir PICTURES)/Screenshots/$(date +'%Y-%m-%d_%X_grim.png')
+    bindsym Print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') $screen_path
     # copy shot
     bindsym Print+Shift exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') - | wl-copy -t image/png
     # selection shot
-    bindsym Print+Control exec grim -g "$(slurp)" $(xdg-user-dir PICTURES)/Screenshots/$(date +'%Y-%m-%d_%X_grim.png')
+    bindsym Print+Control exec grim -g "$(slurp)" $screen_path
     # selection copy shot
     bindsym Control+Shift+Print exec grim -g "$(slurp)" - | wl-copy -t image/png
 #
@@ -197,8 +199,10 @@ bar {
 }
 
 ### Window stuff
-for_window [app_id="firefox"] inhibit_idle fullscreen
-for_window [class="firefox"] inhibit_idle fullscreen
+for_window [app_id="firefox"] inhibit_idle focus
+for_window [class="firefox"] inhibit_idle focus
+for_window [app_id="mpv"] inhibit_idle focus
+for_window [class="Microsoft Teams - Preview"] inhibit_idle open
 
 assign [app_id="kitty"] → workspace number 1
 
@@ -215,10 +219,9 @@ assign [class="Session"] → workspace number 4 # top messenger
 assign [class="Deezer"] → workspace number 5
 assign [class="lunarclient"] → workspace number 5
 assign [class="libreoffice-writer"] → workspace number 5
+assign [class="Microsoft Teams - Preview"] → workspace number 5
 
 ### Autostarting
-exec "kanshi"
-exec_always "killall -q kanshi && kanshi"
 exec "mako"
 exec "env XDG_CURRENT_DESKTOP=Unity deezer --start-in-tray"
 exec "env XDG_CURRENT_DESKTOP=Unity aw-qt"

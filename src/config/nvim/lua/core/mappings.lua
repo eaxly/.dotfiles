@@ -71,4 +71,9 @@ M.bufferline = function()
   map("n", "<leader>bse", "<cmd>BufferLineSortByExtension")
 end
 
+M.commentbox = function()
+  map({"n", "v"}, "gBc", "<cmd>lua require('comment-box').cbox()<cr>")
+  map({"n", "v"}, "gBl", "<cmd>lua require('comment-box').lbox()<cr>")
+end
+
 return M

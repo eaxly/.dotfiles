@@ -1,7 +1,7 @@
 # NOTICE: gtk-3.0 has only settings.ini linked, for 
 [profiles.sway]
 vars = ["sway/vars.toml", "sway/themes/aquarium.toml"]
-posthooks = ["sway reload", "makoctl reload"]
+posthooks = ["sway reload", "makoctl reload", "killall -SIGUSR1 kitty"]
 
 [profiles.sway.dots]
 ##config

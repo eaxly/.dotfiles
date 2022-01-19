@@ -28,12 +28,15 @@ function main() {
     local option=$( echo "${options}" | rofi -dmenu -i -p "Power: ")
     case $option in
         " Lock")
+            playerctl pause
             swaylock
             ;;
         " Suspend")
+            playerctl pause
             systemctl suspend
             ;;
         " Logout")
+            playerctl pause
             swaymsg exit
             ;;
         " Reboot")

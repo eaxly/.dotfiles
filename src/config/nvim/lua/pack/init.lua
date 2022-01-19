@@ -203,6 +203,14 @@ return packer.startup(function()
     end,
   })
 
+  -- comment-box: Clarify and beautify your comments using boxes and lines.
+  use({
+    "LudoPinelli/comment-box.nvim",
+    setup = function ()
+      require("core.mappings").commentbox()
+    end
+  })
+
   -- glow: markdown preview in da nvim
   use({
     "ellisonleao/glow.nvim",

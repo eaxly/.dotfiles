@@ -1,15 +1,13 @@
 // vim:ft=jsonc
 {
-    "layer": "top", // Waybar at top layer
-    "position": "bottom", // Waybar position (top|bottom|left|right)
-    "height": 40, // Waybar height (to be removed for auto height)
-    "spacing": 10, // Gaps between modules (in pixels, px)
+    "layer": "top",
+    "position": "top",
+    "height": 35,
 
-    // Choose the order of the modules
-    "modules-left": [ "custom/pacman", "sway/workspaces", "sway/mode", "custom/media" ],
+    "modules-left": [ "sway/workspaces", "sway/mode", "custom/media" ],
     "modules-center": [ "custom/scratchpad" , "clock", "custom/github" ],
     "modules-right": ["idle_inhibitor", "pulseaudio", "cpu", "memory", "battery", "tray"],
-    /* Modules configuration */
+
     "sway/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
@@ -17,11 +15,11 @@
         "format-icons": {
             "focused": "ﰉ",
             "default": "ﰊ",
-            "1": "", // da terminal
-            "2": "爵", // da browser
-            "3": "", // da ide (vscode, neovide...)
-            "4": "", // da messaging
-            "5": "…", // da misc
+            "1": "",
+            "2": "爵",
+            "3": "",
+            "4": "",
+            "5": "…",
         },
         "persistent_workspaces": {
             "1": [],
@@ -35,10 +33,10 @@
         "max-length": 50,
     },
     "idle_inhibitor": {
-        "format": "{icon}",
+        "format": "<span foreground='#__[fg_alter]__'></span><span background='#__[fg_alter]__' foreground='#__[bg_alt]__'> {icon} </span><span foreground='#__[fg_alter]__'></span>",
         "format-icons": {
-            "activated": "",
-            "deactivated": "﯈"
+            "activated": "聯",
+            "deactivated": "輦"
         }
     },
     "tray": {
@@ -46,34 +44,31 @@
     },
     "clock": {
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "{:%H:%M, %b %d %Y}",
-        "format-alt": "{:%d.%m.%Y}"
+        "format": "<span foreground='#__[green_br]__' background='#__[bg]__'></span><span background='#__[green_br]__' foreground='#__[bg]__'> </span><span foreground='#__[bg]__' background='#__[green]__' style='italic'> {:%H:%M, %b %d %Y}</span><span foreground='#__[green]__'></span>",
     },
     "cpu": {
-        "format": "{usage}%  ",
+        "format": "<span foreground='#__[cyan_br]__'></span><span foreground='#__[bg]__' background='#__[cyan_br]__'> </span><span foreground='#__[bg]__' background='#__[cyan]__'>{usage}%</span><span foreground='#__[cyan]__' background='#__[bg]__'></span>",
         "tooltip": true
     },
     "memory": {
-        "format": "{}% "
+        "format": "<span foreground='#__[magenta_br]__'></span><span foreground='#__[bg]__' background='#__[magenta_br]__'> </span><span foreground='#__[bg]__' background='#__[magenta]__'>{}%</span><span foreground='#__[magenta]__' background='#__[bg]__'></span>"
     },
     "battery": {
         "states": {
-            // "good": 95,
             "warning": 30,
             "critical": 15
         },
-        "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
-        "format-alt": "{time} {icon}",
-        "format-full": "{icon}",
-        "format-full-alt": "{time} {icon}",
+        "format": "<span foreground='#__[green_br]__'></span><span foreground='#__[bg]__' background='#__[green_br]__'>{icon} </span><span foreground='#__[bg]__' background='#__[green]__'>{capacity}%</span><span foreground='#__[green]__' background='#__[bg]__'></span>",
+        "format-warning": "<span foreground='#__[red_br]__'></span><span foreground='#__[bg]__' background='#__[red_br]__'>{icon} </span><span foreground='#__[bg]__' background='#__[red]__'>{capacity}%</span><span foreground='#__[red]__' background='#__[bg]__'></span>",
+        "format-critical": "<span foreground='#__[red_br]__'></span><span foreground='#__[bg]__' background='#__[red_br]__'>  </span><span foreground='#__[bg]__' background='#__[red]__'>{capacity}%</span><span foreground='#__[red]__' background='#__[bg]__'></span>",
+        "format-plugged": "<span foreground='#__[green_br]__'></span><span foreground='#__[bg]__' background='#__[green_br]__'>  </span><span foreground='#__[bg]__' background='#__[green]__'>{capacity}%</span><span foreground='#__[green]__' background='#__[bg]__'></span>",
+        "format-full": "<span foreground='#__[green_br]__'></span><span foreground='#__[bg]__' background='#__[green_br]__'>{icon} </span><span foreground='#__[bg]__' background='#__[green]__'>{capacity}%</span><span foreground='#__[green]__' background='#__[bg]__'></span>",
         "format-icons": ["", "", "", "", "", ""]
     },
     "pulseaudio": {
-        "format": "{volume}% {icon}",
-        "format-bluetooth": "{volume}% {icon}",
-        "format-muted": "婢",
+        "format": "<span foreground='#__[yellow_br]__'></span><span foreground='#__[bg]__' background='#__[yellow_br]__'>{icon} </span><span foreground='#__[bg]__' background='#__[yellow]__'>{volume}%</span><span foreground='#__[yellow]__' background='#__[bg]__'></span>",
+        "format-bluetooth": "<span foreground='#__[yellow_br]__'></span><span foreground='#__[bg]__' background='#__[yellow_br]__'>{icon}<span foreground='#__[blue]__'></span></span><span foreground='#__[bg]__' background='#__[yellow]__'>{volume}%</span><span foreground='#__[yellow]__' background='#__[bg]__'></span>",
+        "format-muted": "<span foreground='#__[red_br]__'></span><span foreground='#__[bg]__' background='#__[red_br]__'>婢</span><span foreground='#__[bg]__' background='#__[red]__'>0%</span><span foreground='#__[red]__' background='#__[bg]__'></span>",
         "format-icons": {
             "headphone": "",
             "hands-free": "",
@@ -86,18 +81,17 @@
         "on-click": "pavucontrol"
     },
     "custom/media": {
-        "format": "{icon} {}",
+        "format": "<span foreground='#__[yellow_br]__'></span><span foreground='#__[bg]__' background='#__[yellow_br]__'>{icon} </span><span foreground='#__[bg]__' background='#__[yellow]__' >{}</span><span foreground='#__[yellow]__'></span>",
         "return-type": "json",
-        "max-length": 40,
         "format-icons": {
-            "default": "🎜"
+            "default": " "
         },
-        "escape": true,
+        // "escape": true,
         "exec": "$HOME/.config/waybar/mediaplayer.sh 2> ~/.waybar.log", // script to manage the pid
         "on-click": "playerctl play-pause 2> /dev/null",
     },
     "custom/github": {
-        "format": "{}  ",
+        "format": "<span foreground='#__[white_br]__'></span><span foreground='#__[bg]__' background='#__[white_br]__'> </span><span foreground='#__[white]__' background='#__[black]__'>{}</span><span foreground='#__[black]__' background='#__[white]__'></span>",
         "return-type": "json",
         "interval": 60,
         "exec": "$HOME/.config/waybar/github.sh",
@@ -106,12 +100,8 @@
     "custom/scratchpad": {
         "interval": 1,
         "exec": "swaymsg -t get_tree | jq 'recurse(.nodes[]) | first(select(.name==\"__i3_scratch\")) | .floating_nodes | length | select(. >= 1)'",
-        "format": "{} ",
+        "format": "<span foreground='#__[red_br]__'></span><span foreground='#__[bg]__' background='#__[red_br]__'> </span><span foreground='#__[bg]__' background='#__[red]__'>{}</span><span foreground='#__[red]__' background='#__[bg]__'></span>",
         "on-click": "swaymsg 'scratchpad show'",
         "on-click-right": "swaymsg 'move scratchpad'"
-    },
-    "custom/pacman": {
-        "format": "<span foreground='#__[bg_dark]__'></span><span background='#__[bg_dark]__' foreground='#__[red]__' >  </span><span foreground='#__[bg_dark]__'></span>",
-        "on-click": "if $(eww windows | grep '*'); then eww close example; else; eww open example; fi"
     },
 }

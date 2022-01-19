@@ -2,7 +2,7 @@
     border: none;
     border-radius: 0;
     font-family: "VictorMono Nerd Font";
-    font-size: 11.5px;
+    font-size: 12px;
     min-height: 0;
     padding: 0 5px;
 }
@@ -24,11 +24,14 @@ window#waybar.hidden {
     opacity: 0.2;
 }
 
-#workspaces {
-    all: unset;
-}
 #workspaces button {
+    border-style: solid;
+    border-radius: 3px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding-right: 8px;
     color: #__[black_br]__;
+    min-width: 0;
 }
 
 #workspaces button.visible {
@@ -36,7 +39,8 @@ window#waybar.hidden {
 }
 
 #workspaces button.focused {
-    color: #__[green]__
+    color: #__[bg]__;
+    background-color: #__[green]__;
 }
 
 #workspaces button:hover {
@@ -64,7 +68,6 @@ window#waybar.hidden {
 }
 
 #custom-media {
-    color: #__[yellow]__;
     min-width: 100px;
 }
 
@@ -79,7 +82,7 @@ window#waybar.hidden {
 }
 
 #clock {
-    color: #__[green]__;
+    background-color: #__[bg]__;
 }
 
 #battery {
@@ -150,8 +153,5 @@ window#waybar.hidden {
 }
 
 #custom-scratchpad {
-    color: #__[red]__;
-}
-#custom-pacman {
     color: #__[red]__;
 }

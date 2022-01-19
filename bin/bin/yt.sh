@@ -1,19 +1,19 @@
 #!/usr/bin/env bash
 
-directory=""
+dir="$(xdg-user-dir VIDEOS)/yt"
 
 show_help() {
     echo -e """
     yt.sh: watch yt offline or online
 
-    -d: offline directory ($directory)
+    -d: offline directory ($dir)
     """
 }
 
 while [ $# != 0 ]; do
     case $1 in
         -d | -dir | -directory)
-            directory=$2
+            dir=$2
             ;;
         -*)
             show_help
@@ -35,19 +35,17 @@ else
 fi
 
 offline() {
-    directory="$(xdg-user-dir VIDEOS)/yt"
-
     if $rofi; then
-        file=$(ls "$directory" | rofi -theme-str '#window {width: 80%;}' -dmenu -i -p 'Select Video: ')
+        file=$(ls "$dir" | rofi -theme-str '#window {width: 80%;}' -dmenu -i -p 'Select Video: ')
     elif $dmenu; then
-        file=$(ls "$directory" | dmenu -p "Select Video: ")
+        file=$(ls "$dir" | dmenu -p "Select Video: ")
     else
         echo "Rofi or dmenu are not installed!"
         exit 
     fi
 
     if [ $? -eq 0 ]; then
-        mpv "$directory/$file"
+        mpv "$dir/$file"
     fi
 }
 
@@ -60,29 +58,34 @@ online() {
 }
 
 tv() {
-    directory="$(xdg-user-dir VIDEOS)/tv"
+    dir="$(xdg-user-dir VIDEOS)/tv"
     if $rofi; then
-        file=$(ls "$directory" | rofi -theme-str '#window {width: 80%;}' -dmenu -i -p 'Select Video: ')
+        file=$(ls "$dir" | rofi -theme-str '#window {width: 80%;}' -dmenu -i -p 'Select Video: ')
     elif $dmenu; then
-        file=$(ls "$directory" | dmenu -p "Select Video: ")
+        file=$(ls "$dir" | dmenu -p "Select Video: ")
     else
         echo "Rofi or dmenu are not installed!"
         exit 
     fi
 
     if [ $? -eq 0 ]; then
-        mpv "$directory/$file"
+        mpv "$dir/$file"
     fi
 }
 
-if [ ! $directory = "" ]; then
-    offline
-fi
+download() {
+    if ! command -v ytfzf &> /dev/null; then
+        echo "ytfzf not found!"
+        exit 1
+    fi
+    cd $dir
+    ytfzf -d -D
+}
 
 if $rofi; then
-    selection=$(echo -e "Online\nOffline\nTV" | rofi -dmenu -i -p "Select mode: ")
+    selection=$(echo -e "Online\nOffline\nTV\nDownload" | rofi -dmenu -i -p "Select mode: ")
 elif $dmenu; then
-    selection=$(echo -e "Online\nOffline\nTV" | dmenu -i -p "Select mode: ")
+    selection=$(echo -e "Online\nOffline\nTV\nDownload" | dmenu -i -p "Select mode: ")
 fi
 
 case $selection in
@@ -94,6 +97,9 @@ case $selection in
         ;;
     "TV")
         tv
+        ;;
+    "Download")
+        download
         ;;
     *)
         exit 1
