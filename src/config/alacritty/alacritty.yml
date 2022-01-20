@@ -352,7 +352,7 @@ draw_bold_text_with_bright_colors: false
   #
   # Example:
   #   command:
-  #     program: notify-send
+  #     program: dunstify
   #     args: ["Hello, World!"]
   #
   #command: None

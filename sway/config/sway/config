@@ -10,7 +10,7 @@ set $term kitty
 set $ytwatch "~/.dotfiles/bin/bin/yt.sh"
 
 set $WOBSOCK /run/user/1000/wob.sock
-exec mkfifo $WOBSOCK && tail -f $WOBSOCK | wob --border-color "#__[bg_alt]__ff" --background-color "#__[bg]__ff" --bar-color "#__[fg]__ff" --overflow-border-color "#__[red]__ff" --overflow-bar-color "#__[red]__ff" --anchor "bottom" --anchor "right"
+exec mkfifo $WOBSOCK && tail -f $WOBSOCK | wob --border-color "#__[bg_alt]__ff" --background-color "#__[bg]__ff" --bar-color "#__[fg]__ff" --overflow-border-color "#__[red]__ff" --overflow-bar-color "#__[red]__ff" --anchor "top" --anchor "left"
 
 set $cursor_theme __[cursor_theme]__
 set $cursor_size 24
@@ -60,7 +60,7 @@ exec_always "killall -q kanshi && kanshi"
 exec swayidle -w \
          timeout 300 'swaylock' \
          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-         before-sleep 'swaylock'
+         before-sleep 'swaylock --grace=0'
 
 
 ### Input configuration
@@ -107,11 +107,10 @@ input type:keyboard xkb_layout "de"
     # shot
     bindsym Print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') $screen_path
     # copy shot
-    bindsym Print+Shift exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') - | wl-copy -t image/png
-    # selection shot
+    bindsym Print+Shift exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') - | wl-copy -t image/png && dunstify "Screenshot." "Screenshot copied to clipboard." --icon "clipboard" --urgency="low"    # selection shot
     bindsym Print+Control exec grim -g "$(slurp)" $screen_path
     # selection copy shot
-    bindsym Control+Shift+Print exec grim -g "$(slurp)" - | wl-copy -t image/png
+    bindsym Control+Shift+Print exec grim -g "$(slurp)" - | wl-copy -t image/png && dunstify "Screenshot." "Screenshot copied to clipboard." --icon "clipboard" --urgency="low"
 #
 # Moving around:
 #
@@ -203,6 +202,9 @@ for_window [app_id="firefox"] inhibit_idle focus
 for_window [class="firefox"] inhibit_idle focus
 for_window [app_id="mpv"] inhibit_idle focus
 for_window [class="Microsoft Teams - Preview"] inhibit_idle open
+for_window [app_id="kitty_rsclock"] floating enable
+for_window [app_id="kitty_rsclock"] resize set width 400px
+for_window [app_id="kitty_rsclock"] resize set height 350px
 
 assign [app_id="kitty"] → workspace number 1
 

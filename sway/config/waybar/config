@@ -6,7 +6,7 @@
 
     "modules-left": [ "sway/workspaces", "sway/mode", "custom/media" ],
     "modules-center": [ "custom/scratchpad" , "clock", "custom/github" ],
-    "modules-right": ["idle_inhibitor", "pulseaudio", "cpu", "memory", "battery", "tray"],
+    "modules-right": ["idle_inhibitor", "pulseaudio", "network", "cpu", "battery", "tray"],
 
     "sway/workspaces": {
         "disable-scroll": true,
@@ -45,13 +45,24 @@
     "clock": {
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format": "<span foreground='#__[green_br]__' background='#__[bg]__'></span><span background='#__[green_br]__' foreground='#__[bg]__'> </span><span foreground='#__[bg]__' background='#__[green]__' style='italic'> {:%H:%M, %b %d %Y}</span><span foreground='#__[green]__'></span>",
+        "on-click": "kitty --class='kitty_rsclock' rsclock -c"
     },
     "cpu": {
         "format": "<span foreground='#__[cyan_br]__'></span><span foreground='#__[bg]__' background='#__[cyan_br]__'> </span><span foreground='#__[bg]__' background='#__[cyan]__'>{usage}%</span><span foreground='#__[cyan]__' background='#__[bg]__'></span>",
         "tooltip": true
     },
-    "memory": {
-        "format": "<span foreground='#__[magenta_br]__'></span><span foreground='#__[bg]__' background='#__[magenta_br]__'> </span><span foreground='#__[bg]__' background='#__[magenta]__'>{}%</span><span foreground='#__[magenta]__' background='#__[bg]__'></span>"
+    "network": {
+        "interface": "*",
+        "format": "<span foreground='#__[magenta_br]__'></span><span foreground='#__[bg]__' background='#__[magenta_br]__'>{icon} </span><span foreground='#__[bg]__' background='#__[magenta]__'>  {bandwidthDownOctets}</span><span foreground='#__[magenta_br]__' background='#__[magenta]__'> </span><span background='#__[magenta_br]__' foreground='#__[bg]__'>  {bandwidthUpOctets}</span><span foreground='#__[magenta_br]__' background='#__[bg]__'></span>",
+        "format-icons": {
+            "default": "",
+            "wifi": "直",
+            "ethernet": "",
+            "disconnected": " ",
+        },
+        "max-length": 50,
+        "tooltip-format": "Welcome to the Internet!",
+        "interval": 2,
     },
     "battery": {
         "states": {
@@ -86,12 +97,12 @@
         "format-icons": {
             "default": " "
         },
-        // "escape": true,
-        "exec": "$HOME/.config/waybar/mediaplayer.sh 2> ~/.waybar.log", // script to manage the pid
+        "escape": true,
+        "exec": "$HOME/.config/waybar/mediaplayer.sh", // script to manage the pid
         "on-click": "playerctl play-pause 2> /dev/null",
     },
     "custom/github": {
-        "format": "<span foreground='#__[white_br]__'></span><span foreground='#__[bg]__' background='#__[white_br]__'> </span><span foreground='#__[white]__' background='#__[black]__'>{}</span><span foreground='#__[black]__' background='#__[white]__'></span>",
+        "format": "<span foreground='#__[white_br]__'></span><span foreground='#__[bg]__' background='#__[white_br]__'> </span><span foreground='#__[white]__' background='#__[black]__'>{}</span><span foreground='#__[black]__'></span>",
         "return-type": "json",
         "interval": 60,
         "exec": "$HOME/.config/waybar/github.sh",

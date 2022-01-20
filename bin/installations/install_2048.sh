@@ -16,10 +16,10 @@ sleep 0.5
 
 echo To play the game, simply execute bash2048 in your terminal.
 sleep 1
-if ! command -v notify-send &> /dev/null; then
+if ! command -v dunstify &> /dev/null; then
   echo "Done!"
   exit
 fi
 
 
-notify-send "BASH2048 INSTALLATION!" "The installation of bash2048 has succeeded!"
+dunstify "BASH2048 INSTALLATION!" "The installation of bash2048 has succeeded!"

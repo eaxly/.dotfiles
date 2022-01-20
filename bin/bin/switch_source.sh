@@ -16,5 +16,5 @@ for i in $devices; do
 done
 
 if [ $? = 0 ]; then
-    notify-send -a "switch_sink.sh" "Switched to $device" "Successfully switched input source to $device."
+    dunstify -a "switch_sink.sh" "Switched to $device" "Successfully switched input source to $device."
 fi

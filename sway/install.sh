@@ -39,11 +39,11 @@ if ! command -v pacman > /dev/null; then
 fi
 
 # pkgs to be installed with pacman
-pkgs="sway kanshi swayidle grim slurp jq wl-clipboard waybar mako discord-canaryplayerctl python-gobject neovim neofetch kitty starship zsh task sddm ripgrep imagemagick git-lfs strace exa networkmanager"
+pkgs="sway kanshi swayidle grim slurp jq wl-clipboard waybar mako discord-canary playerctl python-gobject neovim neofetch kitty starship zsh task sddm ripgrep imagemagick git-lfs strace exa networkmanager base-devel"
 # pkgs in the chaotic aur
 chaotic_pkgs="neovide-git swaylock-effects bibata-cursor-theme popsicle-git vimv-git"
 # pkgs in the aur
-aur_pkgs="bombadil-bin paruz fuzzel oguri-git activitywatch-bin sheldon-bin sddm-sugar-candy-git funny-manpages farge-git nerd-fonts-victor-mono"
+aur_pkgs="paruz fuzzel oguri-git sheldon-bin sddm-sugar-candy-git funny-manpages farge-git nerd-fonts-victor-mono"
 
 function _install() {
     programs=${@}

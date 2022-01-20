@@ -1,22 +1,3 @@
-#  _____________ 
-# < mako config >
-#  ------------- 
-# \                             .       .
-#  \                           / `.   .' " 
-#   \                  .---.  <    > <    >  .---.
-#    \                 |    \  \ - ~ ~ - /  /    |
-#          _____          ..-~             ~-..-~
-#         |     |   \~~~\.'                    `./~~~/
-#        ---------   \__/                        \__/
-#       .'  O    \     /               /       \  " 
-#      (_____,    `._.'               |         }  \/~~~/
-#       `----.          /       }     |        /    \__/
-#             `-.      |       /      |       /      `. ,~~|
-#                 ~-.__|      /_ - ~ ^|      /- _      `..-'   
-#                      |     /        |     /     ~-.     `-. _  _  _
-#                      |_____|        |_____|         ~ - . _ _ _ _ _>
-# 
-#
 # GLOBALS
 #
 max-history=5
@@ -43,7 +24,7 @@ margin=20
 progress-color=over #__[accent]__
 icons=1
 max-icon-size=64
-icon-path=/usr/share/icons/Papirus/;/usr/share/icons/Papirus-Light;/usr/share/icons/Papirus-Dark;
+icon-path=/usr/share/icons/Papirus/
 icon-location=left
 markup=1
 actions=1
@@ -55,7 +36,7 @@ ignore-timeout=1
 group-by=none
 max-visible=5
 layer=top
-anchor=bottom-right
+anchor=top-right
 
 [grouped=true]
 format=(%g) <i>%a</i>\n<b>%s</b>\n%b

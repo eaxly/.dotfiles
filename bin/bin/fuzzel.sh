@@ -1,6 +1,6 @@
 #!/bin/sh
 if ! command -v fuzzel &> /dev/null; then
-    notify-send "fuzzel" "Fuzzel not found successfully"
+    dunstify "fuzzel" "Fuzzel not found successfully"
     exit
 fi
 fuzzel \

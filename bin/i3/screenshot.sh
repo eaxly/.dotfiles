@@ -6,8 +6,8 @@ maim \
     --shader=crosshair,
 
 if [[ $? == 0 ]];then
-    notify-send "Screenshot successful" "Successfully taken screenshot".
+    dunstify "Screenshot successful" "Successfully taken screenshot".
 else
-    notify-send "Screenshot failed" "Screenshot failed with error code: $?"
+    dunstify "Screenshot failed" "Screenshot failed with error code: $?"
 fi
 
