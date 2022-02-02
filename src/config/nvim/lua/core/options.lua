@@ -18,7 +18,7 @@ o.errorbells = false
 o.hidden = true
 
 -- neovide
-o.guifont = "VictorMono Nerd Font:h8"
+o.guifont = "Cozette:h8"
 
 g.neovide_cursor_animation_length = 0.15
 g.neovide_cursor_trail_length = 0.9

@@ -1,13 +1,13 @@
 configuration {
     modi: "run,ssh,drun";
-    font: "VictorMono Nerd Font 12";
+    font: "CozetteVector 12";
     show-icons: true;
     icon-theme: "Papirus";
     case-sensitive: false;
-    display-ssh:    "  :";
-    display-run:    "  :";
-    display-drun:   "  :";
-    display-window: "  :";
-    display-combi:  "  :";
+    display-ssh:    "ssh:";
+    display-run:    "run:";
+    display-drun:   "dru:";
+    display-window: "win:";
+    display-combi:  "com:";
 }
 @theme "theme"

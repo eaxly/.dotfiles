@@ -13,12 +13,12 @@
         "all-outputs": true,
         "format": "{icon}",
         "format-icons": {
-            "focused": "ﰉ",
-            "default": "ﰊ",
-            "1": "",
-            "2": "爵",
-            "3": "",
-            "4": "",
+            "focused": "",
+            "default": "",
+            "1": "",
+            "2": "",
+            "3": "謹",
+            "4": "",
             "5": "…",
         },
         "persistent_workspaces": {
@@ -29,14 +29,14 @@
         }
     },
     "sway/mode": {
-        "format": " {}",
+        "format": "m: {}",
         "max-length": 50,
     },
     "idle_inhibitor": {
-        "format": "<span foreground='#__[fg_alter]__'></span><span background='#__[fg_alter]__' foreground='#__[bg_alt]__'> {icon} </span><span foreground='#__[fg_alter]__'></span>",
+        "format": "<span foreground='#__[fg_alter]__'></span><span background='#__[fg_alter]__' foreground='#__[bg]__'> {icon} </span><span foreground='#__[fg_alter]__'></span>",
         "format-icons": {
-            "activated": "聯",
-            "deactivated": "輦"
+            "activated": "",
+            "deactivated": ""
         }
     },
     "tray": {
@@ -44,21 +44,20 @@
     },
     "clock": {
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "<span foreground='#__[green_br]__' background='#__[bg]__'></span><span background='#__[green_br]__' foreground='#__[bg]__'> </span><span foreground='#__[bg]__' background='#__[green]__' style='italic'> {:%H:%M, %b %d %Y}</span><span foreground='#__[green]__'></span>",
-        "on-click": "kitty --class='kitty_rsclock' rsclock -c"
+        "format": "<span foreground='#__[green_br]__' background='#__[bg]__'></span><span background='#__[green_br]__' foreground='#__[bg]__'> </span><span foreground='#__[bg]__' background='#__[green]__'> {:%H:%M, %b %d %Y}</span><span foreground='#__[green]__'></span>",
     },
     "cpu": {
-        "format": "<span foreground='#__[cyan_br]__'></span><span foreground='#__[bg]__' background='#__[cyan_br]__'> </span><span foreground='#__[bg]__' background='#__[cyan]__'>{usage}%</span><span foreground='#__[cyan]__' background='#__[bg]__'></span>",
+        "format": "<span foreground='#__[cyan_br]__'></span><span foreground='#__[bg]__' background='#__[cyan_br]__'> </span><span foreground='#__[bg]__' background='#__[cyan]__'>{usage}%</span><span foreground='#__[cyan]__' background='#__[bg]__'></span>",
         "tooltip": true
     },
     "network": {
         "interface": "*",
-        "format": "<span foreground='#__[magenta_br]__'></span><span foreground='#__[bg]__' background='#__[magenta_br]__'>{icon} </span><span foreground='#__[bg]__' background='#__[magenta]__'>  {bandwidthDownOctets}</span><span foreground='#__[magenta_br]__' background='#__[magenta]__'> </span><span background='#__[magenta_br]__' foreground='#__[bg]__'>  {bandwidthUpOctets}</span><span foreground='#__[magenta_br]__' background='#__[bg]__'></span>",
+        "format": "<span foreground='#__[magenta_br]__'></span><span foreground='#__[bg]__' background='#__[magenta_br]__'>{icon} </span><span foreground='#__[bg]__' background='#__[magenta]__'> ↓ {bandwidthDownOctets}</span><span foreground='#__[magenta_br]__' background='#__[magenta]__'></span><span background='#__[magenta_br]__' foreground='#__[bg]__'> ↑ {bandwidthUpOctets}</span><span foreground='#__[magenta_br]__' background='#__[bg]__'></span>",
         "format-icons": {
-            "default": "",
+            "default": "",
             "wifi": "直",
-            "ethernet": "",
-            "disconnected": " ",
+            "ethernet": "",
+            "disconnected": "睊",
         },
         "max-length": 50,
         "tooltip-format": "Welcome to the Internet!",
@@ -71,9 +70,9 @@
         },
         "format": "<span foreground='#__[green_br]__'></span><span foreground='#__[bg]__' background='#__[green_br]__'>{icon} </span><span foreground='#__[bg]__' background='#__[green]__'>{capacity}%</span><span foreground='#__[green]__' background='#__[bg]__'></span>",
         "format-warning": "<span foreground='#__[red_br]__'></span><span foreground='#__[bg]__' background='#__[red_br]__'>{icon} </span><span foreground='#__[bg]__' background='#__[red]__'>{capacity}%</span><span foreground='#__[red]__' background='#__[bg]__'></span>",
-        "format-critical": "<span foreground='#__[red_br]__'></span><span foreground='#__[bg]__' background='#__[red_br]__'>  </span><span foreground='#__[bg]__' background='#__[red]__'>{capacity}%</span><span foreground='#__[red]__' background='#__[bg]__'></span>",
-        "format-plugged": "<span foreground='#__[green_br]__'></span><span foreground='#__[bg]__' background='#__[green_br]__'>  </span><span foreground='#__[bg]__' background='#__[green]__'>{capacity}%</span><span foreground='#__[green]__' background='#__[bg]__'></span>",
-        "format-full": "<span foreground='#__[green_br]__'></span><span foreground='#__[bg]__' background='#__[green_br]__'>{icon} </span><span foreground='#__[bg]__' background='#__[green]__'>{capacity}%</span><span foreground='#__[green]__' background='#__[bg]__'></span>",
+        "format-critical": "<span foreground='#__[red_br]__'></span><span foreground='#__[bg]__' background='#__[red_br]__'>{icon} </span><span foreground='#__[bg]__' background='#__[red]__'>{capacity}%</span><span foreground='#__[red]__' background='#__[bg]__'></span>",
+        "format-plugged": "<span foreground='#__[green_br]__'></span><span foreground='#__[bg]__' background='#__[green_br]__'>{icon} </span><span foreground='#__[bg]__' background='#__[green]__'>{capacity}%</span><span foreground='#__[green]__' background='#__[bg]__'></span>",
+        "format-full": "<span foreground='#__[green_br]__'></span><span foreground='#__[bg]__' background='#__[green_br]__'>⇡{icon} </span><span foreground='#__[bg]__' background='#__[green]__'>{capacity}%</span><span foreground='#__[green]__' background='#__[bg]__'></span>",
         "format-icons": ["", "", "", "", "", ""]
     },
     "pulseaudio": {

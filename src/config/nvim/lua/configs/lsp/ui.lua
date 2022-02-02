@@ -1,5 +1,9 @@
--- lsp ui customizations
-local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+local signs = {
+  Error = "",
+  Warn = "⚠",
+  Hint = "",
+  Info = "",
+}
 
 for type, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. type
@@ -8,7 +12,7 @@ end
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
   virtual_text = {
-    prefix = "ﰉ",
+    prefix = "⚑",
   },
   float = {
     source = true,

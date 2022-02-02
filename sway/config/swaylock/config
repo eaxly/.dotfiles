@@ -5,12 +5,12 @@ ignore-empty-password
 show-failed-attempts
 daemonize
 clock
-indicator
+indicator-idle-visible
 screenshots
 
 datestr=%a, %d.%m.%Y
 
-font=VictorMono Nerd Font
+font=CozetteVector
 font-size=13
 
 effect-blur=10x20

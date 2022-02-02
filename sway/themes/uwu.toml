@@ -38,7 +38,7 @@ accent              = "%yellow"
 accent_alt          = "%yellow_br"
 
 ## specifics
-wall                = "~/.walls/pluswall/uwu.png"
+wall                = "~/.walls/pluswall/uwu_thin.png"
 
 # nvim
 nvim_color_name     = "uwu"

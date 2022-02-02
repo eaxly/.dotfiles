@@ -6,11 +6,11 @@ set $down j
 set $up k
 set $right l
 
-set $term kitty
+set $term foot
 set $ytwatch "~/.dotfiles/bin/bin/yt.sh"
 
 set $WOBSOCK /run/user/1000/wob.sock
-exec mkfifo $WOBSOCK && tail -f $WOBSOCK | wob --border-color "#__[bg_alt]__ff" --background-color "#__[bg]__ff" --bar-color "#__[fg]__ff" --overflow-border-color "#__[red]__ff" --overflow-bar-color "#__[red]__ff" --anchor "top" --anchor "left"
+exec mkfifo $WOBSOCK && tail -f $WOBSOCK | wob --border-color "#__[bg_alt]__ff" --background-color "#__[bg]__ff" --bar-color "#__[fg]__ff" --overflow-border-color "#__[red]__ff" --overflow-bar-color "#__[red]__ff" --overflow-background-color "#__[bg]__ff" --anchor "top" --anchor "left" --margin 20
 
 set $cursor_theme __[cursor_theme]__
 set $cursor_size 24
@@ -51,7 +51,7 @@ client.placeholder      #__[bg]__     #__[slt_bg]__ #__[fg]__     #__[bg]__     
 
 
 ### Output configuration
-exec "oguri"
+output "*" bg __[wall]__ tile "#__[bg_dark]__"
 output eDP-1 disable
 exec "kanshi"
 exec_always "killall -q kanshi && kanshi"
@@ -206,6 +206,7 @@ for_window [app_id="kitty_rsclock"] floating enable
 for_window [app_id="kitty_rsclock"] resize set width 400px
 for_window [app_id="kitty_rsclock"] resize set height 350px
 
+assign [app_id="foot"] → workspace number 1
 assign [app_id="kitty"] → workspace number 1
 
 assign [app_id="firefox"] → workspace number 2
@@ -225,11 +226,9 @@ assign [class="Microsoft Teams - Preview"] → workspace number 5
 
 ### Autostarting
 exec "mako"
-exec "env XDG_CURRENT_DESKTOP=Unity deezer --start-in-tray"
-exec "env XDG_CURRENT_DESKTOP=Unity aw-qt"
+exec "deezer --start-in-tray"
 exec "wlsunset -l 36.9 -L 10.3 -t 4500 -T 7000"
 exec "emote"
 
-# No idea what this is for,
-# but looks important, so leaving it
+# Does something related to the user's systemd config
 include /etc/sway/config.d/*

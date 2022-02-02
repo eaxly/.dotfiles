@@ -13,7 +13,7 @@ local base16 = {
 
   base04 = theme.fg_alt,
   base05 = theme.fg,
-  base06 = theme.fg_alter,
+  base06 = theme.fg_light,
   base07 = theme.bg_alt,
 
   base08 = theme.red,

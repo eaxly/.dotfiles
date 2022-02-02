@@ -26,6 +26,7 @@ dir = "lib"
 github = "ohmyzsh/ohmyzsh"
 dir = "plugins"
 use = ["{git,pip,archlinux,sudo}.plugin.zsh"]
+apply = ["defer"]
 
 [plugins.omz-nvm]
 github = "ohmyzsh/ohmyzsh"
@@ -39,6 +40,8 @@ github = "zdharma-continuum/fast-syntax-highlighting"
 
 [plugins.zsh-completions]
 github = "zsh-users/zsh-completions"
+dir = "src"
+apply = ["fpath"]
 
 [plugins.wd]
 github = "ExtinctAxolotl/wd"

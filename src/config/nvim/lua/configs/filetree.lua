@@ -18,19 +18,6 @@ vim.g.nvim_tree_window_picker_exclude = {
 
 vim.g.nvim_tree_root_folder_modifier = table.concat({ ":t:gs?$?/..", string.rep(" ", 1000), "?:gs?^??" })
 
-vim.g.nvim_tree_icons = {
-  folder = {
-    arrow_open = "",
-    arrow_closed = "",
-    default = "",
-    open = "",
-    empty = "",
-    empty_open = "",
-    symlink = "",
-    symlink_open = "",
-  },
-}
-
 nvimtree.setup({
   disable_netrw = true,
   hijack_netrw = true,
@@ -49,7 +36,7 @@ nvimtree.setup({
     icons = {
       hint = "",
       info = "",
-      warning = "",
+      warning = "⚠",
       error = "",
     },
   },

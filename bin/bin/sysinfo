@@ -1,0 +1,49 @@
+#!/usr/bin/env sh
+# written by @ExtinctAxolotl
+# inspired by @pyratebeard's and @xero's sysinfo
+name="$USER"
+wm=$(sway --version | cut -d" " -f1,3)
+shell=$(echo $SHELL | cut -d"/" -f3)
+os=$(cat /etc/os-release | grep -E "^ID=" | cut -d"=" -f2)
+kernel=$(uname -r)
+packages=$(pacman -Q | wc -l)
+theme=$( cat .dotfiles/sway/sway.toml | grep -E "^vars =" | tr -d '"] ' | cut -d"/" -f4 | cut -d"." -f1 )
+uptime=$(uptime -p | cut -d" " -f2-)
+s="   "
+
+c_red="\e[38;5;1m"
+c_green="\e[38;5;2m"
+c_yellow="\e[38;5;3m"
+c_blue="\e[38;5;4m"
+c_magenta="\e[38;5;5m"
+c_cyan="\e[38;5;6m"
+c_white="\e[38;5;7m"
+
+pri="$c_red"
+sec="$c_green"
+ter="$c_yellow"
+res="\e[m"
+
+hax() {
+    text="$@"
+    printf "$s$c_white"
+    for (( i=0; i<${#text}; i++)); do
+        char="${text:$i:1}"
+        printf "$char"
+        if [[ "$char" = " " ]]; then
+            sleep 0.1
+        else
+            sleep 0.04
+        fi
+    done
+    printf "$res\n"
+}
+
+printf "$s${pri}us ${ter}- ${sec}$name$res\n"
+printf "$s${pri}wm ${ter}- ${sec}$wm$res\n"
+printf "$s${pri}sh ${ter}- ${sec}$shell$res\n"
+printf "$s${pri}os ${ter}- ${sec}$os$res\n"
+printf "$s${pri}ke ${ter}- ${sec}$kernel$res\n"
+printf "$s${pri}up ${ter}- ${sec}$uptime$res\n"
+printf "$s${pri}pk ${ter}- ${sec}$packages$res\n"
+printf "$s${pri}th ${ter}- ${sec}$theme$res\n"

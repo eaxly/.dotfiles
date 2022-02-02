@@ -1,14 +1,14 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: "VictorMono Nerd Font";
+    font-family: "Cozette";
     font-size: 12px;
     min-height: 0;
     padding: 0 5px;
 }
 
 tooltip {
-    background-color: #__[bg_dark]__;
+    background-color: #__[bg]__;
     color: #__[fg]__;
 }
 

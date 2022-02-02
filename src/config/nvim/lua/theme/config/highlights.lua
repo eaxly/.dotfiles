@@ -21,6 +21,9 @@ fg("VertSplit", c.bg_alt)
 fg("FloatBorder", c.green_br)
 fg_bg("NormalFloat", c.fg_alt, c.bg_dark)
 
+-- LineNr
+fg("LineNr", c.bg_alter)
+
 -- Pmenu
 bg("Pmenu", c.bg_dark)
 bg("PmenuSbar", c.bg)
@@ -32,7 +35,6 @@ fg("CmpItemKind", c.green_br)
 fg("CmpItemMenu", c.cyan_br .. " gui=bold")
 
 -- Plugins --
-
 -- nvimtree
 bg("NvimTreeNormal", c.bg_dark)
 bg("NvimTreeNormalNC", c.bg_dark)

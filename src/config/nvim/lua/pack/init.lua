@@ -179,11 +179,6 @@ return packer.startup(function()
     end,
   })
 
-  use({
-    "lambdalisue/vim-manpager",
-    cmd = "MANPAGER",
-  })
-
   -- repeat: explains itself, repeats stuff
   use({
     "tpope/vim-repeat",

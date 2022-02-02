@@ -2,6 +2,7 @@ local theme = {
   fg                  = "#e0def4",
   fg_alt              = "#555169",
   fg_alter            = "#6e6a86",
+  fg_light            = "#e8e6fc",
   bg                  = "#191724",
   bg_alt              = "#1f1d2e",
   bg_alter            = "#26233a",

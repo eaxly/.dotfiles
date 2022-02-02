@@ -1,0 +1,29 @@
+# ░█▀▄░█▀█░▀█▀░█▀▀░▀█▀░█░░░█▀▀░█▀▀
+# ░█░█░█░█░░█░░█▀▀░░█░░█░░░█▀▀░▀▀█
+# ░▀▀░░▀▀▀░░▀░░▀░░░▀▀▀░▀▀▀░▀▀▀░▀▀▀
+
+# for sheldon as it is insanely stupid
+export XDG_CONFIG_HOME=$HOME/.config
+HISTFILE=~/.zsh_history
+HISTSIZE=2000
+SAVEHIST=1000000
+setopt autocd extendedglob nomatch 
+unsetopt beep
+fpath+=$HOME/.zfunc
+
+zstyle :compinstall filename '/home/axolotl/.zshrc'
+autoload -Uz compinit && compinit
+autoload -U promptinit && promptinit
+autoload -U bashcompinit && bashcompinit
+
+if [ -n "$DESKTOP_SESSION" ] && command -v gnome-keyring-daemon &> /dev/null; then
+    eval $(gnome-keyring-daemon --start)
+    export SSH_AUTH_SOCK
+fi
+
+for config (~/.zsh/*.zsh) source $config
+source ~/.zsh/init.zsh
+
+# Vim keybindings
+bindkey -v
+# vim:foldmethod=marker

@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+# toggprompt
+usage() {
+    echo "
+    $(basename $0) - change prompt style on the fly
+    -d: definite mode
+    -i: indefinite mode
+    "
+}
+
+prompt_change() {
+    [ ! -z "$1" ] && old="$1"
+    [ ! -z "$2" ] && new="$2"
+    [ ! -z "$3" ] && file="$3"
+    sed s/^PROMPT_STYLE=[\"\']$old[\"\']/"PROMPT_STYLE='$new'"/g -i $file
+}
+
+get_current_prompt() {
+    grep -E "^PROMPT_STYLE=[\"'].+[\"']\$" ~/.zsh/prompt.zsh | cut -d"=" -f2 | tr -d \"\'
+}
+
+while [ $# -gt 0 ]; do
+    case $1 in
+        -d)
+            orig="$(get_current_prompt)"
+            prompt_change $orig $2 ~/.zsh/prompt.zsh
+            shift
+            echo done
+            ;;
+        -i)
+            orig="$(get_current_prompt)"
+            echo to be implemented
+            # prompt_change $orig $2 ~/.dotfiles/sr
+            shift
+            echo done
+            ;;
+        -g)
+            get_current_prompt
+            shift
+            ;;
+        -*)
+            usage
+            exit
+            ;;
+        *)
+            break
+            ;;
+    esac
+done
