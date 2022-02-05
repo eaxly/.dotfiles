@@ -103,14 +103,15 @@ input type:keyboard xkb_layout "de"
 #
 # Screenshots:
 #
-    set $screen_path "$(xdg-user-dir PICTURES)/Screenshots/$(date +'%Y-%m-%d_%X_grim.png')"
+    set $scrsht ~/.dotfiles/bin/sway/scrsht.sh
     # shot
-    bindsym Print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') $screen_path
+    bindsym Print exec $scrsht --full
     # copy shot
-    bindsym Print+Shift exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') - | wl-copy -t image/png && dunstify "Screenshot." "Screenshot copied to clipboard." --icon "clipboard" --urgency="low"    # selection shot
-    bindsym Print+Control exec grim -g "$(slurp)" $screen_path
+    bindsym Print+Shift exec $scrsht --full --copy
+    # selection shot
+    bindsym Print+Control exec $scrsht --selection
     # selection copy shot
-    bindsym Control+Shift+Print exec grim -g "$(slurp)" - | wl-copy -t image/png && dunstify "Screenshot." "Screenshot copied to clipboard." --icon "clipboard" --urgency="low"
+    bindsym Control+Shift+Print exec $scrsht --selection --copy
 #
 # Moving around:
 #
