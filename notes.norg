@@ -22,4 +22,9 @@ This will output the three words in a random order.
 @code bash
 $ rename " " "_" *
 @end
+This will substitue spaces with underscores
 
+- nl: number lines of files
+@code bash
+$ nl notes.norg
+@end

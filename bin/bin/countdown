@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+time=0
+
+while [ $# -gt 0 ]; do
+    case $1 in
+        *h)
+            time=$((${1::-1} * 3600 + $time))
+            shift
+            ;;
+        *m)
+            time=$((${1::-1} * 60 + $time))
+            shift
+            ;;
+        *s)
+            time=$((${1::-1} + $time))
+            shift
+            ;;
+        *)
+            time=$(($1 + $time))
+            shift
+            ;;
+    esac
+done
+
+time=$(($( date +%s ) + $time)); 
+while [ $time -ge $(date +%s) ]; do
+    date --date @$(($time - $(date +%s))) +%H:%M:%S --utc
+    sleep 0.1
+done
+

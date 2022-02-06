@@ -12,7 +12,7 @@ on-touch=dismiss
 #
 # STYLE
 #
-font=Cozette 10
+font=CozetteVector 10
 background-color=#__[bg_alt]__
 text-color=#__[fg]__
 width=450

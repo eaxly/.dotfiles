@@ -41,12 +41,14 @@ elif [[ $1 = '--add' || $1 = '-a' || $1 == "add" ]]; then
 		echo "missing option"
 		echo "pass an item to add"
 	else
+        text=""
         for i in $@; do 
             if [[ $i = "-a" ]]; then
                 continue
             fi
-            printf "$i " >> $file
+            text+="$i "
         done
+        echo $text >> $file
 	fi 
 else
 	echo "unknown option"

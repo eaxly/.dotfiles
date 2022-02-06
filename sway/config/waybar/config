@@ -5,16 +5,16 @@
     "height": 35,
 
     "modules-left": [ "sway/workspaces", "sway/mode", "custom/media" ],
-    "modules-center": [ "custom/scratchpad" , "clock", "custom/github" ],
-    "modules-right": ["idle_inhibitor", "pulseaudio", "network", "cpu", "battery", "tray"],
+    "modules-center": [  /*"custom/countdown", */ "custom/scratchpad" , "clock", "custom/github" ],
+    "modules-right": [ "idle_inhibitor", "pulseaudio", "network", "cpu", "battery", "tray" ],
 
     "sway/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
         "format": "{icon}",
         "format-icons": {
-            "focused": "",
-            "default": "",
+            "focused": "•",
+            "default": "•",
             "1": "",
             "2": "",
             "3": "謹",
@@ -71,8 +71,8 @@
         "format": "<span foreground='#__[green_br]__'></span><span foreground='#__[bg]__' background='#__[green_br]__'>{icon} </span><span foreground='#__[bg]__' background='#__[green]__'>{capacity}%</span><span foreground='#__[green]__' background='#__[bg]__'></span>",
         "format-warning": "<span foreground='#__[red_br]__'></span><span foreground='#__[bg]__' background='#__[red_br]__'>{icon} </span><span foreground='#__[bg]__' background='#__[red]__'>{capacity}%</span><span foreground='#__[red]__' background='#__[bg]__'></span>",
         "format-critical": "<span foreground='#__[red_br]__'></span><span foreground='#__[bg]__' background='#__[red_br]__'>{icon} </span><span foreground='#__[bg]__' background='#__[red]__'>{capacity}%</span><span foreground='#__[red]__' background='#__[bg]__'></span>",
-        "format-plugged": "<span foreground='#__[green_br]__'></span><span foreground='#__[bg]__' background='#__[green_br]__'>{icon} </span><span foreground='#__[bg]__' background='#__[green]__'>{capacity}%</span><span foreground='#__[green]__' background='#__[bg]__'></span>",
-        "format-full": "<span foreground='#__[green_br]__'></span><span foreground='#__[bg]__' background='#__[green_br]__'>⇡{icon} </span><span foreground='#__[bg]__' background='#__[green]__'>{capacity}%</span><span foreground='#__[green]__' background='#__[bg]__'></span>",
+        "format-plugged": "<span foreground='#__[green_br]__'></span><span foreground='#__[bg]__' background='#__[green_br]__'>⇡{icon} </span><span foreground='#__[bg]__' background='#__[green]__'>{capacity}%</span><span foreground='#__[green]__' background='#__[bg]__'></span>",
+        "format-full": "<span foreground='#__[green_br]__'></span><span foreground='#__[bg]__' background='#__[green_br]__'>{icon} </span><span foreground='#__[bg]__' background='#__[green]__'>{capacity}%</span><span foreground='#__[green]__' background='#__[bg]__'></span>",
         "format-icons": ["", "", "", "", "", ""]
     },
     "pulseaudio": {
@@ -113,5 +113,10 @@
         "format": "<span foreground='#__[red_br]__'></span><span foreground='#__[bg]__' background='#__[red_br]__'> </span><span foreground='#__[bg]__' background='#__[red]__'>{}</span><span foreground='#__[red]__' background='#__[bg]__'></span>",
         "on-click": "swaymsg 'scratchpad show'",
         "on-click-right": "swaymsg 'move scratchpad'"
+    },
+    "custom/countdown": {
+        "interval": 0.5,
+        "exec": "~/.config/waybar/countdown.sh",
+        "format": "<span foreground='#__[yellow_br]__'></span><span foreground='#__[bg]__' background='#__[yellow_br]__'> </span><span foreground='#__[bg]__' background='#__[yellow]__'>{}</span><span foreground='#__[yellow]__' background='#__[bg]__'></span>",
     },
 }
