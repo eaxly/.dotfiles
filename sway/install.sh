@@ -39,7 +39,7 @@ if ! command -v pacman > /dev/null; then
 fi
 
 # pkgs to be installed with pacman
-pkgs="sway kanshi swayidle grim slurp jq wl-clipboard waybar mako discord-canary playerctl python-gobject neovim neofetch starship zsh task sddm ripgrep imagemagick git-lfs strace networkmanager base-devel papirus-icon-theme pavucontrol swaybg dina-font"
+pkgs="sway kanshi swayidle grim slurp jq wl-clipboard waybar mako discord-canary playerctl python-gobject neovim neofetch starship zsh task sddm ripgrep imagemagick git-lfs strace networkmanager base-devel papirus-icon-theme pavucontrol swaybg dina-font mpd ncmpcpp"
 # pkgs in the chaotic aur
 chaotic_pkgs="bibata-cursor-theme popsicle-git vimv-git foot cozette-otb"
 # pkgs in the aur
