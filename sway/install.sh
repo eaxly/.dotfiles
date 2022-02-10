@@ -41,9 +41,9 @@ fi
 # pkgs to be installed with pacman
 pkgs="sway kanshi swayidle grim slurp jq wl-clipboard waybar mako discord-canary playerctl python-gobject neovim neofetch starship zsh task sddm ripgrep imagemagick git-lfs strace networkmanager base-devel papirus-icon-theme pavucontrol swaybg dina-font"
 # pkgs in the chaotic aur
-chaotic_pkgs="swaylock-effects bibata-cursor-theme popsicle-git vimv-git foot cozette-otb"
+chaotic_pkgs="bibata-cursor-theme popsicle-git vimv-git foot cozette-otb"
 # pkgs in the aur
-aur_pkgs="oguri-git sheldon-bin sddm-sugar-candy-git funny-manpages farge-git nerd-fonts-victor-mono rofi-lbonn-wayland"
+aur_pkgs="swaylock-effects-git sheldon-bin sddm-sugar-candy-git funny-manpages farge-git nerd-fonts-victor-mono rofi-lbonn-wayland"
 
 function _install() {
     programs=${@}

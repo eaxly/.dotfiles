@@ -77,12 +77,12 @@
     },
     "pulseaudio": {
         "format": "<span foreground='#__[yellow_br]__'></span><span foreground='#__[bg]__' background='#__[yellow_br]__'>{icon} </span><span foreground='#__[bg]__' background='#__[yellow]__'>{volume}%</span><span foreground='#__[yellow]__' background='#__[bg]__'></span>",
-        "format-bluetooth": "<span foreground='#__[yellow_br]__'></span><span foreground='#__[bg]__' background='#__[yellow_br]__'>{icon}<span foreground='#__[blue]__'></span></span><span foreground='#__[bg]__' background='#__[yellow]__'>{volume}%</span><span foreground='#__[yellow]__' background='#__[bg]__'></span>",
+        "format-bluetooth": "<span foreground='#__[yellow_br]__'></span><span foreground='#__[bg]__' background='#__[yellow_br]__'>{icon} <span foreground='#__[blue]__'>bt </span></span><span foreground='#__[bg]__' background='#__[yellow]__'>{volume}%</span><span foreground='#__[yellow]__' background='#__[bg]__'></span>",
         "format-muted": "<span foreground='#__[red_br]__'></span><span foreground='#__[bg]__' background='#__[red_br]__'>婢</span><span foreground='#__[bg]__' background='#__[red]__'>0%</span><span foreground='#__[red]__' background='#__[bg]__'></span>",
         "format-icons": {
             "headphone": "",
-            "hands-free": "",
-            "headset": "",
+            "hands-free": "H",
+            "headset": "",
             "phone": "",
             "portable": "",
             "car": "",

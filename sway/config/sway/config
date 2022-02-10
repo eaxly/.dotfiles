@@ -227,9 +227,9 @@ assign [class="Microsoft Teams - Preview"] → workspace number 5
 
 ### Autostarting
 exec "mako"
-exec "deezer --start-in-tray"
 exec "wlsunset -l 36.9 -L 10.3 -t 4500 -T 7000"
 exec "emote"
+exec ~/.dotfiles/bin/bin/start-mpd.sh
 
 # Does something related to the user's systemd config
 include /etc/sway/config.d/*
