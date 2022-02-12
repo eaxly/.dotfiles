@@ -15,3 +15,9 @@ These are my personal configuration files + things i use when installing a new s
 -->
 
  \* take a look at [bombadil](https://github.com/oknozor/toml-bombadil) to learn more about profiles
+
+
+
+##### Other repo's
+- [.walls](https://github.com/extinctaxolotl/.walls) - wallpapers
+- [gtktheme](https://github.com/extinctaxolotl/gtktheme) - GTK Theme, based on phocus
