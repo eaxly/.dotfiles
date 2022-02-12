@@ -37,6 +37,7 @@ fg("CmpItemMenu", c.cyan_br .. " gui=bold")
 -- TS
 fg("TSUnderline", c.fg_alt .. " gui=underline")
 fg("TSStrike", c.fg_alt .. " gui=strikethrough")
+fg("TSType", c.yellow_br)
 
 -- Plugins --
 -- nvimtree

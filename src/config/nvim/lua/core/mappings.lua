@@ -62,11 +62,15 @@ M.term = function()
 end
 
 M.bufferline = function()
-  map("n", "<leader>bl", "<cmd>BufferLineCycleNext<cr>")
-  map("n", "<leader>bh", "<cmd>BufferLineCyclePrev<cr>")
+  map("n", "<tab>", "<cmd>BufferLineCycleNext<cr>")
+  map("n", "<s-tab>", "<cmd>BufferLineCyclePrev<cr>")
+  map("n", "<c-tab>", "<cmd>BufferLineMoveNext<cr>")
+  map("n", "<c-s-tab>", "<cmd>BufferLineMovePrev<cr>")
   map("n", "<leader>bp", "<cmd>BufferLinePick<cr>")
   map("n", "<leader>bc", "<cmd>Bdelete<cr>")
   map("n", "<leader>bC", "<cmd>Bdelete!<cr>")
+  map("n", "<leader>bd", "<cmd>bdelete<cr>")
+  map("n", "<leader>bD", "<cmd>bdelete!<cr>")
 
   map("n", "<leader>bse", "<cmd>BufferLineSortByExtension")
 end
