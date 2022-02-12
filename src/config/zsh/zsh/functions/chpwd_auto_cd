@@ -1,0 +1,2 @@
+emulate -L zsh
+ls -lAhF --color=auto --group-directories-first

@@ -1,0 +1,7 @@
+emulate -L zsh
+[ -d ".git" ] && is_repo=true || is_repo=false
+if $is_repo; then
+    echo "yes"
+else
+    echo "no"
+fi

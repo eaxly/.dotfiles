@@ -1,16 +1,15 @@
 [profiles.sway]
-vars = ["sway/vars.toml", "sway/themes/solo.toml"]
+vars = ["sway/vars.toml", "sway/themes/jabba.toml"]
 posthooks = ["sway reload", "makoctl reload"]
 
 [profiles.sway.dots]
-##config
 foot = { source = "sway/config/foot", target = ".config/foot" }
 sway = { source = "sway/config/sway", target = ".config/sway" }
 kanshi = { source = "sway/config/kanshi", target = ".config/kanshi" }
 waybar = { source = "sway/config/waybar", target = ".config/waybar" }
 swaylock = { source = "sway/config/swaylock", target = ".config/swaylock" }
 mako = { source = "sway/config/mako", target = ".config/mako" }
-nvim = { vars = "sway/themes/solo.toml"}
+nvim = { vars = "sway/themes/jabba.toml"}
 gtk = { source = "sway/config/gtk-3.0/settings.ini", target = ".config/gtk-3.0/settings.ini" }
 rofi = { source = "sway/config/rofi", target = ".config/rofi" }
 powercord = { source = "sway/config/powercord/theme", target = ".powercord/src/Powercord/themes/theme"}

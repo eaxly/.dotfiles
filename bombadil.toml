@@ -16,8 +16,8 @@ starship = { source = "src/config/starship.toml", target = ".config/starship.tom
 neofetch = { source = "src/config/neofetch/", target = ".config/neofetch" }
 kitty = { source = "src/config/kitty/", target = ".config/kitty" }
 bash = { source = "src/config/bash/bashrc", target = ".bashrc" }
-# zshrc = { source = "src/config/zsh/zshrc", target = ".zshrc" }
-# zsh = { source = "src/config/zsh/zsh", target = ".zsh" }
+zshrc = { source = "src/config/zsh/zshrc", target = ".zshrc" }
+zsh = { source = "src/config/zsh/zsh", target = ".zsh" }
 git = { source = "src/config/git", target = ".config/git" }
 
 # === IMPORTS ===

@@ -1,8 +1,8 @@
 profile external {
-	output DP-1 position 0,0 mode 1920x1080@60Hz
-    output position 1920,312eDP-1 mode 1366x768
+	output DP-1 position 0,0 mode 1920x1080@60Hz enable
+    output eDP-1 disable
 }
 
 profile internal {
-    output eDP-1 mode 1366x768 position 0,0
+    output eDP-1 mode 1366x768 position 0,0 enable
 }

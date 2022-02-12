@@ -1,0 +1,2 @@
+# BINDINGS
+bindkey -v
