@@ -15,3 +15,7 @@ fcd() {
 hst() {
     cat $HISTFILE | fzf | wl-copy
 }
+
+ssh-add-pass() {
+    ! command -v seahorse &> /dev/null && echo install seahorse || /usr/lib/seahorse/ssh-askpass $1 &> /dev/null
+}
