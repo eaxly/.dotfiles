@@ -66,7 +66,7 @@ cmp.setup({
     { name = "luasnip" }, -- For luasnip users.
     { name = "calc" },
 
-    { name = "buffer" },
+    { name = "buffer", keyword_length = 5 },
   }),
   formatting = {
     format = require("lspkind").cmp_format({

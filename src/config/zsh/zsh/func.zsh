@@ -11,3 +11,7 @@ fcd() {
     _path="$(fd --type=d --hidden | fzf)"
     [ ! -z "$_path" ] && cd $_path
 }
+
+hst() {
+    cat $HISTFILE | fzf | wl-copy
+}
