@@ -7,6 +7,8 @@ alias gp="git push"
 alias gf="git fetch"
 alias gst="git status"
 alias gc="git commit"
+alias gco="git checkout"
+alias gb="git branch"
 
 # [ n ]vim
 alias v="nvim"
