@@ -1,13 +1,13 @@
-## colors - this is jabba light
+## colors - this is solo light
 # grounds
 fg                  = "141414"
-fg_alt              = "1A1A1A"
-fg_alter            = "1F1F1F"
-fg_light            = "0F0F0F"
+fg_alt              = "0f0f0f"
+fg_alter            = "0c0c0c"
+fg_light            = "1c1c1c"
 bg                  = "B2AEAE"
-bg_alt              = "A4A3A2"
-bg_alter            = "91908D"
-bg_dark             = "C3C1C1"
+bg_alt              = "b7b3b3"
+bg_alter            = "bab6b6"
+bg_dark             = "ada9a9"
 # selection             
 slt_fg              = "%bg"
 slt_bg              = "%fg"

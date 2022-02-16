@@ -1,6 +1,6 @@
 configuration {
     modi: "run,ssh,drun";
-    font: "CozetteVector 12";
+    font: "CozetteVector 9";
     show-icons: true;
     icon-theme: "Papirus";
     case-sensitive: false;
