@@ -48,10 +48,8 @@ client.unfocused        #{{bg}} #{{bg}}     #{{fg_alt}} #{{bg}} #{{bg}}
 client.urgent           #{{red}}    #{{bg}}     #{{fg}}     #{{red}}    #{{red}}
 client.placeholder      #{{bg}}     #{{slt_bg}} #{{fg}}     #{{bg}}     #{{slt_bg}}
 
-
-
 ### Output configuration
-output "*" bg {{wall}} tile "#{{bg_dark}}"
+output "*" bg #0f0f0f solid_color
 # output eDP-1 disable
 exec "kanshi"
 exec_always "killall -q kanshi && kanshi"
@@ -209,7 +207,6 @@ for_window [class="Microsoft Teams - Preview"] inhibit_idle open
 for_window [app_id="kitty_rsclock"] floating enable
 for_window [app_id="kitty_rsclock"] resize set width 400px
 for_window [app_id="kitty_rsclock"] resize set height 350px
-for_window [app_id="com.nextcloud.desktopclient.nextcloud"] floating enable
 
 assign [app_id="foot"] → workspace number 1
 assign [app_id="kitty"] → workspace number 1
@@ -228,7 +225,6 @@ assign [class="Deezer"] → workspace number 5
 assign [class="lunarclient"] → workspace number 5
 assign [class="libreoffice-writer"] → workspace number 5
 assign [class="Microsoft Teams - Preview"] → workspace number 5
-assign [class="Steam"] → workspace number 5
 
 ### Autostarting
 exec "mako"

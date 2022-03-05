@@ -1,3 +1,5 @@
+# theme
+theme     = ""
 ## colors
 # NOTE: for templating
 # grounds
@@ -41,4 +43,7 @@ accent_alt          = ""
 ## specifics             
 wall                = ""
 
-theme     = ""
+# applications           
+gtk_theme           = ""
+cursor_theme        = ""
+icon_theme          = ""

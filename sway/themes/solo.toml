@@ -41,3 +41,8 @@ accent_alt          = "%green"
 
 ## specifics             
 wall                = "~/.walls/pluswall/solo.png"
+
+# applications           
+gtk_theme           = "solo"
+cursor_theme        = "Bibata-Modern-Ice"
+icon_theme          = "Papirus"
