@@ -1,10 +1,9 @@
 [profiles.sway]
 vars = ["sway/vars.toml", "sway/themes/jabba.toml"]
-posthooks = ["makoctl reload"] # "sway reload", 
+posthooks = ["makoctl reload", "sway reload"]
 
 [profiles.sway.dots]
 foot = { source = "sway/config/foot", target = ".config/foot" }
-foo = { source = "sway/foo", target = "fool"}
 kanshi = { source = "sway/config/kanshi", target = ".config/kanshi" }
 waybar = { source = "sway/config/waybar", target = ".config/waybar" }
 swaylock = { source = "sway/config/swaylock", target = ".config/swaylock" }
