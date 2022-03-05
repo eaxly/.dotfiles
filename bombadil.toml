@@ -22,7 +22,4 @@ git = { source = "src/config/git", target = ".config/git" }
 
 # === IMPORTS ===
 [[import]]
-path = "tokyonight/tokyonight.toml"
-
-[[import]]
 path = "sway/sway.toml"
