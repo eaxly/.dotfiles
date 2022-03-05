@@ -4,7 +4,7 @@ posthooks = ["sway reload", "makoctl reload"]
 
 [profiles.sway.dots]
 foot = { source = "sway/config/foot", target = ".config/foot" }
-sway = { source = "sway/config/sway", target = ".config/sway" }
+wm = { source = "sway/config/wm", target = ".config/sway" }
 kanshi = { source = "sway/config/kanshi", target = ".config/kanshi" }
 waybar = { source = "sway/config/waybar", target = ".config/waybar" }
 swaylock = { source = "sway/config/swaylock", target = ".config/swaylock" }
