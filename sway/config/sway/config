@@ -49,7 +49,7 @@ client.urgent           #{{red}}    #{{bg}}     #{{fg}}     #{{red}}    #{{red}}
 client.placeholder      #{{bg}}     #{{slt_bg}} #{{fg}}     #{{bg}}     #{{slt_bg}}
 
 ### Output configuration
-output "*" bg #0f0f0f solid_color
+output "*" bg {{wall}} tile #{{bg_dark}}
 # output eDP-1 disable
 exec "kanshi"
 exec_always "killall -q kanshi && kanshi"
