@@ -7,15 +7,6 @@ local tree_cb = require("nvim-tree.config").nvim_tree_callback
 
 vim.g.nvim_tree_indent_markers = 1
 vim.g.nvim_tree_respect_buf_cwd = 0
-vim.g.nvim_tree_window_picker_exclude = {
-  filetype = {
-    "notify",
-    "packer",
-    "qf",
-  },
-  buftype = { "terminal" },
-}
-
 vim.g.nvim_tree_root_folder_modifier = table.concat({ ":t:gs?$?/..", string.rep(" ", 1000), "?:gs?^??" })
 
 nvimtree.setup({
@@ -67,4 +58,22 @@ nvimtree.setup({
       },
     },
   },
+  actions = {
+    change_dir = {
+      enable = true,
+      global = false,
+    },
+    open_file = {
+      quit_on_open = false,
+      resize_window = false,
+      window_picker = {
+        enable = true,
+        chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
+        exclude = {
+        filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame", },
+        buftype  = { "nofile", "terminal", "help", },
+        }
+      }
+    },
+  }
 })

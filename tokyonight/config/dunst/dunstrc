@@ -67,7 +67,7 @@
     frame_width = 3
 
     # Defines color of the frame around the notification window.
-    # frame_color = "__[cursor]__"
+    # frame_color = "{{cursor}}"
 
     # Define a color for the separator.
     # possible values are:
@@ -222,7 +222,7 @@
     # corners.
     # The radius will be automatically lowered if it exceeds half of the
     # notification height to avoid clipping text and/or icons.
-    corner_radius = __[corner_rad]__
+    corner_radius = {{corner_rad}}
 
     # Ignore the dbus closeNotification message.
     # Useful to enforce the timeout set by dunst configuration. Without this
@@ -307,21 +307,21 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "__[bg]__"
-    foreground = "__[fg]__"
-    frame_color = "__[fg]__"
+    background = "{{bg}}"
+    foreground = "{{fg}}"
+    frame_color = "{{fg}}"
     timeout = 8
 
 [urgency_normal]
-    background = "__[bg]__"
-    foreground = "__[fg]__"
-    frame_color = "__[color5]__"
+    background = "{{bg}}"
+    foreground = "{{fg}}"
+    frame_color = "{{color5}}"
     timeout = 8
 
 [urgency_critical]
-    background = "__[bg]__"
-    foreground = "__[fg]__"
-    frame_color = "__[color4]__"
+    background = "{{bg}}"
+    foreground = "{{fg}}"
+    frame_color = "{{color4}}"
     timeout = 0
 
 # vim: ft=cfg

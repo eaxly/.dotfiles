@@ -1,0 +1,2 @@
+theme="Hexagon"
+show = ["Host", "Distribution", "WindowManager", "DesktopEnvironment", "Shell", "Terminal", "Battery"]

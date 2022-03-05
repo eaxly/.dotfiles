@@ -8,23 +8,23 @@
     --roleslist-columns: 1;
 }
 .theme-dark {
-    --background-primary: #__[bg]__;
-    --background-secondary: #__[bg_alt]__;
-    --background-tertiary: #__[bg_alter]__;
-    --background-accent: #__[accent]__;
-    --text-normal: #__[fg]__;
-    --text-spotify: #__[blue]__;
-    --text-muted: #__[fg]__;
-    --text-link: #__[magenta]__;
-    --background-floating: #__[bg_dark]__;
-    --header-primary: #__[fg_light]__;
-    --header-secondary: #__[fg]__;
-    --header-spotify: #__[blue_br]__;
-    --interactive-normal: #__[fg]__;
-    --interactive-hover: #__[magenta]__;
-    --interactive-active: #__[fg]__;
-    --ping: #__[red]__;
-    --brand-experiment: #__[yellow]__;
+    --background-primary: #{{bg}};
+    --background-secondary: #{{bg_alt}};
+    --background-tertiary: #{{bg_alter}};
+    --background-accent: #{{accent}};
+    --text-normal: #{{fg}};
+    --text-spotify: #{{blue}};
+    --text-muted: #{{fg}};
+    --text-link: #{{magenta}};
+    --background-floating: #{{bg_dark}};
+    --header-primary: #{{fg_light}};
+    --header-secondary: #{{fg}};
+    --header-spotify: #{{blue_br}};
+    --interactive-normal: #{{fg}};
+    --interactive-hover: #{{magenta}};
+    --interactive-active: #{{fg}};
+    --ping: #{{red}};
+    --brand-experiment: #{{yellow}};
 }
 
 .theme-light,

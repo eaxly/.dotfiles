@@ -55,7 +55,7 @@ local alpha = {
 
 local config = {
   options = {
-    theme = "__[nvim_statusline_name]__",
+    theme = "axolotl",
     section_separators = set_sep().section,
     component_separators = set_sep().component,
     disabled_filetypes = {},

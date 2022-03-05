@@ -1,3 +1,5 @@
+# theme
+theme     = "solo"
 ## colors - this is solo light
 # grounds
 fg                  = "141414"
@@ -39,12 +41,3 @@ accent_alt          = "%green"
 
 ## specifics             
 wall                = "~/.walls/pluswall/solo.png"
-
-# nvim                   
-nvim_color_name     = "solo"
-nvim_statusline_name= "axolotl"
-
-# applications           
-gtk_theme           = "solo"
-cursor_theme        = "Bibata-Modern-Ice"
-icon_theme          = "Papirus"

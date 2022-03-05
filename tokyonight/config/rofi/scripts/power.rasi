@@ -25,12 +25,12 @@ configuration {
 }
 
 *{
-    background: __[bg]__;
-    background-alt: __[bg_alt]__;
-    background-bar: __[bg_alter]__;
-    foreground: __[fg_alter]__;
-    foreground-alt: __[fg]__;
-    accent: __[magenta]__;
+    background: {{bg}};
+    background-alt: {{bg_alt}};
+    background-bar: {{bg_alter}};
+    foreground: {{fg_alter}};
+    foreground-alt: {{fg}};
+    accent: {{magenta}};
 }
 
 window {

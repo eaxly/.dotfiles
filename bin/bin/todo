@@ -9,7 +9,7 @@ file="$HOME/.todo"
 if [[ -z $1 || $1 == "--help" || $1 == "-h" || $1 == "help" ]]; then
 	echo "┌──────[ todo ]──[ version 0.0.1 ]─────── ─ ─"
 	echo "│ usage: todo <options>"
-	echo "├────────────────[ options ]"───────────── ─ ─
+	echo "├────────────────[ options ]───────────── ─ ─"
 	echo "│ -s, --show            display the todo list"
 	echo "│ -a, --add <string>    add a todo item"
 	echo "│ -d, --delete <number> delete a todo item"
@@ -27,13 +27,13 @@ elif [[ $1 = '--show' || $1 = '-s' || $1 == "show" ]]; then
     echo ""
     echo "     _ __ __________________ __ _"
     echo ""
-    nl -b a $file
+    sort $file | nl -b a
 elif [[ $1 = '--delete' || $1 = '-d' || $1 == "delete" ]]; then
 	if [[ -z $2 ]]; then
 		echo "missing option"
 		echo "pass an item number to delete"
 	else
-		sed -e $2'd' -i $file
+        sed ${2}d -i $file
 	fi
 elif [[ $1 = '--add' || $1 = '-a' || $1 == "add" ]]; then
 	if [[ -z $2 ]]; then

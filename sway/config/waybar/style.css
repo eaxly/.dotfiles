@@ -8,14 +8,14 @@
 }
 
 tooltip {
-    background-color: #__[bg]__;
-    color: #__[fg]__;
+    background-color: #{{bg}};
+    color: #{{fg}};
 }
 
 window#waybar {
-    background-color: #__[bg]__;
-    border-top: 1px solid #__[bg_alt]__;
-    color: #__[fg]__;
+    background-color: #{{bg}};
+    border-top: 1px solid #{{bg_alt}};
+    color: #{{fg}};
     transition-property: background-color;
     transition-duration: .5s;
 }
@@ -30,33 +30,33 @@ window#waybar.hidden {
     margin-top: 8px;
     margin-bottom: 8px;
     padding-right: 8px;
-    color: #__[black_br]__;
+    color: #{{black_br}};
     min-width: 0;
 }
 
 #workspaces button.visible {
-    color: #__[blue]__
+    color: #{{blue}}
 }
 
 #workspaces button.focused {
-    color: #__[bg]__;
-    background-color: #__[green]__;
+    color: #{{bg}};
+    background-color: #{{green}};
 }
 
 #workspaces button:hover {
     box-shadow: none;
     text-shadow: none;
-    background-color: #__[bg]__;
+    background-color: #{{bg}};
 }
 
 #workspaces button:active {
     box-shadow: none;
     text-shadow: none;
-    background-color: #__[bg]__;
+    background-color: #{{bg}};
 }
 
 #workspaces button.urgent {
-    color: #__[red]__;
+    color: #{{red}};
 }
 
 #workspaces {
@@ -64,7 +64,7 @@ window#waybar.hidden {
 }
 
 #mode {
-    color: #__[magenta]__
+    color: #{{magenta}}
 }
 
 #custom-media {
@@ -82,27 +82,27 @@ window#waybar.hidden {
 }
 
 #clock {
-    background-color: #__[bg]__;
+    background-color: #{{bg}};
 }
 
 #battery {
-    color: #__[blue]__;
+    color: #{{blue}};
 }
 
 #battery.charging, #battery.plugged {
-    color: #__[blue_br]__;
+    color: #{{blue_br}};
 }
 
 @keyframes blink {
     to {
-        color: #__[bg]__;
+        color: #{{bg}};
         text-shadow: none;
     }
 }
 
 #battery.critical:not(.charging) {
-    color: #__[red]__;
-    text-shadow: #__[red]__;
+    color: #{{red}};
+    text-shadow: #{{red}};
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: linear;
@@ -111,19 +111,19 @@ window#waybar.hidden {
 }
 
 #memory {
-    color: #__[magenta]__
+    color: #{{magenta}}
 }
 
 #cpu {
-    color: #__[green]__;
+    color: #{{green}};
 }
 
 #pulseaudio {
-    color: #__[yellow]__;
+    color: #{{yellow}};
 }
 
 #pulseaudio.muted {
-    color: #__[red]__;
+    color: #{{red}};
 }
 #tray,
 
@@ -134,7 +134,7 @@ window#waybar.hidden {
 
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
-    color: #__[red]__
+    color: #{{red}}
 }
 
 #idle_inhibitor {
@@ -143,15 +143,15 @@ window#waybar.hidden {
 
 
 #idle_inhibitor.activated {
-    color: #__[red]__;
+    color: #{{red}};
     padding: 0 10px;
 }
 
 #custom-github {
-    color: #__[red]__;
+    color: #{{red}};
     padding: 5px 5px;
 }
 
 #custom-scratchpad {
-    color: #__[red]__;
+    color: #{{red}};
 }

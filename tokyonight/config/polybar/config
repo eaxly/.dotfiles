@@ -15,12 +15,12 @@
 ; ░▀▀▀░▀▀▀░▀▀▀░▀▀▀░▀░▀░▀▀▀
 ; to make things look good (or awful depends on the taste)
 [colors]
-background = __[bg]__
+background = {{bg}}
 ; TODO(axolot): Add separators
-foreground = __[fg]__
-primary = __[magenta]__
-secondary = __[white]__
-alert = __[red]__
+foreground = {{fg}}
+primary = {{magenta}}
+secondary = {{white}}
+alert = {{red}}
 
 ; ░█▄█░█▀█░█▀▄░█░█░█░░░█▀▀░█▀▀
 ; ░█░█░█░█░█░█░█░█░█░░░█▀▀░▀▀█
@@ -184,8 +184,8 @@ type = internal/battery
 
 ; Use the following command to list batteries and adapters:
 ; $ ls -1 /sys/class/power_supply/
-battery = __[battery]__
-adapter = __[adapter]__
+battery = {{battery}}
+adapter = {{adapter}}
 
 ; If an inotify event haven't been reported in this many
 ; seconds, manually poll for new values.
@@ -257,7 +257,7 @@ animation-discharging-framerate = 750
 ; Module/network {{{
 [module/wired-network]
 type = internal/network
-interface = __[wire_face]__
+interface = {{wire_face}}
 
 interval = 2.5
 
@@ -288,7 +288,7 @@ animation-packetloss-framerate = 500
 
 [module/wireless-network]
 type = internal/network
-interface = __[wireless_face]__
+interface = {{wireless_face}}
 
 interval = 2.5
 
@@ -387,7 +387,7 @@ height = 25
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-radius-bottom = __[corner_rad]__
+radius-bottom = {{corner_rad}}
 
 offset-x = 1.0%
 
@@ -436,7 +436,7 @@ height = 21
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-radius-top= __[corner_rad]__
+radius-top= {{corner_rad}}
 
 offset-x = 22.5%
 

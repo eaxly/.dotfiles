@@ -4,18 +4,18 @@
   font-size: 24px;
 }
 
-$bg: #__[bg]__;
-$bg_dark: #__[bg_dark]__;
-$bg_alt: #__[bg_alt]__;
-$fg: #__[fg]__;
-$fg_alt: #__[fg_alt]__;
-$red: #__[red]__;
-$green: #__[green]__;
-$yellow: #__[yellow]__;
-$blue: #__[blue]__;
-$magenta: #__[magenta]__;
-$cyan: #__[cyan]__;
-$white: #__[white]__;
+$bg: #{{bg}};
+$bg_dark: #{{bg_dark}};
+$bg_alt: #{{bg_alt}};
+$fg: #{{fg}};
+$fg_alt: #{{fg_alt}};
+$red: #{{red}};
+$green: #{{green}};
+$yellow: #{{yellow}};
+$blue: #{{blue}};
+$magenta: #{{magenta}};
+$cyan: #{{cyan}};
+$white: #{{white}};
 
 .double {
     background-color: $bg_dark;

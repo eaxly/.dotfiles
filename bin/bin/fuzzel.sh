@@ -9,13 +9,13 @@ fuzzel \
                 -l 20\
                 -w 50\
                 --prompt="ͷ "\
-                --background="__[bg]__ff"\
-                --text-color="__[fg]__ff"\
-                --match-color="__[accent]__ff"\
-                --selection-color="__[bg_alt]__ff"\
+                --background="{{bg}}ff"\
+                --text-color="{{fg}}ff"\
+                --match-color="{{accent}}ff"\
+                --selection-color="{{bg_alt}}ff"\
                 --border-width=2\
-                --border-color="__[bg_alt]__ff"\
-                --selection-text-color="__[fg]__ff"\
+                --border-color="{{bg_alt}}ff"\
+                --selection-text-color="{{fg}}ff"\
                 --border-radius=0\
-                --border-color="__[bg_alt]__ff"\
+                --border-color="{{bg_alt}}ff"\
                  $@ <&0

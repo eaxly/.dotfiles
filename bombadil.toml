@@ -13,7 +13,7 @@ posthooks = ["nvim --headless +PackerCompile +sleep1 +qall"]
 nvim = { source = "src/config/nvim", target = ".config/nvim", vars = "src/config/nvim/vars.toml" }
 sheldon = { source = "src/config/sheldon", target = ".config/sheldon" }
 starship = { source = "src/config/starship.toml", target = ".config/starship.toml" }
-neofetch = { source = "src/config/neofetch/", target = ".config/neofetch" }
+macchina = { source = "src/config/macchina", target = ".config/macchina" }
 kitty = { source = "src/config/kitty/", target = ".config/kitty" }
 bash = { source = "src/config/bash/bashrc", target = ".bashrc" }
 zshrc = { source = "src/config/zsh/zshrc", target = ".zshrc" }

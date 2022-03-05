@@ -1,3 +1,5 @@
+# theme
+theme="rosepine"
 ## colors
 # grounds 
 fg                  = "e0def4"  # #e0def4
@@ -40,12 +42,3 @@ accent_alt          = "%cyan_br"
 ## specifics
 # wall
 wall                = "~/.walls/pluswall/rosepinebase.png"
-
-# nvim
-nvim_color_name     = "rosepine"
-nvim_statusline_name= "axolotl"
-
-# applications
-gtk_theme           = "rose-pine-gtk"
-cursor_theme        = "Bibata-Modern-Ice"
-icon_theme          = "Papirus"

@@ -1,3 +1,5 @@
+# theme
+theme = "jabba"
 ## colors
 # grounds
 fg                  = "B2AEAE"
@@ -40,11 +42,3 @@ accent_alt          = "%green"
 ## specifics             
 wall                = "~/.walls/pluswall/jabba.png"
 
-# nvim                   
-nvim_color_name     = "jabba"
-nvim_statusline_name= "axolotl"
-
-# applications           
-gtk_theme           = "phocus"
-cursor_theme        = "Bibata-Modern-Ice"
-icon_theme          = "Papirus"

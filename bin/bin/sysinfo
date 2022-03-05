@@ -7,7 +7,7 @@ shell=$(echo $SHELL | cut -d"/" -f3)
 os=$(cat /etc/os-release | grep -E "^ID=" | cut -d"=" -f2)
 kernel=$(uname -r)
 packages=$(pacman -Q | wc -l)
-theme=$( cat .dotfiles/sway/sway.toml | grep -E "^vars =" | tr -d '"] ' | cut -d"/" -f4 | cut -d"." -f1 )
+theme=$( bombadil get vars -psway | grep -E 'nvim_color_name: ' | awk '{print $2}' )
 uptime=$(uptime -p | cut -d" " -f2-)
 s="   "
 

@@ -1,3 +1,5 @@
+#theme
+theme = "aquarium"
 ## colors
 # grounds
 fg                  = "63718B"
@@ -39,12 +41,3 @@ accent_alt          = "%green_br"
 
 ## specifics             
 wall                = "~/.walls/pluswall/aquarium.png"
-
-# nvim                   
-nvim_color_name     = "aquarium"
-nvim_statusline_name= "axolotl"
-
-# applications           
-gtk_theme           = "aquarium"
-cursor_theme        = "Bibata-Modern-Ice"
-icon_theme          = "Papirus"

@@ -5,6 +5,10 @@
 -- File: ~/.config/nvim/init.lua
 -- By: @ExtinctAxolotl
 -- thx, @shaunsingh
+local present, impatient = pcall(require, "impatient")
+if present then
+  impatient.enable_profile()
+end
 
 local modules = {
   "core.mappings",

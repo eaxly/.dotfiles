@@ -37,7 +37,7 @@ alias pacreps="pacman -Ss"
 
 # misc
 alias bomb="bombadil link -psway"
-alias neo="neofetch"
+alias ma="macchina"
 alias lzg="lazygit"
 alias ncm="ncmpcpp"
 alias jrnl=" jrnl"

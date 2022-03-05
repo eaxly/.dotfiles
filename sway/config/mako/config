@@ -13,15 +13,15 @@ on-touch=dismiss
 # STYLE
 #
 font=CozetteVector 10
-background-color=#__[bg_alt]__
-text-color=#__[fg]__
+background-color=#{{bg_alt}}
+text-color=#{{fg}}
 width=450
 height=200
-border-color=#__[bg_alter]__
-border-size=__[border_size]__
+border-color=#{{bg_alter}}
+border-size={{border_size}}
 border-radius=0
 margin=20
-progress-color=over #__[accent]__
+progress-color=over #{{accent}}
 icons=1
 max-icon-size=64
 icon-path=/usr/share/icons/Papirus/
@@ -42,13 +42,13 @@ anchor=top-right
 format=(%g) <i>%a</i>\n<b>%s</b>\n%b
 
 [urgency=low]
-text-color=#__[fg_alt]__
-border-color=#__[fg_alt]__
+text-color=#{{fg_alt}}
+border-color=#{{fg_alt}}
 
 [urgency=normal]
-text-color=#__[fg]__
+text-color=#{{fg}}
 
 [urgency=critical]
-text-color=#__[red]__
+text-color=#{{red}}
 
 #vim:ft=conf

@@ -13,7 +13,7 @@ fcd() {
 }
 
 hst() {
-    cat $HISTFILE | fzf | wl-copy
+    tac $HISTFILE | fzf | wl-copy
 }
 
 ssh-add-pass() {

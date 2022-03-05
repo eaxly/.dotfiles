@@ -1,4 +1,4 @@
-local theme_name =  "__[nvim_color_name]__"
+local theme_name =  "{{theme}}"
 local present, theme = pcall(require, "theme.themes." .. theme_name)
 if not present then
   print("Could not load" .. theme_name)

@@ -1,3 +1,5 @@
+# theme
+theme     = "rose-pine"
 ## colors
 # grounds 
 fg                  = "e0def4"  # #e0def4
@@ -40,13 +42,3 @@ accent_alt          = "%cyan_br"
 # wall
 wall                = "~/.walls/pluswall/rosepinemoon.png"
 
-# nvim
-nvim_color_name     = "rose-pine"
-nvim_color_url      = "rose-pine/neovim"
-nvim_statusline_name= "%nvim_color_name"
-nvim_color_style    = "moon"
-
-# applications
-gtk_theme           = "rose-pine-gtk"
-cursor_theme        = "Bibata-Modern-Ice"
-icon_theme          = "Papirus"

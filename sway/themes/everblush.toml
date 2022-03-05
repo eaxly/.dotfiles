@@ -1,0 +1,43 @@
+# theme
+theme = "everblush"
+## colors
+# grounds
+fg                  = "dadada"
+fg_alt              = "d2d2d2"
+fg_alter            = "cacaca"
+fg_light            = "e2e2e2"
+bg                  = "181f21"
+bg_alt              = "202729"
+bg_alter            = "282f31"
+bg_dark             = "101719"
+# selection              
+slt_fg              = "%bg"
+slt_bg              = "%black_br"
+# specials               
+links               = "%magenta"
+cursor              = "%green"
+cursor_text         = "%bg"
+# specifications         
+black               = "22292b"
+black_br            = "b3b9b8"
+red                 = "e06e6e"
+red_br              = "ef7d7d"
+green               = "8ccf7e"
+green_br            = "9bdead"
+yellow              = "e5c76b"
+yellow_br           = "f4d67a"
+blue                = "67b0e8"
+blue_br             = "6cb5ed"
+magenta             = "c47fd5"
+magenta_br          = "ce89df"
+cyan                = "6cd0ca"
+cyan_br             = "67cbe7"
+white               = "b3b9b8"
+white_br            = "bdc3c2"
+
+# accents and others
+accent              = "%yellow"
+accent_alt          = "%yellow_br"
+
+## specifics
+wall                = "~/.walls/pluswall/everblush.png"

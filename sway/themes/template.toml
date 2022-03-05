@@ -1,36 +1,38 @@
 ## colors
 # NOTE: for templating
 # grounds
-fg                  = "" # #
-fg_alt              = "" # #
-fg_alter            = "" # #
-bg                  = "" # #
-bg_alt              = "" # #
-bg_alter            = "" # #
+fg                  = ""
+fg_alt              = ""
+fg_alter            = ""
+fg_light            = ""
+bg                  = ""
+bg_alt              = ""
+bg_alter            = ""
+bg_dark             = ""
 # selection              
-slt_fg              = "" # #
-slt_bg              = "" # #
+slt_fg              = ""
+slt_bg              = ""
 # specials               
-links               = "" # #
-cursor              = "" # #
-cursor_text         = "" # #
+links               = ""
+cursor              = ""
+cursor_text         = ""
 # specifications         
-black               = "" # #
-black_br            = "" # #
-red                 = "" # #
-red_br              = "" # #
-green               = "" # #
-green_br            = "" # #
-yellow              = "" # #
-yellow_br           = "" # #
-blue                = "" # #
-blue_br             = "" # #
-magenta             = "" # #
-magenta_br          = "" # #
-cyan                = "" # #
-cyan_br             = "" # #
-white               = "" # #
-white_br            = "" # #
+black               = ""
+black_br            = ""
+red                 = ""
+red_br              = ""
+green               = ""
+green_br            = ""
+yellow              = ""
+yellow_br           = ""
+blue                = ""
+blue_br             = ""
+magenta             = ""
+magenta_br          = ""
+cyan                = ""
+cyan_br             = ""
+white               = ""
+white_br            = ""
 
 # accents and others
 accent              = ""
@@ -39,13 +41,4 @@ accent_alt          = ""
 ## specifics             
 wall                = ""
 
-# nvim                   
-nvim_color_name     = ""
-nvim_color_url      = ""
-nvim_statusline_name= ""
-nvim_color_style    = ""
-
-# applications           
-gtk_theme           = ""
-cursor_theme        = ""
-icon_theme          = ""
+theme     = ""

@@ -13,12 +13,12 @@ font pango:Typecast 9
 # variables
 set $TERMINAL kitty
 ## Theme
-set $fg __[fg]__
-set $bg __[bg]__
-set $ac __[cursor]__
-set $red __[red]__
-set $green __[green]__
-set $yellow __[yellow]__
+set $fg {{fg}}
+set $bg {{bg}}
+set $ac {{cursor}}
+set $red {{red}}
+set $green {{green}}
+set $yellow {{yellow}}
 
 # class                 border  backgr. text    indicator child_border
 client.focused          $bg     $bg     $fg     $bg       $bg
@@ -158,17 +158,17 @@ bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
 # move focused container to workspace
-workspace $ws1 output __[main_monitor]__
-workspace $ws2 output __[main_monitor]__
-workspace $ws3 output __[main_monitor]__
-workspace $ws4 output __[main_monitor]__
-workspace $ws5 output __[main_monitor]__
+workspace $ws1 output {{main_monitor}}
+workspace $ws2 output {{main_monitor}}
+workspace $ws3 output {{main_monitor}}
+workspace $ws4 output {{main_monitor}}
+workspace $ws5 output {{main_monitor}}
 
-workspace $ws6 output __[second_monitor]__
-workspace $ws7 output __[second_monitor]__
-workspace $ws8 output __[second_monitor]__
-workspace $ws9 output __[second_monitor]__
-workspace $ws10 output __[second_monitor]__
+workspace $ws6 output {{second_monitor}}
+workspace $ws7 output {{second_monitor}}
+workspace $ws8 output {{second_monitor}}
+workspace $ws9 output {{second_monitor}}
+workspace $ws10 output {{second_monitor}}
 
 bindsym $mod+Shift+1 move container to workspace number $ws1
 bindsym $mod+Shift+2 move container to workspace number $ws2
@@ -191,7 +191,7 @@ bindsym $mod+Shift+r restart
 # =========
 exec --no-startup-id $HOME/.dotfiles/bin/screenlayout.sh
 exec --no-startup-id picom -b
-exec_always --no-startup-id "feh --bg-fill __[wall]__"
+exec_always --no-startup-id "feh --bg-fill {{wall}}"
 exec --no-startup-id emote
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id $HOME/.dotfiles/bin/autolock.sh

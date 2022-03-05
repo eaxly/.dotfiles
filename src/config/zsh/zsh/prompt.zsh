@@ -6,7 +6,7 @@ ICO_BEHIND="⭣"
 ICO_DIVERGED="⭥"
 PROMPT_STYLE='funcky'
 
-fpath=(~/.zsh/functions $fpath)
+fpath=(~/.zsh/functions ~/.zfunc $fpath)
 autoload -U ~/.zsh/functions/*(:t)
 
 typeset -ga chpwd_functions

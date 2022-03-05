@@ -21,3 +21,4 @@ These are my personal configuration files + things i use when installing a new s
 ##### Other repo's
 - [.walls](https://github.com/extinctaxolotl/.walls) - wallpapers
 - [gtktheme](https://github.com/extinctaxolotl/gtktheme) - GTK Theme, based on phocus
+- [cursor-theme](https://github.com/extinctaxolotl/bibata_cursor) - cursor theme (jabba theme only at the moment)

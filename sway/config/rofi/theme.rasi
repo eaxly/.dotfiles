@@ -1,16 +1,16 @@
-/* This Config is based on https://github.com/undiabler/nord-rofi-theme/blob/master/nord.rasi, shoutout's to undiabler! */
+/* This Config is based on https://github.com/undiabler/nord-rofi-theme/blob/master/nord.rasi, shoutout's to @undiabler! */
 * {
-    bg: #__[bg]__;
-    bg-alt: #__[bg_alt]__;
+    bg: #{{bg}};
+    bg-alt: #{{bg_alt}};
 
-	fg: #__[fg]__;
-	fg-alt: #__[fg_alt]__;
+	fg: #{{fg}};
+	fg-alt: #{{fg_alt}};
 
-	red: #__[red]__;
+	red: #{{red}};
 
-	yellow: #__[yellow]__;
-	green: #__[green]__;
-	magenta: #__[magenta]__;
+	yellow: #{{yellow}};
+	green: #{{green}};
+	magenta: #{{magenta}};
 
     foreground:  @fg;
     background-color: @bg;

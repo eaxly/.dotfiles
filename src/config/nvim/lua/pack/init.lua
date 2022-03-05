@@ -13,6 +13,9 @@ return packer.startup(function()
     "wbthomason/packer.nvim", -- Packer manages itself hehe
     event = "VimEnter",
   })
+  use({
+    "lewis6991/impatient.nvim"
+  })
 
   -- the colorscheme
   use({

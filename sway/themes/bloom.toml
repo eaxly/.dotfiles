@@ -40,12 +40,5 @@ accent_alt          = ""
 wall                = ""
 
 # nvim                   
-nvim_color_name     = ""
+theme     = ""
 nvim_color_url      = ""
-nvim_statusline_name= ""
-nvim_color_style    = ""
-
-# applications           
-gtk_theme           = ""
-cursor_theme        = ""
-icon_theme          = ""
