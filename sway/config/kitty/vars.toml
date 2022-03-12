@@ -1,5 +1,0 @@
-# tabs             
-tab_active_fg  = "%fg"
-tab_active_bg  = "%bg_alter"
-tab_inactive_fg= "%fg_alt"
-tab_inactive_bg= "%bg"
