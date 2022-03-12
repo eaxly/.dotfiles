@@ -1,5 +1,6 @@
 configuration {
     modi: "run,ssh,drun";
+    terminal: "foot";
     font: "CozetteVector 9";
     show-icons: true;
     icon-theme: "Papirus";
