@@ -40,6 +40,8 @@ fg("TSStrike", c.fg_alt .. " gui=strikethrough")
 fg("TSType", c.yellow_br)
 
 -- Plugins --
+-- treesitter
+fg("TSLabel", c.red_br)
 -- nvimtree
 bg("NvimTreeNormal", c.bg_dark)
 bg("NvimTreeNormalNC", c.bg_dark)

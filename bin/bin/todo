@@ -3,6 +3,18 @@
 # simple todo script
 # originial author: @xero
 # author: @ExtinctAxolotl
+clr() {
+    printf ""
+}
+bright() {
+    if [ $1 -lt 7 ]; then
+        printf $(($1 + 8))
+    fi
+}
+c1="\e[38;5;1m"
+c2="\e[38;5;2m"
+c3="\e[38;5;3m"
+c4="\e[38;5;4m"
 
 file="$HOME/.todo"
 ( [ -e "$file" ] || touch "$file" ) && [ ! -w "$file" ] && echo cannot write to $file && exit 1
@@ -16,18 +28,18 @@ if [[ -z $1 || $1 == "--help" || $1 == "-h" || $1 == "help" ]]; then
 	echo "│ -h, --help            display this screen"
 	echo "└──────────────────────────────────────── ─ ─"
 elif [[ $1 = '--show' || $1 = '-s' || $1 == "show" ]]; then
-    echo ""
-    echo "     ██                 ██"
-    echo "    ░██                ░██"
-    echo "   ██████  ██████   ██████  ██████"
-    echo "  ░░░██  ░██░░░░██░██░░░██░██   ░██"
-    echo "    ░██  ░██   ░██░██  ░██░██   ░██"
-    echo "    ░░██ ░░██████ ░░██████░░██████"
-    echo "     ░░   ░░░░░░   ░░░░░░  ░░░░░░"
-    echo ""
-    echo "     _ __ __________________ __ _"
-    echo ""
-    sort $file | nl -b a
+    echo -e ""
+    echo -e "     $c1██                 $c2██"
+    echo -e "    $c1░██                $c2░██"
+    echo -e "   $c1██████  $c3██████   $c2██████  $c4██████"
+    echo -e "  $c1░░░██  $c3░██░░░░██$c2░██░░░██$c4░██   ░██"
+    echo -e "    $c1░██  $c3░██   ░██$c2░██  ░██$c4░██   ░██"
+    echo -e "    $c1░░██ $c3░░██████ $c2░░██████$c4░░██████"
+    echo -e "     $c1░░   $c3░░░░░░   $c2░░░░░░  $c4░░░░░░"
+    echo -e ""
+    echo -e "     ${c1}_ ${c3}__ ${c2}__________________ ${c4}__ _\e[m"
+    echo -e ""
+    nl -b a $file
 elif [[ $1 = '--delete' || $1 = '-d' || $1 == "delete" ]]; then
 	if [[ -z $2 ]]; then
 		echo "missing option"

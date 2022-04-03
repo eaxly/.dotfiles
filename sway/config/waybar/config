@@ -19,18 +19,18 @@
             "2": "",
             "3": "謹",
             "4": "",
-            "5": "…",
+            "5": "…"
         },
         "persistent_workspaces": {
             "1": [],
             "2": [],
             "3": [],
-            "4": [],
+            "4": []
         }
     },
     "sway/mode": {
         "format": "m: {}",
-        "max-length": 50,
+        "max-length": 50
     },
     "idle_inhibitor": {
         "format": "<span foreground='#{{fg_alter}}'></span><span background='#{{fg_alter}}' foreground='#{{bg}}'> {icon} </span><span foreground='#{{fg_alter}}'></span>",
@@ -43,8 +43,8 @@
         "spacing": 10
     },
     "clock": {
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format": "<span foreground='#{{green_br}}' background='#{{bg}}'></span><span background='#{{green_br}}' foreground='#{{bg}}'> </span><span foreground='#{{bg}}' background='#{{green}}'> {:%H:%M, %b %d %Y}</span><span foreground='#{{green}}'></span>",
+        "on-click": "eww open cal"
     },
     "cpu": {
         "format": "<span foreground='#{{cyan_br}}'></span><span foreground='#{{bg}}' background='#{{cyan_br}}'> </span><span foreground='#{{bg}}' background='#{{cyan}}'>{usage}%</span><span foreground='#{{cyan}}' background='#{{bg}}'></span>",
@@ -57,11 +57,11 @@
             "default": "",
             "wifi": "直",
             "ethernet": "",
-            "disconnected": "睊",
+            "disconnected": "睊"
         },
         "max-length": 50,
         "tooltip-format": "Welcome to the Internet!",
-        "interval": 2,
+        "interval": 2
     },
     "battery": {
         "states": {
@@ -98,7 +98,7 @@
         },
         "escape": true,
         "exec": "$HOME/.config/waybar/mediaplayer.sh", // script to manage the pid
-        "on-click": "playerctl play-pause 2> /dev/null",
+        "on-click": "playerctl play-pause 2> /dev/null"
     },
     "custom/github": {
         "format": "<span foreground='#{{white_br}}'></span><span foreground='#{{bg}}' background='#{{white_br}}'> </span><span foreground='#{{white}}' background='#{{black}}'>{}</span><span foreground='#{{black}}'></span>",
@@ -117,6 +117,6 @@
     "custom/countdown": {
         "interval": 0.5,
         "exec": "~/.config/waybar/countdown.sh",
-        "format": "<span foreground='#{{yellow_br}}'></span><span foreground='#{{bg}}' background='#{{yellow_br}}'> </span><span foreground='#{{bg}}' background='#{{yellow}}'>{}</span><span foreground='#{{yellow}}' background='#{{bg}}'></span>",
-    },
+        "format": "<span foreground='#{{yellow_br}}'></span><span foreground='#{{bg}}' background='#{{yellow_br}}'> </span><span foreground='#{{bg}}' background='#{{yellow}}'>{}</span><span foreground='#{{yellow}}' background='#{{bg}}'></span>"
+    }
 }

@@ -1,4 +1,4 @@
-# theme
+# rosepine - theme for minimalists
 theme="rosepine"
 ## colors
 # grounds 
@@ -11,12 +11,7 @@ bg_alt              = "1f1d2e"  # #1f1d2e
 bg_alter            = "26233a"  # #26233a
 bg_dark             = "111019"  # #111019
 # selection        
-slt_fg              = "191724"  # #191724
 slt_bg              = "2a2837"  # #2a2837
-# specials         
-links               = "%magenta"# #c4a7e7
-cursor              = "555169"  # #555169
-cursor_text         = "%white"   # #e0def4
 # specifications    
 black               = "26233a"  # #26233a
 black_br            = "6e6a86"  # #6e6a86
@@ -40,5 +35,9 @@ accent              = "%cyan"
 accent_alt          = "%cyan_br"
 
 ## specifics
-# wall
 wall                = "~/.walls/pluswall/rosepinebase.png"
+
+# applications           
+gtk_theme           = "phocus"
+cursor_theme        = "Bibata-Modern-Ice"
+icon_theme          = "Papirus"

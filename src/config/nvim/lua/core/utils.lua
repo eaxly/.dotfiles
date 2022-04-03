@@ -27,11 +27,19 @@ M.quote_dragon = function()
 end
 
 M.fortune = function()
-	local handle = io.popen("fortune -s")
-	local fortune = handle:read("*a")
-	handle:close()
+  local handle = io.popen("fortune -s")
+  local fortune = handle:read("*a")
+  handle:close()
 
 	return fortune
+end
+
+M.fowtune= function()
+  local handle = io.popen("fortune -s | uwuify")
+  local fowtune = handle:read("*a")
+  handle:close()
+
+	return fowtune
 end
 
 M.christmas_check = function()
@@ -107,10 +115,6 @@ M.drama_quotes = function()
 	math.randomseed(os.time())
 	local messages = {
 		"The Legend of NeoVim!",
-		"Eating fishes are we gollum?",
-		"LOTR Chad",
-		"memes are great",
-		"hey there",
 	}
 	return messages[math.random(1, #messages)]
 end

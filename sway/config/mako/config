@@ -21,7 +21,7 @@ border-color=#{{bg_alter}}
 border-size={{border_size}}
 border-radius=0
 margin=20
-progress-color=over #{{accent}}
+progress-color=over #{{bg_dark}}
 icons=1
 max-icon-size=64
 icon-path=/usr/share/icons/Papirus/
@@ -44,11 +44,14 @@ format=(%g) <i>%a</i>\n<b>%s</b>\n%b
 [urgency=low]
 text-color=#{{fg_alt}}
 border-color=#{{fg_alt}}
+progress-color=over #{{bg_dark}}
 
 [urgency=normal]
 text-color=#{{fg}}
+progress-color=over #{{bg_dark}}
 
 [urgency=critical]
 text-color=#{{red}}
+progress-color=over #{{bg_dark}}
 
 #vim:ft=conf

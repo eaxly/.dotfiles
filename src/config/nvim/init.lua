@@ -13,6 +13,7 @@ end
 local modules = {
 	"core.mappings",
 	"core.options",
+  "core.autocmd",
 }
 
 for i = 1, #modules, 1 do

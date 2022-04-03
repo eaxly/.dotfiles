@@ -27,11 +27,6 @@ function ask() {
     echo -e "${blue}${bold}${@}${NC}"
 }
 
-CX_INSTALLED=false
-if pacman -Sl chaotic-aur &> /dev/null; then
-    CX_INSTALLED=true
-fi
-
 if ! command -v pacman > /dev/null; then
     error "Pacman hasn't been found."
     info "Exiting..."
@@ -39,11 +34,57 @@ if ! command -v pacman > /dev/null; then
 fi
 
 # pkgs to be installed with pacman
-pkgs="sway kanshi swayidle grim slurp jq wl-clipboard waybar mako discord-canary playerctl python-gobject neovim neofetch starship zsh task sddm ripgrep imagemagick git-lfs strace networkmanager base-devel papirus-icon-theme pavucontrol swaybg dina-font mpd ncmpcpp pamixer zsh-syntax-highlighting toml-bombadil"
-# pkgs in the chaotic aur
-chaotic_pkgs="bibata-cursor-theme popsicle-git vimv-git foot cozette-otb"
+pkgs="sway \
+    kanshi \
+    swayidle \
+    grim \
+    slurp \
+    jq \
+    wl-clipboard \
+    gammastep \
+    waybar \
+    mako \
+    discord-canary \
+    playerctl \
+    python-gobject \
+    neovim \
+    neofetch \
+    starship \
+    zsh \
+    task \
+    sddm \
+    ripgrep \
+    imagemagick \
+    git-lfs \
+    strace \
+    networkmanager \
+    base-devel \
+    papirus-icon-theme \
+    pavucontrol \
+    swaybg \
+    dina-font \
+    mpd \
+    ncmpcpp \
+    pamixer \
+    zsh-syntax-highlighting \
+    toml-bombadil \
+    rofimoji \
+    wtype \
+    mpv \
+    mpv-mpris"
 # pkgs in the aur
-aur_pkgs="swaylock-effects-git sddm-sugar-candy-git funny-manpages farge-git nerd-fonts-victor-mono rofi-lbonn-wayland wob"
+aur_pkgs="swaylock-effects-git \
+    sddm-sugar-candy-git \
+    funny-manpages \
+    farge-git \
+    nerd-fonts-victor-mono \
+    rofi-lbonn-wayland \
+    wob \
+    bibata-cursor-theme \
+    popsicle-git \
+    vimv-git \
+    foot \
+    cozette-otb"
 
 function _install() {
     programs=${@}
@@ -70,20 +111,9 @@ function _aur_install() {
     fi
 }
 
-function _cx_install() {
-    if [[ $CX_INSTALLED = true ]]; then
-        _install $@
-    else
-        info "Chaotic AUR not installed."
-        info "Installing via the AUR..."
-        _aur_install $@
-    fi
-}
-
 function main() {
     _install $pkgs
     _aur_install $aur_pkgs
-    _cx_install $chaotic_pkgs
 }
 main
 # vi:fdm=marker

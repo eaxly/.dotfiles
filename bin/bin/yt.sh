@@ -78,8 +78,7 @@ download() {
         echo "ytfzf not found!"
         exit 1
     fi
-    cd $dir
-    ytfzf -d -D
+    (cd $dir && ytfzf -d -D)
 }
 
 if $rofi; then

@@ -14,7 +14,7 @@ tooltip {
 
 window#waybar {
     background-color: #{{bg}};
-    border-top: 1px solid #{{bg_alt}};
+    border-bottom: 1px solid #{{bg_alt}};
     color: #{{fg}};
     transition-property: background-color;
     transition-duration: .5s;

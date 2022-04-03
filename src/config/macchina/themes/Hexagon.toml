@@ -6,7 +6,7 @@ separator="→ "
 
 [palette]
 type="Full"
-glyph="    "
+glyph=" "
 visible=true
 
 [bar]

@@ -8,7 +8,7 @@
            :stacking "fg"
            :exclusive false
            :focusable false
-  (double (greeting :text "Welcome User!") (wtime)))
+  (double (greeting :text "welcome @eax") (wtime)))
 
 (defwidget double []
   (box :class "double"
@@ -27,3 +27,7 @@
 (defpoll time :interval "1s"
               :initial "initial-value"
   `date +%H:%M:%S`)
+
+(defpoll quote :interval "5m"
+               :initial "Humans are stoopid."
+  `curl -X GET https://api.quotable.io/random`)

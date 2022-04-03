@@ -41,3 +41,8 @@ accent_alt          = "%green_br"
 
 ## specifics             
 wall                = "~/.walls/pluswall/aquarium.png"
+
+# applications
+gtk_theme           = "phocus"
+cursor_theme        = "Bibata-Modern-Ice"
+icon_theme          = "Papirus"

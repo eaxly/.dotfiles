@@ -27,6 +27,8 @@ alias pare="paru -R"
 alias paren="paru -Rn"
 alias parem="paru -Rns"
 alias pase="paru -Ss"
+alias cafin="paru -S --sudoloop"
+alias cafino="paru -S --sudoloop --noconfirm"
 
 # pacman
 alias pacin="pacman -S"

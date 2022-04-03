@@ -39,7 +39,15 @@ local header = {
 
 local footer = {
 	type = "text",
-	val = require("core.utils").fortune(),
+	val = function ()
+	  -- math.randomseed(os.time())
+   --  if math.random() <= 0.01 then
+   --    return utils.fowtune()
+   --  else
+   --    return utils.fortune()
+   --  end
+    return "Perfectly balanced - as all things should be."
+	end,
 	opts = {
 		position = "center",
 		hl = "AlphaFooter",
@@ -106,6 +114,7 @@ local opts = {
 		section.date_header,
 		{ type = "padding", val = 2 },
 		section.buttons,
+		{ type = "padding", val = 5 },
 		section.footer,
 	},
 	opts = {

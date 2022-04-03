@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
+# No U - don't start
 date=$(date +%H)
 
-if [ $date -ge 21 ] || [ $date -lt 12 ]; then
+if [ $date -lt 19 ] || [ $date -ge 21 ]; then
     echo "No U."
     shutdown now
 fi

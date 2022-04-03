@@ -13,14 +13,10 @@ export SUDO_EDITOR=$EDITOR
 
 # the manpager
 export MANPAGER='nvim +Man!'
+export DIFFPROG='nvim -d'
 
 # fzf
-if command -v fd &> /dev/null; then
-    export FZF_DEFAULT_COMMAND="fd --hidden"
-else
-    echo "Install fd for better and faster search"
-    export FZF_DEFAULT_COMMAND="find ."
-fi
+export FZF_DEFAULT_COMMAND="fd --hidden"
 export FZF_DEFAULT_OPTS="--preview 'bat --color=always --number {} '"
 
 export YTFZF_EXTMENU=" rofi -show drun -dmenu --width=1500"

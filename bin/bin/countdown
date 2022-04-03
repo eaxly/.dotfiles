@@ -24,7 +24,7 @@ done
 
 time=$(($( date +%s ) + $time)); 
 while [ $time -ge $(date +%s) ]; do
-    date --date @$(($time - $(date +%s))) +%H:%M:%S --utc
+    echo -en "$(date --date @$(($time - $(date +%s))) +%H:%M:%S --utc)\r"
     sleep 0.1
 done
 

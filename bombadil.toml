@@ -19,6 +19,7 @@ bash = { source = "src/config/bash/bashrc", target = ".bashrc" }
 zshrc = { source = "src/config/zsh/zshrc", target = ".zshrc" }
 zsh = { source = "src/config/zsh/zsh", target = ".zsh" }
 git = { source = "src/config/git", target = ".config/git" }
+dircolors = { source = "src/config/zsh/dircolors", target = ".config/dircolors" }
 
 # === IMPORTS ===
 [[import]]

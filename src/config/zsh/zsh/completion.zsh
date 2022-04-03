@@ -1,5 +1,6 @@
 autoload -Uz compinit
 compinit
+eval $(env TERM=xterm256-color dircolors ~/.config/dircolors)
 
 zstyle ':completion:*' auto-description 'specify: %F{magenta}%d%f%b'
 zstyle ':completion:*' completer _expand _complete _correct _approximate

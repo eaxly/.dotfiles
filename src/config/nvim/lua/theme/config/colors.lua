@@ -1,7 +1,7 @@
 local theme_name = "{{theme}}"
 local present, theme = pcall(require, "theme.themes." .. theme_name)
 if not present then
-	print("Could not load" .. theme_name)
+	print("Could not load '" .. theme_name .. "' theme")
 	print("Loading jabba")
 	theme = require("theme.themes.jabba")
 end

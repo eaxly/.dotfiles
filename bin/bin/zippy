@@ -1,0 +1,54 @@
+#!/usr/bin/env bash
+# unzippy - unzip tar etc in one command
+arg="$1"
+source="$2"
+prefix="$(echo $source | cut -d'.' -f1)"
+suffix="$(echo $source | cut -d'.' -f2-)"
+
+help() {
+    echo "
+    $(basename $0) - archive operations
+    -h, --help - show this help view
+    -c, --create <archive> <input1>, [input2...]
+    -e, --extract <archive>
+    "
+}
+
+extract() {
+    case "$suffix" in
+        "tar" | "tar.gz")
+            mkdir -p $2
+            tar xvf $1 -C $2
+            ;;
+        "zip")
+            unzip $1 -d $2
+            ;;
+    esac
+}
+
+
+create() {
+    # create - 
+    #       $1 → destination
+    #       $2 → input(s)
+    case "$suffix" in
+        tar*)
+            tar cvf $1 ${@:2}
+            ;;
+        zip)
+            zip $1 ${@:2}
+            ;;
+    esac
+}
+
+case $arg in
+    "-e" | "--extract")
+        extract $source $prefix
+        ;;
+    "-c" | "--create")
+        create $source ${@:3}
+        ;;
+    *)
+        help
+        ;;
+esac
