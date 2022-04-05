@@ -6,6 +6,9 @@ typeset -U PATH path
 # npm
 export npm_config_prefix="$HOME/.local"
 
+#go
+export GOPATH="$HOME/.go"
+
 # editors
 export EDITOR="nvim"
 export VISUAL="nvim"

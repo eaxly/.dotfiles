@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# original script by @n0tsteve
+
+BG="#$(bombadil get vars --profiles sway | grep -E '^bg_dark:' | cut --delimiter=' ' --fields=2)"
+FG="#$(bombadil get vars --profiles sway | grep -E '^bg_alt:' | cut --delimiter=' ' --fields=2)"
+
+if ! ping -c1 ping.archlinux.org &> /dev/null; then
+    printf "\e[38;5;1m\e[1mno internet connection\e[m\n"
+    exit 1
+fi
+loc="/tmp/xkcd.png"
+url="$(curl -s 'https://xkcd.com/info.0.json' | jq -r .img)"
+curl -s $url -o - | convert - +level-colors $FG,$BG $loc
+if [ "$?" = 0 ]; then
+    printf "\e[38;5;2m\e[1mxkcd saved to $loc\e[m\n"
+else
+    printf "\e[38;5;1m\e[1msome error happened\e[m\n"
+fi

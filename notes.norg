@@ -34,3 +34,7 @@ $ nl notes.norg
 @code bash
 $ tac notes.norg
 @end
+
+- jq: parse json output
+  *important note:* when piping jq output somewhere, or when it needs to be read from `stdin`
+  add the `--unbuffered` flag.

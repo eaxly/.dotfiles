@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+# A hashwall clone with worse code quality and plus'
+# by: @ExtinctAxolotl
+
+res=10
+dia=$res
+clr="#191724"
+# for compatability with hashwall
+exp="/tmp/border.png"
+
+function usage() {
+	echo "usage: `basename $0` [-bfsre]
+    -c colour ($clr)
+    -d diameter ($dia)
+    -r resolution ($res)
+    -e export path ($exp)"
+	exit 1
+}
+
+while [ $# -gt 0 ]
+do
+	case "$1" in
+			-c)
+				clr="$2"
+				shift
+			;;
+			-d)
+				dia="$2"
+				shift
+			;;
+			-r)
+				res="$2"
+				shift
+			;;
+			-e)
+				exp="$2"
+				shift
+            ;;
+			--)
+				shift
+				break
+			;;
+			-*)
+				usage
+			;;
+			*)
+				break
+			;;
+	esac
+	shift
+done
+
+# center and radius
+cen="$(($res / 2))"
+
+convert -size ${res}x${res} xc: -transparent white -fill $clr -draw "circle $cen,$cen $cen,$dia" ${exp}

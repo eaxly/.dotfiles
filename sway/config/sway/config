@@ -23,8 +23,13 @@ set $menu rofi -show drun | xargs swaymsg exec --
 default_border pixel {{border_size}}
 default_floating_border pixel {{border_size}}
 
+border_images.focused "$HOME/.config/sway/borders/bg.png"
+border_images.focused_inactive "$HOME/.config/sway/borders/bg.png"
+border_images.unfocused "$HOME/.config/sway/borders/bg.png"
+border_images.urgent "$HOME/.config/sway/borders/bg.png"
+
 gaps outer 10
-gaps inner 12
+gaps inner 24
 ### Colors
 # ┌─────────────────┬─────────┬────────────┬─────────┬───────────┬──────────────┐
 # │     class       │ border  │ background │ text    │ indicator │ child_border │
@@ -42,11 +47,11 @@ gaps inner 12
 # │placeholder      │ #000000 │ #0c0c0c    │ #ffffff │ #000000   │ #0c0c0c      │
 # └─────────────────┴─────────┴────────────┴─────────┴───────────┴──────────────┘
 
-client.focused          #{{bg_alter}}     #{{bg_alter}}     #{{fg}}     #{{bg_alter}}     #{{bg_alter}}
-client.focused_inactive #{{bg_alt}}     #{{bg}}     #{{fg}}     #{{bg_alt}}     #{{bg_alt}}
+client.focused          #{{bg_dark}}     #{{bg_dark}}     #{{fg}}     #{{bg_dark}}     #{{bg_dark}}
+client.focused_inactive #{{bg}}     #{{bg}}     #{{fg}}     #{{bg}}     #{{bg}}
 client.unfocused        #{{bg}} #{{bg}}     #{{fg_alt}} #{{bg}} #{{bg}}
 client.urgent           #{{red}}    #{{bg}}     #{{fg}}     #{{red}}    #{{red}}
-client.placeholder      #{{bg}}     #{{slt_bg}} #{{fg}}     #{{bg}}     #{{slt_bg}}
+client.placeholder      #{{bg}}     #{{bg}} #{{fg}}     #{{bg}}     #{{slt_bg}}
 
 ### Output configuration
 {% if wall == "" %}
@@ -218,6 +223,7 @@ assign [class="Microsoft Teams - Preview"] → workspace number 5
 exec "mako"
 exec "gammastep"
 exec "~/.config/sway/alt-lay.py"
+exec "kdeconnect-indicator"
 exec "eww daemon && eww open greeting"
 # exec ~/.dotfiles/bin/bin/start-mpd.sh
 

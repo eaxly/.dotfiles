@@ -38,6 +38,13 @@ return packer.startup(function()
 		end,
 	})
 
+  use({
+    "williamboman/nvim-lsp-installer",
+    config = function ()
+      require("configs.lsp.servers")
+    end
+  })
+
 	-- TELESCOPE --
 
 	-- telescope: can do basically everything

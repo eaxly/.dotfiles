@@ -12,7 +12,7 @@ on-touch=dismiss
 #
 # STYLE
 #
-font=CozetteVector 10
+font=Iosevka 9
 background-color=#{{bg_alt}}
 text-color=#{{fg}}
 width=450
@@ -25,11 +25,10 @@ progress-color=over #{{bg_dark}}
 icons=1
 max-icon-size=64
 icon-path=/usr/share/icons/Papirus/
-icon-location=left
+icon-location=right
 markup=1
 actions=1
 history=1
-format=<i>%a</i>\n<b>%s</b>\n%b
 text-alignment=center
 default-timeout=6000
 ignore-timeout=1
@@ -37,6 +36,7 @@ group-by=none
 max-visible=5
 layer=top
 anchor=top-right
+format=<i>%a</i>\n<b>%s</b>\n%b
 
 [grouped=true]
 format=(%g) <i>%a</i>\n<b>%s</b>\n%b
