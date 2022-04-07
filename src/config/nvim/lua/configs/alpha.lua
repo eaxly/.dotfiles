@@ -38,20 +38,26 @@ local header = {
 }
 
 local footer = {
-	type = "text",
-	val = function ()
-	  -- math.randomseed(os.time())
-   --  if math.random() <= 0.01 then
-   --    return utils.fowtune()
-   --  else
-   --    return utils.fortune()
-   --  end
-    return "Perfectly balanced - as all things should be."
-	end,
-	opts = {
-		position = "center",
-		hl = "AlphaFooter",
-	},
+  text = {
+    type = "text",
+    val = function ()
+      return utils.quote().text
+    end,
+    opts = {
+      position = "center",
+      hl = "AlphaFooterText",
+    },
+  },
+  author = {
+    type = "text",
+    val = function ()
+      return "- " .. utils.quote().author
+    end,
+    opts = {
+      position = "center",
+      hl = "AlphaFooterAuthor",
+    },
+  }
 }
 
 local function button(sc, txt, keybind, keybind_opts)
@@ -115,7 +121,8 @@ local opts = {
 		{ type = "padding", val = 2 },
 		section.buttons,
 		{ type = "padding", val = 5 },
-		section.footer,
+		section.footer.text,
+    section.footer.author
 	},
 	opts = {
 		margin = 5,

@@ -130,7 +130,7 @@ M.signature = function()
 		shadow_blend = 36, -- if you using shadow as border use this set the opacity
 		shadow_guibg = "Black", -- if you using shadow as border use this set the color e.g. 'Green' or '#121315'
 		timer_interval = 200, -- default timer check interval set to lower value if you want to reduce latency
-		toggle_key = nil, -- toggle signature on and off in insert mode,  e.g. toggle_key = '<M-x>'
+		toggle_key = '<C-x>', -- toggle signature on and off in insert mode,  e.g. toggle_key = '<M-x>'
 	})
 end
 
@@ -146,13 +146,15 @@ M.snip = function()
 	require("luasnip.loaders.from_vscode").load()
 end
 
-M.cheatsheet = function()
-	local present, chsh = pcall(require, "cheatsheet")
-	if not present then
-		print("could not load cheatsheet")
-		return
-	end
-	chsh.setup({})
+M.better_escape = function ()
+  local present, better = pcall(require, "better_escape")
+  if not present then
+    print("could not load better_escape")
+    return
+  end
+  better.setup({
+    mapping = {"jk"},
+  })
 end
 
 return M

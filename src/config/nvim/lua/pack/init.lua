@@ -64,19 +64,6 @@ return packer.startup(function()
 		run = "make",
 	})
 
-	-- cheatsheet: cheatsheet goodness
-	use({
-		"sudormrfbin/cheatsheet.nvim",
-		config = function()
-			require("configs.others").cheatsheet()
-		end,
-		requires = {
-			{ "nvim-telescope/telescope.nvim" },
-			{ "nvim-lua/popup.nvim" },
-			{ "nvim-lua/plenary.nvim" },
-		},
-	})
-
 	-- CMP --
 
 	-- nvim cmp: completion plugin
@@ -207,6 +194,14 @@ return packer.startup(function()
 			require("configs.commenting")
 		end,
 	})
+
+  -- better_escape.nvim: escape. questions?
+  use({
+    "max397574/better-escape.nvim",
+    config = function()
+      require("configs.others").better_escape()
+    end,
+  })
 
 	-- comment-box: Clarify and beautify your comments using boxes and lines.
 	use({

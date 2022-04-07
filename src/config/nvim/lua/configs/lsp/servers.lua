@@ -5,17 +5,47 @@
 -- File: ~/.config/nvim/lua/plugins/lsp.lua
 -- By: @ExtinctAxolotl
 
+local if_nil = function(val, default)
+  if val == nil then return default end
+  return val
+end
+
+local update_capabilities = function(capabilities, override)
+  override = override or {}
+
+  local completionItem = capabilities.textDocument.completion.completionItem
+
+  completionItem.snippetSupport = if_nil(override.snippetSupport, true)
+  completionItem.preselectSupport = if_nil(override.preselectSupport, true)
+  completionItem.insertReplaceSupport = if_nil(override.insertReplaceSupport, true)
+  completionItem.labelDetailsSupport = if_nil(override.labelDetailsSupport, true)
+  completionItem.deprecatedSupport = if_nil(override.deprecatedSupport, true)
+  completionItem.commitCharactersSupport = if_nil(override.commitCharactersSupport, true)
+  completionItem.tagSupport = if_nil(override.tagSupport, { valueSet = { 1 } })
+  completionItem.resolveSupport = if_nil(override.resolveSupport, {
+    properties = {
+      'documentation',
+      'detail',
+      'additionalTextEdits',
+    }
+  })
+
+  return capabilities
+end
+
+local capabilities = update_capabilities(vim.lsp.protocol.make_client_capabilities())
 local lsp_installer = require("nvim-lsp-installer")
 
 -- Register a handler that will be called for each installed server when it's ready (i.e. when installation is finished
 -- or if the server is already installed).
 lsp_installer.on_server_ready(function(server)
-    local opts = {}
+    local opts = {
+      capabilities = capabilities,
+    }
 
     -- (optional) Customize the options passed to the server
-    if server.name == "tsserver" then
+    if server.name == "sumneko_lua" then
       opts = {
-        cmd = { "lua-language-server" },
         settings = {
           Lua = {
             runtime = {

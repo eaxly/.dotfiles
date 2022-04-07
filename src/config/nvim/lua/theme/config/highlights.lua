@@ -66,11 +66,12 @@ fg("NvimTreeGitNew", c.green_br)
 fg("NvimTreeGitDeleted", c.red_br)
 
 -- Alpha
-fg("AlphaHeader", c.black_br)
-fg("AlphaSubheader", c.black)
-fg("AlphaButton", c.black_br)
-fg("AlphaButtonShortcut", c.black_br)
-fg("AlphaFooter", c.black_br)
+fg("AlphaHeader", c.magenta_br)
+fg("AlphaSubheader", c.magenta)
+fg("AlphaButton", c.cyan)
+fg("AlphaButtonShortcut", c.cyan_br)
+fg("AlphaFooterText", c.blue)
+fg("AlphaFooterText", c.blue_br)
 
 -- Telescope
 fg_bg("TelescopeBorder", c.bg_dark, c.bg_dark)
