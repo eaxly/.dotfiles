@@ -1,6 +1,6 @@
 # ENV
 # path
-export PATH="$PATH:$HOME/.local/bin:$HOME/.dotfiles/bin/bin:$HOME/.cargo/bin"
+export PATH="$PATH:$HOME/.local/bin:$HOME/.dotfiles/bin/bin:$HOME/.cargo/bin:$HOME/.go/bin"
 typeset -U PATH path
 
 # npm

@@ -12,6 +12,11 @@ fcd() {
     [ ! -z "$_path" ] && cd $_path
 }
 
+fdot() {
+    dir="$(fd --base-directory=$HOME/.dotfiles --type=d --hidden | fzf)"
+    [ ! -z "$dir" ] && cd $HOME/.dotfiles/$dir
+}
+
 hst() {
     tac $HISTFILE | fzf | wl-copy
 }
