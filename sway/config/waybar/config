@@ -33,7 +33,7 @@
         "max-length": 50
     },
     "idle_inhibitor": {
-        "format": " {icon} ",
+        "format": "<span foreground='#{{fg_alter}}'></span><span background='#{{fg_alter}}' foreground='#{{bg}}'> {icon} </span><span foreground='#{{fg_alter}}'></span>",
         "format-icons": {
             "activated": "",
             "deactivated": ""
@@ -43,16 +43,16 @@
         "spacing": 10
     },
     "clock": {
-        "format": "  {:%H:%M, %b %d %Y}",
+        "format": "<span foreground='#{{green_br}}' background='#{{bg}}'></span><span background='#{{green_br}}' foreground='#{{bg}}'> </span><span foreground='#{{bg}}' background='#{{green}}'> {:%H:%M, %b %d %Y}</span><span foreground='#{{green}}'></span>",
         "on-click": "eww open cal"
     },
     "cpu": {
-        "format": " {usage}%",
+        "format": "<span foreground='#{{cyan_br}}'></span><span foreground='#{{bg}}' background='#{{cyan_br}}'> </span><span foreground='#{{bg}}' background='#{{cyan}}'>{usage}%</span><span foreground='#{{cyan}}' background='#{{bg}}'></span>",
         "tooltip": true
     },
     "network": {
         "interface": "*",
-        "format": "{icon}  ↓ {bandwidthDownOctets} ↑ {bandwidthUpOctets}",
+        "format": "<span foreground='#{{magenta_br}}'></span><span foreground='#{{bg}}' background='#{{magenta_br}}'>{icon} </span><span foreground='#{{bg}}' background='#{{magenta}}'> ↓ {bandwidthDownOctets}</span><span foreground='#{{magenta_br}}' background='#{{magenta}}'></span><span background='#{{magenta_br}}' foreground='#{{bg}}'> ↑ {bandwidthUpOctets}</span><span foreground='#{{magenta_br}}' background='#{{bg}}'></span>",
         "format-icons": {
             "default": "",
             "wifi": "直",
@@ -68,17 +68,17 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{icon} {capacity}%",
-        "format-warning": "{icon} {capacity}%",
-        "format-critical": "{icon} {capacity}%",
-        "format-plugged": "⇡{icon} {capacity}%",
-        "format-full": "{icon} {capacity}%",
+        "format": "<span foreground='#{{green_br}}'></span><span foreground='#{{bg}}' background='#{{green_br}}'>{icon} </span><span foreground='#{{bg}}' background='#{{green}}'>{capacity}%</span><span foreground='#{{green}}' background='#{{bg}}'></span>",
+        "format-warning": "<span foreground='#{{red_br}}'></span><span foreground='#{{bg}}' background='#{{red_br}}'>{icon} </span><span foreground='#{{bg}}' background='#{{red}}'>{capacity}%</span><span foreground='#{{red}}' background='#{{bg}}'></span>",
+        "format-critical": "<span foreground='#{{red_br}}'></span><span foreground='#{{bg}}' background='#{{red_br}}'>{icon} </span><span foreground='#{{bg}}' background='#{{red}}'>{capacity}%</span><span foreground='#{{red}}' background='#{{bg}}'></span>",
+        "format-plugged": "<span foreground='#{{green_br}}'></span><span foreground='#{{bg}}' background='#{{green_br}}'>⇡{icon} </span><span foreground='#{{bg}}' background='#{{green}}'>{capacity}%</span><span foreground='#{{green}}' background='#{{bg}}'></span>",
+        "format-full": "<span foreground='#{{green_br}}'></span><span foreground='#{{bg}}' background='#{{green_br}}'>{icon} </span><span foreground='#{{bg}}' background='#{{green}}'>{capacity}%</span><span foreground='#{{green}}' background='#{{bg}}'></span>",
         "format-icons": ["", "", "", "", "", ""]
     },
     "pulseaudio": {
-        "format": "{icon} {volume}%",
-        "format-bluetooth": "{icon} bt {volume}%",
-        "format-muted": "婢0%",
+        "format": "<span foreground='#{{yellow_br}}'></span><span foreground='#{{bg}}' background='#{{yellow_br}}'>{icon} </span><span foreground='#{{bg}}' background='#{{yellow}}'>{volume}%</span><span foreground='#{{yellow}}' background='#{{bg}}'></span>",
+        "format-bluetooth": "<span foreground='#{{yellow_br}}'></span><span foreground='#{{bg}}' background='#{{yellow_br}}'>{icon} <span foreground='#{{blue}}'>bt </span></span><span foreground='#{{bg}}' background='#{{yellow}}'>{volume}%</span><span foreground='#{{yellow}}' background='#{{bg}}'></span>",
+        "format-muted": "<span foreground='#{{red_br}}'></span><span foreground='#{{bg}}' background='#{{red_br}}'>婢</span><span foreground='#{{bg}}' background='#{{red}}'>0%</span><span foreground='#{{red}}' background='#{{bg}}'></span>",
         "format-icons": {
             "headphone": "",
             "hands-free": "H",
@@ -91,7 +91,7 @@
         "on-click": "pavucontrol"
     },
     "custom/media": {
-        "format": "{icon} {}",
+        "format": "<span foreground='#{{yellow_br}}'></span><span foreground='#{{bg}}' background='#{{yellow_br}}'>{icon} </span><span foreground='#{{bg}}' background='#{{yellow}}' >{}</span><span foreground='#{{yellow}}'></span>",
         "return-type": "json",
         "format-icons": {
             "default": " "
@@ -101,7 +101,7 @@
         "on-click": "playerctl play-pause 2> /dev/null"
     },
     "custom/github": {
-        "format": " {}",
+        "format": "<span foreground='#{{white_br}}'></span><span foreground='#{{bg}}' background='#{{white_br}}'> </span><span foreground='#{{white}}' background='#{{black}}'>{}</span><span foreground='#{{black}}'></span>",
         "return-type": "json",
         "interval": 60,
         "exec": "$HOME/.config/waybar/github.sh",
@@ -110,13 +110,13 @@
     "custom/scratchpad": {
         "interval": 1,
         "exec": "swaymsg -t get_tree | jq 'recurse(.nodes[]) | first(select(.name==\"__i3_scratch\")) | .floating_nodes | length | select(. >= 1)'",
-        "format": " {}",
+        "format": "<span foreground='#{{red_br}}'></span><span foreground='#{{bg}}' background='#{{red_br}}'> </span><span foreground='#{{bg}}' background='#{{red}}'>{}</span><span foreground='#{{red}}' background='#{{bg}}'></span>",
         "on-click": "swaymsg 'scratchpad show'",
         "on-click-right": "swaymsg 'move scratchpad'"
     },
     "custom/countdown": {
         "interval": 0.5,
         "exec": "~/.config/waybar/countdown.sh",
-        "format": " {}"
+        "format": "<span foreground='#{{yellow_br}}'></span><span foreground='#{{bg}}' background='#{{yellow_br}}'> </span><span foreground='#{{bg}}' background='#{{yellow}}'>{}</span><span foreground='#{{yellow}}' background='#{{bg}}'></span>"
     }
 }

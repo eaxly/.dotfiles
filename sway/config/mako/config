@@ -1,57 +1,24 @@
-# GLOBALS
-#
-max-history=5
-sort=-time
-#
-# BINDING
-#
-on-button-left=invoke-default-action
-on-button-middle=dismiss-all
-on-button-right=dismiss
-on-touch=dismiss
-#
-# STYLE
-#
-font=Iosevka 9
-background-color=#{{bg_alt}}
+layer=top
+markup=1
+anchor=top-right
+background-color=#{{bg_dark}}
 text-color=#{{fg}}
 width=450
 height=200
-border-color=#{{bg_alter}}
-border-size={{border_size}}
-border-radius=0
-margin=20
-progress-color=over #{{bg_dark}}
-icons=1
-max-icon-size=64
-icon-path=/usr/share/icons/Papirus/
+max-icon-size=96
 icon-location=right
-markup=1
-actions=1
-history=1
-text-alignment=center
-default-timeout=6000
-ignore-timeout=1
-group-by=none
-max-visible=5
-layer=top
-anchor=top-right
-format=<i>%a</i>\n<b>%s</b>\n%b
+margin=30,30,0
+padding=15,15,15
+border-size=2
+border-color=#{{bg_alt}}
+border-radius=15
+progress-color=over #{{bg}}
+default-timeout=10000
+group-by=summary
+format=<span font="Cozette" size="9000" color="#{{green_br}}">%a</span><span color="#{{magenta}}" font="Cozette" size="9000"> - </span><span font="Cozette" size="9000">%s</span>\n<span font="Cozette" size="9000" color="#{{fg_alter}}">%b</span>
 
-[grouped=true]
-format=(%g) <i>%a</i>\n<b>%s</b>\n%b
+[grouped]
+format=<span font="Cozette" size="9000" color="#{{green_br}}">%a</span><span color="#{{magenta}}" font="Cozette" size="9000"> - </span><span font="Cozette" size="9000">%s</span>\n<span font="Cozette" size="9000" color="#{{fg_alter}}">%b</span>
 
-[urgency=low]
-text-color=#{{fg_alt}}
-border-color=#{{fg_alt}}
-progress-color=over #{{bg_dark}}
-
-[urgency=normal]
-text-color=#{{fg}}
-progress-color=over #{{bg_dark}}
-
-[urgency=critical]
-text-color=#{{red}}
-progress-color=over #{{bg_dark}}
-
-#vim:ft=conf
+[mode=do-not-disturb]
+invisible=1
