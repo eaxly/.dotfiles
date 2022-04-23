@@ -1,131 +1,133 @@
 local lualine = require("lualine")
 
 local function window()
-	return vim.api.nvim_win_get_number(0)
+  return vim.api.nvim_win_get_number(0)
 end
 
 local function set_sep()
-	local M = {}
-	M.section = { left = "", right = "" }
-	M.component = { left = "|", right = "|" }
+  local M = {}
+  M.section = { left = "", right = "" }
+  M.component = { left = "|", right = "|" }
 
-	return M
+  return M
 end
 
 local nvimtree = {
-	sections = {
-		lualine_a = {
-			{
-				"mode",
-				separator = { left = set_sep().section.right, right = set_sep().section.left },
-				right_padding = 2,
-			},
-		},
-		lualine_z = {
-			{
-				window,
-				separator = { right = set_sep().section.left, left = set_sep().section.right },
-				left_padding = 2,
-			},
-		},
-	},
+  sections = {
+    lualine_a = {
+      {
+        "mode",
+        separator = { left = set_sep().section.right, right = set_sep().section.left },
+        right_padding = 2,
+      },
+    },
+    lualine_z = {
+      {
+        window,
+        separator = { right = set_sep().section.left, left = set_sep().section.right },
+        left_padding = 2,
+      },
+    },
+  },
 
-	filetypes = { "NvimTree" },
+  filetypes = { "NvimTree" },
 }
 
 local alpha = {
-	sections = {
-		lualine_a = {
-			{
-				function() return "{{theme}} theme" end,
-				separator = { right = set_sep().section.left, left = set_sep().section.right },
-				left_padding = 2,
-			},
-		},
-		lualine_z = {
-			{
-				window,
-				separator = { right = set_sep().section.left, left = set_sep().section.right },
-				left_padding = 2,
-			},
-		},
-	},
-	filetypes = { "alpha" },
+  sections = {
+    lualine_a = {
+      {
+        function()
+          return "{{theme}} theme"
+        end,
+        separator = { right = set_sep().section.left, left = set_sep().section.right },
+        left_padding = 2,
+      },
+    },
+    lualine_z = {
+      {
+        window,
+        separator = { right = set_sep().section.left, left = set_sep().section.right },
+        left_padding = 2,
+      },
+    },
+  },
+  filetypes = { "alpha" },
 }
 
 local config = {
-	options = {
-		theme = "axolotl",
-		section_separators = set_sep().section,
-		component_separators = set_sep().component,
-		disabled_filetypes = {},
-	},
+  options = {
+    theme = "axolotl",
+    section_separators = set_sep().section,
+    component_separators = set_sep().component,
+    disabled_filetypes = {},
+  },
 
-	sections = {
-		lualine_a = {
-			{
-				window,
-				separator = { left = set_sep().section.right },
-				right_padding = 2,
-			},
-			{
-				"mode",
-			},
-			{
-				"branch",
-			},
-		},
-		lualine_b = {
-			{
-				"filetype",
-				colored = false,
-				icon_only = true,
-			},
-			{
-				"filename",
-			},
-		},
-		lualine_c = {
-			{
-				"diagnostics",
-				sources = { "nvim_diagnostic" },
-			},
-		},
-		lualine_x = {
-			{
-				"diff",
-			},
-		},
-		lualine_y = {
-			"fileformat",
-			"encoding",
-		},
-		lualine_z = {
-			"progress",
-			{
-				"location",
-				separator = { right = set_sep().section.left },
-				left_padding = 2,
-			},
-		},
-	},
+  sections = {
+    lualine_a = {
+      {
+        window,
+        separator = { left = set_sep().section.right },
+        right_padding = 2,
+      },
+      {
+        "mode",
+      },
+      {
+        "branch",
+      },
+    },
+    lualine_b = {
+      {
+        "filetype",
+        colored = false,
+        icon_only = true,
+      },
+      {
+        "filename",
+      },
+    },
+    lualine_c = {
+      {
+        "diagnostics",
+        sources = { "nvim_diagnostic" },
+      },
+    },
+    lualine_x = {
+      {
+        "diff",
+      },
+    },
+    lualine_y = {
+      "fileformat",
+      "encoding",
+    },
+    lualine_z = {
+      "progress",
+      {
+        "location",
+        separator = { right = set_sep().section.left },
+        left_padding = 2,
+      },
+    },
+  },
 
-	inactive_sections = {
-		lualine_a = { window },
-		lualine_b = { "branch" },
-		lualine_c = { "filename" },
-		lualine_x = {},
-		lualine_y = {},
-		lualine_z = {
-			{
-				"location",
-				separator = { right = set_sep().section.left },
-				left_padding = 2,
-			},
-		},
-	},
+  inactive_sections = {
+    lualine_a = { window },
+    lualine_b = { "branch" },
+    lualine_c = { "filename" },
+    lualine_x = {},
+    lualine_y = {},
+    lualine_z = {
+      {
+        "location",
+        separator = { right = set_sep().section.left },
+        left_padding = 2,
+      },
+    },
+  },
 
-	extensions = { nvimtree, alpha },
+  extensions = { nvimtree, alpha },
 }
 
 lualine.setup(config)
