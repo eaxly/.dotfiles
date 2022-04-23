@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+bar() {
+    # Usage: bar 1 10
+    #            ^----- Elapsed Percentage (0-100).
+    #               ^-- Total length in chars.
+    ((elapsed=$1*$2/100))
+
+    # Create the bar with spaces.
+    printf -v prog  "%${elapsed}s"
+    printf -v total "%$(($2-elapsed))s"
+
+    printf '%s\r' "[${prog// /—}${total}]"
+}
+
+urlencode() {
+    # Usage: urlencode "string"
+    local LC_ALL=C
+    for (( i = 0; i < ${#1}; i++ )); do
+        : "${1:i:1}"
+        case "$_" in
+            [a-zA-Z0-9.~_-])
+                printf '%s' "$_"
+            ;;
+
+            *)
+                printf '%%%02X' "'$_"
+            ;;
+        esac
+    done
+    printf '\n'
+}
+
+FILES="$HOME/msc/ncs/*"
+dir="$HOME/msc/ncs"
+len=$(ls $dir | wc -l)
+num=0
+per=0
+for i in $FILES; do
+    ((num++))
+    ((per=num*100/len))
+    base=$(basename "$i")
+    raw="$(echo $base | awk -F'.[a-z0-9]*$' '{print $1}')"
+    artist="$(echo $raw | awk -F' - ' '{print $1}')"
+    title="$(echo $raw | awk -F' - ' '{print $2}')"
+    command -v id3v2 > /dev/null && id3v2 -a "$artist" -t "$title" "$i"
+    bar "$per" "$len"
+    (:;:) && (:;:) && (:;:) && (:;:) && (:;:)
+done
+printf '\n'

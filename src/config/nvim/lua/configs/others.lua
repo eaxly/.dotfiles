@@ -157,4 +157,51 @@ M.better_escape = function ()
   })
 end
 
+M.dressing = function()
+  local present, dressing = pcall(require, "dressing")
+  if not present then
+    print("dressing not found")
+    return
+  end
+  dressing.setup({
+    input = {
+      max_width = { 140, 0.9 },
+      min_width = { 10, 0.1 },
+    },
+    select = {
+      backend = { "telescope", "builtin" },
+      telescope = require('telescope.themes').get_ivy(),
+      builtin = {
+        width = nil,
+        max_width = { 140, 0.8 },
+        min_width = { 40, 0.2 },
+        height = nil,
+        max_height = 0.9,
+        min_height = { 10, 0.2 },
+      },
+    },
+  })
+end
+
+M.legendary = function ()
+local present, legendary = pcall(require, "legendary")
+if not present then
+  print("legendary not found")
+  return
+end
+legendary.setup({
+  include_builtin = true,
+  include_legendary_cmds = true,
+  select_prompt = nil,
+  formatter = nil,
+  most_recent_item_at_top = true,
+  scratchpad = {
+    -- configure how to show results of evaluated Lua code,
+    -- either 'print' or 'float'
+    -- Pressing q or <ESC> will close the float
+    display_results = 'float',
+  },
+})
+end
+
 return M

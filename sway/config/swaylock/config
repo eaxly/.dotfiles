@@ -30,6 +30,6 @@ ring-ver-color={{bg}}
 ring-wrong-color={{red}}
 separator-color={{bg}}
 text-color={{accent}}
-text-caps-lock-color={{bg}}
+text-caps-lock-color={{red_br}}
 text-ver-color={{fg}}
 text-wrong-color={{bg}}

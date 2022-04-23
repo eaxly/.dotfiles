@@ -17,6 +17,7 @@ set $cursor_size 24
 
 seat seat0 xcursor_theme $cursor_theme $cursor_size
 seat * hide_cursor 15000
+seat * hide_cursor when-typing enable
 
 set $menu rofi -show drun | xargs swaymsg exec --
 
@@ -225,7 +226,8 @@ exec "gammastep"
 exec "~/.config/sway/alt-lay.py"
 exec "kdeconnect-indicator"
 exec "eww daemon && eww open greeting"
-# exec ~/.dotfiles/bin/bin/start-mpd.sh
+exec "transmission-daemon -C -w /home/eax/vids/torr --incomplete-dir /tmp/"
+exec "~/.dotfiles/bin/bin/start-mpd.sh"
 
-# Does something related to the user's systemd config
+# Looks important so keeping it
 include /etc/sway/config.d/*

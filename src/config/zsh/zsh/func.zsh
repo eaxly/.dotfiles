@@ -26,10 +26,14 @@ ssh-add-pass() {
 }
 
 foot-terminfo-install() {
-    echo on remote machine,
-    echo copy paste this:
-    echo "sed 's/@default_terminfo@/foot/g' foot.info | tic -x -e foot,foot-direct -"
-    echo "sed 's/@default_terminfo@/foot/g' foot.info | tic -x -e foot,foot-direct -" | wl-copy
+    printf "on remote machine,\n"
+    printf "copy paste this:\n"
+    printf "wget 'https://codeberg.org/dnkl/foot/raw/branch/master/foot.info'"
+    printf "done? "
+    read -k1
+    printf "\nNow copy this\n"
+    printf "sed 's/@default_terminfo@/foot/g' foot.info | tic -x -e foot,foot-direct -\n"
+    printf "sed 's/@default_terminfo@/foot/g' foot.info | tic -x -e foot,foot-direct -\n" | wl-copy
 }
 
 imgshow() {
@@ -81,6 +85,10 @@ chtheme() {
     old="$(bombadil get vars -p sway | grep '^theme' | awk '{print $2}')"
     new="$1"
     dest="$HOME/.dotfiles/sway/sway.toml"
-    sed s/$old/$new/g -i $dest
-    ~/.dotfiles/bin/sway/reload.sh
+    if [ -f $HOME/.dotfiles/sway/themes/$new.toml ] && [ ! $new = template ]; then
+        sed s/$old/$new/g -i $dest
+        ~/.dotfiles/bin/sway/reload.sh
+    else
+        printf "\e[38;5;1mError, theme doesn't exist\n"
+    fi
 }

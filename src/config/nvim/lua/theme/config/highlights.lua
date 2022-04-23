@@ -66,10 +66,10 @@ fg("NvimTreeGitNew", c.green_br)
 fg("NvimTreeGitDeleted", c.red_br)
 
 -- Alpha
-fg("AlphaHeader", c.magenta_br)
-fg("AlphaSubheader", c.magenta)
+fg("AlphaHeader", c.green)
+fg("AlphaSubheader", c.green_br)
 fg("AlphaButton", c.cyan)
-fg("AlphaButtonShortcut", c.cyan_br)
+fg("AlphaButtonShortcut", c.cyan)
 fg("AlphaFooterText", c.blue)
 fg("AlphaFooterText", c.blue_br)
 

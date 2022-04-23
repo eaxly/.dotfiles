@@ -98,7 +98,8 @@
         },
         "escape": true,
         "exec": "$HOME/.config/waybar/mediaplayer.sh", // script to manage the pid
-        "on-click": "playerctl play-pause 2> /dev/null"
+        "on-click": "playerctl play-pause 2> /dev/null",
+        "max-length": 60
     },
     "custom/github": {
         "format": "<span foreground='#{{white_br}}'></span><span foreground='#{{bg}}' background='#{{white_br}}'> </span><span foreground='#{{white}}' background='#{{black}}'>{}</span><span foreground='#{{black}}'></span>",

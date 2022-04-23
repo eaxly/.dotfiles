@@ -63,7 +63,7 @@ RPROMPT='$(GIT_PROMPT)%F{yellow}░▒▓%f'
 ;;
 "funcky")
 PROMPT='%F{magenta}%~%f%f %F{11}  %f'
-RPROMPT='$(GIT_PROMPT)%f'
+RPROMPT='%F{magenta}%?%f – $(GIT_PROMPT)%f'
 ;;
 *)
 PROMPT='%F{green}%n%f@%F{magenta}%m%f %F{blue}%B%~%b%f %# '

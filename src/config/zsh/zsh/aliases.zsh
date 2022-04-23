@@ -29,6 +29,8 @@ alias parem="paru -Rns"
 alias pase="paru -Ss"
 alias cafin="paru -S --sudoloop"
 alias cafino="paru -S --sudoloop --noconfirm"
+alias sysup="paru -Syu --sudoloop"
+alias sysupno="paru -Syu --sudoloop --noconfirm"
 
 # pacman
 alias pacin="pacman -S"
@@ -37,6 +39,11 @@ alias pacren="pacman -Rn"
 alias pacrem="pacman -Rns"
 alias pacreps="pacman -Ss"
 
+# av aliases
+alias checkrootkits="sudo rkhunter --update; sudo rkhunter --propupd; sudo rkhunter --sk --check"
+alias checkvirus="clamscan --recursive=yes --infected /home"
+alias updateantivirus="sudo freshclam"
+
 # misc
 alias bomb="bombadil link -psway"
 alias ma="macchina"
@@ -44,3 +51,4 @@ alias lzg="lazygit"
 alias ncm="ncmpcpp"
 alias jrnl=" jrnl"
 alias py3="python3"
+alias plz="sudo"

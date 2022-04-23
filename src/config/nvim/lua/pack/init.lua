@@ -64,6 +64,19 @@ return packer.startup(function()
 		run = "make",
 	})
 
+  use({
+    "stevearc/dressing.nvim",
+    config = function()
+      require("configs.others").dressing()
+    end
+  })
+
+  use({
+    "mrjones2014/legendary.nvim",
+    config = function ()
+      require("configs.others").legendary()
+    end
+  })
 	-- CMP --
 
 	-- nvim cmp: completion plugin
@@ -124,7 +137,6 @@ return packer.startup(function()
 		config = function()
 			require("configs.autopairs")
 		end,
-		after = "nvim-cmp",
 	})
 
 	-- lsp_signature: show the signature
@@ -133,7 +145,7 @@ return packer.startup(function()
 		config = function()
 			require("configs.others").signature()
 		end,
-		after = { "nvim-lspconfig" },
+		after = "nvim-lspconfig",
 	})
 
 	-- gitsigns: show signs for git in the signcolumn
@@ -201,6 +213,7 @@ return packer.startup(function()
     config = function()
       require("configs.others").better_escape()
     end,
+    event = "InsertEnter",
   })
 
 	-- comment-box: Clarify and beautify your comments using boxes and lines.
@@ -240,7 +253,7 @@ return packer.startup(function()
 		config = function()
 			require("configs.filetree")
 		end,
-		requires = { "airblade/vim-rooter" },
+		-- requires = { "airblade/vim-rooter" },
 		setup = function()
 			require("core.mappings").filetree()
 		end,
