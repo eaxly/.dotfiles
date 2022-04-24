@@ -259,7 +259,7 @@ return packer.startup(function()
     end,
   })
 
-  -- focus:
+  -- focus: window resizing
   use({
     "beauwilliams/focus.nvim",
     config = function()
