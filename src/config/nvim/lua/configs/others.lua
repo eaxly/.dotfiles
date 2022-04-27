@@ -224,4 +224,15 @@ M.legendary = function()
   })
 end
 
+M.spellsitter = function ()
+  local present, spellsitter = pcall(require, "spellsitter")
+  if not present then
+    print("spellsitter not found")
+    return
+  end
+  spellsitter.setup({
+    enable = true,
+  })
+end
+
 return M

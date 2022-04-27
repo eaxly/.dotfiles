@@ -257,6 +257,7 @@ return packer.startup(function()
     setup = function()
       require("core.mappings").filetree()
     end,
+    requires = "Airblade/vim-rooter"
   })
 
   -- focus: window resizing
@@ -332,6 +333,15 @@ return packer.startup(function()
   -- treesitter playground: the playground for treesitter
   use({
     "nvim-treesitter/playground",
+  })
+
+  -- spellsitter: check spelling with treesitter
+  use({
+    "lewis6991/spellsitter.nvim",
+    event = "BufEnter",
+    config = function ()
+      require("configs.others").spellsitter()
+    end
   })
 
   -- colorizer: a colorizer that colorizes colors to show up in neovim

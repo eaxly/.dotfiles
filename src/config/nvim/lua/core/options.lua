@@ -16,6 +16,7 @@ o.exrc = true
 o.hls = false
 o.errorbells = false
 o.hidden = true
+o.spell = true
 
 -- neovide
 o.guifont = "VictorMono Nerd Font:h8"
@@ -64,7 +65,7 @@ o.updatetime = 200
 o.timeoutlen = 500
 o.showmode = false
 
-vim.opt.shortmess:append({ c = true })
+o.shortmess:append({ c = true })
 
 o.mouse = "nv"
 
