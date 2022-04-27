@@ -92,3 +92,8 @@ chtheme() {
         printf "\e[38;5;1mError, theme doesn't exist\n"
     fi
 }
+
+chtansi() {
+    curl 'https://gist.githubusercontent.com/fnky/458719343aabd01cfb17a3a4f7296797/raw/7e502a89d1fbe32927b570298555953a6912c1c5/ANSI.md' --output - | glow - -p
+    return 0
+}

@@ -6,4 +6,3 @@ for config (~/.zsh/*.zsh) source $config
 fpath=($HOME/.zfunc/ $fpath)
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 setopt auto_cd
-todo -s

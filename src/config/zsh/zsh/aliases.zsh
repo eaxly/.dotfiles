@@ -1,6 +1,5 @@
 # ALIASES
 # git
-alias g="git"
 alias ga="git add"
 alias gl="git pull"
 alias gp="git push"
@@ -9,6 +8,7 @@ alias gst="git status"
 alias gc="git commit"
 alias gco="git checkout"
 alias gb="git branch"
+alias gd="git diff"
 
 # [ n ]vim
 alias v="nvim"
@@ -52,3 +52,4 @@ alias ncm="ncmpcpp"
 alias jrnl=" jrnl"
 alias py3="python3"
 alias plz="sudo"
+alias pingtest="ping -c3 ping.archlinux.org"
