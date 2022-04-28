@@ -94,6 +94,16 @@ chtheme() {
 }
 
 chtansi() {
-    curl 'https://gist.githubusercontent.com/fnky/458719343aabd01cfb17a3a4f7296797/raw/7e502a89d1fbe32927b570298555953a6912c1c5/ANSI.md' --output - | glow - -p
+    file="$HOME/.cache/zfuncs/ansi.md"
+    if [ ! -f "$file" ]; then
+        curl --create-dirs 'https://gist.githubusercontent.com/fnky/458719343aabd01cfb17a3a4f7296797/raw/7e502a89d1fbe32927b570298555953a6912c1c5/ANSI.md' --output $file
+    fi
+
+    if [ -f "$file" ]; then
+        glow -p $file
+    else
+        print "%F{red}file not found%f"
+        return 1
+    fi
     return 0
 }

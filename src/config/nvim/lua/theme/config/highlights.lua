@@ -87,3 +87,6 @@ fg_bg("TelescopeResultsTitle", c.bg_dark, c.yellow)
 fg_bg("TelescopePromptTitle", c.bg_dark, c.red)
 
 fg("TelescopeSelection", c.cyan)
+
+-- Indent Blankline
+fg("IndentBlanklineChar", c.bg_alter)

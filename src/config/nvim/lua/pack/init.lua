@@ -76,6 +76,9 @@ return packer.startup(function()
     config = function()
       require("configs.others").legendary()
     end,
+    setup = function()
+      require("core.mappings").legendary()
+    end,
   })
   -- CMP --
 
@@ -90,7 +93,7 @@ return packer.startup(function()
   use({
     "L3MON4D3/LuaSnip",
     config = function()
-      require("configs.others").snip()
+      require("configs.snip")
     end,
     after = "friendly-snippets",
     module = "luasnip",
@@ -167,7 +170,8 @@ return packer.startup(function()
   use({
     "RRethy/nvim-align",
     module = "align",
-  }) -- TODO(axolotl): add some keyindings for nvim-align
+    cmd = { "Align" },
+  })
 
   -- toggleterm: supercharge the terminal
   use({
@@ -341,7 +345,8 @@ return packer.startup(function()
     event = "BufEnter",
     config = function ()
       require("configs.others").spellsitter()
-    end
+    end,
+    disable = true,
   })
 
   -- colorizer: a colorizer that colorizes colors to show up in neovim
@@ -370,7 +375,10 @@ return packer.startup(function()
   -- neorg: notes for modern neovim
   use({
     "nvim-neorg/neorg",
-    setup = vim.cmd("autocmd BufRead,BufNewFile *.norg setlocal filetype=norg"),
+    setup = function()
+      vim.cmd("autocmd BufRead,BufNewFile *.norg setlocal filetype=norg")
+      require("core.mappings").neorg()
+    end,
     after = { "nvim-treesitter" }, -- you may also specify telescope
     ft = "norg",
     config = function()

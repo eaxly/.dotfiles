@@ -134,18 +134,6 @@ M.signature = function()
   })
 end
 
-M.snip = function()
-  local present, snip = pcall(require, "luasnip")
-  if not present then
-    print("could not load luasnip")
-    return
-  end
-  snip.config.set_config({
-    updateevents = "TextChanged,TextChangedI",
-  })
-  require("luasnip.loaders.from_vscode").load()
-end
-
 M.better_escape = function()
   local present, better = pcall(require, "better_escape")
   if not present then

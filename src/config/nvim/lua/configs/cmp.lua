@@ -1,14 +1,17 @@
-local has_words_before = function()
-  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-end
-
 local present1, luasnip = pcall(require, "luasnip")
 local present2, cmp = pcall(require, "cmp")
+local present3, lspkind = pcall(require, "lspkind")
 
-if not present1 or not present2 then
-  print("cmp config could not load,")
-  print("because idk, some require stuff has gone wrong")
+if not present1 then
+  print("couldn't load luasnip")
+  return
+end
+if not present2 then
+  print("couldn't load cmp")
+  return
+end
+if not present3 then
+  print("couldn't load lspkind")
   return
 end
 
@@ -16,14 +19,14 @@ cmp.setup({
   snippet = {
     -- REQUIRED - you must specify a snippet engine
     expand = function(args)
-      require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
+      luasnip.lsp_expand(args.body) -- For `luasnip` users.
     end,
   },
   mapping = {
     ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
     ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
     ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
-    ["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+    ["<C-y>"] = cmp.config.disable,
     ["<C-e>"] = cmp.mapping({
       i = cmp.mapping.abort(),
       c = cmp.mapping.close(),
@@ -59,8 +62,8 @@ cmp.setup({
     ["<CR>"] = cmp.mapping.confirm({ select = false }),
   },
   sources = cmp.config.sources({
-    { name = "nvim_lsp" },
     { name = "path" },
+    { name = "nvim_lsp" },
     { name = "luasnip" }, -- For luasnip users.
     { name = "calc" },
 
@@ -72,8 +75,8 @@ cmp.setup({
       menu = {
         buffer = "[BUF]",
         nvim_lsp = "[LSP]",
-        path = "[PATH]",
-        luasnip = "[SNIP]",
+        path = "[PTH]",
+        luasnip = "[SNP]",
       },
     }),
   },
@@ -81,7 +84,7 @@ cmp.setup({
     ghost_text = true,
   },
   view = {
-    entries = "native",
+    entries = { "custom", selection_order = "near_cursor" },
   },
 })
 

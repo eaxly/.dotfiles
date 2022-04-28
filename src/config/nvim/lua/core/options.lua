@@ -16,7 +16,9 @@ o.exrc = true
 o.hls = false
 o.errorbells = false
 o.hidden = true
-o.spell = true
+o.spell = false
+-- o.spelllang = "en_gb"
+-- o.spellfile = os.getenv("HOME") .. "/.dotfiles/src/misc/nvim/spell/en.utf-8.add"
 
 -- neovide
 o.guifont = "VictorMono Nerd Font:h8"
@@ -65,7 +67,7 @@ o.updatetime = 200
 o.timeoutlen = 500
 o.showmode = false
 
-o.shortmess:append({ c = true })
+vim.opt.shortmess:append({c=true})
 
 o.mouse = "nv"
 

@@ -1,5 +1,11 @@
 -- useful functions
+local present, legendary = pcall(require, "legendary")
+if not present then
+  vim.notify("legendary wasn't found", vim.log.levels.WARN)
+  return
+end
 local M = {}
+
 
 M.get_username = function()
   local username = os.getenv("%USERNAME%") or os.getenv("USER")
@@ -14,6 +20,10 @@ M.quote = function()
       text = "Before you criticize someone, walk a mile in their shoes. That way, you’ll be a mile from them, and you’ll have their shoes.",
       author = "Jack Handey",
     },
+    { text = "Because that's what he...*THUMP*", author = "Thor, God of Thunder" },
+    { text = "I think you missed a column", author = "Loki, God of Mischief"},
+    { text = "Well done, you just decapitated your Grandfather", author = "Loki, God of Mischief" },
+    { text = "From 2017 to 2021, the White House was occupied by what was, in effect, a Twitter account with a cardiovascular system", author = "Ezra Klein " },
   }
 
   return quotes[math.random(#quotes)]
@@ -48,17 +58,21 @@ M.christmas_check = function()
 end
 
 -- inspired by nvchad
+-- map keybindings with legendary
 M.map = function(mode, key, command, desc, opt)
-  local present, legendary = pcall(require, "legendary")
-  if present then
-    local options = { noremap = true, silent = true }
-    if opt then
-      options = vim.tbl_extend("force", options, opt)
-    end
-    legendary.bind_keymap({ key, command, description = desc, opts = options, mode = mode })
-  else
-    vim.notify("legendary wasn't found", vim.log.levels.WARN)
+  local options = { noremap = true, silent = true }
+  if opt then
+    options = vim.tbl_extend("force", options, opt)
   end
+
+  legendary.bind_keymap({ key, command, description = desc, opts = options, mode = mode })
+end
+
+-- legend keybindings with legendary, meaning
+-- the keybind will not be set by legendary but still
+-- be in it's index
+M.legend = function (mode, key, desc)
+  legendary.bind_keymap({ key, description = desc, mode = mode})
 end
 
 M.drama_quotes = function()

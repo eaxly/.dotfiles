@@ -17,17 +17,16 @@ set $cursor_size 24
 
 seat seat0 xcursor_theme $cursor_theme $cursor_size
 seat * hide_cursor 15000
-seat * hide_cursor when-typing enable
 
 set $menu rofi -show drun | xargs swaymsg exec --
 
 default_border pixel {{border_size}}
 default_floating_border pixel {{border_size}}
 
-border_images.focused "$HOME/.config/sway/borders/bg.png"
-border_images.focused_inactive "$HOME/.config/sway/borders/bg.png"
-border_images.unfocused "$HOME/.config/sway/borders/bg.png"
-border_images.urgent "$HOME/.config/sway/borders/bg.png"
+border_images.focused "$HOME/.config/sway/borders/corner.png"
+border_images.focused_inactive "$HOME/.config/sway/borders/corner.png"
+border_images.unfocused "$HOME/.config/sway/borders/corner.png"
+border_images.urgent "$HOME/.config/sway/borders/corner.png"
 
 gaps outer 10
 gaps inner 24
@@ -198,9 +197,6 @@ for_window [app_id="firefox"] inhibit_idle focus
 for_window [class="firefox"] inhibit_idle focus
 for_window [app_id="mpv"] inhibit_idle focus
 for_window [class="Microsoft Teams - Preview"] inhibit_idle open
-for_window [app_id="kitty_rsclock"] floating enable
-for_window [app_id="kitty_rsclock"] resize set width 400px
-for_window [app_id="kitty_rsclock"] resize set height 350px
 
 assign [app_id="foot"] → workspace number 1
 assign [app_id="kitty"] → workspace number 1

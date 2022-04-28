@@ -22,10 +22,10 @@ alias ll="ls -l --color=auto"
 alias la="ls -lA --color=auto"
 
 # paru
-alias pain="paru -S"
+alias pasy="paru -S"
 alias pare="paru -R"
 alias paren="paru -Rn"
-alias parem="paru -Rns"
+alias pare="paru -Rns"
 alias pase="paru -Ss"
 alias cafin="paru -S --sudoloop"
 alias cafino="paru -S --sudoloop --noconfirm"

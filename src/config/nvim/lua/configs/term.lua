@@ -14,7 +14,7 @@ toggleterm.setup({
       return vim.o.columns * 0.4
     end
   end,
-  open_mapping = [[<C-p>]],
+  open_mapping = [[<C-t>]],
   hide_numbers = true, -- hide the number column in toggleterm buffers
   shade_terminals = false,
   shading_factor = "1", -- the degree by which to darken to terminal colour, default: 1 for dark backgrounds, 3 for light
