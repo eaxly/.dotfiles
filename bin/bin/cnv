@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+# cnv - convert colour formats
+# thank you @dylanaraps
+help() {
+    printf "
+    cnv - convert color formats
+    -h, --hex <color>     · convert from hex to rgb
+    -r, --rgb <r> <g> <b> · convert from rgb to hex
+    --help                · show this help message
+    \n"
+}
+
+hex_to_rgb() {
+    : "${1/\#}"
+    ((r=16#${_:0:2},g=16#${_:2:2},b=16#${_:4:2}))
+    printf '%s\n' "$r $g $b"
+}
+
+rgb_to_hex() {
+    printf '#%02x%02x%02x\n' "$1" "$2" "$3"
+}
+
+auto() {
+    if [ $# -eq 1 ]; then
+        hex_to_rgb "$1"
+    elif [ $# -eq 3 ]; then
+        rgb_to_hex "$1" "$2" "$3"
+    else
+        help
+    fi
+}
+
+case $1 in
+    -h | --hex)
+        [ $# -lt 2 ] &&
+            printf "\e[31mnot enough arguments given.\e[0m\n" && exit 1
+        hex_to_rgb "$2"
+        ;;
+    -r | --rgb)
+        [ $# -lt 4] &&
+            printf "\e[31mnot enough arguments given.\e[0m\n" && exit 1
+        rgb_to_hex "$2" "$3" "$4"
+        ;;
+    *)
+        auto $@
+        ;;
+esac
