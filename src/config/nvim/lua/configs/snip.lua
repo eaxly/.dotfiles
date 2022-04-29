@@ -24,7 +24,7 @@ ls.config.set_config({
   updateevents = "TextChanged,TextChangedI",
 })
 
-ls.add_snippets("all", {
+ls.add_snippets("lua", {
   s("lf", {
     t("local "),
     i(1, "name"),
@@ -34,21 +34,16 @@ ls.add_snippets("all", {
     i(3, "content"),
     t({ "","end" })
   }),
-  s("trigger", {
-    t({"After expanding, the cursor is here ->"}), i(1),
-    t({"After jumping forward once, cursor is here ->"}), i(2),
-    t({"After jumping once more, the snippet is exited there ->"}), i(0),
-  }),
-    s("paren_change", {
-        c(1, {
-          sn(nil, { t("("), r(1, "user_text"), t(")") }),
-          sn(nil, { t("["), r(1, "user_text"), t("]") }),
-          sn(nil, { t("{"), r(1, "user_text"), t("}") }),
-        }),
-      }, {
-        stored = {
-          user_text = i(1, "default_text")
-        }
-      })
 })
-require("luasnip.loaders.from_vscode").load()
+
+ls.add_snippets("NeogitCommitMessage", {
+  s("feat", {
+    t("feat("),
+    i(1, "scope"),
+    t("): "),
+    i(2, "msg"),
+    t(""),
+    t(""),
+    i(0, "desc"),
+  })
+})

@@ -81,31 +81,13 @@ return packer.startup(function()
     end,
   })
   -- CMP --
-
-  -- nvim cmp: completion plugin
-
-  use({
-    "rafamadriz/friendly-snippets",
-    event = "InsertEnter",
-  })
-
-  -- luasnip: snippets
-  use({
-    "L3MON4D3/LuaSnip",
-    config = function()
-      require("configs.snip")
-    end,
-    after = "friendly-snippets",
-    module = "luasnip",
-    event = "InsertEnter",
-  })
-
+  -- nvim cmp: the best completion plugin
   use({
     "hrsh7th/nvim-cmp",
     config = function()
       require("configs.cmp")
     end,
-    after = "LuaSnip",
+    event = "InsertEnter",
   })
 
   use({
@@ -128,6 +110,16 @@ return packer.startup(function()
     "hrsh7th/cmp-calc",
     after = "nvim-cmp",
   })
+
+  -- luasnip: snippets
+  use({
+    "L3MON4D3/LuaSnip",
+    config = function()
+      require("configs.snip")
+    end,
+    after = "nvim-cmp",
+  })
+
 
   -- lspkind: show completion kind
   use({
@@ -168,6 +160,15 @@ return packer.startup(function()
     config = function()
       require("configs.neogit")
     end,
+  })
+
+  -- diffview.nvim: better diff view
+  use({
+    "sindrets/diffview.nvim",
+    requires = "nvim-lua/plenary.nvim",
+    config = function ()
+      require("configs.diffview")
+    end
   })
 
   -- surround: edit surroundings

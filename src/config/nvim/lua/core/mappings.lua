@@ -15,20 +15,24 @@ M.misc = function()
     map({ "v", "n" }, "<leader>Cp", '"+p', "paste from clipboard", { noremap = true })
     map({ "v", "n" }, "<leader>CP", '"+P', "PASTE from clipboard", { noremap = true })
     map("t", "<a-esc>", "<C-\\><C-n>", "escape the terminal")
+
+    map("n", "<a-tab>", "<cmd>tabnext<cr>", "select next tab")
+    map("n", "<a-s-tab>", "<cmd>tabNext<cr>", "select previous tab")
+    map("n", "<a-c>", "<cmd>tabclose<cr>", "close current tab")
+    map("n", "<a-n>", "<cmd>tabnew<cr>", "open a new tab")
   end
 
   local function required_maps()
-    -- Add Packer commands because we are not loading it at startup
     vim.cmd("silent! command PackerClean lua require 'pack' require('packer').clean()")
     vim.cmd("silent! command PackerCompile lua require 'pack' require('packer').compile()")
     vim.cmd("silent! command PackerInstall lua require 'pack' require('packer').install()")
     vim.cmd("silent! command PackerStatus lua require 'pack' require('packer').status()")
     vim.cmd("silent! command PackerSync lua require 'pack' require('packer').sync()")
     vim.cmd("silent! command PackerUpdate lua require 'pack' require('packer').update()")
-    -- vim.cmd("silent! command PackerProfile lua require 'pack' require('packer').output_profile()")
+    vim.cmd("silent! command PackerProfile lua require 'pack' require('packer').output_profile()")
   end
-  foomaps()
   required_maps()
+  foomaps()
 end
 
 M.filetree = function()
