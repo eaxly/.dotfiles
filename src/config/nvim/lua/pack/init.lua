@@ -161,6 +161,15 @@ return packer.startup(function()
     event = "BufRead",
   })
 
+  -- neogit: git in neovim
+  use({
+    "TimUntersberger/neogit",
+    requires = "nvim-lua/plenary.nvim",
+    config = function()
+      require("configs.neogit")
+    end,
+  })
+
   -- surround: edit surroundings
   use({
     "tpope/vim-surround",
