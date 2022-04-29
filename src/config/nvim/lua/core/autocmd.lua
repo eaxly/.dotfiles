@@ -1,1 +1,4 @@
-vim.cmd([[ autocmd ExitPre * set guicursor=a:hor20]])
+vim.api.nvim_create_autocmd({"VimLeave"}, {
+  pattern = "*",
+  command = "et guicursor=a:hor20"
+})
