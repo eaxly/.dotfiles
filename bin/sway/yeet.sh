@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # YEETSCRIPTION: yeet yourself outta that session** 
-# YAUTHER: @ExtinctAxolotl
+# YAUTHER: @eaxly
 
 function get_options() {
     echo "lock"

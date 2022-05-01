@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# by @ExtinctAxolotl
+# by @eaxly
 screen_dir="$(xdg-user-dir PICTURES)/Screenshots"
 screen_path="$screen_dir/$(date +'%Y-%m-%d_%X_grim.png')"
 output="$(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name')"

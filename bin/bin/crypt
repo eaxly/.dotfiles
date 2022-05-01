@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+# crypt - encrypt and decrypt files with aes256 and pbdkf2
+in="$2"
+out="$3"
+
+check_in() {
+    if [ -z "$in" ]; then
+        printf '\e[31mNo input file given\e[0m'
+        exit 2
+    fi
+}
+
+encrypt() {
+    check_in
+    openssl enc -e -aes-256-cbc -pbkdf2 -in "$1" -out "$2"
+}
+
+decrypt() {
+    check_in
+    openssl enc -d -aes-256-cbc -pbkdf2 -in "$1" -out "$2"
+}
+
+help() {
+    printf '
+    crypt - encrypt files
+    -e, --encrypt <in> [out] · encrypt in and store as out
+    -d, --decrypt <in> <out> · decrypt in and store as out
+    -h, --help
+    \n'
+}
+
+case $1 in
+    "-d" | "--decrypt")
+        if [ -z "$out" ]; then
+            printf '\e[31mNo output file given.\e[0m'
+            exit 1
+        fi
+        decrypt $in $out
+        ;;
+    "-e" | "--encrypt")
+        if [ -z "$out" ]; then
+            printf -v out "$in.enc"
+        fi
+        encrypt $in $out
+        ;;
+    *)
+        help
+        ;;
+esac

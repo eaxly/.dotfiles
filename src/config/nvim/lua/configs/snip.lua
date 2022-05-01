@@ -36,14 +36,13 @@ ls.add_snippets("lua", {
   }),
 })
 
-ls.add_snippets("NeogitCommitMessage", {
+ls.add_snippets({ "gitcommit", "NeogitCommitMessage" }, {
   s("feat", {
     t("feat("),
     i(1, "scope"),
     t("): "),
     i(2, "msg"),
-    t(""),
-    t(""),
+    t({ "", "", "" }),
     i(0, "desc"),
   })
 })

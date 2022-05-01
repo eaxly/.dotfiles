@@ -2,7 +2,7 @@
 -- ░█░█░█░█░░█░░█▀▀░░█░░█░░░█▀▀░▀▀█
 -- ░▀▀░░▀▀▀░░▀░░▀░░░▀▀▀░▀▀▀░▀▀▀░▀▀▀
 --
--- By: @ExtinctAxolotl
+-- By: @eaxly
 local utils = require("core.utils")
 local map = utils.map
 local legend = utils.legend

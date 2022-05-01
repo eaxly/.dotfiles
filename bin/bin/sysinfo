@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-# written by @ExtinctAxolotl
+# written by @eaxly
 # inspired by @pyratebeard's and @xero's sysinfo
 name="$USER"
 wm=$(sway --version | cut -d" " -f1,3)

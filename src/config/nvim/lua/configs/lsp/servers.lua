@@ -3,7 +3,7 @@
 -- ░▀▀░░▀▀▀░░▀░░▀░░░▀▀▀░▀▀▀░▀▀▀░▀▀▀
 --
 -- File: ~/.config/nvim/lua/plugins/lsp.lua
--- By: @ExtinctAxolotl
+-- By: @eaxly
 
 local if_nil = function(val, default)
   if val == nil then

@@ -44,7 +44,7 @@ dir = "src"
 apply = ["fpath"]
 
 [plugins.wd]
-github = "ExtinctAxolotl/wd"
+github = "eaxly/wd"
 apply = ["fpath", "source", "manpath"]
 
 [plugins.auto-ls]

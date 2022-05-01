@@ -3,7 +3,7 @@
 -- ░▀▀░░▀▀▀░░▀░░▀░░░▀▀▀░▀▀▀░▀▀▀░▀▀▀
 --
 -- File: ~/.config/nvim/lua/options.lua
--- By: @ExtinctAxolotl
+-- By: @eaxly
 
 local g = vim.g
 local o = vim.o

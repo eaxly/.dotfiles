@@ -3,7 +3,7 @@
 -- ░▀▀░░▀▀▀░░▀░░▀░░░▀▀▀░▀▀▀░▀▀▀░▀▀▀
 --
 -- File: ~/.config/nvim/init.lua
--- By: @ExtinctAxolotl
+-- By: @eaxly
 -- thx, @shaunsingh
 local present, impatient = pcall(require, "impatient")
 if present then

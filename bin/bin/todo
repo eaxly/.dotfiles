@@ -2,7 +2,7 @@
 #
 # simple todo script
 # originial author: @xero
-# author: @ExtinctAxolotl
+# author: @eaxly
 clr() {
     printf ""
 }

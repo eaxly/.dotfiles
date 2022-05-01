@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # A hashwall clone with worse code quality and plus'
-# by: @ExtinctAxolotl
+# by: @eaxly
 
 res=72
 strokewidth=8
