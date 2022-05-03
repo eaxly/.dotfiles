@@ -386,16 +386,12 @@ return packer.startup(function()
   use({
     "nvim-neorg/neorg",
     setup = function()
-      vim.cmd("autocmd BufRead,BufNewFile *.norg setlocal filetype=norg")
       require("core.mappings").neorg()
     end,
-    after = { "nvim-treesitter" }, -- you may also specify telescope
-    ft = "norg",
+    after = { "nvim-treesitter" },
     config = function()
       require("configs.neorg")
     end,
-    module = "neorg",
-    cmd = "Neorg",
     wants = "nvim-cmp",
   })
 

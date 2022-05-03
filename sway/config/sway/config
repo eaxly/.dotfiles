@@ -111,6 +111,10 @@ input type:keyboard {
     bindsym shift+f11 exec pamixer -ud 2 && pamixer --get-volume > $WOBSOCK
     bindsym shift+f10 exec pamixer --toggle-mute && ( pamixer --get-mute && echo 0 > $WOBSOCK ) || pamixer --get-volume > $WOBSOCK
 #
+# Neorg:
+#
+    bindsym $mod+n exec "foot nvim -c 'NeorgStart silent=true' -c 'Neorg gtd capture'"
+#
 # Screenshots:
 #
     set $scrsht ~/.dotfiles/bin/sway/scrsht.sh
