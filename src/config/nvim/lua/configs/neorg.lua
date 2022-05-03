@@ -32,7 +32,8 @@ neorg.setup({
     ["core.norg.dirman"] = {
       config = {
         workspaces = {
-          ws = "~/sync/neo-tes/",
+          lorg = "~/sync/lorg/lorg", -- stands for life-org
+          todo = "~/sync/lorg/todo"
         },
       },
     },
@@ -44,6 +45,11 @@ neorg.setup({
     ["core.presenter"] = {
       config = {
         zen_mode = "truezen",
+      }
+    },
+    ["core.gtd.base"] = {
+      config = {
+        workspace = "todo",
       }
     }
   },

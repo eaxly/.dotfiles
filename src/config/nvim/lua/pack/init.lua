@@ -395,6 +395,7 @@ return packer.startup(function()
       require("configs.neorg")
     end,
     module = "neorg",
+    cmd = "Neorg",
     wants = "nvim-cmp",
   })
 
