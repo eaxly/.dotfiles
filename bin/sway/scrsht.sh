@@ -71,6 +71,10 @@ else
 fi
 
 if [ "$stat" = "0" ]; then
-    [ "$copy" = true ] && wl-paste > /tmp/scrsht && image="/tmp/scrsht" || image="$screen_path" && copy=false
+    if [ "$copy" = true ]; then
+        wl-paste > /tmp/scrsht && image="/tmp/scrsht"
+    else
+        image="$screen_path" && copy=false
+    fi
     dunstify --raw_icon $image "Screenshot taken!" "Copied: $copy"
 fi
