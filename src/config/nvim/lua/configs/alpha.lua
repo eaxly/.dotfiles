@@ -93,12 +93,12 @@ end
 local buttons = {
   type = "group",
   val = {
-    button("e", "  New File", ":ene <BAR> startinsert <CR>"),
-    button("d", "  Dotfiles", "<cmd>cd " .. home .. "/.dotfiles <bar> NvimTreeToggle<cr>"),
-    button("p", "  Projects", "<cmd>cd " .. home .. "/dev <bar> NvimTreeToggle<cr>"),
-    button("o", "  History", "<cmd>Telescope oldfiles<cr>"),
-    button("s", "  Find", "<cmd>Telescope find_files<cr>"),
-    button("q", "  Quit", ":qa<CR>"),
+    button("e", "  new", ":ene <BAR> startinsert <CR>"),
+    button("d", "  dots", "<cmd>cd " .. home .. "/.dotfiles <bar> NvimTreeToggle<cr>"),
+    button("p", "  dev", "<cmd>cd " .. home .. "/dev <bar> NvimTreeToggle<cr>"),
+    button("g", "g  gtd", "<cmd>cd " .. home .. "/sync/lorg/gtd <bar> NvimTreeToggle<cr>"),
+    button("s", "  find", "<cmd>Telescope find_files<cr>"),
+    button("q", "  quit", ":qa<CR>"),
   },
   opts = {
     spacing = 1,

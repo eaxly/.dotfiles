@@ -32,8 +32,9 @@ neorg.setup({
     ["core.norg.dirman"] = {
       config = {
         workspaces = {
-          lorg = "~/sync/lorg/lorg", -- stands for life-org
-          todo = "~/sync/lorg/todo"
+          lorg = "~/sync/lorg/notes/",
+          gorg = "~/sync/lorg/gtd/",
+          jrnl = "~/sync/lorg/jrnl/"
         },
       },
     },
@@ -49,7 +50,23 @@ neorg.setup({
     },
     ["core.gtd.base"] = {
       config = {
-        workspace = "todo",
+        workspace = "gorg",
+      }
+    },
+    ["core.export"] = {},
+    ["core.export.markdown"] = {
+      config = {
+        extensions = {
+          "todo-items-basic",
+          -- "todo-items-pending" --maybe?
+        }
+      }
+    },
+    ["core.norg.journal"] = {
+      config = {
+        workspace = "jrnl",
+        folder = "jrnl",
+        strategy = "nested",
       }
     }
   },

@@ -64,6 +64,7 @@ cmp.setup({
   sources = cmp.config.sources({
     { name = "path" },
     { name = "nvim_lsp" },
+    { name = 'nvim_lua' },
     { name = "luasnip" }, -- For luasnip users.
     { name = "calc" },
 
@@ -77,6 +78,8 @@ cmp.setup({
         nvim_lsp = "[LSP]",
         path = "[PTH]",
         luasnip = "[SNP]",
+        neorg = "[NRG]",
+        nvim_lua = "[LUA]"
       },
     }),
   },
@@ -88,12 +91,7 @@ cmp.setup({
   },
 })
 
-vim.cmd([[
-autocmd FileType norg lua require'cmp'.setup.buffer {
-\   sources = {
-\     { name = 'neorg' },
-\     { name = 'calc' },
-\     { name = 'path' },
-\   },
-\ }
-]])
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "norg"},
+  command = "lua require'cmp'.setup.buffer { sources = { { name = 'neorg' }, { name = 'calc' }, { name = 'path' } } }"
+})

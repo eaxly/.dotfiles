@@ -95,6 +95,10 @@ return packer.startup(function()
     after = "nvim-cmp",
   })
   use({
+    "hrsh7th/cmp-nvim-lua",
+    after = "nvim-cmp"
+  })
+  use({
     "hrsh7th/cmp-buffer",
     after = "nvim-cmp",
   })

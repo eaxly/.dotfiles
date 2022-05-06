@@ -20,6 +20,8 @@ M.misc = function()
     map("n", "<a-s-tab>", "<cmd>tabNext<cr>", "select previous tab")
     map("n", "<a-c>", "<cmd>tabclose<cr>", "close current tab")
     map("n", "<a-n>", "<cmd>tabnew<cr>", "open a new tab")
+
+    map("n", "<a-w>", "<cmd>w<cr>", "write current buffer")
   end
 
   local function required_maps()

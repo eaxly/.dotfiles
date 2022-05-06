@@ -61,7 +61,7 @@
         },
         "max-length": 50,
         "tooltip-format": "Welcome to the Internet!",
-        "interval": 2
+        "interval": 1
     },
     "battery": {
         "states": {

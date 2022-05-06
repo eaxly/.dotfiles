@@ -1,7 +1,6 @@
-@forward "../lib/bubbleRoles.css";
-@forward "../lib/spinningIcons.css";
-@forward "../lib/compactStatus.css";
-// @forward "../lib/userBackground.css";
+@import "lib/bubbleRoles.css";
+@import "lib/spinningIcons.css";
+@import "lib/compactStatus.css";
 
 :root {
     /** Number of role columns */

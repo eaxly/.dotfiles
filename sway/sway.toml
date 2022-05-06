@@ -11,6 +11,6 @@ mako = { source = "sway/config/mako", target = ".config/mako" }
 nvim = { vars = "sway/themes/syl.toml" }
 gtk = { source = "sway/config/gtk-3.0/settings.ini", target = ".config/gtk-3.0/settings.ini" }
 rofi = { source = "sway/config/rofi", target = ".config/rofi" }
-powercord = { source = "sway/config/powercord/theme", target = ".powercord/src/Powercord/themes/theme"}
+discord = { source = "sway/config/discord/", target = ".config/discocss"}
 # eww = { source = "sway/config/eww", target = ".config/eww" }
 sway = { source = "sway/config/sway", target = ".config/sway" }

@@ -1,8 +1,0 @@
-{
-    "name": "dotfiles",
-    "version": "0.0.1",
-    "theme": "src/main.scss",
-    "author": "eax#3089",
-    "description": "The Dotfiles theme.",
-    "license": "Unlicense"
-}

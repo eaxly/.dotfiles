@@ -9,6 +9,7 @@ local g = vim.g
 local o = vim.o
 
 vim.g.mapleader = " "
+vim.g.maplocalleader = "ö"
 
 o.termguicolors = true
 o.foldmethod = "marker"
