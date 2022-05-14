@@ -36,13 +36,11 @@ return packer.startup(function()
     config = function()
       require("configs.lsp")
     end,
+    after = "nvim-lsp-installer",
   })
 
   use({
     "williamboman/nvim-lsp-installer",
-    config = function()
-      require("configs.lsp.servers")
-    end,
   })
 
   -- TELESCOPE --
@@ -88,6 +86,7 @@ return packer.startup(function()
       require("configs.cmp")
     end,
     event = "InsertEnter",
+    module = "cmp",
   })
 
   use({

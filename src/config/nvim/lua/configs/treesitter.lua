@@ -26,6 +26,7 @@ treesitter_configs.setup({
     "lua",
     "comment", -- TODO: Does it work?
     -- FIXME(axolotl): works!
+    "markdown",
   },
   highlight = {
     enable = true,

@@ -1,42 +1,19 @@
+@import "scss/colors";
+@import "scss/powermenu";
+@import "scss/greeting";
+@import "scss/bar";
+@import "scss/cal";
+
 * {
-  all: unset; //Unsets everything so you can style everything from scratch
+  all: unset;
   font-family: Cozette;
   font-size: 12px;
-  border-radius: 5px;
 }
 
-$bg: #{{bg}};
-$bg_dark: #{{bg_dark}};
-$bg_alt: #{{bg_alt}};
-$fg: #{{fg}};
-$fg_alt: #{{fg_alt}};
-$red: #{{red}};
-$green: #{{green}};
-$yellow: #{{yellow}};
-$blue: #{{blue}};
-$magenta: #{{magenta}};
-$cyan: #{{cyan}};
-$white: #{{white}};
-
-@keyframes magite {
-    from {
-        color: $red
-    }
-    to {
-        color: $magenta
-    }
-}
-
-.double {
-    background-color: $bg_dark;
-    border: 5px;
-}
-
-.first{
-    color: $magenta;
-    animation: magite infinite ease-in-out 1s alternate
-}
-
-.second {
-    color: $yellow;
+tooltip {
+    background-color: $bg_alt;
+    font-family: Dina;
+    font-size: 12px;
+    font-weight: bold;
+    font-style: italic
 }

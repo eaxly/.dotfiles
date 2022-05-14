@@ -1,0 +1,38 @@
+(defwidget bar []
+  (box :orientation "h"
+     (workspaces)
+     (clock)
+     (sound)))
+
+(defwidget clock []
+  (box :orientation "h"
+       :halign "center"
+       :class "clock"
+    (label :text " ${time}")))
+    
+(defwidget workspaces []
+  (box :orientation "h"
+       :halign "start"
+       :class "workspaces"
+    (literal :content workspaces-yuck)))
+
+(defwidget sound []
+  (box :orientation "h"
+       :halign "end"
+       :class "sound"
+    (label :text "${ volume }%")))
+  
+
+(defwindow bar
+           :monitor 0
+           :geometry (geometry :x "0%"
+                               :y "2px"
+                               :width "90%"
+                               :height "40px"
+                               :anchor "bottom center")
+           :stacking "fg"
+           :exclusive true
+           :focusable false
+  (bar))
+
+(defvar workspaces-yuck "")

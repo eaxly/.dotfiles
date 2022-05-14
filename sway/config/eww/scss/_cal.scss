@@ -1,0 +1,22 @@
+.cal {
+    background-color: $bg_alt;
+    color: $fg;
+    border-radius: 12px;
+
+    .highlight {
+        color: lighten($green, 4);
+    }
+
+    .button {
+        color: lighten($green_br, 5);
+    }
+
+    .header {
+        color: $green;
+    }
+}
+
+calendar:selected {
+    color: $red;
+    font-family: Dina;
+}

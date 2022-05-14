@@ -1,0 +1,16 @@
+(defwidget cal []
+  (eventbox :onhoverlost "eww close cal"
+    (calendar
+      :class "cal")))
+  
+(defwindow cal
+           :monitor 0
+           :geometry (geometry :x "0%"
+                               :y "1%"
+                               :width "200px"
+                               :height "150px"
+                               :anchor "top center")
+           :stacking "fg"
+           :focusable false
+           :exclusive false
+  (cal))

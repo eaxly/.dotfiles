@@ -9,6 +9,8 @@ alias gc="git commit"
 alias gco="git checkout"
 alias gb="git branch"
 alias gd="git diff"
+alias gr="git restore"
+alias grs="git restore --staged"
 
 # [ n ]vim
 alias v="nvim"
@@ -33,10 +35,10 @@ alias sysup="paru -Syu --sudoloop"
 alias sysupno="paru -Syu --sudoloop --noconfirm"
 
 # pacman
-alias pacin="pacman -S"
-alias pacre="pacman -R"
-alias pacren="pacman -Rn"
-alias pacrem="pacman -Rns"
+alias pacin="sudo pacman -S"
+alias pacre="sudo pacman -R"
+alias pacren="sudo pacman -Rn"
+alias pacrem="sudo pacman -Rns"
 alias pacreps="pacman -Ss"
 
 # av aliases

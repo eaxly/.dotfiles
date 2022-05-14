@@ -1,0 +1,30 @@
+(defwindow powermenu
+           :monitor 0
+           :geometry (geometry :x "0%"
+                               :y "0%"
+                               :width "20%"
+                               :height "10%"
+                               :anchor "center")
+           :stacking "fg"
+           :exclusive false
+           :focusable false
+  (wmenu))
+
+
+(defwidget powerwrap[]
+  (eventbox :onhoverlost "eww close powermenu"
+      (box :class "power-five" :orientation "h" :halign "center" :valign "center" :spacing 50
+       (box :class "monopower" (children :nth 0))
+       (box :class "dipower" (children :nth 1))
+       (box :class "tripower" (children :nth 2))
+       (box :class "tetrapower" (children :nth 3))
+       (box :class "pentapower" (children :nth 4)))))
+
+(defwidget wmenu []
+    (powerwrap
+      (button :tooltip "- lock -"    :onclick "swaylock --grace 0 && eww close powermenu" "")
+      (button :tooltip "- suspend -" :onclick "systemctl suspend && eww close powermenu" "⏼")
+      (button :tooltip "- logout -" :onclick "swaymsg exit && eww close powermenu" "")
+      (button :tooltip "- reboot -" :onclick "reboot && eww close powermenu" "")
+      (button :tooltip "- shutdown -" :onclick  "shutdown now && eww close powermenu" "⏻")))
+

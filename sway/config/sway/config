@@ -230,8 +230,6 @@ exec "gammastep"
 exec "~/.config/sway/alt-lay.py"
 exec "kdeconnect-indicator"
 exec "eww daemon && eww open greeting"
-exec "transmission-daemon -C -w /home/eax/vids/torr --incomplete-dir /tmp/"
-exec "~/.dotfiles/bin/bin/start-mpd.sh"
 
 # Looks important so keeping it
 include /etc/sway/config.d/*

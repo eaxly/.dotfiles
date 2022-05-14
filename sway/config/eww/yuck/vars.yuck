@@ -1,0 +1,15 @@
+
+(defpoll time :interval "2s"
+              :initial "00:00:00"
+  `date '+%H:%M, %b %d %Y'`)
+
+(defpoll username :interval "24h"
+                  :initial "@what?"
+  `whoami`) 
+
+(deflisten volume
+                :initial "100"
+  `scripts/get_volume.sh`)
+
+(deflisten music :initial '{ "status": ""}'
+  `playerctl --follow metadata --format '{ "status": "{{status}}", "artist": "{{artist}}", "title": "{{title}}" }'`) 

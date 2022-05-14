@@ -1,6 +1,6 @@
 # ENV
 # path
-export PATH="$PATH:$HOME/.local/bin:$HOME/.dotfiles/bin/bin:$HOME/.cargo/bin:$HOME/.go/bin"
+export PATH="$PATH:$HOME/.local/bin:$HOME/.dotfiles/bin/bin:$HOME/.cargo/bin:$HOME/.go/bin:$HOME/.local/share/gem/ruby/3.0.0/bin/"
 typeset -U PATH path
 
 # npm

@@ -22,7 +22,7 @@ fg("FloatBorder", c.green_br)
 fg_bg("NormalFloat", c.fg_alt, c.bg_dark)
 
 -- LineNr
-fg("LineNr", c.bg_alter)
+fg("LineNr", c.black_br)
 
 -- Pmenu
 bg("Pmenu", c.bg_dark)

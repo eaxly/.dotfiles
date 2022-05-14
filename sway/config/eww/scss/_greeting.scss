@@ -1,0 +1,28 @@
+
+@keyframes redgenta {
+    0% {
+        color: $red
+
+    }
+    100% {
+        color: $magenta
+    }
+}
+
+.greeting {
+    background-color: $bg_dark;
+    border: $bg_alt solid 5px;
+    border-radius: 10px;
+    .pfp {
+        background-color: $bg_alt;
+        border: $red_br solid 2px;
+        border-radius: 100%;
+    }
+    .greet {
+        color: $magenta;
+        animation: redgenta infinite ease-in-out 1s alternate;
+    }
+    .time{
+        color: $yellow;
+    }
+}

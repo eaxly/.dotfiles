@@ -1,0 +1,25 @@
+(defwindow greeting
+           :monitor 0
+           :geometry (geometry :x "0%"
+                               :y "0%"
+                               :width "10%"
+                               :height "25%"
+                               :anchor "center")
+           :stacking "fg"
+           :exclusive false
+           :focusable false
+    (eventbox :onhoverlost "eww close greeting" (greeting :text "welcome @${username}")))
+
+(defwidget greeting [text]
+  (centerbox :orientation "v"
+    (box :class "greet"
+        text)
+    (box :class "pfp" :halign "center" :valign "center"
+     (image
+       :path "assets/pfp.png"
+       :image-width 120
+       :image-height 120 
+       :halign "center"
+       :valign "center"))
+
+    (box :class "time" time)))
