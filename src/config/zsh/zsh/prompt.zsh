@@ -1,4 +1,6 @@
+{% raw %}
 # PROMPT
+{% endraw %}
 ICO_DIRTY="+"
 ICO_BRANCH=""
 ICO_AHEAD="⭡"

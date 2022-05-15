@@ -85,8 +85,6 @@ return packer.startup(function()
     config = function()
       require("configs.cmp")
     end,
-    event = "InsertEnter",
-    module = "cmp",
   })
 
   use({
@@ -416,6 +414,15 @@ return packer.startup(function()
   use({
     after = "yuck.vim",
     "gpanders/nvim-parinfer",
+  })
+
+  -- guess-indent: Guess the indent of files
+  use({
+    "NMAC427/guess-indent.nvim",
+    config = function ()
+      require("guess-indent").setup()
+    end,
+    event = "BufEnter"
   })
 end)
 -- vim:foldmethod=marker

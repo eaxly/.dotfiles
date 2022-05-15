@@ -1,4 +1,4 @@
-
+{% raw %}
 (defpoll time :interval "2s"
               :initial "00:00:00"
   `date '+%H:%M, %b %d %Y'`)
@@ -13,3 +13,4 @@
 
 (deflisten music :initial '{ "status": ""}'
   `playerctl --follow metadata --format '{ "status": "{{status}}", "artist": "{{artist}}", "title": "{{title}}" }'`) 
+{% endraw %}

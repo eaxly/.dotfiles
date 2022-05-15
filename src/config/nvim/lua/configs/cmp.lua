@@ -71,7 +71,7 @@ cmp.setup({
     { name = "buffer", keyword_length = 5 },
   }),
   formatting = {
-    format = require("lspkind").cmp_format({
+    format = lspkind.cmp_format({
       with_text = true,
       menu = {
         buffer = "[BUF]",

@@ -61,7 +61,7 @@ client.placeholder      #{{bg}}     #{{bg}} #{{fg}}     #{{bg}}     #{{slt_bg}}
 {% endif %}
 # output eDP-1 disable
 exec "kanshi"
-exec_always "killall -q kanshi && kanshi"
+exec_always "killall -q kanshi; kanshi"
 
 ### Idle configuration
 exec swayidle -w \
