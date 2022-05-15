@@ -1,6 +1,4 @@
-{% raw %}
 # PROMPT
-{% endraw %}
 ICO_DIRTY="+"
 ICO_BRANCH=""
 ICO_AHEAD="⭡"
@@ -9,7 +7,9 @@ ICO_DIVERGED="⭥"
 PROMPT_STYLE='funcky'
 
 _urlencode() {
+    {% raw %}
 	local length="${#1}"
+    {% endraw %}
 	for (( i = 0; i < length; i++ )); do
 		local c="${1:$i:1}"
 		case $c in
