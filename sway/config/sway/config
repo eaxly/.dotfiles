@@ -115,7 +115,7 @@ input type:keyboard {
 #
 # Neorg:
 #
-    bindsym $mod+n exec "$term --app-id gtdoot nvim -c 'NeorgStart silent=true' -c 'Neorg gtd capture'"
+    bindsym $mod+n exec "$term --app-id gtdoot nvim ~/sync/lorg/gtd/index.norg -c 'Neorg gtd capture'"
 #
 # Screenshots:
 #

@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # original script by @n0tsteve
 
-BG="#$(bombadil get vars --profiles sway | grep -E '^bg_dark:' | cut --delimiter=' ' --fields=2)"
-FG="#$(bombadil get vars --profiles sway | grep -E '^bg_alt:' | cut --delimiter=' ' --fields=2)"
+BG="#$(bombadil get vars sway | grep -E '^bg_dark:' | cut --delimiter=' ' --fields=2)"
+FG="#$(bombadil get vars sway | grep -E '^bg_alt:' | cut --delimiter=' ' --fields=2)"
 
 if ! ping -c1 ping.archlinux.org &> /dev/null; then
     printf "\e[38;5;1m\e[1mno internet connection\e[m\n"

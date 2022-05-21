@@ -11,8 +11,10 @@
 [plugins]
 
 [templates]
+{% raw %}
 defer = { value = 'zsh-defer source "{{ file }}"', each = true }
 manpath = { value = 'export MANPATH="{{ dir }}":$MANPATH', each = true}
+{% endraw %}
 
 [plugins.zsh-defer]
 github = "romkatv/zsh-defer"

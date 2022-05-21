@@ -13,3 +13,4 @@ rofi = { source = "sway/config/rofi", target = ".config/rofi" }
 discord = { source = "sway/config/discord/", target = ".config/discocss"}
 eww = { source = "sway/config/eww", target = ".config/eww" }
 sway = { source = "sway/config/sway", target = ".config/sway" }
+gammastep = { source = "sway/config/gammastep", target = ".config/gammastep"}

@@ -96,7 +96,7 @@ local buttons = {
     button("e", "  new", ":ene <BAR> startinsert <CR>"),
     button("d", "  dots", "<cmd>cd " .. home .. "/.dotfiles <bar> NvimTreeToggle<cr>"),
     button("p", "  dev", "<cmd>cd " .. home .. "/dev <bar> NvimTreeToggle<cr>"),
-    button("g", "g  gtd", "<cmd>cd " .. home .. "/sync/lorg/gtd <bar> NvimTreeToggle<cr>"),
+    button("g", "g  gtd", "<cmd>cd " .. home .. "/sync/lorg/gtd/ <bar> NvimTreeToggle <cr>"),
     button("s", "  find", "<cmd>Telescope find_files<cr>"),
     button("q", "  quit", ":qa<CR>"),
   },
